@@ -3,7 +3,7 @@ name: SubscriptionRadar Crawler
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *" # 매일 00:00 UTC
+    - cron: "0 2 * * *" # 매일 02:00 UTC (KST 11:00)
 
 permissions:
   contents: write
