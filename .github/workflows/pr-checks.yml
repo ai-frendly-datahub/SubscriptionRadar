@@ -39,6 +39,11 @@ jobs:
           pip install -r requirements.txt
           pip install black ruff mypy pytest pytest-cov
 
+      - name: Verify pyproject.toml installability
+        run: |
+          pip install -e . 2>&1 || echo "::warning::pip install -e . failed"
+        continue-on-error: true
+
       - name: Run Black (code formatting check)
         run: black --check --line-length=100 .
         continue-on-error: true

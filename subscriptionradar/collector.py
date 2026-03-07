@@ -7,8 +7,41 @@ from typing import List, Tuple
 
 import feedparser
 import requests
+from tenacity import (
+    retry,
+    retry_if_exception_type,
+    stop_after_attempt,
+    wait_exponential,
+)
 
 from .models import Article, Source
+
+
+_DEFAULT_HEADERS: dict[str, str] = {
+    "User-Agent": "Mozilla/5.0 (compatible; SubscriptionRadarBot/1.0; +https://github.com/zzragida/ai-frendly-datahub)",
+}
+
+
+def _fetch_url_with_retry(
+    url: str,
+    timeout: int,
+    headers: dict[str, str] | None = None,
+) -> requests.Response:
+    """Fetch URL with retry logic on transient errors."""
+    merged = {**_DEFAULT_HEADERS, **(headers or {})}
+
+    @retry(
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=1, min=1, max=10),
+        retry=retry_if_exception_type(requests.exceptions.RequestException),
+        reraise=True,
+    )
+    def _fetch() -> requests.Response:
+        response = requests.get(url, timeout=timeout, headers=merged)
+        response.raise_for_status()
+        return response
+
+    return _fetch()
 
 
 def collect_sources(
@@ -24,7 +57,9 @@ def collect_sources(
 
     for source in sources:
         try:
-            articles.extend(_collect_single(source, category=category, limit=limit_per_source, timeout=timeout))
+            articles.extend(
+                _collect_single(source, category=category, limit=limit_per_source, timeout=timeout)
+            )
         except Exception as exc:  # noqa: BLE001 - surface errors to the caller
             errors.append(f"{source.name}: {exc}")
 
@@ -39,10 +74,11 @@ def _collect_single(
     timeout: int,
 ) -> List[Article]:
     if source.type.lower() != "rss":
-        raise ValueError(f"Unsupported source type '{source.type}'. Only 'rss' is supported in the template.")
+        raise ValueError(
+            f"Unsupported source type '{source.type}'. Only 'rss' is supported in the template."
+        )
 
-    response = requests.get(source.url, timeout=timeout)
-    response.raise_for_status()
+    response = _fetch_url_with_retry(source.url, timeout)
 
     feed = feedparser.parse(response.content)
     items: List[Article] = []
