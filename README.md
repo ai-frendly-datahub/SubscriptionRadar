@@ -1,5 +1,8 @@
 # SubscriptionRadar - 구독 서비스 정보 레이더
 
+**🌐 Live Report**: https://ai-frendly-datahub.github.io/SubscriptionRadar/
+
+
 OTT, 음악, 클라우드 등 구독 서비스의 요금, 기능, 프로모션 정보를 수집하고 분석합니다.
 
 ## 프로젝트 목표
