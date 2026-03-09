@@ -493,6 +493,8 @@
           <a class="pill" href="#entities">Entities</a>
           <a class="pill" href="#articles">Articles</a>
           
+          <a class="pill" href="#errors" aria-label="Jump to errors (13)">Errors</a>
+          
         </nav>
       </div>
     </header>
@@ -517,8 +519,8 @@
             <div class="meta" aria-label="Key facts">
               <span><span class="mono muted">articles</span><span class="mono ok">200</span></span>
               <span><span class="mono muted">entities</span><span class="mono accent">4</span></span>
-              <span><span class="mono muted">errors</span><span class="mono ok">0</span></span>
-              <span title="Generated time"><span class="mono muted">generated</span><span class="mono">2026-03-08 19:25 UTC</span></span>
+              <span><span class="mono muted">errors</span><span class="mono bad">13</span></span>
+              <span title="Generated time"><span class="mono muted">generated</span><span class="mono">2026-03-09 04:19 UTC</span></span>
             </div>
           </div>
         </div>
@@ -526,7 +528,7 @@
         <aside class="stats" aria-label="Quick stats">
           <div class="stat">
             <div class="label">ARTICLES</div>
-            <div class="value">295</div>
+            <div class="value">0</div>
             <div class="hint">Total items in this run</div>
           </div>
           <div class="stat">
@@ -552,6 +554,40 @@
         </aside>
       </section>
 
+      
+      <section id="errors" class="notice" role="alert" aria-label="Errors">
+        <h2>Errors detected (13)</h2>
+        <p>Some sources or steps reported errors. The report still renders with partial data.</p>
+        <ul>
+          
+          <li><span class="mono">Engadget: &#39;SourceCircuitBreakerListener&#39; object has no attribute &#39;before_call&#39;</span></li>
+          
+          <li><span class="mono">TechCrunch: &#39;SourceCircuitBreakerListener&#39; object has no attribute &#39;before_call&#39;</span></li>
+          
+          <li><span class="mono">9to5Mac: &#39;SourceCircuitBreakerListener&#39; object has no attribute &#39;before_call&#39;</span></li>
+          
+          <li><span class="mono">Mashable Tech: &#39;SourceCircuitBreakerListener&#39; object has no attribute &#39;before_call&#39;</span></li>
+          
+          <li><span class="mono">Ars Technica - Technology: &#39;SourceCircuitBreakerListener&#39; object has no attribute &#39;before_call&#39;</span></li>
+          
+          <li><span class="mono">Hacker News: &#39;SourceCircuitBreakerListener&#39; object has no attribute &#39;before_call&#39;</span></li>
+          
+          <li><span class="mono">CNET - Services &amp; Software: &#39;SourceCircuitBreakerListener&#39; object has no attribute &#39;before_call&#39;</span></li>
+          
+          <li><span class="mono">Netflix TechBlog: &#39;SourceCircuitBreakerListener&#39; object has no attribute &#39;before_call&#39;</span></li>
+          
+          <li><span class="mono">Spotify Newsroom: &#39;SourceCircuitBreakerListener&#39; object has no attribute &#39;before_call&#39;</span></li>
+          
+          <li><span class="mono">Techmeme: &#39;SourceCircuitBreakerListener&#39; object has no attribute &#39;before_call&#39;</span></li>
+          
+          <li><span class="mono">Financial Times - Technology: &#39;SourceCircuitBreakerListener&#39; object has no attribute &#39;before_call&#39;</span></li>
+          
+          <li><span class="mono">WSJD - Wall Street Journal Digital: &#39;SourceCircuitBreakerListener&#39; object has no attribute &#39;before_call&#39;</span></li>
+          
+          <li><span class="mono">Product Hunt: &#39;SourceCircuitBreakerListener&#39; object has no attribute &#39;before_call&#39;</span></li>
+          
+        </ul>
+      </section>
       
 
       <section id="charts" class="section" aria-label="Charts">
@@ -6049,7 +6085,7 @@
                 datasets: [{
                   label: "count",
                   data: values,
-                  backgroundColor: "rgba(51,214,197,.26)",
+                  backgroundColor: "rgba(51,214,197,.35)",
                   borderColor: "rgba(51,214,197,.72)",
                   borderWidth: 1.2,
                   borderRadius: 10,
