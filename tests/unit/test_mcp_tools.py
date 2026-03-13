@@ -64,13 +64,13 @@ def _seed_article(
 
 
 def test_handle_search(tmp_path: Path) -> None:
-    from subscriptionradar.mcp_server.tools import handle_search
+    from mcp_server.tools import handle_search
 
     db_path = tmp_path / "radar.duckdb"
     search_db_path = tmp_path / "search.db"
     _init_articles_table(db_path)
 
-    now = datetime.now(tz=UTC)
+    now = datetime.now(UTC)
     recent_link = "https://example.com/recent"
     old_link = "https://example.com/old"
 
@@ -105,11 +105,11 @@ def test_handle_search(tmp_path: Path) -> None:
 
 
 def test_handle_recent_updates(tmp_path: Path) -> None:
-    from subscriptionradar.mcp_server.tools import handle_recent_updates
+    from mcp_server.tools import handle_recent_updates
 
     db_path = tmp_path / "radar.duckdb"
     _init_articles_table(db_path)
-    now = datetime.now(tz=UTC)
+    now = datetime.now(UTC)
 
     _seed_article(
         db_path=db_path,
@@ -133,7 +133,7 @@ def test_handle_recent_updates(tmp_path: Path) -> None:
 
 
 def test_handle_sql_select(tmp_path: Path) -> None:
-    from subscriptionradar.mcp_server.tools import handle_sql
+    from mcp_server.tools import handle_sql
 
     db_path = tmp_path / "radar.duckdb"
     _init_articles_table(db_path)
@@ -145,7 +145,7 @@ def test_handle_sql_select(tmp_path: Path) -> None:
 
 
 def test_handle_sql_blocked(tmp_path: Path) -> None:
-    from subscriptionradar.mcp_server.tools import handle_sql
+    from mcp_server.tools import handle_sql
 
     db_path = tmp_path / "radar.duckdb"
     _init_articles_table(db_path)
@@ -156,11 +156,11 @@ def test_handle_sql_blocked(tmp_path: Path) -> None:
 
 
 def test_handle_top_trends(tmp_path: Path) -> None:
-    from subscriptionradar.mcp_server.tools import handle_top_trends
+    from mcp_server.tools import handle_top_trends
 
     db_path = tmp_path / "radar.duckdb"
     _init_articles_table(db_path)
-    now = datetime.now(tz=UTC)
+    now = datetime.now(UTC)
 
     _seed_article(
         db_path=db_path,
@@ -187,23 +187,9 @@ def test_handle_top_trends(tmp_path: Path) -> None:
     assert "1" in output
 
 
-def test_handle_savings_report(tmp_path: Path) -> None:
-    from subscriptionradar.mcp_server.tools import handle_savings_report
+def test_handle_price_watch_stub() -> None:
+    from mcp_server.tools import handle_price_watch
 
-    db_path = tmp_path / "savings.duckdb"
-    _init_articles_table(db_path)
-    now = datetime.now(tz=UTC)
+    output = handle_price_watch(threshold=10.0)
 
-    _seed_article(
-        db_path=db_path,
-        article_id=1,
-        title="Streaming service announces price hike",
-        link="https://example.com/price",
-        collected_at=now - timedelta(days=1),
-        entities={"PriceChange": ["price hike"], "OTT": ["netflix"]},
-    )
-
-    output = handle_savings_report(db_path=db_path, days=7, limit=5)
-
-    assert "Savings report" in output
-    assert "PriceChange" in output
+    assert "Not available in template project" in output
