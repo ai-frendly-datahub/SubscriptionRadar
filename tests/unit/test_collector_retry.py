@@ -4,9 +4,11 @@ from __future__ import annotations
 
 import pytest
 import requests
+import time
 from unittest.mock import Mock, patch
 
-from subscriptionradar.collector import _collect_single, collect_sources
+from subscriptionradar.collector import RateLimiter, _collect_single, collect_sources
+from subscriptionradar.exceptions import NetworkError, SourceError
 from subscriptionradar.models import Article, Source
 
 
@@ -90,7 +92,7 @@ class TestCollectorRetryLogic:
         with patch("subscriptionradar.collector.requests.get") as mock_get:
             mock_get.side_effect = requests.exceptions.HTTPError("404 Not Found")
 
-            with pytest.raises(requests.exceptions.HTTPError):
+            with pytest.raises(SourceError):
                 _ = _collect_single(source, category="test", limit=10, timeout=15)
 
             assert mock_get.call_count == 3
@@ -102,7 +104,7 @@ class TestCollectorRetryLogic:
         with patch("subscriptionradar.collector.requests.get") as mock_get:
             mock_get.side_effect = requests.exceptions.Timeout("timeout")
 
-            with pytest.raises(requests.exceptions.Timeout):
+            with pytest.raises(NetworkError):
                 _ = _collect_single(source, category="test", limit=10, timeout=15)
 
             assert mock_get.call_count == 3
@@ -136,3 +138,48 @@ class TestCollectorRetryLogic:
 
             assert len(articles) == 1
             assert mock_get.call_count == 3
+
+    def test_session_reuse(self) -> None:
+        sources = [
+            Source(name="feed_1", type="rss", url="http://host1.example.com/feed"),
+            Source(name="feed_2", type="rss", url="http://host2.example.com/feed"),
+            Source(name="feed_3", type="rss", url="http://host3.example.com/feed"),
+        ]
+
+        mock_breaker = Mock()
+        mock_breaker.call.side_effect = lambda func, *args, **kwargs: func(*args, **kwargs)
+        mock_manager = Mock()
+        mock_manager.get_breaker.return_value = mock_breaker
+
+        with (
+            patch("subscriptionradar.collector.requests.Session.get") as mock_get,
+            patch("subscriptionradar.collector.get_circuit_breaker_manager", return_value=mock_manager),
+        ):
+            mock_response = Mock()
+            mock_response.content = b"""<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <item>
+            <title>Test Article</title>
+            <link>http://example.com/article</link>
+            <description>Test summary</description>
+            <pubDate>Mon, 01 Jan 2024 12:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>"""
+            mock_response.raise_for_status = Mock()
+            mock_get.return_value = mock_response
+
+            collect_sources(sources, category="test", limit_per_source=10)
+            assert mock_get.call_count == 3
+
+    def test_rate_limiter_enforces_delay(self) -> None:
+        limiter = RateLimiter(min_interval=0.3)
+
+        start = time.monotonic()
+        limiter.acquire()
+        limiter.acquire()
+        limiter.acquire()
+        elapsed = time.monotonic() - start
+
+        assert elapsed >= 0.6
