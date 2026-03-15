@@ -42,6 +42,14 @@ sources:
     type: "rss"
     url: "https://www.producthunt.com/feed"
 
+  # === JavaScript-rendered sources (Playwright) ===
+  - name: "TVING 공지사항"
+    type: "javascript"
+    url: "https://www.tving.com/contents/notice"
+  - name: "Wavve 공지사항"
+    type: "javascript"
+    url: "https://www.wavve.com/notice"
+
 entities:
   - name: "Subscription"
     display_name: "구독/요금제"
