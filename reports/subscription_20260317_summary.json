@@ -3,37 +3,37 @@
   "category": "subscription",
   "article_count": 200,
   "source_count": 11,
-  "matched_count": 134,
+  "matched_count": 128,
   "top_entities": [
     {
       "name": "Service",
-      "count": 192
+      "count": 169
     },
     {
       "name": "Provider",
-      "count": 135
+      "count": 118
     },
     {
       "name": "Price",
-      "count": 83
+      "count": 72
     },
     {
       "name": "Subscription",
-      "count": 78
+      "count": 64
     }
   ],
   "sources": {
     "Wavve 공지사항": 1,
     "TVING 공지사항": 1,
-    "Engadget": 29,
+    "Engadget": 21,
+    "Techmeme": 21,
+    "Mashable Tech": 27,
     "Financial Times - Technology": 15,
-    "9to5Mac": 27,
-    "CNET - Services & Software": 26,
-    "TechCrunch": 20,
-    "Techmeme": 15,
-    "Hacker News": 23,
-    "Mashable Tech": 30,
-    "Product Hunt": 13
+    "Product Hunt": 16,
+    "Hacker News": 28,
+    "TechCrunch": 21,
+    "CNET - Services & Software": 27,
+    "9to5Mac": 22
   },
-  "generated_at": "2026-03-17T11:33:35.670944+09:00"
+  "generated_at": "2026-03-17T17:29:01.518593+09:00"
 }
