@@ -1,0 +1,41 @@
+{
+  "date": "2026-03-18",
+  "category": "subscription",
+  "article_count": 200,
+  "source_count": 13,
+  "matched_count": 131,
+  "top_entities": [
+    {
+      "name": "Service",
+      "count": 236
+    },
+    {
+      "name": "Provider",
+      "count": 140
+    },
+    {
+      "name": "Price",
+      "count": 88
+    },
+    {
+      "name": "Subscription",
+      "count": 67
+    }
+  ],
+  "sources": {
+    "Wavve 공지사항": 1,
+    "TVING 공지사항": 1,
+    "Techmeme": 21,
+    "CNET - Services & Software": 26,
+    "9to5Mac": 32,
+    "Hacker News": 26,
+    "Financial Times - Technology": 14,
+    "Mashable Tech": 22,
+    "Engadget": 29,
+    "TechCrunch": 21,
+    "Ars Technica - Technology": 1,
+    "Spotify Newsroom": 2,
+    "Product Hunt": 4
+  },
+  "generated_at": "2026-03-18T11:39:48.533876+09:00"
+}
