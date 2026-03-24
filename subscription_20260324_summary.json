@@ -7,7 +7,7 @@
   "top_entities": [
     {
       "name": "Service",
-      "count": 176
+      "count": 170
     },
     {
       "name": "Provider",
@@ -26,15 +26,15 @@
     "Wavve 공지사항": 1,
     "TVING 공지사항": 1,
     "Techmeme": 15,
-    "Hacker News": 21,
+    "Hacker News": 22,
     "TechCrunch": 20,
     "Financial Times - Technology": 21,
     "CNET - Services & Software": 25,
     "9to5Mac": 39,
-    "Engadget": 15,
+    "Engadget": 14,
     "Mashable Tech": 35,
     "Product Hunt": 6,
     "Spotify Newsroom": 1
   },
-  "generated_at": "2026-03-24T15:12:46.049634+09:00"
+  "generated_at": "2026-03-24T15:25:31.659720+09:00"
 }
