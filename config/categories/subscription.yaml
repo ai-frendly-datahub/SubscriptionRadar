@@ -128,6 +128,69 @@ sources:
     type: "rss"
     url: "https://www.nintendo.com/whatsnew/feed/"
 
+  # === Reddit 구독/서비스 커뮤니티 ===
+  - name: "r/cordcutters"
+    type: "rss"
+    url: "https://www.reddit.com/r/cordcutters/.rss"
+
+  - name: "r/Streaming"
+    type: "rss"
+    url: "https://www.reddit.com/r/Streaming/.rss"
+
+  - name: "r/NetflixBestOf"
+    type: "rss"
+    url: "https://www.reddit.com/r/NetflixBestOf/.rss"
+
+  - name: "r/spotify"
+    type: "rss"
+    url: "https://www.reddit.com/r/spotify/.rss"
+
+  - name: "r/AppleMusic"
+    type: "rss"
+    url: "https://www.reddit.com/r/AppleMusic/.rss"
+
+  - name: "r/SaaS"
+    type: "rss"
+    url: "https://www.reddit.com/r/SaaS/.rss"
+
+  - name: "r/softwaretesting"
+    type: "rss"
+    url: "https://www.reddit.com/r/softwaretesting/.rss"
+
+  - name: "r/digitalnomad"
+    type: "rss"
+    url: "https://www.reddit.com/r/digitalnomad/.rss"
+
+  # === 구독 경제 팟캐스트/YouTube ===
+  - name: "The SaaS Podcast"
+    type: "rss"
+    url: "https://saasclub.io/feed/podcast/"
+
+  - name: "Subscription Economy News"
+    type: "rss"
+    url: "https://www.subscriptioninsider.com/feed/"
+
+  - name: "MKBHD"
+    type: "rss"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCBJycsmduvYEL83R_U4JriQ"
+
+  - name: "Linus Tech Tips"
+    type: "rss"
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw"
+
+  # === 글로벌 구독 서비스 트렌드 ===
+  - name: "CNET Tech"
+    type: "rss"
+    url: "https://www.cnet.com/rss/news/"
+
+  - name: "Wired"
+    type: "rss"
+    url: "https://www.wired.com/feed/rss"
+
+  - name: "Protocol"
+    type: "rss"
+    url: "https://www.protocol.com/feeds/feed.rss"
+
 entities:
   - name: "Subscription"
     display_name: "구독/요금제"
