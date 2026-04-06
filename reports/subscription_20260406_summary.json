@@ -1,0 +1,57 @@
+{
+  "date": "2026-04-06",
+  "category": "subscription",
+  "article_count": 200,
+  "source_count": 25,
+  "matched_count": 144,
+  "top_entities": [
+    {
+      "name": "Service",
+      "count": 221
+    },
+    {
+      "name": "Provider",
+      "count": 60
+    },
+    {
+      "name": "Price",
+      "count": 33
+    },
+    {
+      "name": "ServiceType",
+      "count": 33
+    },
+    {
+      "name": "Subscription",
+      "count": 21
+    }
+  ],
+  "sources": {
+    "밀리의서재": 1,
+    "쿠팡플레이": 1,
+    "Wavve 공지사항": 1,
+    "TVING 공지사항": 1,
+    "r/digitalnomad": 16,
+    "r/AppleMusic": 20,
+    "Bloomberg Technology": 6,
+    "r/SaaS": 24,
+    "Financial Times - Technology": 5,
+    "Techmeme": 13,
+    "r/NetflixBestOf": 4,
+    "r/spotify": 23,
+    "Hacker News": 24,
+    "TechCrunch": 6,
+    "CNET Tech": 20,
+    "r/Streaming": 8,
+    "Engadget": 4,
+    "SaaStr": 2,
+    "9to5Mac": 2,
+    "r/cordcutters": 3,
+    "The Verge": 6,
+    "Linus Tech Tips": 1,
+    "9to5Google": 1,
+    "r/softwaretesting": 2,
+    "Wired": 6
+  },
+  "generated_at": "2026-04-06T11:55:53.830623+09:00"
+}
