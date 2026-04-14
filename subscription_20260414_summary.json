@@ -2,28 +2,28 @@
   "date": "2026-04-14",
   "category": "subscription",
   "article_count": 200,
-  "source_count": 28,
+  "source_count": 24,
   "matched_count": 147,
   "top_entities": [
     {
       "name": "Service",
-      "count": 268
+      "count": 254
     },
     {
       "name": "Price",
-      "count": 65
+      "count": 66
     },
     {
       "name": "Provider",
-      "count": 56
-    },
-    {
-      "name": "Subscription",
-      "count": 39
+      "count": 48
     },
     {
       "name": "ServiceType",
-      "count": 32
+      "count": 44
+    },
+    {
+      "name": "Subscription",
+      "count": 35
     }
   ],
   "sources": {
@@ -31,30 +31,26 @@
     "쿠팡플레이": 1,
     "Wavve 공지사항": 1,
     "TVING 공지사항": 1,
-    "Techmeme": 14,
-    "r/digitalnomad": 15,
-    "r/spotify": 8,
-    "r/SaaS": 24,
-    "r/AppleMusic": 12,
-    "CNET Tech": 16,
-    "r/softwaretesting": 2,
-    "Bloomberg Technology": 16,
+    "r/digitalnomad": 21,
+    "Techmeme": 16,
+    "r/AppleMusic": 9,
     "r/Streaming": 5,
-    "9to5Mac": 15,
-    "TechCrunch": 10,
-    "Hacker News": 14,
-    "The Verge": 9,
-    "9to5Google": 11,
-    "Wired": 5,
-    "r/NetflixBestOf": 4,
-    "CNET - Services & Software": 2,
-    "Engadget": 5,
-    "Linus Tech Tips": 1,
-    "r/cordcutters": 3,
-    "Financial Times - Technology": 2,
-    "SaaStr": 1,
-    "Disney Investor Relations": 1,
-    "Xbox Wire": 1
+    "9to5Mac": 5,
+    "r/SaaS": 36,
+    "Hacker News": 17,
+    "Wired": 18,
+    "Engadget": 4,
+    "Bloomberg Technology": 15,
+    "CNET Tech": 15,
+    "r/softwaretesting": 2,
+    "The Verge": 3,
+    "TechCrunch": 3,
+    "r/spotify": 14,
+    "Product Hunt": 5,
+    "Financial Times - Technology": 4,
+    "r/cordcutters": 1,
+    "9to5Google": 2,
+    "r/NetflixBestOf": 1
   },
-  "generated_at": "2026-04-14T11:57:53.528717+09:00"
+  "generated_at": "2026-04-14T21:03:32.657131+09:00"
 }
