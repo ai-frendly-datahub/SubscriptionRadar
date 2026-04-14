@@ -7,11 +7,11 @@
   "top_entities": [
     {
       "name": "Service",
-      "count": 254
+      "count": 256
     },
     {
       "name": "Price",
-      "count": 66
+      "count": 70
     },
     {
       "name": "Provider",
@@ -19,11 +19,11 @@
     },
     {
       "name": "ServiceType",
-      "count": 44
+      "count": 46
     },
     {
       "name": "Subscription",
-      "count": 35
+      "count": 37
     }
   ],
   "sources": {
@@ -31,17 +31,18 @@
     "쿠팡플레이": 1,
     "Wavve 공지사항": 1,
     "TVING 공지사항": 1,
-    "r/digitalnomad": 21,
     "Techmeme": 16,
-    "r/AppleMusic": 9,
+    "SaaStr": 1,
+    "Bloomberg Technology": 17,
+    "r/digitalnomad": 21,
+    "Engadget": 5,
+    "r/AppleMusic": 8,
+    "r/SaaS": 37,
     "r/Streaming": 5,
     "9to5Mac": 5,
-    "r/SaaS": 36,
-    "Hacker News": 17,
+    "Hacker News": 16,
     "Wired": 18,
-    "Engadget": 4,
-    "Bloomberg Technology": 15,
-    "CNET Tech": 15,
+    "CNET Tech": 14,
     "r/softwaretesting": 2,
     "The Verge": 3,
     "TechCrunch": 3,
@@ -49,8 +50,7 @@
     "Product Hunt": 5,
     "Financial Times - Technology": 4,
     "r/cordcutters": 1,
-    "9to5Google": 2,
-    "r/NetflixBestOf": 1
+    "9to5Google": 1
   },
-  "generated_at": "2026-04-14T21:03:32.657131+09:00"
+  "generated_at": "2026-04-14T21:20:16.580700+09:00"
 }
