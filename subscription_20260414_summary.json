@@ -1,56 +1,50 @@
 {
   "date": "2026-04-14",
   "category": "subscription",
-  "article_count": 200,
-  "source_count": 24,
-  "matched_count": 147,
+  "article_count": 6,
+  "source_count": 6,
+  "matched_count": 6,
   "top_entities": [
     {
+      "name": "Subscription",
+      "count": 36
+    },
+    {
       "name": "Service",
-      "count": 256
+      "count": 35
     },
     {
       "name": "Price",
-      "count": 70
+      "count": 29
+    },
+    {
+      "name": "SourceSignal",
+      "count": 15
     },
     {
       "name": "Provider",
-      "count": 48
+      "count": 12
+    },
+    {
+      "name": "BillingPolicy",
+      "count": 4
+    },
+    {
+      "name": "PlanChange",
+      "count": 3
     },
     {
       "name": "ServiceType",
-      "count": 46
-    },
-    {
-      "name": "Subscription",
-      "count": 37
+      "count": 1
     }
   ],
   "sources": {
-    "밀리의서재": 1,
-    "쿠팡플레이": 1,
-    "Wavve 공지사항": 1,
-    "TVING 공지사항": 1,
-    "Techmeme": 16,
-    "SaaStr": 1,
-    "Bloomberg Technology": 17,
-    "r/digitalnomad": 21,
-    "Engadget": 5,
-    "r/AppleMusic": 8,
-    "r/SaaS": 37,
-    "r/Streaming": 5,
-    "9to5Mac": 5,
-    "Hacker News": 16,
-    "Wired": 18,
-    "CNET Tech": 14,
-    "r/softwaretesting": 2,
-    "The Verge": 3,
-    "TechCrunch": 3,
-    "r/spotify": 14,
-    "Product Hunt": 5,
-    "Financial Times - Technology": 4,
-    "r/cordcutters": 1,
-    "9to5Google": 1
+    "Basecamp Pricing": 1,
+    "Notion Pricing": 1,
+    "Apple One Pricing": 1,
+    "Spotify Premium Pricing": 1,
+    "Netflix Plans & Pricing": 1,
+    "Engadget": 1
   },
-  "generated_at": "2026-04-14T21:20:16.580700+09:00"
+  "generated_at": "2026-04-14T20:30:19.441925+09:00"
 }

@@ -1,0 +1,65 @@
+{
+  "date": "2026-04-22",
+  "category": "subscription",
+  "article_count": 65,
+  "source_count": 21,
+  "matched_count": 65,
+  "top_entities": [
+    {
+      "name": "Service",
+      "count": 170
+    },
+    {
+      "name": "Price",
+      "count": 116
+    },
+    {
+      "name": "Subscription",
+      "count": 109
+    },
+    {
+      "name": "Provider",
+      "count": 61
+    },
+    {
+      "name": "SourceSignal",
+      "count": 36
+    },
+    {
+      "name": "BillingPolicy",
+      "count": 8
+    },
+    {
+      "name": "ServiceType",
+      "count": 7
+    },
+    {
+      "name": "PlanChange",
+      "count": 5
+    }
+  ],
+  "sources": {
+    "밀리의서재": 1,
+    "Wavve 공지사항": 1,
+    "TVING 공지사항": 1,
+    "Basecamp Pricing": 1,
+    "Notion Pricing": 1,
+    "Apple One Pricing": 1,
+    "Spotify Premium Pricing": 1,
+    "Netflix Plans & Pricing": 1,
+    "Apple App Store Top Free KR": 3,
+    "Apple App Store Top Free US": 6,
+    "SaaStr": 3,
+    "Engadget": 13,
+    "Techmeme": 6,
+    "Financial Times - Technology": 3,
+    "9to5Mac": 5,
+    "TechCrunch": 3,
+    "9to5Google": 7,
+    "The Verge": 3,
+    "Bloomberg Technology": 3,
+    "Wired": 1,
+    "Netflix TechBlog": 1
+  },
+  "generated_at": "2026-04-22T00:04:02.063294+09:00"
+}
