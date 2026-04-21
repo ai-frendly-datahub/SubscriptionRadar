@@ -1,6 +1,98 @@
 category_name: "subscription"
 display_name: "구독/요금제 레이더"
 
+data_quality:
+  priority: P2
+  primary_motion: conversion
+  weakest_dimension: traceability
+  quality_outputs:
+    freshness_report: reports/subscription_quality.json
+    dated_freshness_report_pattern: reports/subscription_YYYYMMDD_quality.json
+    tracked_event_models:
+      - pricing_page_snapshot
+      - plan_change_notice
+      - app_store_ranking
+      - churn_proxy
+  event_models:
+    pricing_page_snapshot:
+      date_fields:
+        - observed_at
+        - collected_at
+      required_fields:
+        - vendor_id
+        - plan_id
+        - price
+        - currency
+        - source_url
+    plan_change_notice:
+      date_fields:
+        - announced_date
+        - effective_date
+        - collected_at
+      required_fields:
+        - vendor_id
+        - plan_id
+        - change_type
+        - source_url
+    app_store_ranking:
+      date_fields:
+        - ranking_date
+        - collected_at
+      required_fields:
+        - app_id
+        - rank
+        - market
+        - category
+    churn_proxy:
+      date_fields:
+        - metric_date
+        - collected_at
+      required_fields:
+        - vendor_id
+        - metric_name
+        - metric_value
+        - source
+  canonical_keys:
+    subscription_plan:
+      - vendor_id
+      - plan_name
+      - billing_cycle
+      - region
+      - currency
+    pricing_snapshot:
+      - plan_id
+      - observed_at
+      - source
+  freshness_sla:
+    pricing_page_snapshot_days: 7
+    plan_change_notice_days: 3
+    app_store_ranking_days: 7
+    churn_proxy_days: 30
+  quality_gates:
+    - 요금제명, 청구주기, 지역, 통화를 별도 필드로 유지한다
+    - 가격 변경일과 적용 시작일을 분리한다
+    - 뉴스 기사와 공식 pricing page를 같은 근거로 병합하지 않는다
+    - churn proxy와 카드 결제 카테고리 데이터는 보조 신호로 분리 평가한다
+    - 광범위 테크/커뮤니티 피드는 요금제, 가격, 청구, 제공사 신호가 있을 때만 리포트에 반영한다
+    - 오류/차단/페이지 없음 browser row는 품질 이벤트와 리포트에서 제외한다
+source_backlog:
+  operational_candidates:
+    - id: pricing_page_diff_store
+      name: Official pricing page diff store
+      signal_type: pricing_page_snapshot
+      activation_gate: HTML snapshot retention, plan canonicalization, and currency/region policy
+    - id: app_store_ranking_feeds
+      name: App Store and Google Play ranking feeds
+      signal_type: app_store_ranking
+      activation_gate: app id mapping, region/category taxonomy, and ranking date retention
+    - id: vendor_plan_change_notices
+      name: Vendor plan change notices
+      signal_type: plan_change_notice
+      activation_gate: vendor official-domain validation, effective date parsing, and evidence URL retention
+    - id: subscription_churn_proxy
+      name: Subscription churn proxy datasets
+      signal_type: churn_proxy
+      activation_gate: privacy review, aggregation threshold, and metric definition documentation
 sources:
   # === 테크 뉴스 ===
   - name: "Engadget"
@@ -43,14 +135,17 @@ sources:
   - name: "Subscription Economy News"
     type: "rss"
     url: "https://www.subscribed.com/feed/"
+    enabled: false
 
   - name: "OpenView Blog"
     type: "rss"
     url: "https://openviewpartners.com/feed/"
+    enabled: false
 
   - name: "SaaS Mag"
     type: "rss"
     url: "https://saasmagorg.com/feed/"
+    enabled: false
 
   - name: "Product Hunt"
     type: "rss"
@@ -60,18 +155,189 @@ sources:
   - name: "Netflix TechBlog"
     type: "rss"
     url: "http://techblog.netflix.com/rss.xml"
+    trust_tier: "T1_official"
+    content_type: "news"
+    producer_role: "vendor"
+    collection_tier: "C1_rss"
+    info_purpose:
+      - "official_news"
+      - "service_update"
 
   - name: "Spotify Newsroom"
     type: "rss"
     url: "https://newsroom.spotify.com/feed"
+    trust_tier: "T1_official"
+    content_type: "news"
+    producer_role: "vendor"
+    collection_tier: "C1_rss"
+    info_purpose:
+      - "official_news"
+      - "plan_change"
+    config:
+      quiet_when_no_items: true
 
   - name: "Disney Investor Relations"
     type: "rss"
     url: "https://thewaltdisneycompany.com/feed/"
+    trust_tier: "T1_official"
+    content_type: "news"
+    producer_role: "vendor"
+    collection_tier: "C1_rss"
+    info_purpose:
+      - "official_news"
+      - "bundle"
+    config:
+      quiet_when_no_items: true
 
   - name: "Apple Newsroom"
     type: "rss"
     url: "https://www.apple.com/newsroom/rss-feed.rss"
+    trust_tier: "T1_official"
+    content_type: "news"
+    producer_role: "vendor"
+    collection_tier: "C1_rss"
+    info_purpose:
+      - "official_news"
+      - "service_update"
+
+  - name: "Apple App Store Top Free US"
+    type: "json"
+    url: "https://rss.applemarketingtools.com/api/v2/us/apps/top-free/25/apps.json"
+    trust_tier: "T1_official"
+    content_type: "ranking"
+    producer_role: "marketplace"
+    collection_tier: "C4_api"
+    info_purpose:
+      - "app_store_ranking"
+    notes: "Official Apple Marketing Tools top-free app chart for the US App Store."
+    config:
+      parser: "apple_app_store_ranking"
+      market: "US"
+      category: "top_free_apps"
+      chart_label: "Top Free Apps"
+
+  - name: "Apple App Store Top Free KR"
+    type: "json"
+    url: "https://rss.applemarketingtools.com/api/v2/kr/apps/top-free/25/apps.json"
+    trust_tier: "T1_official"
+    content_type: "ranking"
+    producer_role: "marketplace"
+    collection_tier: "C4_api"
+    info_purpose:
+      - "app_store_ranking"
+    notes: "Official Apple Marketing Tools top-free app chart for the Korea App Store."
+    config:
+      parser: "apple_app_store_ranking"
+      market: "KR"
+      category: "top_free_apps"
+      chart_label: "Top Free Apps"
+
+  # === 공식 가격 페이지 ===
+  - name: "Netflix Plans & Pricing"
+    type: "browser"
+    url: "https://www.netflix.com/pricing"
+    trust_tier: "T1_official"
+    content_type: "pricing"
+    producer_role: "vendor"
+    collection_tier: "C3_html_js"
+    info_purpose:
+      - "pricing"
+      - "plan_change"
+      - "billing"
+    notes: "Official Netflix subscription pricing page."
+    config:
+      wait_for: "body"
+      vendor_id: "netflix"
+      plan_id: "pricing-catalog"
+      plan_name: "Pricing catalog"
+
+  - name: "Spotify Premium Pricing"
+    type: "browser"
+    url: "https://www.spotify.com/premium/"
+    trust_tier: "T1_official"
+    content_type: "pricing"
+    producer_role: "vendor"
+    collection_tier: "C3_html_js"
+    info_purpose:
+      - "pricing"
+      - "plan_change"
+      - "billing"
+    notes: "Official Spotify premium pricing and plan comparison page."
+    config:
+      wait_for: "body"
+      vendor_id: "spotify"
+      plan_id: "premium"
+      plan_name: "Premium"
+
+  - name: "Apple One Pricing"
+    type: "browser"
+    url: "https://www.apple.com/apple-one/"
+    trust_tier: "T1_official"
+    content_type: "pricing"
+    producer_role: "vendor"
+    collection_tier: "C3_html_js"
+    info_purpose:
+      - "pricing"
+      - "bundle"
+      - "billing"
+    notes: "Official Apple One bundle pricing page."
+    config:
+      wait_for: "body"
+      vendor_id: "apple"
+      plan_id: "apple-one"
+      plan_name: "Apple One"
+
+  - name: "Notion Pricing"
+    type: "browser"
+    url: "https://www.notion.com/pricing"
+    trust_tier: "T1_official"
+    content_type: "pricing"
+    producer_role: "vendor"
+    collection_tier: "C3_html_js"
+    info_purpose:
+      - "pricing"
+      - "plan_change"
+      - "billing"
+    notes: "Official Notion pricing page for per-seat plan changes and AI add-ons."
+    config:
+      wait_for: "body"
+      vendor_id: "notion"
+      plan_id: "pricing-catalog"
+      plan_name: "Pricing catalog"
+
+  - name: "Basecamp Pricing"
+    type: "browser"
+    url: "https://basecamp.com/pricing/"
+    trust_tier: "T1_official"
+    content_type: "pricing"
+    producer_role: "vendor"
+    collection_tier: "C3_html_js"
+    info_purpose:
+      - "pricing"
+      - "plan_change"
+      - "billing"
+    notes: "Official Basecamp pricing page for per-user and unlimited bundle comparisons."
+    config:
+      wait_for: "body"
+      vendor_id: "basecamp"
+      plan_id: "pricing-catalog"
+      plan_name: "Pricing catalog"
+
+  - name: "Adobe Creative Cloud Pricing"
+    type: "browser"
+    url: "https://www.adobe.com/creativecloud/plans.html"
+    enabled: false
+    trust_tier: "T1_official"
+    content_type: "pricing"
+    producer_role: "vendor"
+    collection_tier: "C3_html_js"
+    info_purpose:
+      - "pricing"
+      - "promotion"
+      - "billing"
+    notes: "Official Adobe subscription pricing and promotional plan page."
+    config:
+      wait_for: "body"
 
   # === 비즈니스/금융 ===
   - name: "Financial Times - Technology"
@@ -89,27 +355,82 @@ sources:
   # === 한국 구독 서비스 ===
   - name: "TVING 공지사항"
     type: "javascript"
-    url: "https://www.tving.com/contents/notice"
+    url: "https://www.tving.com/help/notice"
+    trust_tier: "T1_official"
+    content_type: "notice"
+    producer_role: "vendor"
+    collection_tier: "C3_html_js"
+    info_purpose:
+      - "official_notice"
+      - "billing"
+      - "plan_change"
+    notes: "Official Korean OTT notice board for billing, policy, and service updates."
     config:
-      wait_for: ".notice_list"
+      wait_for: "body"
+      bypass_crawl_health: true
+      vendor_id: "tving"
+      plan_id: "service-notice"
+      plan_name: "Service notice"
+      default_change_type: "service_notice"
 
   - name: "Wavve 공지사항"
     type: "javascript"
     url: "https://www.wavve.com/notice"
+    trust_tier: "T1_official"
+    content_type: "notice"
+    producer_role: "vendor"
+    collection_tier: "C3_html_js"
+    info_purpose:
+      - "official_notice"
+      - "billing"
+      - "plan_change"
+    notes: "Official Wavve notice board for pricing, renewal, and service policy updates."
     config:
-      wait_for: ".notice_list"
+      wait_for: "body"
+      bypass_crawl_health: true
+      vendor_id: "wavve"
+      plan_id: "service-notice"
+      plan_name: "Service notice"
+      default_change_type: "service_notice"
 
   - name: "쿠팡플레이"
     type: "javascript"
-    url: "https://www.coupangplay.com/notice"
+    url: "https://www.coupangplay.com/faq"
+    trust_tier: "T1_official"
+    content_type: "notice"
+    producer_role: "vendor"
+    collection_tier: "C3_html_js"
+    info_purpose:
+      - "official_notice"
+      - "billing"
+      - "service_update"
+    notes: "Official Coupang Play notice board for subscription and service updates."
     config:
-      wait_for: ".notice_list"
+      wait_for: "body"
+      quiet_when_no_items: true
+      vendor_id: "coupang-play"
+      plan_id: "service-notice"
+      plan_name: "Service notice"
+      default_change_type: "service_notice"
 
   - name: "밀리의서재"
     type: "javascript"
-    url: "https://www.millie.co.kr/notice"
+    url: "https://www.millie.co.kr/v3/customer/notice"
+    trust_tier: "T1_official"
+    content_type: "notice"
+    producer_role: "vendor"
+    collection_tier: "C3_html_js"
+    info_purpose:
+      - "official_notice"
+      - "billing"
+      - "plan_change"
+    notes: "Official Millie notice board for subscription plans and billing notices."
     config:
-      wait_for: ".notice_list"
+      wait_for: "body"
+      vendor_id: "millie"
+      plan_id: "service-notice"
+      plan_name: "Service notice"
+      default_change_type: "service_notice"
 
   - name: "토스 블로그"
     type: "rss"
@@ -127,46 +448,66 @@ sources:
   - name: "Nintendo News"
     type: "rss"
     url: "https://www.nintendo.com/whatsnew/feed/"
+    enabled: false
 
   # === Reddit 구독/서비스 커뮤니티 ===
   - name: "r/cordcutters"
     type: "rss"
     url: "https://www.reddit.com/r/cordcutters/.rss"
+    enabled: false
+    content_type: "community"
+    producer_role: "consumer_comm"
+    info_purpose:
+      - "community"
+      - "cancellation"
+      - "alternatives"
 
   - name: "r/Streaming"
     type: "rss"
     url: "https://www.reddit.com/r/Streaming/.rss"
+    enabled: false
+    content_type: "community"
+    producer_role: "consumer_comm"
+    info_purpose:
+      - "community"
+      - "service_update"
 
   - name: "r/NetflixBestOf"
     type: "rss"
     url: "https://www.reddit.com/r/NetflixBestOf/.rss"
+    enabled: false
 
   - name: "r/spotify"
     type: "rss"
     url: "https://www.reddit.com/r/spotify/.rss"
+    enabled: false
 
   - name: "r/AppleMusic"
     type: "rss"
     url: "https://www.reddit.com/r/AppleMusic/.rss"
+    enabled: false
 
   - name: "r/SaaS"
     type: "rss"
     url: "https://www.reddit.com/r/SaaS/.rss"
+    enabled: false
 
   - name: "r/softwaretesting"
     type: "rss"
     url: "https://www.reddit.com/r/softwaretesting/.rss"
+    enabled: false
 
   - name: "r/digitalnomad"
     type: "rss"
     url: "https://www.reddit.com/r/digitalnomad/.rss"
+    enabled: false
 
   # === 구독 경제 팟캐스트/YouTube ===
   - name: "The SaaS Podcast"
     type: "rss"
     url: "https://saasclub.io/feed/podcast/"
 
-  - name: "Subscription Economy News"
+  - name: "Subscription Insider"
     type: "rss"
     url: "https://www.subscriptioninsider.com/feed/"
 
@@ -190,6 +531,7 @@ sources:
   - name: "Protocol"
     type: "rss"
     url: "https://www.protocol.com/feeds/feed.rss"
+    enabled: false
 
 entities:
   - name: "Subscription"
@@ -286,6 +628,41 @@ entities:
       - "price hike"
       - "요금"
       - "구독료"
+  - name: "PlanChange"
+    display_name: "요금제 변경"
+    keywords:
+      - "new plan"
+      - "plan change"
+      - "pricing page"
+      - "price increase"
+      - "price cut"
+      - "tier update"
+      - "bundle"
+      - "family plan"
+      - "student plan"
+      - "ad-supported"
+      - "광고형"
+      - "요금제 개편"
+      - "요금 인상"
+      - "요금 인하"
+      - "플랜 변경"
+  - name: "BillingPolicy"
+    display_name: "청구/해지 정책"
+    keywords:
+      - "billing"
+      - "invoice"
+      - "renewal"
+      - "auto-renew"
+      - "cancellation"
+      - "refund"
+      - "trial ended"
+      - "payment failed"
+      - "charge"
+      - "결제"
+      - "청구"
+      - "해지"
+      - "환불"
+      - "무료 체험 종료"
   - name: "Provider"
     display_name: "주요 제공사"
     keywords:

@@ -74,7 +74,8 @@ def collect_browser_sources(
 
     try:
         source_dicts: list[dict[str, Any]] = [
-            {"name": s.name, "type": s.type, "url": s.url} for s in sources
+            {"name": s.name, "type": s.type, "url": s.url, "config": dict(s.config)}
+            for s in sources
         ]
         core_articles, errors = _core_collect(
             sources=source_dicts,
@@ -102,11 +103,14 @@ def collect_browser_sources(
 
     local_articles: list[Article] = []
     for article in core_articles:
+        title = article.title if isinstance(article.title, str) and article.title.strip() else "(no title)"
+        summary = article.summary if isinstance(article.summary, str) and article.summary.strip() else title
+        link = article.link if isinstance(article.link, str) and article.link.strip() else ""
         local_articles.append(
             Article(
-                title=article.title,
-                link=article.link,
-                summary=article.summary,
+                title=title,
+                link=link,
+                summary=summary,
                 published=article.published,
                 source=article.source,
                 category=article.category or category,

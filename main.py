@@ -1,19 +1,75 @@
 from __future__ import annotations
 
 import argparse
-from datetime import UTC
+import json
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import cast
 
 from subscriptionradar.analyzer import apply_entity_rules
 from subscriptionradar.collector import collect_sources
 from subscriptionradar.common.validators import validate_article
-from subscriptionradar.config_loader import load_category_config, load_settings
+from subscriptionradar.config_loader import (
+    load_category_config,
+    load_category_quality_config,
+    load_settings,
+)
 from subscriptionradar.date_storage import apply_date_storage_policy
+from subscriptionradar.quality_report import build_quality_report, write_quality_report
 from subscriptionradar.raw_logger import RawLogger
+from subscriptionradar.relevance import apply_source_context_entities, filter_relevant_articles
 from subscriptionradar.reporter import generate_index_html, generate_report
 from subscriptionradar.search_index import SearchIndex
 from subscriptionradar.storage import RadarStorage
+
+
+def _summary_report_path(report_dir: Path, category_name: str, quality_report: dict[str, object]) -> Path:
+    generated_at = _parse_generated_at(quality_report)
+    stamp = generated_at.astimezone(UTC).strftime("%Y%m%d")
+    return report_dir / f"{category_name}_{stamp}_summary.json"
+
+
+def _parse_generated_at(quality_report: dict[str, object]) -> datetime:
+    raw = quality_report.get("generated_at")
+    if isinstance(raw, str):
+        try:
+            return datetime.fromisoformat(raw.replace("Z", "+00:00"))
+        except ValueError:
+            pass
+    return datetime.now(UTC)
+
+
+def _augment_summary_with_quality(summary_path: Path, quality_report: dict[str, object]) -> None:
+    if not summary_path.exists():
+        return
+
+    quality_summary = quality_report.get("summary")
+    if not isinstance(quality_summary, dict) or not quality_summary:
+        return
+
+    try:
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return
+
+    warnings = list(summary.get("warnings") or [])
+    collection_errors = int(quality_summary.get("collection_error_count") or 0)
+    stale_sources = int(quality_summary.get("stale_sources") or 0)
+    missing_sources = int(quality_summary.get("missing_sources") or 0)
+    if collection_errors:
+        warnings.append(f"collection errors detected: {collection_errors}")
+    if stale_sources or missing_sources:
+        warnings.append(
+            f"freshness gaps detected: stale={stale_sources}, missing={missing_sources}"
+        )
+
+    summary["quality_summary"] = quality_summary
+    if warnings:
+        summary["warnings"] = warnings
+    summary_path.write_text(
+        json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
 
 def _send_notifications(
@@ -87,6 +143,7 @@ def run(
     """Execute the lightweight collect -> analyze -> report pipeline."""
     settings = load_settings(config_path)
     category_cfg = load_category_config(category, categories_dir=categories_dir)
+    quality_cfg = load_category_quality_config(category, categories_dir=categories_dir)
 
     print(
         f"[Radar] Collecting '{category_cfg.display_name}' from {len(category_cfg.sources)} sources..."
@@ -105,11 +162,13 @@ def run(
             _ = raw_logger.log(source_articles, source_name=source.name)
 
     analyzed = apply_entity_rules(collected, category_cfg.entities)
+    classified = apply_source_context_entities(analyzed, category_cfg.sources)
+    scoped_articles = filter_relevant_articles(classified, category_cfg.sources)
 
     # Validate articles for data quality
     validated_articles = []
     validation_errors = []
-    for article in analyzed:
+    for article in scoped_articles:
         is_valid, validation_msgs = validate_article(article)
         if is_valid:
             validated_articles.append(article)
@@ -127,24 +186,45 @@ def run(
         for article in validated_articles:
             search_idx.upsert(article.link, article.title, article.summary)
 
-    recent_articles = storage.recent_articles(category_cfg.category_name, days=recent_days)
+    recent_articles = filter_relevant_articles(
+        apply_source_context_entities(
+            storage.recent_articles(category_cfg.category_name, days=recent_days, limit=1000),
+            category_cfg.sources,
+        ),
+        category_cfg.sources,
+    )
     storage.close()
+    quality_articles = validated_articles if validated_articles else recent_articles
 
     stats = {
         "sources": len(category_cfg.sources),
-        "collected": len(collected),
-        "matched": sum(1 for a in collected if a.matched_entities),
+        "collected": len(scoped_articles),
+        "matched": sum(1 for a in scoped_articles if a.matched_entities),
         "validated": len(validated_articles),
         "window_days": recent_days,
     }
 
     output_path = settings.report_dir / f"{category_cfg.category_name}_report.html"
+    quality_report = build_quality_report(
+        category=category_cfg,
+        articles=quality_articles,
+        errors=errors,
+        quality_config=quality_cfg,
+    )
     _ = generate_report(
         category=category_cfg,
         articles=recent_articles,
         output_path=output_path,
         stats=stats,
         errors=errors,
+        quality_report=quality_report,
+    )
+    summary_path = _summary_report_path(settings.report_dir, category_cfg.category_name, quality_report)
+    _augment_summary_with_quality(summary_path, quality_report)
+    quality_paths = write_quality_report(
+        quality_report,
+        output_dir=settings.report_dir,
+        category_name=category_cfg.category_name,
     )
     # Generate index.html
     generate_index_html(settings.report_dir)
@@ -157,6 +237,7 @@ def run(
         snapshot_db=snapshot_db,
     )
     print(f"[Radar] Report generated at {output_path}")
+    print(f"[Radar] Quality report generated at {quality_paths['latest']}")
     snapshot_path = date_storage.get("snapshot_path")
     if isinstance(snapshot_path, str) and snapshot_path:
         print(f"[Radar] Snapshot saved at {snapshot_path}")
@@ -166,8 +247,8 @@ def run(
     _send_notifications(
         category_name=category_cfg.category_name,
         sources_count=len(category_cfg.sources),
-        collected_count=len(collected),
-        matched_count=sum(1 for a in collected if a.matched_entities),
+        collected_count=len(scoped_articles),
+        matched_count=sum(1 for a in scoped_articles if a.matched_entities),
         errors_count=len(errors),
         report_path=output_path,
     )

@@ -1,0 +1,50 @@
+{
+  "date": "2026-04-14",
+  "category": "subscription",
+  "article_count": 6,
+  "source_count": 6,
+  "matched_count": 6,
+  "top_entities": [
+    {
+      "name": "Subscription",
+      "count": 36
+    },
+    {
+      "name": "Service",
+      "count": 35
+    },
+    {
+      "name": "Price",
+      "count": 29
+    },
+    {
+      "name": "SourceSignal",
+      "count": 15
+    },
+    {
+      "name": "Provider",
+      "count": 12
+    },
+    {
+      "name": "BillingPolicy",
+      "count": 4
+    },
+    {
+      "name": "PlanChange",
+      "count": 3
+    },
+    {
+      "name": "ServiceType",
+      "count": 1
+    }
+  ],
+  "sources": {
+    "Basecamp Pricing": 1,
+    "Notion Pricing": 1,
+    "Apple One Pricing": 1,
+    "Spotify Premium Pricing": 1,
+    "Netflix Plans & Pricing": 1,
+    "Engadget": 1
+  },
+  "generated_at": "2026-04-14T20:30:19.441925+09:00"
+}

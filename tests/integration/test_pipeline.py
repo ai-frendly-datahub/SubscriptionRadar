@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 from unittest.mock import patch
 
@@ -101,3 +102,6 @@ def test_full_pipeline_creates_all_outputs(tmp_path: Path) -> None:
     assert search_db_path.exists()
     assert output_path.exists()
     assert output_path.suffix == ".html"
+    summary_path = next(report_dir.glob("test_cat_*_summary.json"))
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert "quality_summary" in summary

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import html
+import json
 import os
 import threading
 import time
@@ -189,8 +190,22 @@ def collect_sources(
     errors: list[str] = []
     manager = get_circuit_breaker_manager()
     workers = _resolve_max_workers(max_workers)
+    enabled_sources = [source for source in sources if source.enabled]
+    # --- Source splitting: Pass 1 (RSS/JSON) vs Pass 2 (JS/browser) ---
+    _network_types = {"rss", "json"}
+    _js_types = {"javascript", "browser"}
+    network_sources = [s for s in enabled_sources if s.type.lower() in _network_types]
+    js_sources = [s for s in enabled_sources if s.type.lower() in _js_types]
+    unsupported_sources = [
+        s for s in enabled_sources if s.type.lower() not in {*_network_types, *_js_types}
+    ]
+    errors.extend(
+        f"{source.name}: Unsupported source type '{source.type}'"
+        for source in unsupported_sources
+    )
     source_hosts: dict[str, str] = {
-        source.name: (urlparse(source.url).netloc.lower() or source.name) for source in sources
+        source.name: (urlparse(source.url).netloc.lower() or source.name)
+        for source in network_sources
     }
     rate_limiters: dict[str, RateLimiter] = {
         host: RateLimiter(min_interval=min_interval_per_host) for host in set(source_hosts.values())
@@ -202,14 +217,9 @@ def collect_sources(
     _set_collection_controls(throttler, health_store)
     session = _create_session()
 
-    # --- Source splitting: Pass 1 (RSS) vs Pass 2 (JS/browser) ---
-    _js_types = {"javascript", "browser"}
-    rss_sources = [s for s in sources if s.type.lower() not in _js_types]
-    js_sources = [s for s in sources if s.type.lower() in _js_types]
-
     def _collect_for_source(source: Source) -> tuple[list[Article], list[str]]:
         if health_store.is_disabled(source.name):
-            return [], [f"{source.name}: Source disabled (crawl health threshold reached)"]
+            return [], []
 
         host = source_hosts[source.name]
         rate_limiters[host].acquire()
@@ -235,16 +245,16 @@ def collect_sources(
             return [], [f"{source.name}: Unexpected error - {type(exc).__name__}: {exc}"]
 
     try:
-        # --- Pass 1: RSS sources via ThreadPoolExecutor (parallel) ---
+        # --- Pass 1: RSS/JSON sources via ThreadPoolExecutor (parallel) ---
         if workers == 1:
-            for source in rss_sources:
+            for source in network_sources:
                 source_articles, source_errors = _collect_for_source(source)
                 articles.extend(source_articles)
                 errors.extend(source_errors)
         else:
             with ThreadPoolExecutor(max_workers=workers) as executor:
                 future_map: list[Future[tuple[list[Article], list[str]]]] = [
-                    executor.submit(_collect_for_source, source) for source in rss_sources
+                    executor.submit(_collect_for_source, source) for source in network_sources
                 ]
 
                 for future in future_map:
@@ -282,8 +292,34 @@ def _collect_single(
     timeout: int,
     session: requests.Session | None = None,
 ) -> list[Article]:
-    if source.type.lower() != "rss":
-        raise SourceError(source.name, f"Unsupported source type '{source.type}'")
+    source_type = source.type.lower()
+    if source_type == "rss":
+        return _collect_rss_source(
+            source,
+            category=category,
+            limit=limit,
+            timeout=timeout,
+            session=session,
+        )
+    if source_type == "json":
+        return _collect_json_source(
+            source,
+            category=category,
+            limit=limit,
+            timeout=timeout,
+            session=session,
+        )
+    raise SourceError(source.name, f"Unsupported source type '{source.type}'")
+
+
+def _collect_rss_source(
+    source: Source,
+    *,
+    category: str,
+    limit: int,
+    timeout: int,
+    session: requests.Session | None = None,
+) -> list[Article]:
 
     try:
         response = _fetch_url_with_retry(
@@ -303,6 +339,7 @@ def _collect_single(
 
         for entry in feed.entries[:limit]:
             published = _extract_datetime(entry)
+            title_text = html.unescape(_entry_text(entry, "title").strip()) or "(no title)"
             summary = _entry_text(entry, "summary") or _entry_text(entry, "description")
             if not summary:
                 _content = entry.get("content", [])
@@ -312,12 +349,14 @@ def _collect_single(
                         value = first_item.get("value")
                         if isinstance(value, str):
                             summary = value
+            link = _resolve_entry_link(entry, fallback_url=source.url)
+            summary_text = html.unescape(summary.strip()) if summary.strip() else title_text
 
             items.append(
                 Article(
-                    title=html.unescape(_entry_text(entry, "title").strip()) or "(no title)",
-                    link=_entry_text(entry, "link").strip(),
-                    summary=html.unescape(summary.strip()),
+                    title=title_text,
+                    link=link,
+                    summary=summary_text,
                     published=published,
                     source=source.name,
                     category=category,
@@ -327,6 +366,128 @@ def _collect_single(
         return items
     except Exception as exc:
         raise ParseError(f"Failed to parse feed from {source.name}: {exc}") from exc
+
+
+def _collect_json_source(
+    source: Source,
+    *,
+    category: str,
+    limit: int,
+    timeout: int,
+    session: requests.Session | None = None,
+) -> list[Article]:
+    parser_name = str(
+        source.config.get("parser")
+        or source.config.get("json_parser")
+        or source.config.get("collector")
+        or ""
+    ).strip()
+    if not parser_name:
+        raise SourceError(source.name, "Missing json parser configuration")
+
+    try:
+        response = _fetch_url_with_retry(
+            source.url,
+            timeout,
+            session=session,
+            source_name=source.name,
+        )
+    except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as exc:
+        raise NetworkError(f"Network error fetching {source.name}: {exc}") from exc
+    except requests.exceptions.RequestException as exc:
+        raise SourceError(source.name, f"Request failed: {exc}", exc) from exc
+
+    try:
+        payload = json.loads(response.content.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise ParseError(f"Failed to parse JSON from {source.name}: {exc}") from exc
+
+    if parser_name == "apple_app_store_ranking":
+        return _collect_apple_app_store_ranking(
+            source,
+            payload=payload,
+            category=category,
+            limit=limit,
+        )
+    raise SourceError(source.name, f"Unsupported json parser '{parser_name}'")
+
+
+def _collect_apple_app_store_ranking(
+    source: Source,
+    *,
+    payload: object,
+    category: str,
+    limit: int,
+) -> list[Article]:
+    if not isinstance(payload, Mapping):
+        raise ParseError(f"Failed to parse Apple App Store ranking from {source.name}: invalid JSON")
+
+    feed = payload.get("feed")
+    if not isinstance(feed, Mapping):
+        raise ParseError(f"Failed to parse Apple App Store ranking from {source.name}: missing feed")
+
+    results = feed.get("results")
+    if not isinstance(results, list):
+        raise ParseError(
+            f"Failed to parse Apple App Store ranking from {source.name}: missing results"
+        )
+
+    updated_at = _parse_datetime_value(feed.get("updated"))
+    market = str(source.config.get("market") or feed.get("country") or "").strip().upper()
+    chart_category = str(source.config.get("category") or "top_free_apps").strip() or "top_free_apps"
+    chart_label = str(source.config.get("chart_label") or "Top Free Apps").strip() or "Top Free Apps"
+
+    items: list[Article] = []
+    for rank, entry in enumerate(results[:limit], start=1):
+        if not isinstance(entry, Mapping):
+            continue
+        app_name = str(entry.get("name") or "").strip() or "(no app name)"
+        app_id = str(entry.get("id") or "").strip()
+        vendor_name = str(entry.get("artistName") or "").strip()
+        link = str(entry.get("url") or "").strip()
+        if not _is_valid_http_url(link):
+            link = source.url
+
+        summary_parts = [
+            f"Vendor: {vendor_name or app_name}.",
+            f"App ID: {app_id}." if app_id else "",
+            f"Rank: {rank}.",
+            f"Market: {market}.",
+            f"Category: {chart_category}.",
+            f"Source URL: {link}.",
+        ]
+        summary = " ".join(part for part in summary_parts if part)
+        title = f"{app_name} ranks #{rank} in {market or 'global'} App Store {chart_label}"
+        items.append(
+            Article(
+                title=title,
+                link=link,
+                summary=summary,
+                published=updated_at,
+                source=source.name,
+                category=category,
+            )
+        )
+    return items
+
+
+def _resolve_entry_link(entry: Mapping[str, Any], fallback_url: str) -> str:
+    primary_link = _entry_text(entry, "link").strip()
+    if _is_valid_http_url(primary_link):
+        return primary_link
+
+    entry_id = _entry_text(entry, "id").strip()
+    if _is_valid_http_url(entry_id):
+        return entry_id
+
+    return fallback_url
+
+
+def _is_valid_http_url(value: str) -> bool:
+    if not value:
+        return False
+    parsed = urlparse(value)
+    return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
 
 
 def _extract_datetime(entry: Mapping[str, Any]) -> datetime | None:
@@ -350,6 +511,30 @@ def _extract_datetime(entry: Mapping[str, Any]) -> datetime | None:
             except Exception:
                 continue
     return None
+
+
+def _parse_datetime_value(value: object) -> datetime | None:
+    if isinstance(value, datetime):
+        return value if value.tzinfo is not None else value.replace(tzinfo=UTC)
+    if not value:
+        return None
+    text = str(value).strip()
+    if not text:
+        return None
+    try:
+        dt = parsedate_to_datetime(text)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=UTC)
+        return dt
+    except Exception:
+        pass
+    try:
+        dt = datetime.fromisoformat(text.replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=UTC)
+        return dt
+    except ValueError:
+        return None
 
 
 def _entry_text(entry: Mapping[str, Any], key: str) -> str:

@@ -3,11 +3,11 @@
 **🌐 Live Report**: https://ai-frendly-datahub.github.io/SubscriptionRadar/
 
 
-OTT, 음악, 클라우드 등 구독 서비스의 요금, 기능, 프로모션 정보를 수집하고 분석합니다.
+OTT, 음악, SaaS, AI 서비스의 요금제 변경과 청구 정책 변화를 수집하고 분석합니다.
 
 ## 프로젝트 목표
 
-- **데이터 수집**: 구독 서비스 뉴스 및 공식 공지
+- **데이터 수집**: 테크 뉴스, 공식 가격 페이지, 벤더 공지, 커뮤니티 반응
 - **엔티티 분석**: 서비스 유형별 키워드 매칭 (OTT, 음악, 클라우드 등)
 - **트렌드 리포트**: DuckDB 저장 + HTML 리포트로 {domain} 동향 시각화
 - **자동화**: GitHub Actions 일일 수집 + GitHub Pages 리포트 자동 배포
@@ -34,6 +34,15 @@ OTT, 음악, 클라우드 등 구독 서비스의 요금, 기능, 프로모션 �
    ```
 
    주요 옵션: `--per-source-limit 20`, `--recent-days 5`, `--keep-days 60`, `--timeout 20`.
+
+## 소스 전략
+
+- `공식`: Netflix, Spotify, Apple, Notion, Basecamp, Adobe의 가격/플랜 페이지
+- `운영`: 한국 OTT 공지사항과 billing/renewal/plan change notice
+- `시장`: 테크/구독경제 전문 미디어
+- `커뮤니티`: Reddit 기반 해지, 대체재, 체감 가격 반응
+
+JavaScript/browser 소스를 제대로 수집하려면 `pip install 'radar-core[browser]'`가 필요합니다.
 
 ## GitHub Actions & GitHub Pages
 
@@ -78,3 +87,15 @@ SubscriptionRadar/
     models.py             # 데이터 클래스
   .github/workflows/      # GitHub Actions (crawler + Pages 배포)
 ```
+
+<!-- DATAHUB-OPS-AUDIT:START -->
+## DataHub Operations
+
+- CI/CD workflows: `pr-checks.yml`, `radar-crawler.yml`, `release.yml`.
+- GitHub Pages visualization: `reports/index.html` (valid HTML); https://ai-frendly-datahub.github.io/SubscriptionRadar/.
+- Latest remote Pages check: HTTP 200, HTML.
+- Local workspace audit: 56 Python files parsed, 0 syntax errors.
+- Re-run audit from the workspace root: `python scripts/audit_ci_pages_readme.py --syntax-check --write`.
+- Latest audit report: `_workspace/2026-04-14_github_ci_pages_readme_audit.md`.
+- Latest Pages URL report: `_workspace/2026-04-14_github_pages_url_check.md`.
+<!-- DATAHUB-OPS-AUDIT:END -->

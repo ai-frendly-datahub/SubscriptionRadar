@@ -22,7 +22,7 @@ concurrency:
 jobs:
   run-and-deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -86,7 +86,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update radar data [skip ci]"
-          file_pattern: "data/ reports/*_summary.json"
+          file_pattern: "data/ reports/*_summary.json reports/*_quality.json"
           skip_fetch: false
           skip_checkout: false
 

@@ -1,6 +1,6 @@
 # SUBSCRIPTIONRADAR
 
-OTT, 음악, 클라우드 등 구독 서비스의 요금, 기능, 프로모션 정보를 수집하고 분석합니다.
+OTT, 음악, SaaS, AI 서비스의 가격 페이지와 공지/커뮤니티를 함께 읽어 요금제 변경 신호를 분석합니다.
 
 ## STRUCTURE
 
@@ -34,18 +34,20 @@ SubscriptionRadar/
 
 | Entity | Examples |
 |--------|----------|
-| 주요 엔티티 1 | 예시 1, 예시 2, 예시 3 |
-| 주요 엔티티 2 | 예시 4, 예시 5, 예시 6 |
-| 주요 엔티티 3 | 예시 7, 예시 8, 예시 9 |
+| Subscription / PlanChange | premium, bundle, price increase, 요금제 개편 |
+| Price / BillingPolicy | billing, renewal, refund, 해지, 청구 |
+| Provider / ServiceType | Netflix, Spotify, Notion, SaaS, OTT |
 
 ## DEVIATIONS FROM TEMPLATE
 
-- 표준 템플릿 대비 특화 기능 1
-- 표준 템플릿 대비 특화 기능 2
+- `browser` 소스로 공식 pricing page를 직접 수집한다.
+- taxonomy 기준으로 `공식 + 운영 + 시장 + 커뮤니티` 레이어를 유지한다.
+- browser collector 설정(`config`)을 실제 런타임에서 읽도록 확장했다.
 
 ## COMMANDS
 
 ```bash
 python main.py --category subscription --recent-days 7
 python main.py --category subscription --per-source-limit 50 --keep-days 90
+pip install 'radar-core[browser]'
 ```
