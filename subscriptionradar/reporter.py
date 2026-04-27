@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-import re
 from collections.abc import Iterable
 from collections.abc import Mapping
 from html import escape
 from pathlib import Path
 from typing import Any
 
+from radar_core.ontology import build_summary_ontology_metadata
 from radar_core.report_utils import (
     generate_index_html as _core_generate_index_html,
 )
@@ -30,6 +30,7 @@ def generate_report(
     """Generate HTML report (delegates to radar-core)."""
     articles_list = list(articles)
     plugin_charts = []
+    extra_sections: list[dict[str, Any]] = []
 
     # --- Universal plugins (entity heatmap + source reliability) ---
     try:
@@ -49,18 +50,22 @@ def generate_report(
     except Exception:
         pass
 
-    report_path = _core_generate_report(
+    if quality_report:
+        extra_sections.append(_build_subscription_quality_section(quality_report))
+    return _core_generate_report(
         category=category,
         articles=articles_list,
         output_path=output_path,
         stats=stats,
         errors=errors,
         plugin_charts=plugin_charts if plugin_charts else None,
+        extra_sections=extra_sections or None,
+        ontology_metadata=build_summary_ontology_metadata(
+            "SubscriptionRadar",
+            category_name=category.category_name,
+            search_from=Path(__file__).resolve(),
+        ),
     )
-    if quality_report:
-        for path in _quality_panel_report_paths(report_path, category.category_name):
-            _inject_subscription_quality_panel(path, quality_report)
-    return report_path
 
 
 def generate_index_html(
@@ -72,47 +77,20 @@ def generate_index_html(
     return _core_generate_index_html(report_dir, radar_name)
 
 
-def _quality_panel_report_paths(report_path: Path, category_name: str) -> list[Path]:
-    paths = [report_path]
-    if report_path.stem == f"{category_name}_report":
-        dated = sorted(
-            report_path.parent.glob(
-                f"{category_name}_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9].html"
-            )
-        )
-        if dated:
-            paths.append(dated[-1])
-    unique: list[Path] = []
-    for path in paths:
-        if path.exists() and path not in unique:
-            unique.append(path)
-    return unique
-
-
-def _inject_subscription_quality_panel(
-    report_path: Path,
+def _build_subscription_quality_section(
     quality_report: Mapping[str, Any],
-) -> None:
-    if not report_path.exists():
-        return
-    html = report_path.read_text(encoding="utf-8")
-    panel = _render_subscription_quality_panel(quality_report)
-    if '<section id="subscription-quality"' in html:
-        html = re.sub(
-            r'\n<section id="subscription-quality".*?</section>\n',
-            f"\n{panel}\n",
-            html,
-            count=1,
-            flags=re.DOTALL,
-        )
-    elif "</body>" in html:
-        html = html.replace("</body>", f"{panel}\n</body>", 1)
-    else:
-        html = f"{html}\n{panel}\n"
-    report_path.write_text(html, encoding="utf-8")
+) -> dict[str, Any]:
+    return {
+        "id": "subscription-quality",
+        "title": "Subscription Quality",
+        "panel_title": "Pricing and Plan Signal Coverage",
+        "subtitle": "Pricing, plan-change, ranking, and churn-proxy evidence from the latest contract.",
+        "badges": ["subscription_quality.json", "pricing", "review"],
+        "body_html": _render_subscription_quality_body(quality_report),
+    }
 
 
-def _render_subscription_quality_panel(quality_report: Mapping[str, Any]) -> str:
+def _render_subscription_quality_body(quality_report: Mapping[str, Any]) -> str:
     summary = _mapping(quality_report.get("summary"))
     chips = [
         ("Events", summary.get("subscription_signal_event_count", 0)),
@@ -124,25 +102,27 @@ def _render_subscription_quality_panel(quality_report: Mapping[str, Any]) -> str
         ("Review", summary.get("daily_review_item_count", 0)),
     ]
     chip_html = "\n".join(
-        f"<li><strong>{escape(label)}</strong><span>{escape(str(value))}</span></li>"
+        "<div class=\"metric-card\">"
+        f"<span>{escape(label)}</span><strong>{escape(str(value))}</strong>"
+        "</div>"
         for label, value in chips
     )
     events_html = _render_quality_events(_list_of_mappings(quality_report.get("events"))[:8])
     review_html = _render_quality_review(
         _list_of_mappings(quality_report.get("daily_review_items"))[:8]
     )
-    return f"""
-<section id="subscription-quality" style="margin:32px 0;padding:24px;border:1px solid #d7dde8;border-radius:8px;background:#f7fafc;color:#172033;">
-  <h2 style="margin:0 0 12px;font-size:1.35rem;">Subscription Quality</h2>
-  <p style="margin:0 0 16px;">Pricing, plan-change, ranking, and churn-proxy quality evidence from the latest contract.</p>
-  <ul style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;list-style:none;padding:0;margin:0 0 18px;">
-    {chip_html}
-  </ul>
-  <h3 style="margin:20px 0 10px;font-size:1.05rem;">Tracked Events</h3>
-  {events_html}
-  <h3 style="margin:20px 0 10px;font-size:1.05rem;">Daily Review</h3>
-  {review_html}
-</section>"""
+    return (
+        f"<div class=\"metric-grid\">{chip_html}</div>"
+        "<p>Tracked subscription events and daily review items are rendered inside the shared report shell.</p>"
+        "<div>"
+        "<h3>Tracked Events</h3>"
+        f"{events_html}"
+        "</div>"
+        "<div>"
+        "<h3>Daily Review</h3>"
+        f"{review_html}"
+        "</div>"
+    )
 
 
 def _render_quality_events(events: list[Mapping[str, Any]]) -> str:
@@ -165,13 +145,14 @@ def _render_quality_events(events: list[Mapping[str, Any]]) -> str:
             f"<td><code>{escape(str(event.get('canonical_key') or ''))}</code></td>"
             "</tr>"
         )
-    return f"""
-<div style="overflow-x:auto;">
-  <table style="width:100%;border-collapse:collapse;font-size:.92rem;">
-    <thead><tr><th>Model</th><th>Source</th><th>Vendor</th><th>Plan</th><th>Price</th><th>Canonical Key</th></tr></thead>
-    <tbody>{''.join(rows)}</tbody>
-  </table>
-</div>"""
+    return (
+        "<div style=\"overflow-x:auto;\">"
+        "<table class=\"data-table\">"
+        "<thead><tr><th>Model</th><th>Source</th><th>Vendor</th><th>Plan</th><th>Price</th><th>Canonical Key</th></tr></thead>"
+        f"<tbody>{''.join(rows)}</tbody>"
+        "</table>"
+        "</div>"
+    )
 
 
 def _render_quality_review(items: list[Mapping[str, Any]]) -> str:
@@ -185,7 +166,7 @@ def _render_quality_review(items: list[Mapping[str, Any]]) -> str:
             str(item.get("canonical_key") or item.get("activation_gate") or item.get("title") or "")
         )
         rendered.append(f"<li><strong>{reason}</strong> {source} <span>{detail}</span></li>")
-    return f"<ul>{''.join(rendered)}</ul>"
+    return f"<ul class=\"review-list\">{''.join(rendered)}</ul>"
 
 
 def _mapping(value: object) -> Mapping[str, Any]:

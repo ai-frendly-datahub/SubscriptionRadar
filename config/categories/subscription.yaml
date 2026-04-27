@@ -506,6 +506,9 @@ sources:
   - name: "The SaaS Podcast"
     type: "rss"
     url: "https://saasclub.io/feed/podcast/"
+    notes: "Podcast cadence is episodic, so temporary zero-item windows should not count as an active churn-proxy gap."
+    config:
+      quiet_when_no_items: true
 
   - name: "Subscription Insider"
     type: "rss"

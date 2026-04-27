@@ -21,9 +21,17 @@ from subscriptionradar.relevance import apply_source_context_entities, filter_re
 from subscriptionradar.reporter import generate_index_html, generate_report
 from subscriptionradar.search_index import SearchIndex
 from subscriptionradar.storage import RadarStorage
+from radar_core.ontology import annotate_articles_with_ontology
 
 
 def _summary_report_path(report_dir: Path, category_name: str, quality_report: dict[str, object]) -> Path:
+    existing = sorted(
+        report_dir.glob(f"{category_name}_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_summary.json"),
+        key=lambda path: path.stat().st_mtime,
+    )
+    if existing:
+        return existing[-1]
+
     generated_at = _parse_generated_at(quality_report)
     stamp = generated_at.astimezone(UTC).strftime("%Y%m%d")
     return report_dir / f"{category_name}_{stamp}_summary.json"
@@ -52,7 +60,12 @@ def _augment_summary_with_quality(summary_path: Path, quality_report: dict[str, 
     except (OSError, json.JSONDecodeError):
         return
 
-    warnings = list(summary.get("warnings") or [])
+    warnings = [
+        str(warning)
+        for warning in list(summary.get("warnings") or [])
+        if not str(warning).startswith("collection errors detected:")
+        and not str(warning).startswith("freshness gaps detected:")
+    ]
     collection_errors = int(quality_summary.get("collection_error_count") or 0)
     stale_sources = int(quality_summary.get("stale_sources") or 0)
     missing_sources = int(quality_summary.get("missing_sources") or 0)
@@ -66,10 +79,34 @@ def _augment_summary_with_quality(summary_path: Path, quality_report: dict[str, 
     summary["quality_summary"] = quality_summary
     if warnings:
         summary["warnings"] = warnings
+    elif "warnings" in summary:
+        del summary["warnings"]
     summary_path.write_text(
         json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+
+
+def _select_quality_articles(
+    storage: RadarStorage,
+    *,
+    category_cfg,
+    recent_days: int,
+    per_source_limit: int,
+    fallback_articles: list,
+) -> list:
+    stored_quality_articles = filter_relevant_articles(
+        apply_source_context_entities(
+            storage.recent_articles(
+                category_cfg.category_name,
+                days=max(recent_days, 14),
+                limit=max(500, per_source_limit * max(len(category_cfg.sources), 1) * 2),
+            ),
+            category_cfg.sources,
+        ),
+        category_cfg.sources,
+    )
+    return stored_quality_articles or fallback_articles
 
 
 def _send_notifications(
@@ -154,6 +191,13 @@ def run(
         limit_per_source=per_source_limit,
         timeout=timeout,
     )
+    collected = annotate_articles_with_ontology(
+        collected,
+        repo_name="SubscriptionRadar",
+        sources_by_name={source.name: source for source in category_cfg.sources},
+        category_name=category_cfg.category_name,
+        search_from=Path(__file__),
+    )
 
     raw_logger = RawLogger(settings.raw_data_dir)
     for source in category_cfg.sources:
@@ -193,8 +237,14 @@ def run(
         ),
         category_cfg.sources,
     )
+    quality_articles = _select_quality_articles(
+        storage,
+        category_cfg=category_cfg,
+        recent_days=recent_days,
+        per_source_limit=per_source_limit,
+        fallback_articles=validated_articles if validated_articles else recent_articles,
+    )
     storage.close()
-    quality_articles = validated_articles if validated_articles else recent_articles
 
     stats = {
         "sources": len(category_cfg.sources),

@@ -84,3 +84,12 @@ def test_report_includes_subscription_quality_panel(tmp_path: Path) -> None:
     dated_text = dated_html.read_text(encoding="utf-8")
     assert "Subscription Quality" in dated_text
     assert "subscription_plan:notion:plus:us:usd" in dated_text
+
+    summaries = sorted(
+        tmp_path.glob("subscription_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_summary.json")
+    )
+    assert len(summaries) == 1
+    summary = summaries[0].read_text(encoding="utf-8")
+    assert '"repo": "SubscriptionRadar"' in summary
+    assert '"ontology_version": "0.1.0"' in summary
+    assert '"subscription.pricing_page_snapshot"' in summary
