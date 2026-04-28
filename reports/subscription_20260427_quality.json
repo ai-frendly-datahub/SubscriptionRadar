@@ -1,6 +1,6 @@
 {
   "category": "subscription",
-  "generated_at": "2026-04-28T00:41:26.605515+00:00",
+  "generated_at": "2026-04-27T23:45:30.976557+00:00",
   "scope_note": "Official pricing pages and notices are tracked separately from broad tech/media/community feeds. Broad rows require plan, price, billing, or provider-level subscription evidence before they enter reports.",
   "summary": {
     "total_sources": 51,
@@ -278,7 +278,7 @@
       "article_count": 8,
       "event_count": 8,
       "latest_event_at": "2026-04-24T05:09:40+00:00",
-      "age_days": 3.81,
+      "age_days": 3.77,
       "latest_title": "Medallia Is Just the Opening Act: 12+ PE SaaS Deals With $50B+ in Debt at Risk of Blowing Up",
       "latest_url": "https://www.saastr.com/medallia-is-just-the-opening-act-heres-the-list-of-pe-saas-deals-most-at-risk/",
       "latest_provider": [],
@@ -548,7 +548,7 @@
       "article_count": 7,
       "event_count": 7,
       "latest_event_at": "2026-04-25T03:17:16+00:00",
-      "age_days": 2.89,
+      "age_days": 2.85,
       "latest_title": "Google Gemini ranks #4 in US App Store Top Free Apps",
       "latest_url": "https://apps.apple.com/us/app/google-gemini/id6477489729",
       "latest_provider": [
@@ -584,7 +584,7 @@
       "article_count": 3,
       "event_count": 3,
       "latest_event_at": "2026-04-25T03:17:17+00:00",
-      "age_days": 2.89,
+      "age_days": 2.85,
       "latest_title": "Google Gemini ranks #3 in KR App Store Top Free Apps",
       "latest_url": "https://apps.apple.com/kr/app/google-gemini/id6477489729",
       "latest_provider": [
@@ -622,7 +622,7 @@
       "article_count": 1,
       "event_count": 1,
       "latest_event_at": "2026-04-25T03:17:28.874496+00:00",
-      "age_days": 2.89,
+      "age_days": 2.85,
       "latest_title": "Plans and Pricing | Netflix Help Center",
       "latest_url": "https://www.netflix.com/pricing",
       "latest_provider": [
@@ -670,7 +670,7 @@
       "article_count": 1,
       "event_count": 1,
       "latest_event_at": "2026-04-25T03:17:34.604886+00:00",
-      "age_days": 2.89,
+      "age_days": 2.85,
       "latest_title": "Spotify Premium (대한민국) - ₩0의 요금으로 2개월 이용해보기",
       "latest_url": "https://www.spotify.com/premium/",
       "latest_provider": [
@@ -712,7 +712,7 @@
       "article_count": 1,
       "event_count": 1,
       "latest_event_at": "2026-04-25T03:17:39.450480+00:00",
-      "age_days": 2.89,
+      "age_days": 2.85,
       "latest_title": "Apple One - Apple",
       "latest_url": "https://www.apple.com/apple-one/",
       "latest_provider": [
@@ -760,7 +760,7 @@
       "article_count": 1,
       "event_count": 1,
       "latest_event_at": "2026-04-25T03:17:44.487579+00:00",
-      "age_days": 2.89,
+      "age_days": 2.85,
       "latest_title": "Notion Pricing Plans: Free, Plus, Business, & Enterprise.",
       "latest_url": "https://www.notion.com/pricing",
       "latest_provider": [
@@ -805,7 +805,7 @@
       "article_count": 1,
       "event_count": 1,
       "latest_event_at": "2026-04-25T03:17:49.331178+00:00",
-      "age_days": 2.89,
+      "age_days": 2.85,
       "latest_title": "Basecamp — Pricing",
       "latest_url": "https://basecamp.com/pricing/",
       "latest_provider": [
@@ -969,7 +969,7 @@
       "article_count": 1,
       "event_count": 1,
       "latest_event_at": "2026-04-24T05:57:10.540112+00:00",
-      "age_days": 3.78,
+      "age_days": 3.74,
       "latest_title": "고객센터 | TVING",
       "latest_url": "https://www.tving.com/help/notice",
       "latest_provider": [
@@ -1013,7 +1013,7 @@
       "article_count": 1,
       "event_count": 1,
       "latest_event_at": "2026-04-25T03:17:59.153097+00:00",
-      "age_days": 2.89,
+      "age_days": 2.85,
       "latest_title": "Wavve(웨이브)",
       "latest_url": "https://www.wavve.com/notice",
       "latest_provider": [
@@ -1084,7 +1084,7 @@
       "article_count": 1,
       "event_count": 1,
       "latest_event_at": "2026-04-25T03:18:08.810409+00:00",
-      "age_days": 2.89,
+      "age_days": 2.85,
       "latest_title": "공지사항 | 밀리의서재",
       "latest_url": "https://www.millie.co.kr/v3/customer/notice",
       "latest_provider": [
@@ -1491,7 +1491,7 @@
       "article_count": 2,
       "event_count": 2,
       "latest_event_at": "2026-04-23T12:36:26+00:00",
-      "age_days": 4.5,
+      "age_days": 4.46,
       "latest_title": "ServiceNow Raises 2026 Subscription Outlook as Enterprise Buyers Keep Funding Core Software",
       "latest_url": "https://www.subscriptioninsider.com/article-type/news/servicenow-raises-2026-subscription-outlook-as-enterprise-buyers-keep-funding-core-software",
       "latest_provider": [],
@@ -3384,7 +3384,7 @@
       "reason": "source_stale",
       "source": "TVING 공지사항",
       "event_model": "plan_change_notice",
-      "age_days": 3.78,
+      "age_days": 3.74,
       "latest_title": "고객센터 | TVING"
     },
     {
