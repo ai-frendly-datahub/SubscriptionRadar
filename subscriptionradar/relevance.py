@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from collections.abc import Iterable
 
 from .models import Article, Source
@@ -188,7 +189,14 @@ def _has_strong_subscription_signal(article: Article, source: Source) -> bool:
 def _is_invalid_page(article: Article) -> bool:
     title = (article.title or "").strip().lower()
     summary = (article.summary or "").strip().lower()
-    return any(term in title or term in summary for term in INVALID_PAGE_TERMS)
+    for term in INVALID_PAGE_TERMS:
+        if term == "404":
+            if title == "404" or re.search(r"(?<!\d)404(?!\d)", summary):
+                return True
+            continue
+        if term in title or term in summary:
+            return True
+    return False
 
 
 def _is_operational_source(source: Source) -> bool:

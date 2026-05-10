@@ -84,6 +84,26 @@ def test_filter_relevant_articles_drops_broad_noise_and_invalid_pages() -> None:
     ]
 
 
+def test_filter_relevant_articles_does_not_treat_notice_ids_containing_404_as_error() -> None:
+    source = Source(
+        name="TVING 공지사항",
+        type="javascript",
+        url="https://www.tving.com/help/notice",
+        content_type="notice",
+        info_purpose=["billing", "plan_change"],
+    )
+    article = _article(
+        title="고객센터 | TVING",
+        source=source.name,
+        matched_entities={"BillingPolicy": ["결제"]},
+    )
+    article.summary = "143404\t5월 종료 프로그램 안내\t2026.04.24"
+
+    filtered = filter_relevant_articles([article], [source])
+
+    assert filtered == [article]
+
+
 def test_filter_relevant_articles_keeps_only_provider_backed_app_store_rankings() -> None:
     source = Source(
         name="Apple App Store Top Free US",

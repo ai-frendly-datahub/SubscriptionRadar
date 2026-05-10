@@ -106,7 +106,15 @@ def _select_quality_articles(
         ),
         category_cfg.sources,
     )
-    return stored_quality_articles or fallback_articles
+    return _dedupe_articles([*fallback_articles, *stored_quality_articles])
+
+
+def _dedupe_articles(articles: list) -> list:
+    deduped = {}
+    for article in articles:
+        key = f"{article.source}:{article.link or article.title}"
+        deduped.setdefault(key, article)
+    return list(deduped.values())
 
 
 def _send_notifications(
@@ -243,7 +251,7 @@ def run(
         category_cfg=category_cfg,
         recent_days=recent_days,
         per_source_limit=per_source_limit,
-        fallback_articles=validated_articles if validated_articles else recent_articles,
+        fallback_articles=classified if classified else recent_articles,
     )
     storage.close()
 
