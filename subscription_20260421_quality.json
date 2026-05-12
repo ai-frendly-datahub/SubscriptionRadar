@@ -1,15 +1,15 @@
 {
   "category": "subscription",
-  "generated_at": "2026-04-21T15:04:02.982616+00:00",
+  "generated_at": "2026-04-21T14:22:56.606451+00:00",
   "scope_note": "Official pricing pages and notices are tracked separately from broad tech/media/community feeds. Broad rows require plan, price, billing, or provider-level subscription evidence before they enter reports.",
   "summary": {
     "total_sources": 51,
     "enabled_sources": 37,
     "tracked_sources": 25,
-    "fresh_sources": 11,
+    "fresh_sources": 13,
     "quiet_sources": 3,
     "stale_sources": 0,
-    "missing_sources": 2,
+    "missing_sources": 0,
     "missing_event_sources": 0,
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 21,
@@ -17,24 +17,24 @@
     "collection_error_count": 0,
     "pricing_page_snapshot_events": 5,
     "plan_change_notice_events": 3,
-    "app_store_ranking_events": 9,
-    "churn_proxy_events": 3,
-    "subscription_signal_event_count": 20,
+    "app_store_ranking_events": 7,
+    "churn_proxy_events": 24,
+    "subscription_signal_event_count": 39,
     "official_pricing_page_event_count": 5,
     "community_churn_proxy_event_count": 0,
     "plan_canonical_key_present_count": 8,
     "vendor_proxy_key_count": 0,
     "price_amount_present_count": 5,
-    "currency_present_count": 8,
-    "change_type_present_count": 6,
-    "app_ranking_key_present_count": 9,
-    "churn_metric_present_count": 1,
+    "currency_present_count": 23,
+    "change_type_present_count": 5,
+    "app_ranking_key_present_count": 7,
+    "churn_metric_present_count": 13,
     "missing_canonical_key_count": 0,
-    "event_required_field_gap_count": 2,
-    "tracked_source_gap_count": 2,
+    "event_required_field_gap_count": 11,
+    "tracked_source_gap_count": 0,
     "missing_event_model_count": 0,
     "source_backlog_candidate_count": 4,
-    "daily_review_item_count": 8
+    "daily_review_item_count": 15
   },
   "sources": [
     {
@@ -51,7 +51,7 @@
       "freshness_sla_days": null,
       "status": "not_tracked",
       "quiet_when_no_items": false,
-      "article_count": 13,
+      "article_count": 4,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -79,7 +79,7 @@
       "freshness_sla_days": null,
       "status": "not_tracked",
       "quiet_when_no_items": false,
-      "article_count": 3,
+      "article_count": 0,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -107,7 +107,7 @@
       "freshness_sla_days": null,
       "status": "not_tracked",
       "quiet_when_no_items": false,
-      "article_count": 5,
+      "article_count": 0,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -135,7 +135,7 @@
       "freshness_sla_days": null,
       "status": "not_tracked",
       "quiet_when_no_items": false,
-      "article_count": 7,
+      "article_count": 2,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -219,7 +219,7 @@
       "freshness_sla_days": null,
       "status": "not_tracked",
       "quiet_when_no_items": false,
-      "article_count": 3,
+      "article_count": 0,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -247,7 +247,7 @@
       "freshness_sla_days": null,
       "status": "not_tracked",
       "quiet_when_no_items": false,
-      "article_count": 6,
+      "article_count": 1,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -275,10 +275,10 @@
       "freshness_sla_days": 30.0,
       "status": "fresh",
       "quiet_when_no_items": false,
-      "article_count": 3,
-      "event_count": 3,
+      "article_count": 5,
+      "event_count": 5,
       "latest_event_at": "2026-04-21T05:02:04+00:00",
-      "age_days": 0.42,
+      "age_days": 0.39,
       "latest_title": "Marketing Is Not Complicated. Show Up Where Your Customers Are.",
       "latest_url": "https://www.saastr.com/marketing-is-not-complicated-show-up-where-your-customers-are/",
       "latest_provider": [],
@@ -422,7 +422,7 @@
       "freshness_sla_days": null,
       "status": "not_tracked",
       "quiet_when_no_items": false,
-      "article_count": 1,
+      "article_count": 3,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -545,9 +545,9 @@
       "freshness_sla_days": 7.0,
       "status": "fresh",
       "quiet_when_no_items": false,
-      "article_count": 6,
-      "event_count": 6,
-      "latest_event_at": "2026-04-21T15:02:58+00:00",
+      "article_count": 5,
+      "event_count": 5,
+      "latest_event_at": "2026-04-21T14:22:11+00:00",
       "age_days": 0.0,
       "latest_title": "ChatGPT ranks #1 in US App Store Top Free Apps",
       "latest_url": "https://apps.apple.com/us/app/chatgpt/id6448311069",
@@ -582,14 +582,14 @@
       "freshness_sla_days": 7.0,
       "status": "fresh",
       "quiet_when_no_items": false,
-      "article_count": 3,
-      "event_count": 3,
-      "latest_event_at": "2026-04-21T15:03:14+00:00",
+      "article_count": 2,
+      "event_count": 2,
+      "latest_event_at": "2026-04-21T14:22:11+00:00",
       "age_days": 0.0,
-      "latest_title": "Claude by Anthropic ranks #5 in KR App Store Top Free Apps",
-      "latest_url": "https://apps.apple.com/kr/app/claude-by-anthropic/id6473753684",
+      "latest_title": "Google Gemini ranks #3 in KR App Store Top Free Apps",
+      "latest_url": "https://apps.apple.com/kr/app/google-gemini/id6477489729",
       "latest_provider": [
-        "claude"
+        "gemini"
       ],
       "latest_price": [
         "free"
@@ -598,7 +598,7 @@
       "latest_source_signal": [
         "app_store_ranking"
       ],
-      "latest_canonical_key": "app_store:kr:top_free_apps:6473753684",
+      "latest_canonical_key": "app_store:kr:top_free_apps:6477489729",
       "latest_required_field_gaps": [],
       "errors": []
     },
@@ -622,7 +622,7 @@
       "quiet_when_no_items": false,
       "article_count": 1,
       "event_count": 1,
-      "latest_event_at": "2026-04-21T15:03:17.267087+00:00",
+      "latest_event_at": "2026-04-21T14:22:17.946656+00:00",
       "age_days": 0.0,
       "latest_title": "Plans and Pricing | Netflix Help Center",
       "latest_url": "https://www.netflix.com/pricing",
@@ -646,7 +646,7 @@
         "plan_change",
         "pricing"
       ],
-      "latest_canonical_key": "subscription_plan:netflix:pricing-catalog:usd",
+      "latest_canonical_key": "subscription_plan:netflix:pricing-catalog:krw",
       "latest_required_field_gaps": [],
       "errors": []
     },
@@ -670,28 +670,25 @@
       "quiet_when_no_items": false,
       "article_count": 1,
       "event_count": 1,
-      "latest_event_at": "2026-04-21T15:03:20.925936+00:00",
+      "latest_event_at": "2026-04-21T14:22:20.922227+00:00",
       "age_days": 0.0,
-      "latest_title": "Spotify Premium - Spotify (USA)",
+      "latest_title": "Spotify Premium (대한민국) - ₩0의 요금으로 2개월 이용해보기",
       "latest_url": "https://www.spotify.com/premium/",
       "latest_provider": [
         "spotify",
-        "hulu"
+        "스포티파이"
       ],
       "latest_price": [
-        "discount",
-        "free",
-        "premium"
+        "premium",
+        "요금"
       ],
-      "latest_plan_change": [
-        "ad-supported"
-      ],
+      "latest_plan_change": [],
       "latest_source_signal": [
         "billing",
         "plan_change",
         "pricing"
       ],
-      "latest_canonical_key": "subscription_plan:spotify:premium:usd",
+      "latest_canonical_key": "subscription_plan:spotify:premium:krw",
       "latest_required_field_gaps": [],
       "errors": []
     },
@@ -715,7 +712,7 @@
       "quiet_when_no_items": false,
       "article_count": 1,
       "event_count": 1,
-      "latest_event_at": "2026-04-21T15:03:25.329990+00:00",
+      "latest_event_at": "2026-04-21T14:22:25.382231+00:00",
       "age_days": 0.0,
       "latest_title": "Apple One - Apple",
       "latest_url": "https://www.apple.com/apple-one/",
@@ -763,7 +760,7 @@
       "quiet_when_no_items": false,
       "article_count": 1,
       "event_count": 1,
-      "latest_event_at": "2026-04-21T15:03:28.398359+00:00",
+      "latest_event_at": "2026-04-21T14:22:30.576275+00:00",
       "age_days": 0.0,
       "latest_title": "Notion Pricing Plans: Free, Plus, Business, & Enterprise.",
       "latest_url": "https://www.notion.com/pricing",
@@ -808,7 +805,7 @@
       "quiet_when_no_items": false,
       "article_count": 1,
       "event_count": 1,
-      "latest_event_at": "2026-04-21T15:03:32.336185+00:00",
+      "latest_event_at": "2026-04-21T14:22:35.688331+00:00",
       "age_days": 0.0,
       "latest_title": "Basecamp — Pricing",
       "latest_url": "https://basecamp.com/pricing/",
@@ -882,7 +879,7 @@
       "freshness_sla_days": null,
       "status": "not_tracked",
       "quiet_when_no_items": false,
-      "article_count": 3,
+      "article_count": 2,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -938,7 +935,7 @@
       "freshness_sla_days": null,
       "status": "not_tracked",
       "quiet_when_no_items": false,
-      "article_count": 3,
+      "article_count": 0,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -972,22 +969,27 @@
       "quiet_when_no_items": false,
       "article_count": 1,
       "event_count": 1,
-      "latest_event_at": "2026-04-21T15:03:37.258952+00:00",
+      "latest_event_at": "2026-04-21T14:22:40.550133+00:00",
       "age_days": 0.0,
       "latest_title": "고객센터 | TVING",
       "latest_url": "https://www.tving.com/help/notice",
       "latest_provider": [
+        "apple tv",
         "tving",
         "티빙"
       ],
-      "latest_price": [],
-      "latest_plan_change": [],
+      "latest_price": [
+        "구독료"
+      ],
+      "latest_plan_change": [
+        "광고형"
+      ],
       "latest_source_signal": [
         "billing",
         "notice",
         "plan_change"
       ],
-      "latest_canonical_key": "subscription_plan:tving:service-notice",
+      "latest_canonical_key": "subscription_plan:tving:service-notice:krw",
       "latest_required_field_gaps": [],
       "errors": []
     },
@@ -1011,7 +1013,7 @@
       "quiet_when_no_items": false,
       "article_count": 1,
       "event_count": 1,
-      "latest_event_at": "2026-04-21T15:03:44.793499+00:00",
+      "latest_event_at": "2026-04-21T14:22:44.040833+00:00",
       "age_days": 0.0,
       "latest_title": "Wavve(웨이브)",
       "latest_url": "https://www.wavve.com/notice",
@@ -1082,14 +1084,16 @@
       "quiet_when_no_items": false,
       "article_count": 1,
       "event_count": 1,
-      "latest_event_at": "2026-04-21T15:03:54.343722+00:00",
+      "latest_event_at": "2026-04-21T14:22:52.180430+00:00",
       "age_days": 0.0,
       "latest_title": "공지사항 | 밀리의서재",
       "latest_url": "https://www.millie.co.kr/v3/customer/notice",
       "latest_provider": [
         "밀리의서재"
       ],
-      "latest_price": [],
+      "latest_price": [
+        "구독료"
+      ],
       "latest_plan_change": [],
       "latest_source_signal": [
         "billing",
@@ -1455,19 +1459,29 @@
       "tracked": true,
       "event_model": "churn_proxy",
       "freshness_sla_days": 30.0,
-      "status": "missing",
+      "status": "fresh",
       "quiet_when_no_items": false,
-      "article_count": 0,
-      "event_count": 0,
-      "latest_event_at": null,
-      "age_days": null,
-      "latest_title": "",
-      "latest_url": "",
-      "latest_provider": [],
-      "latest_price": [],
+      "article_count": 10,
+      "event_count": 10,
+      "latest_event_at": "2026-04-16T03:00:00+00:00",
+      "age_days": 5.47,
+      "latest_title": "The Risky AI SaaS Rebuild That Broke a $2M ARR Ceiling",
+      "latest_url": "https://saasclub.io/feed/podcast/",
+      "latest_provider": [
+        "chatgpt",
+        "copilot"
+      ],
+      "latest_price": [
+        "pricing",
+        "free",
+        "premium",
+        "revenue"
+      ],
       "latest_plan_change": [],
-      "latest_source_signal": [],
-      "latest_canonical_key": "",
+      "latest_source_signal": [
+        "churn_proxy"
+      ],
+      "latest_canonical_key": "churn_proxy:chatgpt:arr",
       "latest_required_field_gaps": [],
       "errors": []
     },
@@ -1483,20 +1497,24 @@
       "tracked": true,
       "event_model": "churn_proxy",
       "freshness_sla_days": 30.0,
-      "status": "missing",
+      "status": "fresh",
       "quiet_when_no_items": false,
-      "article_count": 0,
-      "event_count": 0,
-      "latest_event_at": null,
-      "age_days": null,
-      "latest_title": "",
-      "latest_url": "",
+      "article_count": 9,
+      "event_count": 9,
+      "latest_event_at": "2026-04-17T09:34:41+00:00",
+      "age_days": 4.2,
+      "latest_title": "NYC Proposes “Click to Cancel” Rulemaking For Public Comment",
+      "latest_url": "https://www.subscriptioninsider.com/topics/regulation-and-compliance/nyc-proposes-click-to-cancel-rulemaking-for-public-comment",
       "latest_provider": [],
       "latest_price": [],
       "latest_plan_change": [],
-      "latest_source_signal": [],
-      "latest_canonical_key": "",
-      "latest_required_field_gaps": [],
+      "latest_source_signal": [
+        "churn_proxy"
+      ],
+      "latest_canonical_key": "churn_proxy:subscription-insider:churn_proxy",
+      "latest_required_field_gaps": [
+        "metric_value"
+      ],
       "errors": []
     },
     {
@@ -1541,7 +1559,7 @@
       "freshness_sla_days": null,
       "status": "not_tracked",
       "quiet_when_no_items": false,
-      "article_count": 0,
+      "article_count": 4,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1597,7 +1615,7 @@
       "freshness_sla_days": null,
       "status": "not_tracked",
       "quiet_when_no_items": false,
-      "article_count": 1,
+      "article_count": 0,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1642,1065 +1660,6 @@
   ],
   "events": [
     {
-      "source": "밀리의서재",
-      "source_type": "javascript",
-      "trust_tier": "T1_official",
-      "content_type": "notice",
-      "collection_tier": "C3_html_js",
-      "producer_role": "vendor",
-      "info_purpose": [
-        "official_notice",
-        "billing",
-        "plan_change"
-      ],
-      "event_model": "plan_change_notice",
-      "title": "공지사항 | 밀리의서재",
-      "url": "https://www.millie.co.kr/v3/customer/notice",
-      "source_url": "https://www.millie.co.kr/v3/customer/notice",
-      "event_at": "2026-04-21T15:03:54.343722+00:00",
-      "subscription": [],
-      "price": [],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [
-        "밀리의서재"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "billing",
-        "notice",
-        "plan_change"
-      ],
-      "vendor_id": "millie",
-      "vendor_name": "밀리의서재",
-      "plan_id": "service-notice",
-      "plan_name": "Service notice",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "KRW",
-      "price_amount": null,
-      "change_type": "service_notice",
-      "effective_date": "",
-      "app_id": "",
-      "rank": null,
-      "market": "",
-      "app_category": "",
-      "metric_name": "churn_proxy",
-      "metric_value": null,
-      "canonical_key": "subscription_plan:millie:service-notice:krw",
-      "canonical_key_status": "complete",
-      "event_key": "plan_change_notice:855bacbefe5c:20260421",
-      "required_field_proxy": {
-        "vendor_id": true,
-        "plan_id": true,
-        "change_type": true,
-        "source_url": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Wavve 공지사항",
-      "source_type": "javascript",
-      "trust_tier": "T1_official",
-      "content_type": "notice",
-      "collection_tier": "C3_html_js",
-      "producer_role": "vendor",
-      "info_purpose": [
-        "official_notice",
-        "billing",
-        "plan_change"
-      ],
-      "event_model": "plan_change_notice",
-      "title": "Wavve(웨이브)",
-      "url": "https://www.wavve.com/notice",
-      "source_url": "https://www.wavve.com/notice",
-      "event_at": "2026-04-21T15:03:44.793499+00:00",
-      "subscription": [],
-      "price": [],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [
-        "wavve",
-        "웨이브"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "billing",
-        "notice",
-        "plan_change"
-      ],
-      "vendor_id": "wavve",
-      "vendor_name": "Wavve",
-      "plan_id": "service-notice",
-      "plan_name": "Service notice",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "",
-      "price_amount": null,
-      "change_type": "service_notice",
-      "effective_date": "",
-      "app_id": "",
-      "rank": null,
-      "market": "",
-      "app_category": "",
-      "metric_name": "percentage",
-      "metric_value": 8.0,
-      "canonical_key": "subscription_plan:wavve:service-notice",
-      "canonical_key_status": "complete",
-      "event_key": "plan_change_notice:35414840e70d:20260421",
-      "required_field_proxy": {
-        "vendor_id": true,
-        "plan_id": true,
-        "change_type": true,
-        "source_url": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "TVING 공지사항",
-      "source_type": "javascript",
-      "trust_tier": "T1_official",
-      "content_type": "notice",
-      "collection_tier": "C3_html_js",
-      "producer_role": "vendor",
-      "info_purpose": [
-        "official_notice",
-        "billing",
-        "plan_change"
-      ],
-      "event_model": "plan_change_notice",
-      "title": "고객센터 | TVING",
-      "url": "https://www.tving.com/help/notice",
-      "source_url": "https://www.tving.com/help/notice",
-      "event_at": "2026-04-21T15:03:37.258952+00:00",
-      "subscription": [],
-      "price": [],
-      "plan_change": [],
-      "billing_policy": [
-        "해지"
-      ],
-      "provider": [
-        "tving",
-        "티빙"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "billing",
-        "notice",
-        "plan_change"
-      ],
-      "vendor_id": "tving",
-      "vendor_name": "TVING",
-      "plan_id": "service-notice",
-      "plan_name": "Service notice",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "",
-      "price_amount": null,
-      "change_type": "service_notice",
-      "effective_date": "",
-      "app_id": "",
-      "rank": null,
-      "market": "",
-      "app_category": "",
-      "metric_name": "churn_proxy",
-      "metric_value": null,
-      "canonical_key": "subscription_plan:tving:service-notice",
-      "canonical_key_status": "complete",
-      "event_key": "plan_change_notice:7935122117bf:20260421",
-      "required_field_proxy": {
-        "vendor_id": true,
-        "plan_id": true,
-        "change_type": true,
-        "source_url": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Basecamp Pricing",
-      "source_type": "browser",
-      "trust_tier": "T1_official",
-      "content_type": "pricing",
-      "collection_tier": "C3_html_js",
-      "producer_role": "vendor",
-      "info_purpose": [
-        "pricing",
-        "plan_change",
-        "billing"
-      ],
-      "event_model": "pricing_page_snapshot",
-      "title": "Basecamp — Pricing",
-      "url": "https://basecamp.com/pricing/",
-      "source_url": "https://basecamp.com/pricing/",
-      "event_at": "2026-04-21T15:03:32.336185+00:00",
-      "subscription": [
-        "upgrade",
-        "monthly",
-        "pro",
-        "plus",
-        "trial",
-        "free trial"
-      ],
-      "price": [
-        "price",
-        "pricing",
-        "fees",
-        "bill",
-        "billing",
-        "deal",
-        "free"
-      ],
-      "plan_change": [],
-      "billing_policy": [
-        "billing"
-      ],
-      "provider": [
-        "notion",
-        "slack",
-        "dropbox"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "billing",
-        "plan_change",
-        "pricing"
-      ],
-      "vendor_id": "basecamp",
-      "vendor_name": "Basecamp",
-      "plan_id": "pricing-catalog",
-      "plan_name": "Pricing catalog",
-      "billing_cycle": "monthly",
-      "region": "",
-      "currency": "USD",
-      "price_amount": 15.0,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "",
-      "rank": null,
-      "market": "",
-      "app_category": "",
-      "metric_name": "percentage",
-      "metric_value": 99.99,
-      "canonical_key": "subscription_plan:basecamp:pricing-catalog:usd",
-      "canonical_key_status": "complete",
-      "event_key": "pricing_page_snapshot:c957cba814be:20260421",
-      "required_field_proxy": {
-        "vendor_id": true,
-        "plan_id": true,
-        "price": true,
-        "currency": true,
-        "source_url": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Notion Pricing",
-      "source_type": "browser",
-      "trust_tier": "T1_official",
-      "content_type": "pricing",
-      "collection_tier": "C3_html_js",
-      "producer_role": "vendor",
-      "info_purpose": [
-        "pricing",
-        "plan_change",
-        "billing"
-      ],
-      "event_model": "pricing_page_snapshot",
-      "title": "Notion Pricing Plans: Free, Plus, Business, & Enterprise.",
-      "url": "https://www.notion.com/pricing",
-      "source_url": "https://www.notion.com/pricing",
-      "event_at": "2026-04-21T15:03:28.398359+00:00",
-      "subscription": [
-        "plans",
-        "member",
-        "monthly",
-        "yearly",
-        "premium",
-        "plus",
-        "trial"
-      ],
-      "price": [
-        "price",
-        "pricing",
-        "payment",
-        "free",
-        "premium"
-      ],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [
-        "notion",
-        "openai"
-      ],
-      "service_type": [
-        "retention"
-      ],
-      "source_signal": [
-        "billing",
-        "plan_change",
-        "pricing"
-      ],
-      "vendor_id": "notion",
-      "vendor_name": "Notion",
-      "plan_id": "pricing-catalog",
-      "plan_name": "Pricing catalog",
-      "billing_cycle": "monthly",
-      "region": "",
-      "currency": "USD",
-      "price_amount": 0.0,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "",
-      "rank": null,
-      "market": "",
-      "app_category": "",
-      "metric_name": "percentage",
-      "metric_value": 20.0,
-      "canonical_key": "subscription_plan:notion:pricing-catalog:usd",
-      "canonical_key_status": "complete",
-      "event_key": "pricing_page_snapshot:ff7343d3dcf2:20260421",
-      "required_field_proxy": {
-        "vendor_id": true,
-        "plan_id": true,
-        "price": true,
-        "currency": true,
-        "source_url": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Apple One Pricing",
-      "source_type": "browser",
-      "trust_tier": "T1_official",
-      "content_type": "pricing",
-      "collection_tier": "C3_html_js",
-      "producer_role": "vendor",
-      "info_purpose": [
-        "pricing",
-        "bundle",
-        "billing"
-      ],
-      "event_model": "pricing_page_snapshot",
-      "title": "Apple One - Apple",
-      "url": "https://www.apple.com/apple-one/",
-      "source_url": "https://www.apple.com/apple-one/",
-      "event_at": "2026-04-21T15:03:25.329990+00:00",
-      "subscription": [
-        "subscription",
-        "subscribe",
-        "plan",
-        "plans",
-        "renewal",
-        "cancel",
-        "monthly",
-        "annual",
-        "plus",
-        "trial",
-        "free trial"
-      ],
-      "price": [
-        "price",
-        "cost",
-        "billing",
-        "discount",
-        "free",
-        "paid"
-      ],
-      "plan_change": [
-        "family plan"
-      ],
-      "billing_policy": [
-        "billing",
-        "renewal"
-      ],
-      "provider": [
-        "apple tv",
-        "apple music"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "billing",
-        "bundle",
-        "pricing"
-      ],
-      "vendor_id": "apple",
-      "vendor_name": "Apple One",
-      "plan_id": "apple-one",
-      "plan_name": "Apple One",
-      "billing_cycle": "monthly",
-      "region": "",
-      "currency": "USD",
-      "price_amount": 19.95,
-      "change_type": "family plan",
-      "effective_date": "",
-      "app_id": "",
-      "rank": null,
-      "market": "",
-      "app_category": "",
-      "metric_name": "percentage",
-      "metric_value": 46.0,
-      "canonical_key": "subscription_plan:apple:apple-one:usd",
-      "canonical_key_status": "complete",
-      "event_key": "pricing_page_snapshot:3efee38fdc61:20260421",
-      "required_field_proxy": {
-        "vendor_id": true,
-        "plan_id": true,
-        "price": true,
-        "currency": true,
-        "source_url": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Spotify Premium Pricing",
-      "source_type": "browser",
-      "trust_tier": "T1_official",
-      "content_type": "pricing",
-      "collection_tier": "C3_html_js",
-      "producer_role": "vendor",
-      "info_purpose": [
-        "pricing",
-        "plan_change",
-        "billing"
-      ],
-      "event_model": "pricing_page_snapshot",
-      "title": "Spotify Premium - Spotify (USA)",
-      "url": "https://www.spotify.com/premium/",
-      "source_url": "https://www.spotify.com/premium/",
-      "event_at": "2026-04-21T15:03:20.925936+00:00",
-      "subscription": [
-        "subscriber",
-        "plan",
-        "plans",
-        "cancel",
-        "premium",
-        "ad-free"
-      ],
-      "price": [
-        "discount",
-        "free",
-        "premium"
-      ],
-      "plan_change": [
-        "ad-supported"
-      ],
-      "billing_policy": [],
-      "provider": [
-        "spotify",
-        "hulu"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "billing",
-        "plan_change",
-        "pricing"
-      ],
-      "vendor_id": "spotify",
-      "vendor_name": "Spotify",
-      "plan_id": "premium",
-      "plan_name": "Premium",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "USD",
-      "price_amount": 0.0,
-      "change_type": "ad-supported",
-      "effective_date": "",
-      "app_id": "",
-      "rank": null,
-      "market": "",
-      "app_category": "",
-      "metric_name": "churn_proxy",
-      "metric_value": null,
-      "canonical_key": "subscription_plan:spotify:premium:usd",
-      "canonical_key_status": "complete",
-      "event_key": "pricing_page_snapshot:b724abf3e887:20260421",
-      "required_field_proxy": {
-        "vendor_id": true,
-        "plan_id": true,
-        "price": true,
-        "currency": true,
-        "source_url": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Netflix Plans & Pricing",
-      "source_type": "browser",
-      "trust_tier": "T1_official",
-      "content_type": "pricing",
-      "collection_tier": "C3_html_js",
-      "producer_role": "vendor",
-      "info_purpose": [
-        "pricing",
-        "plan_change",
-        "billing"
-      ],
-      "event_model": "pricing_page_snapshot",
-      "title": "Plans and Pricing | Netflix Help Center",
-      "url": "https://www.netflix.com/pricing",
-      "source_url": "https://www.netflix.com/pricing",
-      "event_at": "2026-04-21T15:03:17.267087+00:00",
-      "subscription": [
-        "subscription",
-        "plan",
-        "plans",
-        "membership",
-        "member",
-        "cancel",
-        "monthly",
-        "premium",
-        "ad-free"
-      ],
-      "price": [
-        "price",
-        "pricing",
-        "payment",
-        "billing",
-        "free",
-        "paid",
-        "premium"
-      ],
-      "plan_change": [
-        "ad-supported"
-      ],
-      "billing_policy": [
-        "billing"
-      ],
-      "provider": [
-        "netflix"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "billing",
-        "plan_change",
-        "pricing"
-      ],
-      "vendor_id": "netflix",
-      "vendor_name": "Netflix",
-      "plan_id": "pricing-catalog",
-      "plan_name": "Pricing catalog",
-      "billing_cycle": "monthly",
-      "region": "",
-      "currency": "USD",
-      "price_amount": 8.99,
-      "change_type": "ad-supported",
-      "effective_date": "",
-      "app_id": "",
-      "rank": null,
-      "market": "",
-      "app_category": "",
-      "metric_name": "price_point",
-      "metric_value": 8.99,
-      "canonical_key": "subscription_plan:netflix:pricing-catalog:usd",
-      "canonical_key_status": "complete",
-      "event_key": "pricing_page_snapshot:6a584f76d3e3:20260421",
-      "required_field_proxy": {
-        "vendor_id": true,
-        "plan_id": true,
-        "price": true,
-        "currency": true,
-        "source_url": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Apple App Store Top Free KR",
-      "source_type": "json",
-      "trust_tier": "T1_official",
-      "content_type": "ranking",
-      "collection_tier": "C4_api",
-      "producer_role": "marketplace",
-      "info_purpose": [
-        "app_store_ranking"
-      ],
-      "event_model": "app_store_ranking",
-      "title": "Claude by Anthropic ranks #5 in KR App Store Top Free Apps",
-      "url": "https://apps.apple.com/kr/app/claude-by-anthropic/id6473753684",
-      "source_url": "https://apps.apple.com/kr/app/claude-by-anthropic/id6473753684",
-      "event_at": "2026-04-21T15:03:14+00:00",
-      "subscription": [],
-      "price": [
-        "free"
-      ],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [
-        "claude"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "app_store_ranking"
-      ],
-      "vendor_id": "anthropic-pbc",
-      "vendor_name": "Anthropic PBC",
-      "plan_id": "",
-      "plan_name": "",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "",
-      "price_amount": null,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "6473753684",
-      "rank": 5,
-      "market": "KR",
-      "app_category": "top_free_apps",
-      "metric_name": "churn_proxy",
-      "metric_value": null,
-      "canonical_key": "app_store:kr:top_free_apps:6473753684",
-      "canonical_key_status": "complete",
-      "event_key": "app_store_ranking:6ff32535ce98:20260421",
-      "required_field_proxy": {
-        "app_id": true,
-        "rank": true,
-        "market": true,
-        "category": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Apple App Store Top Free KR",
-      "source_type": "json",
-      "trust_tier": "T1_official",
-      "content_type": "ranking",
-      "collection_tier": "C4_api",
-      "producer_role": "marketplace",
-      "info_purpose": [
-        "app_store_ranking"
-      ],
-      "event_model": "app_store_ranking",
-      "title": "ChatGPT ranks #11 in KR App Store Top Free Apps",
-      "url": "https://apps.apple.com/kr/app/chatgpt/id6448311069",
-      "source_url": "https://apps.apple.com/kr/app/chatgpt/id6448311069",
-      "event_at": "2026-04-21T15:03:14+00:00",
-      "subscription": [],
-      "price": [
-        "free"
-      ],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [
-        "openai",
-        "chatgpt"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "app_store_ranking"
-      ],
-      "vendor_id": "openai-opco-llc",
-      "vendor_name": "OpenAI OpCo, LLC",
-      "plan_id": "",
-      "plan_name": "",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "",
-      "price_amount": null,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "6448311069",
-      "rank": 11,
-      "market": "KR",
-      "app_category": "top_free_apps",
-      "metric_name": "churn_proxy",
-      "metric_value": null,
-      "canonical_key": "app_store:kr:top_free_apps:6448311069",
-      "canonical_key_status": "complete",
-      "event_key": "app_store_ranking:e4604ef87f10:20260421",
-      "required_field_proxy": {
-        "app_id": true,
-        "rank": true,
-        "market": true,
-        "category": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Apple App Store Top Free KR",
-      "source_type": "json",
-      "trust_tier": "T1_official",
-      "content_type": "ranking",
-      "collection_tier": "C4_api",
-      "producer_role": "marketplace",
-      "info_purpose": [
-        "app_store_ranking"
-      ],
-      "event_model": "app_store_ranking",
-      "title": "Google Gemini ranks #3 in KR App Store Top Free Apps",
-      "url": "https://apps.apple.com/kr/app/google-gemini/id6477489729",
-      "source_url": "https://apps.apple.com/kr/app/google-gemini/id6477489729",
-      "event_at": "2026-04-21T15:03:14+00:00",
-      "subscription": [],
-      "price": [
-        "free"
-      ],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [
-        "gemini"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "app_store_ranking"
-      ],
-      "vendor_id": "google",
-      "vendor_name": "Google",
-      "plan_id": "",
-      "plan_name": "",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "",
-      "price_amount": null,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "6477489729",
-      "rank": 3,
-      "market": "KR",
-      "app_category": "top_free_apps",
-      "metric_name": "churn_proxy",
-      "metric_value": null,
-      "canonical_key": "app_store:kr:top_free_apps:6477489729",
-      "canonical_key_status": "complete",
-      "event_key": "app_store_ranking:1e242c194ab6:20260421",
-      "required_field_proxy": {
-        "app_id": true,
-        "rank": true,
-        "market": true,
-        "category": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Apple App Store Top Free US",
-      "source_type": "json",
-      "trust_tier": "T1_official",
-      "content_type": "ranking",
-      "collection_tier": "C4_api",
-      "producer_role": "marketplace",
-      "info_purpose": [
-        "app_store_ranking"
-      ],
-      "event_model": "app_store_ranking",
-      "title": "ChatGPT ranks #1 in US App Store Top Free Apps",
-      "url": "https://apps.apple.com/us/app/chatgpt/id6448311069",
-      "source_url": "https://apps.apple.com/us/app/chatgpt/id6448311069",
-      "event_at": "2026-04-21T15:02:58+00:00",
-      "subscription": [],
-      "price": [
-        "free"
-      ],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [
-        "openai",
-        "chatgpt"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "app_store_ranking"
-      ],
-      "vendor_id": "openai-opco-llc",
-      "vendor_name": "OpenAI OpCo, LLC",
-      "plan_id": "",
-      "plan_name": "",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "",
-      "price_amount": null,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "6448311069",
-      "rank": 1,
-      "market": "US",
-      "app_category": "top_free_apps",
-      "metric_name": "churn_proxy",
-      "metric_value": null,
-      "canonical_key": "app_store:us:top_free_apps:6448311069",
-      "canonical_key_status": "complete",
-      "event_key": "app_store_ranking:0387e9723012:20260421",
-      "required_field_proxy": {
-        "app_id": true,
-        "rank": true,
-        "market": true,
-        "category": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Apple App Store Top Free US",
-      "source_type": "json",
-      "trust_tier": "T1_official",
-      "content_type": "ranking",
-      "collection_tier": "C4_api",
-      "producer_role": "marketplace",
-      "info_purpose": [
-        "app_store_ranking"
-      ],
-      "event_model": "app_store_ranking",
-      "title": "Claude by Anthropic ranks #2 in US App Store Top Free Apps",
-      "url": "https://apps.apple.com/us/app/claude-by-anthropic/id6473753684",
-      "source_url": "https://apps.apple.com/us/app/claude-by-anthropic/id6473753684",
-      "event_at": "2026-04-21T15:02:58+00:00",
-      "subscription": [],
-      "price": [
-        "free"
-      ],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [
-        "claude"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "app_store_ranking"
-      ],
-      "vendor_id": "anthropic-pbc",
-      "vendor_name": "Anthropic PBC",
-      "plan_id": "",
-      "plan_name": "",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "",
-      "price_amount": null,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "6473753684",
-      "rank": 2,
-      "market": "US",
-      "app_category": "top_free_apps",
-      "metric_name": "churn_proxy",
-      "metric_value": null,
-      "canonical_key": "app_store:us:top_free_apps:6473753684",
-      "canonical_key_status": "complete",
-      "event_key": "app_store_ranking:cb3005078007:20260421",
-      "required_field_proxy": {
-        "app_id": true,
-        "rank": true,
-        "market": true,
-        "category": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Apple App Store Top Free US",
-      "source_type": "json",
-      "trust_tier": "T1_official",
-      "content_type": "ranking",
-      "collection_tier": "C4_api",
-      "producer_role": "marketplace",
-      "info_purpose": [
-        "app_store_ranking"
-      ],
-      "event_model": "app_store_ranking",
-      "title": "HBO Max: Stream Movies & TV ranks #8 in US App Store Top Free Apps",
-      "url": "https://apps.apple.com/us/app/hbo-max-stream-movies-tv/id1666653815",
-      "source_url": "https://apps.apple.com/us/app/hbo-max-stream-movies-tv/id1666653815",
-      "event_at": "2026-04-21T15:02:58+00:00",
-      "subscription": [],
-      "price": [
-        "free"
-      ],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [
-        "max"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "app_store_ranking"
-      ],
-      "vendor_id": "warnermedia-global-digital-services-llc",
-      "vendor_name": "WarnerMedia Global Digital Services, LLC",
-      "plan_id": "",
-      "plan_name": "",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "",
-      "price_amount": null,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "1666653815",
-      "rank": 8,
-      "market": "US",
-      "app_category": "top_free_apps",
-      "metric_name": "churn_proxy",
-      "metric_value": null,
-      "canonical_key": "app_store:us:top_free_apps:1666653815",
-      "canonical_key_status": "complete",
-      "event_key": "app_store_ranking:661f06953dd4:20260421",
-      "required_field_proxy": {
-        "app_id": true,
-        "rank": true,
-        "market": true,
-        "category": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Apple App Store Top Free US",
-      "source_type": "json",
-      "trust_tier": "T1_official",
-      "content_type": "ranking",
-      "collection_tier": "C4_api",
-      "producer_role": "marketplace",
-      "info_purpose": [
-        "app_store_ranking"
-      ],
-      "event_model": "app_store_ranking",
-      "title": "Peacock TV: Stream TV & Movies ranks #22 in US App Store Top Free Apps",
-      "url": "https://apps.apple.com/us/app/peacock-tv-stream-tv-movies/id1508186374",
-      "source_url": "https://apps.apple.com/us/app/peacock-tv-stream-tv-movies/id1508186374",
-      "event_at": "2026-04-21T15:02:58+00:00",
-      "subscription": [],
-      "price": [
-        "free"
-      ],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [
-        "peacock"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "app_store_ranking"
-      ],
-      "vendor_id": "peacock-tv-llc",
-      "vendor_name": "Peacock TV LLC",
-      "plan_id": "",
-      "plan_name": "",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "",
-      "price_amount": null,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "1508186374",
-      "rank": 22,
-      "market": "US",
-      "app_category": "top_free_apps",
-      "metric_name": "churn_proxy",
-      "metric_value": null,
-      "canonical_key": "app_store:us:top_free_apps:1508186374",
-      "canonical_key_status": "complete",
-      "event_key": "app_store_ranking:c277038084ca:20260421",
-      "required_field_proxy": {
-        "app_id": true,
-        "rank": true,
-        "market": true,
-        "category": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Apple App Store Top Free US",
-      "source_type": "json",
-      "trust_tier": "T1_official",
-      "content_type": "ranking",
-      "collection_tier": "C4_api",
-      "producer_role": "marketplace",
-      "info_purpose": [
-        "app_store_ranking"
-      ],
-      "event_model": "app_store_ranking",
-      "title": "Google Gemini ranks #3 in US App Store Top Free Apps",
-      "url": "https://apps.apple.com/us/app/google-gemini/id6477489729",
-      "source_url": "https://apps.apple.com/us/app/google-gemini/id6477489729",
-      "event_at": "2026-04-21T15:02:58+00:00",
-      "subscription": [],
-      "price": [
-        "free"
-      ],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [
-        "gemini"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "app_store_ranking"
-      ],
-      "vendor_id": "google",
-      "vendor_name": "Google",
-      "plan_id": "",
-      "plan_name": "",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "",
-      "price_amount": null,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "6477489729",
-      "rank": 3,
-      "market": "US",
-      "app_category": "top_free_apps",
-      "metric_name": "churn_proxy",
-      "metric_value": null,
-      "canonical_key": "app_store:us:top_free_apps:6477489729",
-      "canonical_key_status": "complete",
-      "event_key": "app_store_ranking:9620d8775881:20260421",
-      "required_field_proxy": {
-        "app_id": true,
-        "rank": true,
-        "market": true,
-        "category": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Apple App Store Top Free US",
-      "source_type": "json",
-      "trust_tier": "T1_official",
-      "content_type": "ranking",
-      "collection_tier": "C4_api",
-      "producer_role": "marketplace",
-      "info_purpose": [
-        "app_store_ranking"
-      ],
-      "event_model": "app_store_ranking",
-      "title": "Netflix Game Controller ranks #4 in US App Store Top Free Apps",
-      "url": "https://apps.apple.com/us/app/netflix-game-controller/id6447582581",
-      "source_url": "https://apps.apple.com/us/app/netflix-game-controller/id6447582581",
-      "event_at": "2026-04-21T15:02:58+00:00",
-      "subscription": [],
-      "price": [
-        "free"
-      ],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [
-        "netflix"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "app_store_ranking"
-      ],
-      "vendor_id": "netflix-inc",
-      "vendor_name": "Netflix, Inc",
-      "plan_id": "",
-      "plan_name": "",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "",
-      "price_amount": null,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "6447582581",
-      "rank": 4,
-      "market": "US",
-      "app_category": "top_free_apps",
-      "metric_name": "churn_proxy",
-      "metric_value": null,
-      "canonical_key": "app_store:us:top_free_apps:6447582581",
-      "canonical_key_status": "complete",
-      "event_key": "app_store_ranking:c7c53f4fd66b:20260421",
-      "required_field_proxy": {
-        "app_id": true,
-        "rank": true,
-        "market": true,
-        "category": true
-      },
-      "required_field_gaps": []
-    },
-    {
       "source": "SaaStr",
       "source_type": "rss",
       "trust_tier": "T3_professional",
@@ -2744,6 +1703,63 @@
       "canonical_key": "churn_proxy:saastr:churn_proxy",
       "canonical_key_status": "complete",
       "event_key": "churn_proxy:3a4e27fc1abb:20260421",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "SaaStr",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Dear SaaStr: Should I Remove Monthly Subscriptions to Drive Down Churn?",
+      "url": "https://www.saastr.com/dear-saastr-should-i-remove-monthly-subscriptions-to-drive-down-churn/",
+      "source_url": "https://www.saastr.com/dear-saastr-should-i-remove-monthly-subscriptions-to-drive-down-churn/",
+      "event_at": "2025-07-30T00:10:30+00:00",
+      "subscription": [
+        "plans",
+        "monthly",
+        "annual"
+      ],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "churn"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "saastr",
+      "vendor_name": "SaaStr",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "monthly",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:saastr:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:3a4e27fc1abb:20250730",
       "required_field_proxy": {
         "vendor_id": true,
         "metric_name": true,
@@ -2817,18 +1833,75 @@
       "producer_role": "",
       "info_purpose": [],
       "event_model": "churn_proxy",
-      "title": "Why So Many Are Struggling in the AI Era: They Are Shipping 60% Solutions",
-      "url": "https://www.saastr.com/why-so-many-are-struggling-in-the-ai-era-they-are-shipping-60-solutions/",
-      "source_url": "https://www.saastr.com/why-so-many-are-struggling-in-the-ai-era-they-are-shipping-60-solutions/",
-      "event_at": "2026-04-17T05:10:05+00:00",
+      "title": "Dear SaaStr: Should We Over-Charge or Under-Charge our First Customers?",
+      "url": "https://www.saastr.com/should-we-over-charge-or-under-charge-our-first-customer/",
+      "source_url": "https://www.saastr.com/should-we-over-charge-or-under-charge-our-first-customer/",
+      "event_at": "2024-05-25T03:18:40+00:00",
       "subscription": [],
-      "price": [],
+      "price": [
+        "charge",
+        "revenue"
+      ],
+      "plan_change": [],
+      "billing_policy": [
+        "charge"
+      ],
+      "provider": [],
+      "service_type": [],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "saastr",
+      "vendor_name": "SaaStr",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:saastr:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:3a4e27fc1abb:20240525",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "SaaStr",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Dear SaaStr: What’s It Like to Have Your Company Acquired by One of the Tech Giants?",
+      "url": "https://www.saastr.com/dear-saastr-whats-it-like-to-have-your-company-acquired-by-one-of-the-tech-giants/",
+      "source_url": "https://www.saastr.com/dear-saastr-whats-it-like-to-have-your-company-acquired-by-one-of-the-tech-giants/",
+      "event_at": "2025-01-24T01:50:07+00:00",
+      "subscription": [],
+      "price": [
+        "payment"
+      ],
       "plan_change": [],
       "billing_policy": [],
       "provider": [],
       "service_type": [
-        "saas",
-        "b2b"
+        "retention"
       ],
       "source_signal": [
         "churn_proxy"
@@ -2847,16 +1920,2090 @@
       "rank": null,
       "market": "",
       "app_category": "",
-      "metric_name": "percentage",
-      "metric_value": 60.0,
-      "canonical_key": "churn_proxy:saastr:percentage",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:saastr:churn_proxy",
       "canonical_key_status": "complete",
-      "event_key": "churn_proxy:00219c06c454:20260417",
+      "event_key": "churn_proxy:3a4e27fc1abb:20250124",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "Apple App Store Top Free US",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "ChatGPT ranks #1 in US App Store Top Free Apps",
+      "url": "https://apps.apple.com/us/app/chatgpt/id6448311069",
+      "source_url": "https://apps.apple.com/us/app/chatgpt/id6448311069",
+      "event_at": "2026-04-21T14:22:11+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "openai",
+        "chatgpt"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "openai-opco-llc",
+      "vendor_name": "OpenAI OpCo, LLC",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6448311069",
+      "rank": 1,
+      "market": "US",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:us:top_free_apps:6448311069",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:0387e9723012:20260421",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free US",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "Claude by Anthropic ranks #2 in US App Store Top Free Apps",
+      "url": "https://apps.apple.com/us/app/claude-by-anthropic/id6473753684",
+      "source_url": "https://apps.apple.com/us/app/claude-by-anthropic/id6473753684",
+      "event_at": "2026-04-21T14:22:11+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "claude"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "anthropic-pbc",
+      "vendor_name": "Anthropic PBC",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6473753684",
+      "rank": 2,
+      "market": "US",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:us:top_free_apps:6473753684",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:cb3005078007:20260421",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free US",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "Google Gemini ranks #3 in US App Store Top Free Apps",
+      "url": "https://apps.apple.com/us/app/google-gemini/id6477489729",
+      "source_url": "https://apps.apple.com/us/app/google-gemini/id6477489729",
+      "event_at": "2026-04-21T14:22:11+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "gemini"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "google",
+      "vendor_name": "Google",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6477489729",
+      "rank": 3,
+      "market": "US",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:us:top_free_apps:6477489729",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:9620d8775881:20260421",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free US",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "Netflix Game Controller ranks #4 in US App Store Top Free Apps",
+      "url": "https://apps.apple.com/us/app/netflix-game-controller/id6447582581",
+      "source_url": "https://apps.apple.com/us/app/netflix-game-controller/id6447582581",
+      "event_at": "2026-04-21T14:22:11+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "netflix"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "netflix-inc",
+      "vendor_name": "Netflix, Inc",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6447582581",
+      "rank": 4,
+      "market": "US",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:us:top_free_apps:6447582581",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:c7c53f4fd66b:20260421",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free US",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "HBO Max: Stream Movies & TV ranks #8 in US App Store Top Free Apps",
+      "url": "https://apps.apple.com/us/app/hbo-max-stream-movies-tv/id1666653815",
+      "source_url": "https://apps.apple.com/us/app/hbo-max-stream-movies-tv/id1666653815",
+      "event_at": "2026-04-21T14:22:11+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "max"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "warnermedia-global-digital-services-llc",
+      "vendor_name": "WarnerMedia Global Digital Services, LLC",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "1666653815",
+      "rank": 8,
+      "market": "US",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:us:top_free_apps:1666653815",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:661f06953dd4:20260421",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free KR",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "Google Gemini ranks #3 in KR App Store Top Free Apps",
+      "url": "https://apps.apple.com/kr/app/google-gemini/id6477489729",
+      "source_url": "https://apps.apple.com/kr/app/google-gemini/id6477489729",
+      "event_at": "2026-04-21T14:22:11+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "gemini"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "google",
+      "vendor_name": "Google",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6477489729",
+      "rank": 3,
+      "market": "KR",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:kr:top_free_apps:6477489729",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:1e242c194ab6:20260421",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free KR",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "Claude by Anthropic ranks #5 in KR App Store Top Free Apps",
+      "url": "https://apps.apple.com/kr/app/claude-by-anthropic/id6473753684",
+      "source_url": "https://apps.apple.com/kr/app/claude-by-anthropic/id6473753684",
+      "event_at": "2026-04-21T14:22:11+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "claude"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "anthropic-pbc",
+      "vendor_name": "Anthropic PBC",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6473753684",
+      "rank": 5,
+      "market": "KR",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:kr:top_free_apps:6473753684",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:6ff32535ce98:20260421",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "The SaaS Podcast",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "The Risky AI SaaS Rebuild That Broke a $2M ARR Ceiling",
+      "url": "https://saasclub.io/feed/podcast/",
+      "source_url": "https://saasclub.io/feed/podcast/",
+      "event_at": "2026-04-16T03:00:00+00:00",
+      "subscription": [
+        "premium",
+        "plus",
+        "trial",
+        "free trial"
+      ],
+      "price": [
+        "pricing",
+        "free",
+        "premium",
+        "revenue"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "chatgpt",
+        "copilot"
+      ],
+      "service_type": [
+        "saas",
+        "b2b",
+        "arr",
+        "mrr"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "chatgpt",
+      "vendor_name": "chatgpt",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "arr",
+      "metric_value": 2000000.0,
+      "canonical_key": "churn_proxy:chatgpt:arr",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:188a860518f6:20260416",
       "required_field_proxy": {
         "vendor_id": true,
         "metric_name": true,
         "metric_value": true,
         "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "The SaaS Podcast",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Finding Product-Market Fit After 3 Years of Failed Ideas",
+      "url": "https://saasclub.io/feed/podcast/",
+      "source_url": "https://saasclub.io/feed/podcast/",
+      "event_at": "2026-04-09T03:00:00+00:00",
+      "subscription": [],
+      "price": [
+        "payment",
+        "free",
+        "paid"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "slack"
+      ],
+      "service_type": [
+        "saas",
+        "b2b",
+        "arr"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "slack",
+      "vendor_name": "slack",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "percentage",
+      "metric_value": 85.0,
+      "canonical_key": "churn_proxy:slack:percentage",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:731885f573a8:20260409",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "The SaaS Podcast",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Bootstrapped SaaS Growth When AI Took Over the Market",
+      "url": "https://saasclub.io/feed/podcast/",
+      "source_url": "https://saasclub.io/feed/podcast/",
+      "event_at": "2026-04-02T03:00:00+00:00",
+      "subscription": [],
+      "price": [
+        "price",
+        "pricing",
+        "free",
+        "revenue",
+        "budget"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "chatgpt"
+      ],
+      "service_type": [
+        "saas",
+        "arr"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "chatgpt",
+      "vendor_name": "chatgpt",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "growth_rate_percent",
+      "metric_value": 60.0,
+      "canonical_key": "churn_proxy:chatgpt:growth_rate_percent",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:d944332b4d0b:20260402",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "The SaaS Podcast",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Vertical SaaS: $0 to $10M ARR With Flat Pricing for Everyone",
+      "url": "https://saasclub.io/feed/podcast/",
+      "source_url": "https://saasclub.io/feed/podcast/",
+      "event_at": "2026-03-26T03:00:00+00:00",
+      "subscription": [
+        "tiers",
+        "premium",
+        "pro",
+        "plus"
+      ],
+      "price": [
+        "price",
+        "pricing",
+        "charge",
+        "free",
+        "premium",
+        "revenue"
+      ],
+      "plan_change": [],
+      "billing_policy": [
+        "charge"
+      ],
+      "provider": [],
+      "service_type": [
+        "saas",
+        "arr"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "the-saas-podcast",
+      "vendor_name": "The SaaS Podcast",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "arr",
+      "metric_value": 10000000.0,
+      "canonical_key": "churn_proxy:the-saas-podcast:arr",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:b8839006d287:20260326",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "The SaaS Podcast",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "SaaS Product-Market Fit: Zero Code to 8-Figure ARR",
+      "url": "https://saasclub.io/feed/podcast/",
+      "source_url": "https://saasclub.io/feed/podcast/",
+      "event_at": "2026-03-19T03:00:00+00:00",
+      "subscription": [],
+      "price": [
+        "price",
+        "pricing",
+        "free",
+        "paid",
+        "budget"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "zoom"
+      ],
+      "service_type": [
+        "saas",
+        "arr"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "zoom",
+      "vendor_name": "zoom",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "arr",
+      "metric_value": 1000000.0,
+      "canonical_key": "churn_proxy:zoom:arr",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:796b32cbdb09:20260319",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "The SaaS Podcast",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "SaaS Distribution Channel: Partner Deals to $100M ARR",
+      "url": "https://saasclub.io/feed/podcast/",
+      "source_url": "https://saasclub.io/feed/podcast/",
+      "event_at": "2026-03-12T03:00:00+00:00",
+      "subscription": [
+        "monthly",
+        "plus"
+      ],
+      "price": [
+        "charge",
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [
+        "charge"
+      ],
+      "provider": [],
+      "service_type": [
+        "saas",
+        "arr"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "the-saas-podcast",
+      "vendor_name": "The SaaS Podcast",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "monthly",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "arr",
+      "metric_value": 100000000.0,
+      "canonical_key": "churn_proxy:the-saas-podcast:arr",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:b8839006d287:20260312",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "The SaaS Podcast",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Bootstrapped SaaS: $200 Customer to $4M ARR Solo",
+      "url": "https://saasclub.io/feed/podcast/",
+      "source_url": "https://saasclub.io/feed/podcast/",
+      "event_at": "2026-03-05T04:00:00+00:00",
+      "subscription": [],
+      "price": [
+        "cost",
+        "paid"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas",
+        "b2c",
+        "arr",
+        "mrr"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "the-saas-podcast",
+      "vendor_name": "The SaaS Podcast",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "arr",
+      "metric_value": 4000000.0,
+      "canonical_key": "churn_proxy:the-saas-podcast:arr",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:b8839006d287:20260305",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "The SaaS Podcast",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Enterprise Sales: $6K in SEM to a $300M Revenue Machine",
+      "url": "https://saasclub.io/feed/podcast/",
+      "source_url": "https://saasclub.io/feed/podcast/",
+      "event_at": "2026-02-26T04:00:00+00:00",
+      "subscription": [
+        "tiers"
+      ],
+      "price": [
+        "cost",
+        "free",
+        "revenue"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "dropbox",
+        "copilot"
+      ],
+      "service_type": [
+        "saas",
+        "b2b",
+        "cac",
+        "freemium"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "dropbox",
+      "vendor_name": "dropbox",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "revenue",
+      "metric_value": 300000000.0,
+      "canonical_key": "churn_proxy:dropbox:revenue",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:7af64e547e8d:20260226",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "The SaaS Podcast",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Product-Market Fit: From Vitamin to $100M Painkiller",
+      "url": "https://saasclub.io/feed/podcast/",
+      "source_url": "https://saasclub.io/feed/podcast/",
+      "event_at": "2026-02-19T04:00:00+00:00",
+      "subscription": [],
+      "price": [
+        "revenue"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas",
+        "arr"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "the-saas-podcast",
+      "vendor_name": "The SaaS Podcast",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "customer_count",
+      "metric_value": 100.0,
+      "canonical_key": "churn_proxy:the-saas-podcast:customer_count",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:79fa6d2bf478:20260219",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "The SaaS Podcast",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "SaaS Product-Market Fit Lost at $9M ARR Then Rebuilt",
+      "url": "https://saasclub.io/feed/podcast/",
+      "source_url": "https://saasclub.io/feed/podcast/",
+      "event_at": "2026-02-12T04:00:00+00:00",
+      "subscription": [
+        "plans",
+        "monthly",
+        "annual"
+      ],
+      "price": [
+        "free",
+        "revenue"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "zoom"
+      ],
+      "service_type": [
+        "saas",
+        "arr",
+        "churn"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "zoom",
+      "vendor_name": "zoom",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "monthly",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "arr",
+      "metric_value": 9000000.0,
+      "canonical_key": "churn_proxy:zoom:arr",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:796b32cbdb09:20260212",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Subscription Insider",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "NYC Proposes “Click to Cancel” Rulemaking For Public Comment",
+      "url": "https://www.subscriptioninsider.com/topics/regulation-and-compliance/nyc-proposes-click-to-cancel-rulemaking-for-public-comment",
+      "source_url": "https://www.subscriptioninsider.com/topics/regulation-and-compliance/nyc-proposes-click-to-cancel-rulemaking-for-public-comment",
+      "event_at": "2026-04-17T09:34:41+00:00",
+      "subscription": [
+        "subscription",
+        "renewal",
+        "cancel",
+        "trial"
+      ],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [
+        "renewal"
+      ],
+      "provider": [],
+      "service_type": [],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "subscription-insider",
+      "vendor_name": "Subscription Insider",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:subscription-insider:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:15c1c9e758e1:20260417",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "Subscription Insider",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "The Hidden P&L of Subscriber Operations",
+      "url": "https://www.subscriptioninsider.com/article-type/news/the-hidden-pl-of-subscriber-operations",
+      "source_url": "https://www.subscriptioninsider.com/article-type/news/the-hidden-pl-of-subscriber-operations",
+      "event_at": "2026-04-07T06:35:52+00:00",
+      "subscription": [
+        "subscriber"
+      ],
+      "price": [
+        "billing",
+        "revenue"
+      ],
+      "plan_change": [],
+      "billing_policy": [
+        "billing"
+      ],
+      "provider": [],
+      "service_type": [
+        "recurring revenue"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "subscription-insider",
+      "vendor_name": "Subscription Insider",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:subscription-insider:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:15c1c9e758e1:20260407",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "Subscription Insider",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Chewy’s Autoship Customer Sales Reached 83.3% of Net Sales in Fiscal 2025",
+      "url": "https://www.subscriptioninsider.com/article-type/news/chewys-autoship-customer-sales-reached-83-3-of-net-sales-in-fiscal-2025",
+      "source_url": "https://www.subscriptioninsider.com/article-type/news/chewys-autoship-customer-sales-reached-83-3-of-net-sales-in-fiscal-2025",
+      "event_at": "2026-03-26T09:06:13+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "subscription-insider",
+      "vendor_name": "Subscription Insider",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "sales_share_percent",
+      "metric_value": 83.3,
+      "canonical_key": "churn_proxy:subscription-insider:sales_share_percent",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:05d4aa28064a:20260326",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Subscription Insider",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "RevenueCat Data Shows Subscription App Growth Concentrating at the Top",
+      "url": "https://www.subscriptioninsider.com/article-type/news/revenuecat-data-shows-subscription-app-growth-concentrating-at-the-top",
+      "source_url": "https://www.subscriptioninsider.com/article-type/news/revenuecat-data-shows-subscription-app-growth-concentrating-at-the-top",
+      "event_at": "2026-03-24T12:33:12+00:00",
+      "subscription": [
+        "subscription",
+        "trial"
+      ],
+      "price": [
+        "billing"
+      ],
+      "plan_change": [],
+      "billing_policy": [
+        "billing"
+      ],
+      "provider": [],
+      "service_type": [],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "subscription-insider",
+      "vendor_name": "Subscription Insider",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:subscription-insider:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:15c1c9e758e1:20260324",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "Subscription Insider",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "The Atlantic Builds Beyond Content as It Broadens the Subscriber Relationship",
+      "url": "https://www.subscriptioninsider.com/article-type/news/the-atlantic-builds-beyond-content-as-it-broadens-the-subscriber-relationship",
+      "source_url": "https://www.subscriptioninsider.com/article-type/news/the-atlantic-builds-beyond-content-as-it-broadens-the-subscriber-relationship",
+      "event_at": "2026-03-23T11:42:37+00:00",
+      "subscription": [
+        "subscription",
+        "subscriber",
+        "premium"
+      ],
+      "price": [
+        "premium"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "subscription-insider",
+      "vendor_name": "Subscription Insider",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:subscription-insider:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:15c1c9e758e1:20260323",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "Subscription Insider",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Lowe’s Launches $99 HomeCare+ Subscription to Extend Its Customer Relationship Beyond the Store",
+      "url": "https://www.subscriptioninsider.com/article-type/news/lowes-launches-99-homecare-subscription-to-extend-its-customer-relationship-beyond-the-store",
+      "source_url": "https://www.subscriptioninsider.com/article-type/news/lowes-launches-99-homecare-subscription-to-extend-its-customer-relationship-beyond-the-store",
+      "event_at": "2026-03-18T09:02:44+00:00",
+      "subscription": [
+        "subscription",
+        "annual"
+      ],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "subscription-insider",
+      "vendor_name": "Subscription Insider",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "annual",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "price_point",
+      "metric_value": 99.0,
+      "canonical_key": "churn_proxy:subscription-insider:price_point",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:8c3fe0b9f385:20260318",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Subscription Insider",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Adobe Moves to Settle U.S. Case Over Subscription Fees and Cancellation Practices With $150 Million Package",
+      "url": "https://www.subscriptioninsider.com/article-type/news/adobe-moves-to-settle-u-s-case-over-subscription-fees-and-cancellation-practices-with-150-million-package",
+      "source_url": "https://www.subscriptioninsider.com/article-type/news/adobe-moves-to-settle-u-s-case-over-subscription-fees-and-cancellation-practices-with-150-million-package",
+      "event_at": "2026-03-13T08:37:51+00:00",
+      "subscription": [
+        "subscription",
+        "cancellation",
+        "free trial"
+      ],
+      "price": [
+        "fee",
+        "fees",
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [
+        "cancellation"
+      ],
+      "provider": [
+        "adobe"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "adobe",
+      "vendor_name": "adobe",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "revenue",
+      "metric_value": 150000000.0,
+      "canonical_key": "churn_proxy:adobe:revenue",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:9c1a99c932df:20260313",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Subscription Insider",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "FTC Restarts Negative Option Rulemaking After Click-to-Cancel Vacatur, Signaling Subscription Rules Are Back in Play",
+      "url": "https://www.subscriptioninsider.com/article-type/news/ftc-restarts-negative-option-rulemaking-after-click-to-cancel-vacatur-signaling-subscription-rules-are-back-in-play",
+      "source_url": "https://www.subscriptioninsider.com/article-type/news/ftc-restarts-negative-option-rulemaking-after-click-to-cancel-vacatur-signaling-subscription-rules-are-back-in-play",
+      "event_at": "2026-03-11T08:58:25+00:00",
+      "subscription": [
+        "subscription",
+        "cancel",
+        "cancellation"
+      ],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [
+        "cancellation"
+      ],
+      "provider": [],
+      "service_type": [],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "subscription-insider",
+      "vendor_name": "Subscription Insider",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:subscription-insider:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:15c1c9e758e1:20260311",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "Subscription Insider",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "The Fragmentation Reckoning: What the FCC’s Sports Inquiry Signals for Subscription Operators",
+      "url": "https://www.subscriptioninsider.com/article-type/subscriber-only/the-fragmentation-reckoning-what-the-fccs-sports-inquiry-signals-for-subscription-operators",
+      "source_url": "https://www.subscriptioninsider.com/article-type/subscriber-only/the-fragmentation-reckoning-what-the-fccs-sports-inquiry-signals-for-subscription-operators",
+      "event_at": "2026-03-01T07:06:13+00:00",
+      "subscription": [
+        "subscription"
+      ],
+      "price": [
+        "billing"
+      ],
+      "plan_change": [],
+      "billing_policy": [
+        "billing"
+      ],
+      "provider": [],
+      "service_type": [],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "subscription-insider",
+      "vendor_name": "Subscription Insider",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:subscription-insider:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:15c1c9e758e1:20260301",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "Netflix Plans & Pricing",
+      "source_type": "browser",
+      "trust_tier": "T1_official",
+      "content_type": "pricing",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "pricing",
+        "plan_change",
+        "billing"
+      ],
+      "event_model": "pricing_page_snapshot",
+      "title": "Plans and Pricing | Netflix Help Center",
+      "url": "https://www.netflix.com/pricing",
+      "source_url": "https://www.netflix.com/pricing",
+      "event_at": "2026-04-21T14:22:17.946656+00:00",
+      "subscription": [
+        "subscription",
+        "plan",
+        "plans",
+        "membership",
+        "member",
+        "cancel",
+        "monthly",
+        "premium",
+        "ad-free"
+      ],
+      "price": [
+        "price",
+        "pricing",
+        "payment",
+        "billing",
+        "free",
+        "paid",
+        "premium"
+      ],
+      "plan_change": [
+        "ad-supported"
+      ],
+      "billing_policy": [
+        "billing"
+      ],
+      "provider": [
+        "netflix"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "billing",
+        "plan_change",
+        "pricing"
+      ],
+      "vendor_id": "netflix",
+      "vendor_name": "Netflix",
+      "plan_id": "pricing-catalog",
+      "plan_name": "Pricing catalog",
+      "billing_cycle": "monthly",
+      "region": "",
+      "currency": "KRW",
+      "price_amount": 7000.0,
+      "change_type": "ad-supported",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "price_point",
+      "metric_value": 7000.0,
+      "canonical_key": "subscription_plan:netflix:pricing-catalog:krw",
+      "canonical_key_status": "complete",
+      "event_key": "pricing_page_snapshot:7d292d63c9d5:20260421",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "plan_id": true,
+        "price": true,
+        "currency": true,
+        "source_url": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Spotify Premium Pricing",
+      "source_type": "browser",
+      "trust_tier": "T1_official",
+      "content_type": "pricing",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "pricing",
+        "plan_change",
+        "billing"
+      ],
+      "event_model": "pricing_page_snapshot",
+      "title": "Spotify Premium (대한민국) - ₩0의 요금으로 2개월 이용해보기",
+      "url": "https://www.spotify.com/premium/",
+      "source_url": "https://www.spotify.com/premium/",
+      "event_at": "2026-04-21T14:22:20.922227+00:00",
+      "subscription": [
+        "premium"
+      ],
+      "price": [
+        "premium",
+        "요금"
+      ],
+      "plan_change": [],
+      "billing_policy": [
+        "결제",
+        "해지"
+      ],
+      "provider": [
+        "spotify",
+        "스포티파이"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "billing",
+        "plan_change",
+        "pricing"
+      ],
+      "vendor_id": "spotify",
+      "vendor_name": "Spotify",
+      "plan_id": "premium",
+      "plan_name": "Premium",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "KRW",
+      "price_amount": 0.0,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "subscription_plan:spotify:premium:krw",
+      "canonical_key_status": "complete",
+      "event_key": "pricing_page_snapshot:d0b176b827aa:20260421",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "plan_id": true,
+        "price": true,
+        "currency": true,
+        "source_url": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple One Pricing",
+      "source_type": "browser",
+      "trust_tier": "T1_official",
+      "content_type": "pricing",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "pricing",
+        "bundle",
+        "billing"
+      ],
+      "event_model": "pricing_page_snapshot",
+      "title": "Apple One - Apple",
+      "url": "https://www.apple.com/apple-one/",
+      "source_url": "https://www.apple.com/apple-one/",
+      "event_at": "2026-04-21T14:22:25.382231+00:00",
+      "subscription": [
+        "subscription",
+        "subscribe",
+        "plan",
+        "plans",
+        "renewal",
+        "cancel",
+        "monthly",
+        "annual",
+        "plus",
+        "trial",
+        "free trial"
+      ],
+      "price": [
+        "price",
+        "cost",
+        "billing",
+        "discount",
+        "free",
+        "paid"
+      ],
+      "plan_change": [
+        "family plan"
+      ],
+      "billing_policy": [
+        "billing",
+        "renewal"
+      ],
+      "provider": [
+        "apple tv",
+        "apple music"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "billing",
+        "bundle",
+        "pricing"
+      ],
+      "vendor_id": "apple",
+      "vendor_name": "Apple One",
+      "plan_id": "apple-one",
+      "plan_name": "Apple One",
+      "billing_cycle": "monthly",
+      "region": "",
+      "currency": "USD",
+      "price_amount": 19.95,
+      "change_type": "family plan",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "percentage",
+      "metric_value": 46.0,
+      "canonical_key": "subscription_plan:apple:apple-one:usd",
+      "canonical_key_status": "complete",
+      "event_key": "pricing_page_snapshot:3efee38fdc61:20260421",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "plan_id": true,
+        "price": true,
+        "currency": true,
+        "source_url": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Notion Pricing",
+      "source_type": "browser",
+      "trust_tier": "T1_official",
+      "content_type": "pricing",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "pricing",
+        "plan_change",
+        "billing"
+      ],
+      "event_model": "pricing_page_snapshot",
+      "title": "Notion Pricing Plans: Free, Plus, Business, & Enterprise.",
+      "url": "https://www.notion.com/pricing",
+      "source_url": "https://www.notion.com/pricing",
+      "event_at": "2026-04-21T14:22:30.576275+00:00",
+      "subscription": [
+        "plans",
+        "member",
+        "monthly",
+        "yearly",
+        "premium",
+        "plus",
+        "trial"
+      ],
+      "price": [
+        "price",
+        "pricing",
+        "payment",
+        "free",
+        "premium"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "notion",
+        "openai"
+      ],
+      "service_type": [
+        "retention"
+      ],
+      "source_signal": [
+        "billing",
+        "plan_change",
+        "pricing"
+      ],
+      "vendor_id": "notion",
+      "vendor_name": "Notion",
+      "plan_id": "pricing-catalog",
+      "plan_name": "Pricing catalog",
+      "billing_cycle": "monthly",
+      "region": "",
+      "currency": "USD",
+      "price_amount": 0.0,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "percentage",
+      "metric_value": 20.0,
+      "canonical_key": "subscription_plan:notion:pricing-catalog:usd",
+      "canonical_key_status": "complete",
+      "event_key": "pricing_page_snapshot:ff7343d3dcf2:20260421",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "plan_id": true,
+        "price": true,
+        "currency": true,
+        "source_url": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Basecamp Pricing",
+      "source_type": "browser",
+      "trust_tier": "T1_official",
+      "content_type": "pricing",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "pricing",
+        "plan_change",
+        "billing"
+      ],
+      "event_model": "pricing_page_snapshot",
+      "title": "Basecamp — Pricing",
+      "url": "https://basecamp.com/pricing/",
+      "source_url": "https://basecamp.com/pricing/",
+      "event_at": "2026-04-21T14:22:35.688331+00:00",
+      "subscription": [
+        "upgrade",
+        "monthly",
+        "pro",
+        "plus",
+        "trial",
+        "free trial"
+      ],
+      "price": [
+        "price",
+        "pricing",
+        "fees",
+        "bill",
+        "billing",
+        "deal",
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [
+        "billing"
+      ],
+      "provider": [
+        "notion",
+        "slack",
+        "dropbox"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "billing",
+        "plan_change",
+        "pricing"
+      ],
+      "vendor_id": "basecamp",
+      "vendor_name": "Basecamp",
+      "plan_id": "pricing-catalog",
+      "plan_name": "Pricing catalog",
+      "billing_cycle": "monthly",
+      "region": "",
+      "currency": "USD",
+      "price_amount": 15.0,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "percentage",
+      "metric_value": 99.99,
+      "canonical_key": "subscription_plan:basecamp:pricing-catalog:usd",
+      "canonical_key_status": "complete",
+      "event_key": "pricing_page_snapshot:c957cba814be:20260421",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "plan_id": true,
+        "price": true,
+        "currency": true,
+        "source_url": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "TVING 공지사항",
+      "source_type": "javascript",
+      "trust_tier": "T1_official",
+      "content_type": "notice",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "official_notice",
+        "billing",
+        "plan_change"
+      ],
+      "event_model": "plan_change_notice",
+      "title": "고객센터 | TVING",
+      "url": "https://www.tving.com/help/notice",
+      "source_url": "https://www.tving.com/help/notice",
+      "event_at": "2026-04-21T14:22:40.550133+00:00",
+      "subscription": [],
+      "price": [
+        "구독료"
+      ],
+      "plan_change": [
+        "광고형"
+      ],
+      "billing_policy": [
+        "결제",
+        "해지"
+      ],
+      "provider": [
+        "apple tv",
+        "tving",
+        "티빙"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "billing",
+        "notice",
+        "plan_change"
+      ],
+      "vendor_id": "tving",
+      "vendor_name": "TVING",
+      "plan_id": "service-notice",
+      "plan_name": "Service notice",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "KRW",
+      "price_amount": null,
+      "change_type": "service_notice",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "subscription_plan:tving:service-notice:krw",
+      "canonical_key_status": "complete",
+      "event_key": "plan_change_notice:40b3e089a0ac:20260421",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "plan_id": true,
+        "change_type": true,
+        "source_url": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Wavve 공지사항",
+      "source_type": "javascript",
+      "trust_tier": "T1_official",
+      "content_type": "notice",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "official_notice",
+        "billing",
+        "plan_change"
+      ],
+      "event_model": "plan_change_notice",
+      "title": "Wavve(웨이브)",
+      "url": "https://www.wavve.com/notice",
+      "source_url": "https://www.wavve.com/notice",
+      "event_at": "2026-04-21T14:22:44.040833+00:00",
+      "subscription": [],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "wavve",
+        "웨이브"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "billing",
+        "notice",
+        "plan_change"
+      ],
+      "vendor_id": "wavve",
+      "vendor_name": "Wavve",
+      "plan_id": "service-notice",
+      "plan_name": "Service notice",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "service_notice",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "subscription_plan:wavve:service-notice",
+      "canonical_key_status": "complete",
+      "event_key": "plan_change_notice:35414840e70d:20260421",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "plan_id": true,
+        "change_type": true,
+        "source_url": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "밀리의서재",
+      "source_type": "javascript",
+      "trust_tier": "T1_official",
+      "content_type": "notice",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "official_notice",
+        "billing",
+        "plan_change"
+      ],
+      "event_model": "plan_change_notice",
+      "title": "공지사항 | 밀리의서재",
+      "url": "https://www.millie.co.kr/v3/customer/notice",
+      "source_url": "https://www.millie.co.kr/v3/customer/notice",
+      "event_at": "2026-04-21T14:22:52.180430+00:00",
+      "subscription": [],
+      "price": [
+        "구독료"
+      ],
+      "plan_change": [],
+      "billing_policy": [
+        "해지"
+      ],
+      "provider": [
+        "밀리의서재"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "billing",
+        "notice",
+        "plan_change"
+      ],
+      "vendor_id": "millie",
+      "vendor_name": "밀리의서재",
+      "plan_id": "service-notice",
+      "plan_name": "Service notice",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "KRW",
+      "price_amount": null,
+      "change_type": "service_notice",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "subscription_plan:millie:service-notice:krw",
+      "canonical_key_status": "complete",
+      "event_key": "plan_change_notice:855bacbefe5c:20260421",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "plan_id": true,
+        "change_type": true,
+        "source_url": true
       },
       "required_field_gaps": []
     }
@@ -2876,6 +4023,16 @@
       "reason": "missing_required_fields",
       "event_model": "churn_proxy",
       "source": "SaaStr",
+      "title": "Dear SaaStr: Should I Remove Monthly Subscriptions to Drive Down Churn?",
+      "canonical_key": "churn_proxy:saastr:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "SaaStr",
       "title": "It’s Not Just You. Customers Are Asking for Shorter and Shorter Contracts in the Age of AI",
       "canonical_key": "churn_proxy:saastr:churn_proxy",
       "required_field_gaps": [
@@ -2883,18 +4040,84 @@
       ]
     },
     {
-      "reason": "source_missing",
-      "source": "The SaaS Podcast",
+      "reason": "missing_required_fields",
       "event_model": "churn_proxy",
-      "age_days": null,
-      "latest_title": ""
+      "source": "SaaStr",
+      "title": "Dear SaaStr: Should We Over-Charge or Under-Charge our First Customers?",
+      "canonical_key": "churn_proxy:saastr:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
     },
     {
-      "reason": "source_missing",
-      "source": "Subscription Insider",
+      "reason": "missing_required_fields",
       "event_model": "churn_proxy",
-      "age_days": null,
-      "latest_title": ""
+      "source": "SaaStr",
+      "title": "Dear SaaStr: What’s It Like to Have Your Company Acquired by One of the Tech Giants?",
+      "canonical_key": "churn_proxy:saastr:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "Subscription Insider",
+      "title": "NYC Proposes “Click to Cancel” Rulemaking For Public Comment",
+      "canonical_key": "churn_proxy:subscription-insider:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "Subscription Insider",
+      "title": "The Hidden P&L of Subscriber Operations",
+      "canonical_key": "churn_proxy:subscription-insider:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "Subscription Insider",
+      "title": "RevenueCat Data Shows Subscription App Growth Concentrating at the Top",
+      "canonical_key": "churn_proxy:subscription-insider:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "Subscription Insider",
+      "title": "The Atlantic Builds Beyond Content as It Broadens the Subscriber Relationship",
+      "canonical_key": "churn_proxy:subscription-insider:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "Subscription Insider",
+      "title": "FTC Restarts Negative Option Rulemaking After Click-to-Cancel Vacatur, Signaling Subscription Rules Are Back in Play",
+      "canonical_key": "churn_proxy:subscription-insider:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "Subscription Insider",
+      "title": "The Fragmentation Reckoning: What the FCC’s Sports Inquiry Signals for Subscription Operators",
+      "canonical_key": "churn_proxy:subscription-insider:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
     },
     {
       "reason": "source_backlog_pending",

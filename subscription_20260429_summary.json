@@ -1,77 +1,103 @@
 {
   "date": "2026-04-29",
   "category": "subscription",
-  "article_count": 131,
-  "source_count": 24,
-  "matched_count": 131,
+  "article_count": 10,
+  "source_count": 10,
+  "matched_count": 10,
   "top_entities": [
     {
+      "name": "Subscription",
+      "count": 37
+    },
+    {
       "name": "Service",
-      "count": 245
+      "count": 37
     },
     {
       "name": "Price",
-      "count": 207
-    },
-    {
-      "name": "Subscription",
-      "count": 170
-    },
-    {
-      "name": "Provider",
-      "count": 83
-    },
-    {
-      "name": "SourceSignal",
-      "count": 58
-    },
-    {
-      "name": "BillingPolicy",
       "count": 31
     },
     {
-      "name": "ServiceType",
+      "name": "SourceSignal",
       "count": 22
     },
     {
-      "name": "PlanChange",
+      "name": "Provider",
+      "count": 16
+    },
+    {
+      "name": "BillingPolicy",
       "count": 7
+    },
+    {
+      "name": "PlanChange",
+      "count": 2
+    },
+    {
+      "name": "ServiceType",
+      "count": 1
     }
   ],
   "sources": {
     "밀리의서재": 1,
     "Wavve 공지사항": 1,
-    "TVING 공지사항": 1,
     "Basecamp Pricing": 1,
     "Notion Pricing": 1,
     "Apple One Pricing": 1,
     "Spotify Premium Pricing": 1,
     "Netflix Plans & Pricing": 1,
-    "Apple App Store Top Free KR": 4,
-    "Apple App Store Top Free US": 7,
-    "Subscription Insider": 11,
-    "Techmeme": 8,
-    "Financial Times - Technology": 3,
-    "CNET Tech": 2,
-    "Engadget": 29,
-    "The Verge": 5,
-    "9to5Mac": 12,
-    "TechCrunch": 4,
-    "9to5Google": 6,
-    "Wired": 13,
-    "Spotify Newsroom": 1,
-    "Bloomberg Technology": 6,
-    "Hacker News": 1,
-    "SaaStr": 11
+    "Apple App Store Top Free US": 1,
+    "TechCrunch": 1,
+    "Financial Times - Technology": 1
   },
-  "generated_at": "2026-04-29T12:37:37.580678+09:00",
+  "generated_at": "2026-04-29T00:07:38.233182+09:00",
+  "ontology": {
+    "repo": "SubscriptionRadar",
+    "category": "subscription",
+    "ontology_version": "0.1.0",
+    "event_model_ids": [
+      "subscription.app_store_ranking",
+      "subscription.churn_proxy",
+      "subscription.plan_change_notice",
+      "subscription.pricing_page_snapshot"
+    ],
+    "event_model_mappings": {
+      "pricing_page_snapshot": "subscription.pricing_page_snapshot",
+      "plan_change_notice": "subscription.plan_change_notice",
+      "app_store_ranking": "subscription.app_store_ranking",
+      "churn_proxy": "subscription.churn_proxy"
+    },
+    "entity_type_hints": [
+      "commerce.vendor",
+      "commerce.subscription_plan"
+    ],
+    "source_role_ids": [
+      "community_signal",
+      "context_only",
+      "operational_evidence",
+      "primary_evidence"
+    ],
+    "source_role_mappings": {
+      "Netflix Plans & Pricing": "primary_evidence",
+      "Spotify Premium Pricing": "primary_evidence",
+      "Apple App Store Top Free US": "operational_evidence",
+      "Spotify Newsroom": "operational_evidence",
+      "Engadget": "context_only",
+      "r/cordcutters": "community_signal"
+    },
+    "evidence_policy_ids": [
+      "traceable_url_required",
+      "cross_reference_required",
+      "non_authoritative_context_only"
+    ]
+  },
   "quality_summary": {
     "total_sources": 51,
     "enabled_sources": 37,
     "tracked_sources": 25,
-    "fresh_sources": 14,
-    "quiet_sources": 2,
-    "stale_sources": 0,
+    "fresh_sources": 12,
+    "quiet_sources": 3,
+    "stale_sources": 1,
     "missing_sources": 0,
     "missing_event_sources": 0,
     "unknown_event_date_sources": 0,
@@ -79,24 +105,27 @@
     "skipped_disabled_sources": 14,
     "collection_error_count": 0,
     "pricing_page_snapshot_events": 5,
-    "plan_change_notice_events": 4,
-    "app_store_ranking_events": 9,
-    "churn_proxy_events": 64,
-    "subscription_signal_event_count": 82,
+    "plan_change_notice_events": 3,
+    "app_store_ranking_events": 10,
+    "churn_proxy_events": 14,
+    "subscription_signal_event_count": 32,
     "official_pricing_page_event_count": 5,
     "community_churn_proxy_event_count": 0,
-    "plan_canonical_key_present_count": 9,
-    "vendor_proxy_key_count": 1,
+    "plan_canonical_key_present_count": 8,
+    "vendor_proxy_key_count": 0,
     "price_amount_present_count": 5,
-    "currency_present_count": 55,
-    "change_type_present_count": 8,
-    "app_ranking_key_present_count": 9,
-    "churn_metric_present_count": 53,
+    "currency_present_count": 15,
+    "change_type_present_count": 5,
+    "app_ranking_key_present_count": 10,
+    "churn_metric_present_count": 4,
     "missing_canonical_key_count": 0,
-    "event_required_field_gap_count": 13,
-    "tracked_source_gap_count": 0,
+    "event_required_field_gap_count": 10,
+    "tracked_source_gap_count": 1,
     "missing_event_model_count": 0,
     "source_backlog_candidate_count": 4,
-    "daily_review_item_count": 17
-  }
+    "daily_review_item_count": 15
+  },
+  "warnings": [
+    "freshness gaps detected: stale=1, missing=0"
+  ]
 }
