@@ -27,6 +27,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          lfs: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -88,7 +90,8 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update radar data [skip ci]"
-          file_pattern: "data/ reports/*_summary.json reports/*_quality.json"
+          file_pattern: "data/ reports/"
+          add_options: "-f"
           skip_fetch: false
           skip_checkout: false
 
