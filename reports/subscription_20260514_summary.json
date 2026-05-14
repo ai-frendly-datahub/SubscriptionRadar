@@ -1,9 +1,9 @@
 {
   "date": "2026-05-14",
   "category": "subscription",
-  "article_count": 97,
+  "article_count": 102,
   "source_count": 22,
-  "matched_count": 97,
+  "matched_count": 102,
   "top_entities": [
     {
       "name": "Service",
@@ -11,11 +11,11 @@
     },
     {
       "name": "Price",
-      "count": 166
+      "count": 176
     },
     {
       "name": "Subscription",
-      "count": 157
+      "count": 165
     },
     {
       "name": "Provider",
@@ -49,6 +49,7 @@
     "Netflix Plans & Pricing": 1,
     "Apple App Store Top Free US": 6,
     "Apple App Store Top Free KR": 3,
+    "Wired": 29,
     "Techmeme": 4,
     "Engadget": 4,
     "Bloomberg Technology": 5,
@@ -56,13 +57,12 @@
     "The Verge": 2,
     "9to5Google": 15,
     "Spotify Newsroom": 1,
-    "Wired": 24,
     "SaaStr": 7,
     "CNET Tech": 2,
     "Financial Times - Technology": 3,
     "Subscription Insider": 1
   },
-  "generated_at": "2026-05-14T11:31:16.093284+09:00",
+  "generated_at": "2026-05-14T16:51:07.279770+09:00",
   "quality_summary": {
     "total_sources": 51,
     "enabled_sources": 37,
@@ -78,17 +78,17 @@
     "collection_error_count": 0,
     "pricing_page_snapshot_events": 8,
     "plan_change_notice_events": 66,
-    "app_store_ranking_events": 53,
+    "app_store_ranking_events": 51,
     "churn_proxy_events": 56,
-    "subscription_signal_event_count": 183,
+    "subscription_signal_event_count": 181,
     "official_pricing_page_event_count": 8,
     "community_churn_proxy_event_count": 0,
     "plan_canonical_key_present_count": 74,
     "vendor_proxy_key_count": 62,
     "price_amount_present_count": 9,
-    "currency_present_count": 44,
+    "currency_present_count": 45,
     "change_type_present_count": 10,
-    "app_ranking_key_present_count": 53,
+    "app_ranking_key_present_count": 51,
     "churn_metric_present_count": 35,
     "missing_canonical_key_count": 0,
     "event_required_field_gap_count": 145,
