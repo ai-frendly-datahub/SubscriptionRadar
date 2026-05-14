@@ -1,21 +1,21 @@
 {
   "date": "2026-05-14",
   "category": "subscription",
-  "article_count": 102,
+  "article_count": 101,
   "source_count": 22,
-  "matched_count": 102,
+  "matched_count": 101,
   "top_entities": [
     {
       "name": "Service",
-      "count": 179
+      "count": 175
     },
     {
       "name": "Price",
-      "count": 176
+      "count": 172
     },
     {
       "name": "Subscription",
-      "count": 165
+      "count": 163
     },
     {
       "name": "Provider",
@@ -55,14 +55,14 @@
     "Bloomberg Technology": 5,
     "9to5Mac": 9,
     "The Verge": 2,
-    "9to5Google": 15,
+    "9to5Google": 14,
     "Spotify Newsroom": 1,
     "SaaStr": 7,
     "CNET Tech": 2,
     "Financial Times - Technology": 3,
     "Subscription Insider": 1
   },
-  "generated_at": "2026-05-14T16:51:07.279770+09:00",
+  "generated_at": "2026-05-14T20:59:11.928289+09:00",
   "quality_summary": {
     "total_sources": 51,
     "enabled_sources": 37,
@@ -79,8 +79,8 @@
     "pricing_page_snapshot_events": 8,
     "plan_change_notice_events": 66,
     "app_store_ranking_events": 51,
-    "churn_proxy_events": 56,
-    "subscription_signal_event_count": 181,
+    "churn_proxy_events": 57,
+    "subscription_signal_event_count": 182,
     "official_pricing_page_event_count": 8,
     "community_churn_proxy_event_count": 0,
     "plan_canonical_key_present_count": 74,
@@ -89,7 +89,7 @@
     "currency_present_count": 45,
     "change_type_present_count": 10,
     "app_ranking_key_present_count": 51,
-    "churn_metric_present_count": 35,
+    "churn_metric_present_count": 36,
     "missing_canonical_key_count": 0,
     "event_required_field_gap_count": 145,
     "tracked_source_gap_count": 0,
