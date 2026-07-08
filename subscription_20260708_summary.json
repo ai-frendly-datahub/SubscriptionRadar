@@ -1,0 +1,100 @@
+{
+  "date": "2026-07-08",
+  "category": "subscription",
+  "article_count": 64,
+  "source_count": 19,
+  "matched_count": 64,
+  "top_entities": [
+    {
+      "name": "Service",
+      "count": 116
+    },
+    {
+      "name": "Price",
+      "count": 115
+    },
+    {
+      "name": "Subscription",
+      "count": 98
+    },
+    {
+      "name": "SourceSignal",
+      "count": 40
+    },
+    {
+      "name": "Provider",
+      "count": 33
+    },
+    {
+      "name": "ServiceType",
+      "count": 8
+    },
+    {
+      "name": "BillingPolicy",
+      "count": 7
+    },
+    {
+      "name": "PlanChange",
+      "count": 6
+    }
+  ],
+  "sources": {
+    "밀리의서재": 1,
+    "Wavve 공지사항": 1,
+    "TVING 공지사항": 1,
+    "Basecamp Pricing": 1,
+    "Notion Pricing": 1,
+    "Apple One Pricing": 1,
+    "Spotify Premium Pricing": 1,
+    "Netflix Plans & Pricing": 1,
+    "Apple App Store Top Free KR": 3,
+    "Apple App Store Top Free US": 7,
+    "Wired": 13,
+    "9to5Google": 10,
+    "9to5Mac": 7,
+    "The Verge": 2,
+    "Bloomberg Technology": 2,
+    "SaaStr": 6,
+    "CNET Tech": 3,
+    "Hacker News": 1,
+    "Techmeme": 2
+  },
+  "generated_at": "2026-07-08T20:51:56.960119+09:00",
+  "quality_summary": {
+    "total_sources": 51,
+    "enabled_sources": 37,
+    "tracked_sources": 25,
+    "fresh_sources": 14,
+    "quiet_sources": 0,
+    "stale_sources": 1,
+    "missing_sources": 1,
+    "missing_event_sources": 0,
+    "unknown_event_date_sources": 0,
+    "not_tracked_sources": 21,
+    "skipped_disabled_sources": 14,
+    "collection_error_count": 0,
+    "pricing_page_snapshot_events": 8,
+    "plan_change_notice_events": 65,
+    "app_store_ranking_events": 51,
+    "churn_proxy_events": 46,
+    "subscription_signal_event_count": 170,
+    "official_pricing_page_event_count": 8,
+    "community_churn_proxy_event_count": 0,
+    "plan_canonical_key_present_count": 73,
+    "vendor_proxy_key_count": 61,
+    "price_amount_present_count": 8,
+    "currency_present_count": 46,
+    "change_type_present_count": 10,
+    "app_ranking_key_present_count": 51,
+    "churn_metric_present_count": 29,
+    "missing_canonical_key_count": 0,
+    "event_required_field_gap_count": 139,
+    "tracked_source_gap_count": 2,
+    "missing_event_model_count": 0,
+    "source_backlog_candidate_count": 4,
+    "daily_review_item_count": 50
+  },
+  "warnings": [
+    "freshness gaps detected: stale=1, missing=1"
+  ]
+}
