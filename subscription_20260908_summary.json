@@ -1,9 +1,9 @@
 {
   "date": "2026-09-08",
   "category": "subscription",
-  "article_count": 84,
-  "source_count": 21,
-  "matched_count": 84,
+  "article_count": 78,
+  "source_count": 22,
+  "matched_count": 78,
   "top_entities": [
     {
       "name": "Service",
@@ -11,31 +11,31 @@
     },
     {
       "name": "Price",
-      "count": 128
+      "count": 120
     },
     {
       "name": "Subscription",
-      "count": 125
+      "count": 116
     },
     {
       "name": "Provider",
-      "count": 52
+      "count": 50
     },
     {
       "name": "SourceSignal",
-      "count": 40
+      "count": 41
     },
     {
       "name": "BillingPolicy",
-      "count": 9
+      "count": 10
     },
     {
       "name": "ServiceType",
-      "count": 8
+      "count": 9
     },
     {
       "name": "PlanChange",
-      "count": 6
+      "count": 5
     }
   ],
   "sources": {
@@ -47,21 +47,22 @@
     "Apple One Pricing": 1,
     "Spotify Premium Pricing": 1,
     "Netflix Plans & Pricing": 1,
+    "Apple App Store Top Free KR": 4,
     "Apple App Store Top Free US": 5,
-    "Apple App Store Top Free KR": 3,
+    "Bloomberg Technology": 1,
+    "Techmeme": 5,
+    "Financial Times - Technology": 2,
+    "Engadget": 4,
+    "CNET Tech": 3,
     "SaaStr": 8,
     "9to5Google": 7,
-    "9to5Mac": 15,
-    "CNET Tech": 4,
+    "9to5Mac": 13,
     "The Verge": 1,
-    "Wired": 20,
-    "Financial Times - Technology": 1,
+    "Wired": 13,
     "TechCrunch": 2,
-    "Engadget": 4,
-    "Xbox Wire": 2,
-    "Techmeme": 4
+    "Xbox Wire": 2
   },
-  "generated_at": "2026-09-08T00:43:17.150666+09:00",
+  "generated_at": "2026-09-08T23:19:58.965083+09:00",
   "quality_summary": {
     "total_sources": 51,
     "enabled_sources": 37,
@@ -85,12 +86,12 @@
     "plan_canonical_key_present_count": 72,
     "vendor_proxy_key_count": 60,
     "price_amount_present_count": 8,
-    "currency_present_count": 37,
+    "currency_present_count": 35,
     "change_type_present_count": 11,
     "app_ranking_key_present_count": 50,
-    "churn_metric_present_count": 30,
+    "churn_metric_present_count": 29,
     "missing_canonical_key_count": 0,
-    "event_required_field_gap_count": 129,
+    "event_required_field_gap_count": 130,
     "tracked_source_gap_count": 3,
     "missing_event_model_count": 0,
     "source_backlog_candidate_count": 4,
