@@ -1,25 +1,25 @@
 {
   "date": "2026-10-03",
   "category": "subscription",
-  "article_count": 67,
+  "article_count": 77,
   "source_count": 22,
-  "matched_count": 67,
+  "matched_count": 77,
   "top_entities": [
     {
-      "name": "Subscription",
-      "count": 115
+      "name": "Service",
+      "count": 124
     },
     {
-      "name": "Service",
-      "count": 110
+      "name": "Subscription",
+      "count": 124
     },
     {
       "name": "Price",
-      "count": 109
+      "count": 123
     },
     {
       "name": "SourceSignal",
-      "count": 40
+      "count": 43
     },
     {
       "name": "Provider",
@@ -27,15 +27,15 @@
     },
     {
       "name": "BillingPolicy",
-      "count": 10
+      "count": 11
     },
     {
       "name": "ServiceType",
-      "count": 7
+      "count": 8
     },
     {
       "name": "PlanChange",
-      "count": 3
+      "count": 4
     }
   ],
   "sources": {
@@ -47,22 +47,22 @@
     "Apple One Pricing": 1,
     "Spotify Premium Pricing": 1,
     "Netflix Plans & Pricing": 1,
-    "Apple App Store Top Free KR": 3,
     "Apple App Store Top Free US": 7,
+    "Apple App Store Top Free KR": 3,
+    "9to5Mac": 12,
+    "SaaStr": 8,
+    "Wired": 15,
+    "9to5Google": 12,
+    "The Verge": 4,
     "Bloomberg Technology": 1,
     "CNET Tech": 2,
-    "9to5Mac": 10,
-    "The Verge": 3,
-    "9to5Google": 10,
-    "Wired": 13,
-    "SaaStr": 5,
     "Xbox Wire": 1,
     "Engadget": 1,
     "The SaaS Podcast": 1,
     "TechCrunch": 1,
     "PlayStation Blog": 1
   },
-  "generated_at": "2026-10-03T01:12:41.961605+09:00",
+  "generated_at": "2026-10-03T23:39:28.749757+09:00",
   "quality_summary": {
     "total_sources": 51,
     "enabled_sources": 37,
@@ -79,19 +79,19 @@
     "pricing_page_snapshot_events": 8,
     "plan_change_notice_events": 64,
     "app_store_ranking_events": 51,
-    "churn_proxy_events": 65,
-    "subscription_signal_event_count": 188,
+    "churn_proxy_events": 68,
+    "subscription_signal_event_count": 191,
     "official_pricing_page_event_count": 8,
     "community_churn_proxy_event_count": 0,
     "plan_canonical_key_present_count": 72,
     "vendor_proxy_key_count": 60,
     "price_amount_present_count": 9,
-    "currency_present_count": 58,
+    "currency_present_count": 59,
     "change_type_present_count": 9,
     "app_ranking_key_present_count": 51,
-    "churn_metric_present_count": 54,
+    "churn_metric_present_count": 55,
     "missing_canonical_key_count": 0,
-    "event_required_field_gap_count": 131,
+    "event_required_field_gap_count": 133,
     "tracked_source_gap_count": 1,
     "missing_event_model_count": 0,
     "source_backlog_candidate_count": 4,
