@@ -1,41 +1,41 @@
 {
-  "date": "2026-10-13",
+  "date": "2026-10-14",
   "category": "subscription",
-  "article_count": 93,
-  "source_count": 19,
-  "matched_count": 93,
+  "article_count": 85,
+  "source_count": 21,
+  "matched_count": 85,
   "top_entities": [
     {
-      "name": "Price",
-      "count": 141
+      "name": "Service",
+      "count": 121
     },
     {
-      "name": "Service",
-      "count": 139
+      "name": "Price",
+      "count": 119
     },
     {
       "name": "Subscription",
-      "count": 110
+      "count": 101
     },
     {
       "name": "Provider",
-      "count": 68
+      "count": 62
     },
     {
       "name": "SourceSignal",
-      "count": 40
+      "count": 39
     },
     {
       "name": "BillingPolicy",
-      "count": 10
-    },
-    {
-      "name": "PlanChange",
       "count": 8
     },
     {
+      "name": "PlanChange",
+      "count": 7
+    },
+    {
       "name": "ServiceType",
-      "count": 5
+      "count": 3
     }
   ],
   "sources": {
@@ -49,17 +49,19 @@
     "Netflix Plans & Pricing": 1,
     "Apple App Store Top Free US": 6,
     "Apple App Store Top Free KR": 4,
-    "Bloomberg Technology": 11,
-    "Engadget": 5,
-    "9to5Google": 9,
-    "9to5Mac": 18,
-    "SaaStr": 6,
-    "Wired": 11,
-    "The Verge": 5,
-    "TechCrunch": 3,
-    "Techmeme": 7
+    "9to5Mac": 17,
+    "Bloomberg Technology": 8,
+    "Engadget": 4,
+    "Techmeme": 8,
+    "TechCrunch": 5,
+    "CNET Tech": 1,
+    "Financial Times - Technology": 1,
+    "Wired": 10,
+    "9to5Google": 6,
+    "SaaStr": 5,
+    "The Verge": 2
   },
-  "generated_at": "2026-10-13T04:46:01.425659+09:00",
+  "generated_at": "2026-10-14T02:30:37.066909+09:00",
   "quality_summary": {
     "total_sources": 51,
     "enabled_sources": 37,
@@ -75,20 +77,20 @@
     "collection_error_count": 0,
     "pricing_page_snapshot_events": 8,
     "plan_change_notice_events": 64,
-    "app_store_ranking_events": 53,
-    "churn_proxy_events": 74,
-    "subscription_signal_event_count": 199,
+    "app_store_ranking_events": 54,
+    "churn_proxy_events": 72,
+    "subscription_signal_event_count": 198,
     "official_pricing_page_event_count": 8,
     "community_churn_proxy_event_count": 0,
     "plan_canonical_key_present_count": 72,
     "vendor_proxy_key_count": 60,
-    "price_amount_present_count": 9,
-    "currency_present_count": 66,
+    "price_amount_present_count": 7,
+    "currency_present_count": 63,
     "change_type_present_count": 9,
-    "app_ranking_key_present_count": 53,
-    "churn_metric_present_count": 57,
+    "app_ranking_key_present_count": 54,
+    "churn_metric_present_count": 54,
     "missing_canonical_key_count": 0,
-    "event_required_field_gap_count": 137,
+    "event_required_field_gap_count": 142,
     "tracked_source_gap_count": 2,
     "missing_event_model_count": 0,
     "source_backlog_candidate_count": 4,
