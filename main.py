@@ -2,9 +2,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import cast
+
+from radar_core.config_loader import filter_sources
+from radar_core.ontology import annotate_articles_with_ontology
 
 from subscriptionradar.analyzer import apply_entity_rules
 from subscriptionradar.collector import collect_sources
@@ -15,17 +19,18 @@ from subscriptionradar.config_loader import (
     load_settings,
 )
 from subscriptionradar.date_storage import apply_date_storage_policy
+from subscriptionradar.exceptions import EmptyCollectionError
 from subscriptionradar.quality_report import build_quality_report, write_quality_report
 from subscriptionradar.raw_logger import RawLogger
 from subscriptionradar.relevance import apply_source_context_entities, filter_relevant_articles
 from subscriptionradar.reporter import generate_index_html, generate_report
 from subscriptionradar.search_index import SearchIndex
 from subscriptionradar.storage import RadarStorage
-from radar_core.ontology import annotate_articles_with_ontology
-from radar_core.config_loader import filter_sources
 
 
-def _summary_report_path(report_dir: Path, category_name: str, quality_report: dict[str, object]) -> Path:
+def _summary_report_path(
+    report_dir: Path, category_name: str, quality_report: dict[str, object]
+) -> Path:
     existing = sorted(
         report_dir.glob(f"{category_name}_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_summary.json"),
         key=lambda path: path.stat().st_mtime,
@@ -181,7 +186,7 @@ def run(
     categories_dir: Path | None = None,
     per_source_limit: int = 30,
     recent_days: int = 7,
-    timeout: int = 15,
+    timeout: int = 45,
     keep_days: int = 90,
     keep_raw_days: int = 180,
     keep_report_days: int = 90,
@@ -203,11 +208,13 @@ def run(
     print(
         f"[Radar] Collecting '{category_cfg.display_name}' from {len(effective_sources)} sources..."
     )
+    raw_logger = RawLogger(settings.raw_data_dir)
     collected, errors = collect_sources(
         effective_sources,
         category=category_cfg.category_name,
         limit_per_source=per_source_limit,
         timeout=timeout,
+        raw_logger=raw_logger,
     )
     collected = annotate_articles_with_ontology(
         collected,
@@ -218,11 +225,15 @@ def run(
         attach_event_model_payload=True,
     )
 
-    raw_logger = RawLogger(settings.raw_data_dir)
     for source in effective_sources:
         source_articles = [article for article in collected if article.source == source.name]
         if source_articles:
             _ = raw_logger.log(source_articles, source_name=source.name)
+
+    ensure_collection_not_empty(
+        collected_count=len(collected),
+        enabled_source_count=sum(1 for source in effective_sources if source.enabled),
+    )
 
     analyzed = apply_entity_rules(collected, category_cfg.entities)
     classified = apply_source_context_entities(analyzed, effective_sources)
@@ -289,7 +300,9 @@ def run(
         errors=errors,
         quality_report=quality_report,
     )
-    summary_path = _summary_report_path(settings.report_dir, category_cfg.category_name, quality_report)
+    summary_path = _summary_report_path(
+        settings.report_dir, category_cfg.category_name, quality_report
+    )
     _augment_summary_with_quality(summary_path, quality_report)
     quality_paths = write_quality_report(
         quality_report,
@@ -326,6 +339,19 @@ def run(
     return output_path
 
 
+def ensure_collection_not_empty(*, collected_count: int, enabled_source_count: int) -> None:
+    """Fail the run when enabled sources produced nothing.
+
+    A dated snapshot of an old database is not evidence that this run collected data.
+    """
+    if enabled_source_count > 0 and collected_count <= 0:
+        print(
+            "::error title=SubscriptionRadar empty collection::Collection produced no articles",
+            flush=True,
+        )
+        raise EmptyCollectionError("Collection produced no articles from enabled sources")
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Lightweight Radar template runner")
     _ = parser.add_argument(
@@ -344,7 +370,7 @@ def parse_args() -> argparse.Namespace:
         "--recent-days", type=int, default=7, help="Window (days) to show in the report"
     )
     _ = parser.add_argument(
-        "--timeout", type=int, default=15, help="HTTP timeout per request (seconds)"
+        "--timeout", type=int, default=45, help="HTTP timeout per request (seconds)"
     )
     _ = parser.add_argument(
         "--keep-days", type=int, default=90, help="Retention window for stored items"
@@ -402,8 +428,6 @@ def _to_int(value: object, default: int) -> int:
     return default
 
 
-
-
 def _to_optional_int(value: object) -> int | None:
     if value is None:
         return None
@@ -423,19 +447,25 @@ def _to_str_list(value: object) -> list[str]:
     if isinstance(value, list):
         return [str(item) for item in cast(list[object], value) if isinstance(item, str)]
     return []
+
+
 if __name__ == "__main__":
     args = cast(dict[str, object], vars(parse_args()))
-    _ = run(
-        category=str(args.get("category", "")),
-        config_path=_to_path(args.get("config")),
-        categories_dir=_to_path(args.get("categories_dir")),
-        per_source_limit=_to_int(args.get("per_source_limit"), 30),
-        recent_days=_to_int(args.get("recent_days"), 7),
-        timeout=_to_int(args.get("timeout"), 15),
-        keep_days=_to_int(args.get("keep_days"), 90),
-        keep_raw_days=_to_int(args.get("keep_raw_days"), 180),
-        keep_report_days=_to_int(args.get("keep_report_days"), 90),
-        snapshot_db=bool(args.get("snapshot_db", False)),
-        max_sources=_to_optional_int(args.get("max_sources")),
-        exclude_sources=_to_str_list(args.get("exclude_source")),
-    )
+    try:
+        _ = run(
+            category=str(args.get("category", "")),
+            config_path=_to_path(args.get("config")),
+            categories_dir=_to_path(args.get("categories_dir")),
+            per_source_limit=_to_int(args.get("per_source_limit"), 30),
+            recent_days=_to_int(args.get("recent_days"), 7),
+            timeout=_to_int(args.get("timeout"), 45),
+            keep_days=_to_int(args.get("keep_days"), 90),
+            keep_raw_days=_to_int(args.get("keep_raw_days"), 180),
+            keep_report_days=_to_int(args.get("keep_report_days"), 90),
+            snapshot_db=bool(args.get("snapshot_db", False)),
+            max_sources=_to_optional_int(args.get("max_sources")),
+            exclude_sources=_to_str_list(args.get("exclude_source")),
+        )
+    except EmptyCollectionError as exc:
+        print(f"[Radar] {exc}", file=sys.stderr)
+        raise SystemExit(1) from exc

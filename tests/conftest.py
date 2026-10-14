@@ -1,10 +1,30 @@
 from __future__ import annotations
 
-from datetime import UTC, datetime, timedelta
+import importlib
+from datetime import UTC, datetime, timedelta, tzinfo
 from pathlib import Path
 
 import pytest
 import structlog
+
+from tests.reference_dates import REFERENCE_NOW
+
+
+class FrozenDateTime(datetime):
+    """datetime.now() in date-stamping modules returns REFERENCE_NOW."""
+
+    @classmethod
+    def now(cls, tz: tzinfo | None = None) -> datetime:
+        if tz is None:
+            return REFERENCE_NOW.replace(tzinfo=None)
+        return REFERENCE_NOW
+
+
+@pytest.fixture(autouse=True)
+def freeze_reference_clock(monkeypatch: pytest.MonkeyPatch) -> None:
+    for module_name in ("subscriptionradar.date_storage", "subscriptionradar.raw_logger"):
+        module = importlib.import_module(module_name)
+        monkeypatch.setattr(module, "datetime", FrozenDateTime)
 
 
 @pytest.fixture(autouse=True)

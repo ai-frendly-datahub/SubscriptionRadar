@@ -33,7 +33,21 @@ OTT, 음악, SaaS, AI 서비스의 요금제 변경과 청구 정책 변화를 �
    # 리포트: reports/subscription_report.html
    ```
 
-   주요 옵션: `--per-source-limit 20`, `--recent-days 5`, `--keep-days 60`, `--timeout 20`.
+   주요 옵션: `--per-source-limit 20`, `--recent-days 5`, `--keep-days 60`, `--timeout 45`.
+
+## 운영 계약
+
+형제 Radar에서 확인된 실패(빈 수집을 성공으로 처리, 100MiB DuckDB 푸시 거절, `continue-on-error` 때문에 조용히 실패한 데이터 푸시)를 이 저장소에도 고정합니다. 기준은 [Radar-Template PR #4](https://github.com/ai-frendly-datahub/Radar-Template/pull/4)입니다.
+
+1. **radar-core 핀.** `requirements.txt`와 `pyproject.toml`은 `radar-core @ git+https://github.com/ai-frendly-datahub/radar-core.git@main` 입니다.
+2. **스냅샷 전에 압축.** `apply_date_storage_policy()`와 `RadarStorage.create_daily_snapshot()`은 일일 복사와 git add 전에 `radar_core.db_compact.compact_duckdb_file(database_path)`를 호출합니다. 압축이 실패해도 기존 파일을 스냅샷하고, 실행 로그에 바이트 수와 삭제된 행 수를 남깁니다. 기본 예산은 90MiB입니다.
+3. **피드 클라이언트.** User-Agent는 `SubscriptionRadar/0.1` 입니다. RSS 타임아웃 기본값은 45초입니다. TLS 검증은 항상 켭니다. Cloudflare, "Just a moment", 쿠키 월, 403/404 페이지 제목은 저장하기 전에 버립니다.
+4. **없는 시크릿.** 소스마다 GitHub `::warning`을 한 번 출력합니다. `data/raw/<날짜>/<소스>.skip.json`에는 환경 변수 이름만 기록합니다. 수집기는 실패하면 빈 리스트를 반환하며 샘플이나 가짜 기사를 만들지 않습니다.
+5. **실패해야 하는 실행.** 활성 소스가 있는데 수집 건수가 0이면 프로세스가 종료 코드 1로 끝납니다. 출력이 0바이트이거나 DuckDB가 100MiB 이상이면 워크플로가 실패합니다. 데이터 auto-commit/push에는 `continue-on-error`가 없습니다.
+6. **Pages는 푸시 성공 후에만.** `gh-pages` 배포는 auto-commit 단계의 `outcome == success`일 때만 실행됩니다.
+7. **테스트.** 날짜 단정은 `tests/reference_dates.py`의 기준 시각(2026-03-13 12:00 UTC)과 `tests/fixtures/`를 사용합니다. 커버리지 설정은 `relative_files = true`입니다.
+
+일일 DuckDB 스냅샷은 Git LFS로 올리지 않습니다. LFS 예산이 소진되면 데이터 푸시가 거절됩니다. 압축된 파일은 일반 git blob으로 커밋합니다.
 
 ## 소스 전략
 
@@ -49,8 +63,9 @@ JavaScript/browser 소스를 제대로 수집하려면 `pip install 'radar-core[
 - 워크플로: `.github/workflows/radar-crawler.yml`
   - 스케줄: 매일 00:00 UTC (KST 09:00), 수동 실행도 지원.
   - 환경 변수 `RADAR_CATEGORY` 값은 `subscription`입니다.
-  - 리포트 배포 디렉터리: `reports` → `gh-pages` 브랜치로 배포.
-  - DuckDB 경로: `data/radar_data.duckdb` (Pages에 올라가지 않음). 아티팩트로 7일 보관.
+  - 수집 타임아웃은 45초입니다.
+  - 리포트 배포 디렉터리: `reports` → `gh-pages` 브랜치. 데이터 푸시가 성공한 뒤에만 배포합니다.
+  - DuckDB 경로: `data/radar_data.duckdb` (Pages에 올라가지 않음). 커밋 전 90MiB 예산으로 압축하고, 100MiB 이상이면 작업을 실패시킵니다. 아티팩트로 30일 보관.
 
 - 설정 방법:
   1) 저장소 Settings → Pages에서 `gh-pages` 브랜치를 선택해 활성화
