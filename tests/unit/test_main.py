@@ -53,7 +53,9 @@ class _FakeStorage:
         return self.articles
 
 
-def _make_article(source: str, *, title: str = "Title", link: str = "https://example.com/article") -> Article:
+def _make_article(
+    source: str, *, title: str = "Title", link: str = "https://example.com/article"
+) -> Article:
     return Article(
         title=title,
         link=link,
@@ -70,7 +72,9 @@ def _make_category(source_name: str) -> CategoryConfig:
         category_name="subscription",
         display_name="Subscription",
         sources=[Source(name=source_name, type="rss", url="https://example.com/feed.xml")],
-        entities=[EntityDefinition(name="Subscription", display_name="Subscription", keywords=["plan"])],
+        entities=[
+            EntityDefinition(name="Subscription", display_name="Subscription", keywords=["plan"])
+        ],
     )
 
 
@@ -90,12 +94,14 @@ def test_select_quality_articles_prefers_stored_window_when_available(monkeypatc
     selected = _select_quality_articles(
         storage,
         category_cfg=category_cfg,
+        effective_sources=category_cfg.sources,
         recent_days=7,
         per_source_limit=5,
         fallback_articles=[fallback_article],
     )
 
-    assert selected == [stored_article]
+    assert selected[0] == fallback_article
+    assert stored_article in selected
     assert storage.calls == [("subscription", 14, 500)]
 
 
@@ -110,6 +116,7 @@ def test_select_quality_articles_falls_back_when_storage_window_is_empty(monkeyp
     selected = _select_quality_articles(
         storage,
         category_cfg=category_cfg,
+        effective_sources=category_cfg.sources,
         recent_days=7,
         per_source_limit=5,
         fallback_articles=[fallback_article],

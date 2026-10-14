@@ -16,8 +16,8 @@ from typing import TYPE_CHECKING, Any
 
 import structlog
 
+from .common.validators import is_challenge_or_error_page
 from .models import Article
-
 
 if TYPE_CHECKING:
     from .models import Source
@@ -102,10 +102,22 @@ def collect_browser_sources(
         return [], [f"Browser collection failed: {exc}"]
 
     local_articles: list[Article] = []
+    dropped_challenge = 0
     for article in core_articles:
-        title = article.title if isinstance(article.title, str) and article.title.strip() else "(no title)"
-        summary = article.summary if isinstance(article.summary, str) and article.summary.strip() else title
+        title = (
+            article.title
+            if isinstance(article.title, str) and article.title.strip()
+            else "(no title)"
+        )
+        summary = (
+            article.summary
+            if isinstance(article.summary, str) and article.summary.strip()
+            else title
+        )
         link = article.link if isinstance(article.link, str) and article.link.strip() else ""
+        if is_challenge_or_error_page(title, summary):
+            dropped_challenge += 1
+            continue
         local_articles.append(
             Article(
                 title=title,
@@ -116,6 +128,9 @@ def collect_browser_sources(
                 category=article.category or category,
             )
         )
+
+    if dropped_challenge and not local_articles:
+        errors.append("browser sources returned only challenge or error pages")
 
     if local_articles:
         logger.info(

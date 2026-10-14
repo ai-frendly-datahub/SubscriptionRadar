@@ -7,6 +7,7 @@ from typing import cast
 
 from subscriptionradar.models import Article
 from subscriptionradar.raw_logger import RawLogger
+from tests.reference_dates import REFERENCE_NOW
 
 
 def _make_article(*, title: str = "Sample title", summary: str = "요약") -> Article:
@@ -27,7 +28,7 @@ def test_log_creates_yyyy_mm_dd_directory_and_jsonl_file(tmp_path: Path) -> None
 
     output_path = logger.log([article], source_name="MySource")
 
-    assert output_path.parent.name == datetime.now(UTC).date().isoformat()
+    assert output_path.parent.name == REFERENCE_NOW.date().isoformat()
     assert output_path.name == "MySource.jsonl"
     assert output_path.exists()
 

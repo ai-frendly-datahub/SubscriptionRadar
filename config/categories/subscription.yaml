@@ -132,20 +132,20 @@ sources:
     type: "rss"
     url: "https://www.saastr.com/feed/"
 
-  - name: "Subscription Economy News"
+  - name: "ChartMogul Blog"
     type: "rss"
-    url: "https://www.subscribed.com/feed/"
-    enabled: false
+    url: "https://chartmogul.com/blog/feed/"
+    notes: "Replaces Subscribed.com, which returns an HTML page instead of a feed. Public RSS, no API key."
 
-  - name: "OpenView Blog"
+  - name: "Chargebee Blog"
     type: "rss"
-    url: "https://openviewpartners.com/feed/"
-    enabled: false
+    url: "https://www.chargebee.com/blog/feed/"
+    notes: "Replaces OpenView Blog (404). Public subscription-billing RSS, no API key."
 
-  - name: "SaaS Mag"
+  - name: "Tomasz Tunguz"
     type: "rss"
-    url: "https://saasmagorg.com/feed/"
-    enabled: false
+    url: "https://tomtunguz.com/index.xml"
+    notes: "Replaces SaaS Mag (saasmagorg.com does not resolve). Public RSS, no API key."
 
   - name: "Product Hunt"
     type: "rss"
@@ -335,7 +335,7 @@ sources:
       - "pricing"
       - "promotion"
       - "billing"
-    notes: "Official Adobe subscription pricing and promotional plan page."
+    notes: "Official Adobe pricing page. Playwright fails with ERR_HTTP2_PROTOCOL_ERROR, so the source stays disabled. No Cloudflare bypass and no key."
     config:
       wait_for: "body"
 
@@ -396,6 +396,7 @@ sources:
   - name: "쿠팡플레이"
     type: "javascript"
     url: "https://www.coupangplay.com/faq"
+    enabled: false
     trust_tier: "T1_official"
     content_type: "notice"
     producer_role: "vendor"
@@ -404,7 +405,7 @@ sources:
       - "official_notice"
       - "billing"
       - "service_update"
-    notes: "Official Coupang Play notice board for subscription and service updates."
+    notes: "Official Coupang Play notice board. The page returns Access Denied (403) and redirect loops, so the source stays disabled. No Cloudflare bypass and no key."
     config:
       wait_for: "body"
       quiet_when_no_items: true
@@ -432,9 +433,10 @@ sources:
       plan_name: "Service notice"
       default_change_type: "service_notice"
 
-  - name: "토스 블로그"
+  - name: "토스 기술 블로그"
     type: "rss"
-    url: "https://blog.toss.im/feed"
+    url: "https://toss.tech/rss.xml"
+    notes: "Replaces blog.toss.im/feed, which redirects to an HTML page. Public RSS, no API key."
 
   # === 게임 구독 ===
   - name: "Xbox Wire"
@@ -445,16 +447,15 @@ sources:
     type: "rss"
     url: "https://blog.playstation.com/feed/"
 
-  - name: "Nintendo News"
+  - name: "Nintendo Life"
     type: "rss"
-    url: "https://www.nintendo.com/whatsnew/feed/"
-    enabled: false
+    url: "https://www.nintendolife.com/feeds/news"
+    notes: "Replaces nintendo.com/whatsnew/feed (404). Public RSS, no API key."
 
   # === Reddit 구독/서비스 커뮤니티 ===
   - name: "r/cordcutters"
     type: "rss"
     url: "https://www.reddit.com/r/cordcutters/.rss"
-    enabled: false
     content_type: "community"
     producer_role: "consumer_comm"
     info_purpose:
@@ -465,7 +466,6 @@ sources:
   - name: "r/Streaming"
     type: "rss"
     url: "https://www.reddit.com/r/Streaming/.rss"
-    enabled: false
     content_type: "community"
     producer_role: "consumer_comm"
     info_purpose:
@@ -476,31 +476,33 @@ sources:
     type: "rss"
     url: "https://www.reddit.com/r/NetflixBestOf/.rss"
     enabled: false
+    notes: "Public .rss returned HTTP 429. Left disabled. No Cloudflare bypass and no key."
 
   - name: "r/spotify"
     type: "rss"
     url: "https://www.reddit.com/r/spotify/.rss"
-    enabled: false
 
   - name: "r/AppleMusic"
     type: "rss"
     url: "https://www.reddit.com/r/AppleMusic/.rss"
     enabled: false
+    notes: "Public .rss returned HTTP 429. Left disabled. No Cloudflare bypass and no key."
 
   - name: "r/SaaS"
     type: "rss"
     url: "https://www.reddit.com/r/SaaS/.rss"
-    enabled: false
 
   - name: "r/softwaretesting"
     type: "rss"
     url: "https://www.reddit.com/r/softwaretesting/.rss"
     enabled: false
+    notes: "Public .rss returned HTTP 429. Left disabled. No Cloudflare bypass and no key."
 
   - name: "r/digitalnomad"
     type: "rss"
     url: "https://www.reddit.com/r/digitalnomad/.rss"
     enabled: false
+    notes: "Off-topic for plan and billing signals. Left disabled."
 
   # === 구독 경제 팟캐스트/YouTube ===
   - name: "The SaaS Podcast"
@@ -510,9 +512,10 @@ sources:
     config:
       quiet_when_no_items: true
 
-  - name: "Subscription Insider"
+  - name: "Cord Cutters News"
     type: "rss"
-    url: "https://www.subscriptioninsider.com/feed/"
+    url: "https://cordcuttersnews.com/feed/"
+    notes: "Replaces Subscription Insider (404). Public streaming-subscription RSS, no API key."
 
   - name: "MKBHD"
     type: "rss"
@@ -531,10 +534,10 @@ sources:
     type: "rss"
     url: "https://www.wired.com/feed/rss"
 
-  - name: "Protocol"
+  - name: "Variety"
     type: "rss"
-    url: "https://www.protocol.com/feeds/feed.rss"
-    enabled: false
+    url: "https://variety.com/feed/"
+    notes: "Replaces Protocol, which shut down (404). Public RSS, no API key."
 
 entities:
   - name: "Subscription"

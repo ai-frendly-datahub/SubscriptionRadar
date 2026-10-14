@@ -1,0 +1,58 @@
+{
+  "repo": "SubscriptionRadar",
+  "category": "subscription",
+  "ontology_version": "0.1.0",
+  "event_model_mappings": {
+    "pricing_page_snapshot": "subscription.pricing_page_snapshot",
+    "plan_change_notice": "subscription.plan_change_notice",
+    "app_store_ranking": "subscription.app_store_ranking",
+    "churn_proxy": "subscription.churn_proxy"
+  },
+  "event_model_field_specs": {
+    "pricing_page_snapshot": {
+      "required_fields": ["vendor_id", "plan_id", "price", "currency", "source_url"],
+      "optional_fields": ["observed_at", "collected_at", "plan_name", "billing_cycle"],
+      "field_enums": {}
+    },
+    "plan_change_notice": {
+      "required_fields": ["vendor_id", "plan_id", "change_type", "source_url"],
+      "optional_fields": ["announced_date", "effective_date", "collected_at"],
+      "field_enums": {}
+    },
+    "app_store_ranking": {
+      "required_fields": ["app_id", "rank", "market", "category"],
+      "optional_fields": ["ranking_date", "collected_at", "app_name"],
+      "field_enums": {}
+    },
+    "churn_proxy": {
+      "required_fields": ["vendor_id", "metric_name", "metric_value", "source"],
+      "optional_fields": ["metric_date", "collected_at"],
+      "field_enums": {}
+    }
+  },
+  "entity_type_hints": [
+    "commerce.vendor",
+    "commerce.subscription_plan"
+  ],
+  "source_role_mappings": {
+    "Netflix Plans & Pricing": "primary_evidence",
+    "Spotify Premium Pricing": "primary_evidence",
+    "Apple One Pricing": "primary_evidence",
+    "Notion Pricing": "primary_evidence",
+    "Basecamp Pricing": "primary_evidence",
+    "Apple App Store Top Free US": "operational_evidence",
+    "Apple App Store Top Free KR": "operational_evidence",
+    "Spotify Newsroom": "operational_evidence",
+    "Netflix TechBlog": "operational_evidence",
+    "Engadget": "context_only",
+    "r/cordcutters": "community_signal",
+    "r/Streaming": "community_signal",
+    "r/spotify": "community_signal",
+    "r/SaaS": "community_signal"
+  },
+  "evidence_policy_ids": [
+    "traceable_url_required",
+    "cross_reference_required",
+    "non_authoritative_context_only"
+  ]
+}
