@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-20",
+  "category": "subscription",
+  "article_count": 134,
+  "source_count": 30,
+  "matched_count": 134,
+  "top_entities": [
+    {
+      "name": "Service",
+      "count": 322
+    },
+    {
+      "name": "Subscription",
+      "count": 194
+    },
+    {
+      "name": "Price",
+      "count": 194
+    },
+    {
+      "name": "Provider",
+      "count": 89
+    },
+    {
+      "name": "SourceSignal",
+      "count": 67
+    },
+    {
+      "name": "ServiceType",
+      "count": 31
+    },
+    {
+      "name": "BillingPolicy",
+      "count": 17
+    },
+    {
+      "name": "PlanChange",
+      "count": 7
+    }
+  ],
+  "sources": {
+    "밀리의서재": 1,
+    "Wavve 공지사항": 1,
+    "TVING 공지사항": 1,
+    "Basecamp Pricing": 1,
+    "Notion Pricing": 1,
+    "Apple One Pricing": 1,
+    "Spotify Premium Pricing": 1,
+    "Netflix Plans & Pricing": 1,
+    "Apple App Store Top Free KR": 4,
+    "Apple App Store Top Free US": 6,
+    "r/SaaS": 12,
+    "9to5Mac": 15,
+    "Cord Cutters News": 12,
+    "Bloomberg Technology": 4,
+    "9to5Google": 12,
+    "SaaStr": 7,
+    "PlayStation Blog": 2,
+    "TechCrunch": 1,
+    "r/cordcutters": 5,
+    "r/Streaming": 4,
+    "Techmeme": 10,
+    "Financial Times - Technology": 3,
+    "Variety": 1,
+    "Wired": 15,
+    "Nintendo Life": 1,
+    "Netflix TechBlog": 8,
+    "The Verge": 1,
+    "Linus Tech Tips": 1,
+    "Tomasz Tunguz": 1,
+    "CNET Tech": 1
+  },
+  "generated_at": "2026-10-20T01:55:00.855452+09:00",
+  "ontology": {
+    "repo": "SubscriptionRadar",
+    "category": "subscription",
+    "ontology_version": "0.1.0",
+    "event_model_ids": [
+      "subscription.app_store_ranking",
+      "subscription.churn_proxy",
+      "subscription.plan_change_notice",
+      "subscription.pricing_page_snapshot"
+    ],
+    "event_model_mappings": {
+      "pricing_page_snapshot": "subscription.pricing_page_snapshot",
+      "plan_change_notice": "subscription.plan_change_notice",
+      "app_store_ranking": "subscription.app_store_ranking",
+      "churn_proxy": "subscription.churn_proxy"
+    },
+    "entity_type_hints": [
+      "commerce.vendor",
+      "commerce.subscription_plan"
+    ],
+    "source_role_ids": [
+      "community_signal",
+      "context_only",
+      "operational_evidence",
+      "primary_evidence"
+    ],
+    "source_role_mappings": {
+      "Netflix Plans & Pricing": "primary_evidence",
+      "Spotify Premium Pricing": "primary_evidence",
+      "Apple One Pricing": "primary_evidence",
+      "Notion Pricing": "primary_evidence",
+      "Basecamp Pricing": "primary_evidence",
+      "Apple App Store Top Free US": "operational_evidence",
+      "Apple App Store Top Free KR": "operational_evidence",
+      "Spotify Newsroom": "operational_evidence",
+      "Netflix TechBlog": "operational_evidence",
+      "Engadget": "context_only",
+      "r/cordcutters": "community_signal",
+      "r/Streaming": "community_signal",
+      "r/spotify": "community_signal",
+      "r/SaaS": "community_signal"
+    },
+    "evidence_policy_ids": [
+      "traceable_url_required",
+      "cross_reference_required",
+      "non_authoritative_context_only"
+    ]
+  },
+  "quality_summary": {
+    "total_sources": 51,
+    "enabled_sources": 45,
+    "tracked_sources": 21,
+    "fresh_sources": 15,
+    "quiet_sources": 0,
+    "stale_sources": 2,
+    "missing_sources": 1,
+    "missing_event_sources": 0,
+    "unknown_event_date_sources": 0,
+    "not_tracked_sources": 27,
+    "skipped_disabled_sources": 6,
+    "collection_error_count": 2,
+    "pricing_page_snapshot_events": 8,
+    "plan_change_notice_events": 63,
+    "app_store_ranking_events": 53,
+    "churn_proxy_events": 149,
+    "subscription_signal_event_count": 273,
+    "official_pricing_page_event_count": 8,
+    "community_churn_proxy_event_count": 39,
+    "plan_canonical_key_present_count": 71,
+    "vendor_proxy_key_count": 60,
+    "price_amount_present_count": 9,
+    "currency_present_count": 90,
+    "change_type_present_count": 10,
+    "app_ranking_key_present_count": 53,
+    "churn_metric_present_count": 77,
+    "missing_canonical_key_count": 0,
+    "event_required_field_gap_count": 192,
+    "tracked_source_gap_count": 3,
+    "missing_event_model_count": 0,
+    "source_backlog_candidate_count": 4,
+    "daily_review_item_count": 50
+  },
+  "warnings": [
+    "collection errors detected: 2",
+    "freshness gaps detected: stale=2, missing=1"
+  ]
+}
