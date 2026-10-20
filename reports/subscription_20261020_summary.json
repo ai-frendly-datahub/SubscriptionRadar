@@ -1,37 +1,37 @@
 {
   "date": "2026-10-20",
   "category": "subscription",
-  "article_count": 134,
+  "article_count": 135,
   "source_count": 30,
-  "matched_count": 134,
+  "matched_count": 135,
   "top_entities": [
     {
       "name": "Service",
-      "count": 322
-    },
-    {
-      "name": "Subscription",
-      "count": 194
+      "count": 320
     },
     {
       "name": "Price",
-      "count": 194
+      "count": 199
+    },
+    {
+      "name": "Subscription",
+      "count": 195
     },
     {
       "name": "Provider",
-      "count": 89
+      "count": 82
     },
     {
       "name": "SourceSignal",
-      "count": 67
+      "count": 59
     },
     {
       "name": "ServiceType",
-      "count": 31
+      "count": 29
     },
     {
       "name": "BillingPolicy",
-      "count": 17
+      "count": 18
     },
     {
       "name": "PlanChange",
@@ -49,28 +49,28 @@
     "Netflix Plans & Pricing": 1,
     "Apple App Store Top Free KR": 4,
     "Apple App Store Top Free US": 6,
-    "r/SaaS": 12,
-    "9to5Mac": 15,
-    "Cord Cutters News": 12,
-    "Bloomberg Technology": 4,
-    "9to5Google": 12,
+    "9to5Google": 14,
     "SaaStr": 7,
-    "PlayStation Blog": 2,
-    "TechCrunch": 1,
-    "r/cordcutters": 5,
-    "r/Streaming": 4,
-    "Techmeme": 10,
-    "Financial Times - Technology": 3,
-    "Variety": 1,
+    "Cord Cutters News": 14,
+    "Techmeme": 12,
+    "CNET Tech": 1,
+    "Engadget": 1,
+    "TechCrunch": 2,
+    "The Verge": 2,
     "Wired": 15,
+    "r/SaaS": 12,
+    "9to5Mac": 13,
+    "Bloomberg Technology": 4,
+    "PlayStation Blog": 2,
+    "r/cordcutters": 1,
+    "r/Streaming": 4,
+    "Financial Times - Technology": 2,
+    "Variety": 1,
     "Nintendo Life": 1,
     "Netflix TechBlog": 8,
-    "The Verge": 1,
-    "Linus Tech Tips": 1,
-    "Tomasz Tunguz": 1,
-    "CNET Tech": 1
+    "Linus Tech Tips": 1
   },
-  "generated_at": "2026-10-20T01:55:00.855452+09:00",
+  "generated_at": "2026-10-20T23:53:48.173449+09:00",
   "ontology": {
     "repo": "SubscriptionRadar",
     "category": "subscription",
@@ -123,38 +123,38 @@
     "total_sources": 51,
     "enabled_sources": 45,
     "tracked_sources": 21,
-    "fresh_sources": 15,
+    "fresh_sources": 16,
     "quiet_sources": 0,
-    "stale_sources": 2,
+    "stale_sources": 1,
     "missing_sources": 1,
     "missing_event_sources": 0,
     "unknown_event_date_sources": 0,
     "not_tracked_sources": 27,
     "skipped_disabled_sources": 6,
-    "collection_error_count": 2,
+    "collection_error_count": 3,
     "pricing_page_snapshot_events": 8,
     "plan_change_notice_events": 63,
-    "app_store_ranking_events": 53,
-    "churn_proxy_events": 149,
-    "subscription_signal_event_count": 273,
+    "app_store_ranking_events": 54,
+    "churn_proxy_events": 123,
+    "subscription_signal_event_count": 248,
     "official_pricing_page_event_count": 8,
-    "community_churn_proxy_event_count": 39,
+    "community_churn_proxy_event_count": 38,
     "plan_canonical_key_present_count": 71,
     "vendor_proxy_key_count": 60,
     "price_amount_present_count": 9,
-    "currency_present_count": 90,
+    "currency_present_count": 83,
     "change_type_present_count": 10,
-    "app_ranking_key_present_count": 53,
-    "churn_metric_present_count": 77,
+    "app_ranking_key_present_count": 54,
+    "churn_metric_present_count": 72,
     "missing_canonical_key_count": 0,
-    "event_required_field_gap_count": 192,
-    "tracked_source_gap_count": 3,
+    "event_required_field_gap_count": 171,
+    "tracked_source_gap_count": 2,
     "missing_event_model_count": 0,
     "source_backlog_candidate_count": 4,
     "daily_review_item_count": 50
   },
   "warnings": [
-    "collection errors detected: 2",
-    "freshness gaps detected: stale=2, missing=1"
+    "collection errors detected: 3",
+    "freshness gaps detected: stale=1, missing=1"
   ]
 }
