@@ -1,0 +1,5617 @@
+{
+  "category": "subscription",
+  "generated_at": "2026-10-27T15:50:07.981355+00:00",
+  "scope_note": "Official pricing pages and notices are tracked separately from broad tech/media/community feeds. Broad rows require plan, price, billing, or provider-level subscription evidence before they enter reports.",
+  "summary": {
+    "total_sources": 51,
+    "enabled_sources": 45,
+    "tracked_sources": 21,
+    "fresh_sources": 13,
+    "quiet_sources": 2,
+    "stale_sources": 1,
+    "missing_sources": 2,
+    "missing_event_sources": 0,
+    "unknown_event_date_sources": 0,
+    "not_tracked_sources": 27,
+    "skipped_disabled_sources": 6,
+    "collection_error_count": 0,
+    "pricing_page_snapshot_events": 5,
+    "plan_change_notice_events": 4,
+    "app_store_ranking_events": 10,
+    "churn_proxy_events": 42,
+    "subscription_signal_event_count": 61,
+    "official_pricing_page_event_count": 5,
+    "community_churn_proxy_event_count": 3,
+    "plan_canonical_key_present_count": 9,
+    "vendor_proxy_key_count": 1,
+    "price_amount_present_count": 4,
+    "currency_present_count": 25,
+    "change_type_present_count": 7,
+    "app_ranking_key_present_count": 10,
+    "churn_metric_present_count": 14,
+    "missing_canonical_key_count": 0,
+    "event_required_field_gap_count": 32,
+    "tracked_source_gap_count": 3,
+    "missing_event_model_count": 0,
+    "source_backlog_candidate_count": 4,
+    "daily_review_item_count": 38
+  },
+  "sources": [
+    {
+      "source": "Engadget",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 9,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "TechCrunch",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 3,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "9to5Mac",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 15,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "9to5Google",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 17,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Ars Technica",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Hacker News",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 2,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "The Verge",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 3,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Techmeme",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 13,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "SaaStr",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": true,
+      "event_model": "churn_proxy",
+      "freshness_sla_days": 30.0,
+      "status": "fresh",
+      "quiet_when_no_items": false,
+      "article_count": 8,
+      "event_count": 8,
+      "latest_event_at": "2026-10-26T05:37:47+00:00",
+      "age_days": 1.43,
+      "latest_title": "5 Interesting Learnings from Anthropic’s S-1 at $16.3 Billion in Half-Year Revenue: 900% NRR, $6.6M in Revenue Per Employee, and a 10% Adjusted Operating Margin",
+      "latest_url": "https://www.saastr.com/5-interesting-learnings-from-anthropics-s-1-at-16-3-billion-in-half-year-revenue-900-nrr-6-6m-in-revenue-per-employee-and-a-10-adjusted-operating-margin",
+      "latest_provider": [],
+      "latest_price": [
+        "price",
+        "deal",
+        "revenue"
+      ],
+      "latest_plan_change": [],
+      "latest_source_signal": [
+        "churn_proxy"
+      ],
+      "latest_canonical_key": "churn_proxy:saastr:percentage",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "ChartMogul Blog",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Chargebee Blog",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Tomasz Tunguz",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Product Hunt",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Netflix TechBlog",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T1_official",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "official_news",
+        "service_update"
+      ],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 4,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Spotify Newsroom",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T1_official",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "official_news",
+        "plan_change"
+      ],
+      "tracked": true,
+      "event_model": "plan_change_notice",
+      "freshness_sla_days": 3.0,
+      "status": "stale",
+      "quiet_when_no_items": true,
+      "article_count": 1,
+      "event_count": 1,
+      "latest_event_at": "2026-10-22T01:00:31+00:00",
+      "age_days": 5.62,
+      "latest_title": "Spotify Reports Third Quarter 2026 Earnings",
+      "latest_url": "https://newsroom.spotify.com/2026-10-22/spotify-q3-2026-earnings",
+      "latest_provider": [
+        "spotify"
+      ],
+      "latest_price": [
+        "premium"
+      ],
+      "latest_plan_change": [],
+      "latest_source_signal": [
+        "plan_change"
+      ],
+      "latest_canonical_key": "subscription_plan:spotify",
+      "latest_required_field_gaps": [
+        "plan_id",
+        "change_type"
+      ],
+      "errors": []
+    },
+    {
+      "source": "Disney Investor Relations",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T1_official",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "official_news",
+        "bundle"
+      ],
+      "tracked": true,
+      "event_model": "plan_change_notice",
+      "freshness_sla_days": 3.0,
+      "status": "quiet",
+      "quiet_when_no_items": true,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Apple Newsroom",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T1_official",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "official_news",
+        "service_update"
+      ],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Apple App Store Top Free US",
+      "source_type": "json",
+      "enabled": true,
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "tracked": true,
+      "event_model": "app_store_ranking",
+      "freshness_sla_days": 7.0,
+      "status": "fresh",
+      "quiet_when_no_items": false,
+      "article_count": 7,
+      "event_count": 7,
+      "latest_event_at": "2026-10-27T15:49:22+00:00",
+      "age_days": 0.0,
+      "latest_title": "ChatGPT ranks #4 in US App Store Top Free Apps",
+      "latest_url": "https://apps.apple.com/us/app/chatgpt/id6448311069",
+      "latest_provider": [
+        "openai",
+        "chatgpt"
+      ],
+      "latest_price": [
+        "free"
+      ],
+      "latest_plan_change": [],
+      "latest_source_signal": [
+        "app_store_ranking"
+      ],
+      "latest_canonical_key": "app_store:us:top_free_apps:6448311069",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Apple App Store Top Free KR",
+      "source_type": "json",
+      "enabled": true,
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "tracked": true,
+      "event_model": "app_store_ranking",
+      "freshness_sla_days": 7.0,
+      "status": "fresh",
+      "quiet_when_no_items": false,
+      "article_count": 3,
+      "event_count": 3,
+      "latest_event_at": "2026-10-27T15:49:23+00:00",
+      "age_days": 0.0,
+      "latest_title": "Google Gemini ranks #5 in KR App Store Top Free Apps",
+      "latest_url": "https://apps.apple.com/kr/app/google-gemini/id6477489729",
+      "latest_provider": [
+        "gemini"
+      ],
+      "latest_price": [
+        "free"
+      ],
+      "latest_plan_change": [],
+      "latest_source_signal": [
+        "app_store_ranking"
+      ],
+      "latest_canonical_key": "app_store:kr:top_free_apps:6477489729",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Netflix Plans & Pricing",
+      "source_type": "browser",
+      "enabled": true,
+      "trust_tier": "T1_official",
+      "content_type": "pricing",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "pricing",
+        "plan_change",
+        "billing"
+      ],
+      "tracked": true,
+      "event_model": "pricing_page_snapshot",
+      "freshness_sla_days": 7.0,
+      "status": "fresh",
+      "quiet_when_no_items": false,
+      "article_count": 1,
+      "event_count": 1,
+      "latest_event_at": "2026-10-27T15:49:24.403621+00:00",
+      "age_days": 0.0,
+      "latest_title": "Plans and Pricing | Netflix Help Center",
+      "latest_url": "https://www.netflix.com/pricing",
+      "latest_provider": [
+        "netflix"
+      ],
+      "latest_price": [
+        "price",
+        "pricing",
+        "payment",
+        "billing",
+        "free",
+        "paid",
+        "premium"
+      ],
+      "latest_plan_change": [
+        "ad-supported"
+      ],
+      "latest_source_signal": [
+        "billing",
+        "plan_change",
+        "pricing"
+      ],
+      "latest_canonical_key": "subscription_plan:netflix:pricing-catalog:usd",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Spotify Premium Pricing",
+      "source_type": "browser",
+      "enabled": true,
+      "trust_tier": "T1_official",
+      "content_type": "pricing",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "pricing",
+        "plan_change",
+        "billing"
+      ],
+      "tracked": true,
+      "event_model": "pricing_page_snapshot",
+      "freshness_sla_days": 7.0,
+      "status": "fresh",
+      "quiet_when_no_items": false,
+      "article_count": 1,
+      "event_count": 1,
+      "latest_event_at": "2026-10-27T15:49:29.313571+00:00",
+      "age_days": 0.0,
+      "latest_title": "Spotify Premium (USA) - Try 2 months for $0",
+      "latest_url": "https://www.spotify.com/premium",
+      "latest_provider": [
+        "spotify",
+        "hulu",
+        "peloton"
+      ],
+      "latest_price": [
+        "discount",
+        "free",
+        "premium"
+      ],
+      "latest_plan_change": [],
+      "latest_source_signal": [
+        "billing",
+        "plan_change",
+        "pricing"
+      ],
+      "latest_canonical_key": "subscription_plan:spotify:premium:usd",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Apple One Pricing",
+      "source_type": "browser",
+      "enabled": true,
+      "trust_tier": "T1_official",
+      "content_type": "pricing",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "pricing",
+        "bundle",
+        "billing"
+      ],
+      "tracked": true,
+      "event_model": "pricing_page_snapshot",
+      "freshness_sla_days": 7.0,
+      "status": "fresh",
+      "quiet_when_no_items": false,
+      "article_count": 1,
+      "event_count": 1,
+      "latest_event_at": "2026-10-27T15:49:33.898217+00:00",
+      "age_days": 0.0,
+      "latest_title": "Apple One - Apple",
+      "latest_url": "https://www.apple.com/apple-one",
+      "latest_provider": [
+        "apple tv",
+        "apple music"
+      ],
+      "latest_price": [
+        "price",
+        "cost",
+        "billing",
+        "discount",
+        "free",
+        "paid"
+      ],
+      "latest_plan_change": [
+        "family plan"
+      ],
+      "latest_source_signal": [
+        "billing",
+        "bundle",
+        "pricing"
+      ],
+      "latest_canonical_key": "subscription_plan:apple:apple-one:usd",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Notion Pricing",
+      "source_type": "browser",
+      "enabled": true,
+      "trust_tier": "T1_official",
+      "content_type": "pricing",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "pricing",
+        "plan_change",
+        "billing"
+      ],
+      "tracked": true,
+      "event_model": "pricing_page_snapshot",
+      "freshness_sla_days": 7.0,
+      "status": "fresh",
+      "quiet_when_no_items": false,
+      "article_count": 1,
+      "event_count": 1,
+      "latest_event_at": "2026-10-27T15:49:37.971025+00:00",
+      "age_days": 0.0,
+      "latest_title": "Notion Pricing Plans: Free, Plus, Business, & Enterprise.",
+      "latest_url": "https://www.notion.com/pricing",
+      "latest_provider": [
+        "notion",
+        "openai"
+      ],
+      "latest_price": [
+        "price",
+        "pricing",
+        "payment",
+        "free",
+        "premium"
+      ],
+      "latest_plan_change": [],
+      "latest_source_signal": [
+        "billing",
+        "plan_change",
+        "pricing"
+      ],
+      "latest_canonical_key": "subscription_plan:notion:pricing-catalog:usd",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Basecamp Pricing",
+      "source_type": "browser",
+      "enabled": true,
+      "trust_tier": "T1_official",
+      "content_type": "pricing",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "pricing",
+        "plan_change",
+        "billing"
+      ],
+      "tracked": true,
+      "event_model": "pricing_page_snapshot",
+      "freshness_sla_days": 7.0,
+      "status": "fresh",
+      "quiet_when_no_items": false,
+      "article_count": 1,
+      "event_count": 1,
+      "latest_event_at": "2026-10-27T15:49:41.901155+00:00",
+      "age_days": 0.0,
+      "latest_title": "Basecamp — Pricing",
+      "latest_url": "https://basecamp.com/pricing",
+      "latest_provider": [],
+      "latest_price": [
+        "pricing",
+        "free",
+        "profit"
+      ],
+      "latest_plan_change": [],
+      "latest_source_signal": [
+        "billing",
+        "plan_change",
+        "pricing"
+      ],
+      "latest_canonical_key": "subscription_plan:basecamp:pricing-catalog",
+      "latest_required_field_gaps": [
+        "price",
+        "currency"
+      ],
+      "errors": []
+    },
+    {
+      "source": "Adobe Creative Cloud Pricing",
+      "source_type": "browser",
+      "enabled": false,
+      "trust_tier": "T1_official",
+      "content_type": "pricing",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "pricing",
+        "promotion",
+        "billing"
+      ],
+      "tracked": true,
+      "event_model": "pricing_page_snapshot",
+      "freshness_sla_days": 7.0,
+      "status": "skipped_disabled",
+      "quiet_when_no_items": false,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Financial Times - Technology",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 1,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "WSJ Digital",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Bloomberg Technology",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 2,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "TVING 공지사항",
+      "source_type": "javascript",
+      "enabled": true,
+      "trust_tier": "T1_official",
+      "content_type": "notice",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "official_notice",
+        "billing",
+        "plan_change"
+      ],
+      "tracked": true,
+      "event_model": "plan_change_notice",
+      "freshness_sla_days": 3.0,
+      "status": "fresh",
+      "quiet_when_no_items": false,
+      "article_count": 1,
+      "event_count": 1,
+      "latest_event_at": "2026-10-27T15:49:48.344430+00:00",
+      "age_days": 0.0,
+      "latest_title": "고객센터 | TVING",
+      "latest_url": "https://www.tving.com/help/notice",
+      "latest_provider": [
+        "tving"
+      ],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [
+        "billing",
+        "notice",
+        "plan_change"
+      ],
+      "latest_canonical_key": "subscription_plan:tving:service-notice",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Wavve 공지사항",
+      "source_type": "javascript",
+      "enabled": true,
+      "trust_tier": "T1_official",
+      "content_type": "notice",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "official_notice",
+        "billing",
+        "plan_change"
+      ],
+      "tracked": true,
+      "event_model": "plan_change_notice",
+      "freshness_sla_days": 3.0,
+      "status": "fresh",
+      "quiet_when_no_items": false,
+      "article_count": 1,
+      "event_count": 1,
+      "latest_event_at": "2026-10-27T15:49:55.569593+00:00",
+      "age_days": 0.0,
+      "latest_title": "Wavve(웨이브)",
+      "latest_url": "https://www.wavve.com/notice",
+      "latest_provider": [
+        "wavve",
+        "웨이브"
+      ],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [
+        "billing",
+        "notice",
+        "plan_change"
+      ],
+      "latest_canonical_key": "subscription_plan:wavve:service-notice",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "쿠팡플레이",
+      "source_type": "javascript",
+      "enabled": false,
+      "trust_tier": "T1_official",
+      "content_type": "notice",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "official_notice",
+        "billing",
+        "service_update"
+      ],
+      "tracked": true,
+      "event_model": "plan_change_notice",
+      "freshness_sla_days": 3.0,
+      "status": "skipped_disabled",
+      "quiet_when_no_items": true,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "밀리의서재",
+      "source_type": "javascript",
+      "enabled": true,
+      "trust_tier": "T1_official",
+      "content_type": "notice",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "official_notice",
+        "billing",
+        "plan_change"
+      ],
+      "tracked": true,
+      "event_model": "plan_change_notice",
+      "freshness_sla_days": 3.0,
+      "status": "fresh",
+      "quiet_when_no_items": false,
+      "article_count": 1,
+      "event_count": 1,
+      "latest_event_at": "2026-10-27T15:50:00.442694+00:00",
+      "age_days": 0.0,
+      "latest_title": "공지사항 | 밀리의서재",
+      "latest_url": "https://www.millie.co.kr/v3/customer/notice",
+      "latest_provider": [
+        "밀리의서재"
+      ],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [
+        "billing",
+        "notice",
+        "plan_change"
+      ],
+      "latest_canonical_key": "subscription_plan:millie:service-notice:krw",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "토스 기술 블로그",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Xbox Wire",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 1,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "PlayStation Blog",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Nintendo Life",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 5,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "r/cordcutters",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "community",
+      "collection_tier": "C1_rss",
+      "producer_role": "consumer_comm",
+      "info_purpose": [
+        "community",
+        "cancellation",
+        "alternatives"
+      ],
+      "tracked": true,
+      "event_model": "churn_proxy",
+      "freshness_sla_days": 30.0,
+      "status": "fresh",
+      "quiet_when_no_items": false,
+      "article_count": 3,
+      "event_count": 3,
+      "latest_event_at": "2026-10-22T16:05:21+00:00",
+      "age_days": 4.99,
+      "latest_title": "Prepaid internet - guilted for downgrading",
+      "latest_url": "https://www.reddit.com/r/cordcutters/comments/1xd09ub/prepaid_internet_guilted_for_downgrading",
+      "latest_provider": [
+        "zoom"
+      ],
+      "latest_price": [
+        "bill",
+        "discount",
+        "deal",
+        "paid"
+      ],
+      "latest_plan_change": [],
+      "latest_source_signal": [
+        "cancellation",
+        "community"
+      ],
+      "latest_canonical_key": "churn_proxy:zoom:churn_proxy",
+      "latest_required_field_gaps": [
+        "metric_value"
+      ],
+      "errors": []
+    },
+    {
+      "source": "r/Streaming",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "community",
+      "collection_tier": "C1_rss",
+      "producer_role": "consumer_comm",
+      "info_purpose": [
+        "community",
+        "service_update"
+      ],
+      "tracked": true,
+      "event_model": "churn_proxy",
+      "freshness_sla_days": 30.0,
+      "status": "missing",
+      "quiet_when_no_items": false,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "r/NetflixBestOf",
+      "source_type": "rss",
+      "enabled": false,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "skipped_disabled",
+      "quiet_when_no_items": false,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "r/spotify",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": true,
+      "event_model": "churn_proxy",
+      "freshness_sla_days": 30.0,
+      "status": "missing",
+      "quiet_when_no_items": false,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "r/AppleMusic",
+      "source_type": "rss",
+      "enabled": false,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": true,
+      "event_model": "churn_proxy",
+      "freshness_sla_days": 30.0,
+      "status": "skipped_disabled",
+      "quiet_when_no_items": false,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": true,
+      "event_model": "churn_proxy",
+      "freshness_sla_days": 30.0,
+      "status": "fresh",
+      "quiet_when_no_items": false,
+      "article_count": 31,
+      "event_count": 31,
+      "latest_event_at": "2026-10-24T04:54:21+00:00",
+      "age_days": 3.46,
+      "latest_title": "I audited 300 startup websites. These 5 common mistakes are costing them customers.",
+      "latest_url": "https://www.reddit.com/r/SaaS/comments/1xe99y2/i_audited_300_startup_websites_these_5_common",
+      "latest_provider": [],
+      "latest_price": [
+        "free"
+      ],
+      "latest_plan_change": [],
+      "latest_source_signal": [
+        "community"
+      ],
+      "latest_canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "latest_required_field_gaps": [
+        "metric_value"
+      ],
+      "errors": []
+    },
+    {
+      "source": "r/softwaretesting",
+      "source_type": "rss",
+      "enabled": false,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "skipped_disabled",
+      "quiet_when_no_items": false,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "r/digitalnomad",
+      "source_type": "rss",
+      "enabled": false,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "skipped_disabled",
+      "quiet_when_no_items": false,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "The SaaS Podcast",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": true,
+      "event_model": "churn_proxy",
+      "freshness_sla_days": 30.0,
+      "status": "quiet",
+      "quiet_when_no_items": true,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Cord Cutters News",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 13,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "MKBHD",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 0,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Linus Tech Tips",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 1,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "CNET Tech",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 2,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Wired",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 4,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    },
+    {
+      "source": "Variety",
+      "source_type": "rss",
+      "enabled": true,
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "tracked": false,
+      "event_model": "",
+      "freshness_sla_days": null,
+      "status": "not_tracked",
+      "quiet_when_no_items": false,
+      "article_count": 2,
+      "event_count": 0,
+      "latest_event_at": null,
+      "age_days": null,
+      "latest_title": "",
+      "latest_url": "",
+      "latest_provider": [],
+      "latest_price": [],
+      "latest_plan_change": [],
+      "latest_source_signal": [],
+      "latest_canonical_key": "",
+      "latest_required_field_gaps": [],
+      "errors": []
+    }
+  ],
+  "events": [
+    {
+      "source": "밀리의서재",
+      "source_type": "javascript",
+      "trust_tier": "T1_official",
+      "content_type": "notice",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "official_notice",
+        "billing",
+        "plan_change"
+      ],
+      "event_model": "plan_change_notice",
+      "title": "공지사항 | 밀리의서재",
+      "url": "https://www.millie.co.kr/v3/customer/notice",
+      "source_url": "https://www.millie.co.kr/v3/customer/notice",
+      "event_at": "2026-10-27T15:50:00.442694+00:00",
+      "subscription": [],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "밀리의서재"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "billing",
+        "notice",
+        "plan_change"
+      ],
+      "vendor_id": "millie",
+      "vendor_name": "밀리의서재",
+      "plan_id": "service-notice",
+      "plan_name": "Service notice",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "KRW",
+      "price_amount": null,
+      "change_type": "service_notice",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "subscription_plan:millie:service-notice:krw",
+      "canonical_key_status": "complete",
+      "event_key": "plan_change_notice:855bacbefe5c:20261027",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "plan_id": true,
+        "change_type": true,
+        "source_url": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Wavve 공지사항",
+      "source_type": "javascript",
+      "trust_tier": "T1_official",
+      "content_type": "notice",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "official_notice",
+        "billing",
+        "plan_change"
+      ],
+      "event_model": "plan_change_notice",
+      "title": "Wavve(웨이브)",
+      "url": "https://www.wavve.com/notice",
+      "source_url": "https://www.wavve.com/notice",
+      "event_at": "2026-10-27T15:49:55.569593+00:00",
+      "subscription": [],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "wavve",
+        "웨이브"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "billing",
+        "notice",
+        "plan_change"
+      ],
+      "vendor_id": "wavve",
+      "vendor_name": "Wavve",
+      "plan_id": "service-notice",
+      "plan_name": "Service notice",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "service_notice",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "percentage",
+      "metric_value": 8.0,
+      "canonical_key": "subscription_plan:wavve:service-notice",
+      "canonical_key_status": "complete",
+      "event_key": "plan_change_notice:35414840e70d:20261027",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "plan_id": true,
+        "change_type": true,
+        "source_url": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "TVING 공지사항",
+      "source_type": "javascript",
+      "trust_tier": "T1_official",
+      "content_type": "notice",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "official_notice",
+        "billing",
+        "plan_change"
+      ],
+      "event_model": "plan_change_notice",
+      "title": "고객센터 | TVING",
+      "url": "https://www.tving.com/help/notice",
+      "source_url": "https://www.tving.com/help/notice",
+      "event_at": "2026-10-27T15:49:48.344430+00:00",
+      "subscription": [],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [
+        "해지"
+      ],
+      "provider": [
+        "tving"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "billing",
+        "notice",
+        "plan_change"
+      ],
+      "vendor_id": "tving",
+      "vendor_name": "TVING",
+      "plan_id": "service-notice",
+      "plan_name": "Service notice",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "service_notice",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "subscription_plan:tving:service-notice",
+      "canonical_key_status": "complete",
+      "event_key": "plan_change_notice:7935122117bf:20261027",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "plan_id": true,
+        "change_type": true,
+        "source_url": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Basecamp Pricing",
+      "source_type": "browser",
+      "trust_tier": "T1_official",
+      "content_type": "pricing",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "pricing",
+        "plan_change",
+        "billing"
+      ],
+      "event_model": "pricing_page_snapshot",
+      "title": "Basecamp — Pricing",
+      "url": "https://basecamp.com/pricing",
+      "source_url": "https://basecamp.com/pricing",
+      "event_at": "2026-10-27T15:49:41.901155+00:00",
+      "subscription": [
+        "subscribe"
+      ],
+      "price": [
+        "pricing",
+        "free",
+        "profit"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [],
+      "source_signal": [
+        "billing",
+        "plan_change",
+        "pricing"
+      ],
+      "vendor_id": "basecamp",
+      "vendor_name": "Basecamp",
+      "plan_id": "pricing-catalog",
+      "plan_name": "Pricing catalog",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "subscription_plan:basecamp:pricing-catalog",
+      "canonical_key_status": "complete",
+      "event_key": "pricing_page_snapshot:c3524e8b0b66:20261027",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "plan_id": true,
+        "price": false,
+        "currency": false,
+        "source_url": true
+      },
+      "required_field_gaps": [
+        "price",
+        "currency"
+      ]
+    },
+    {
+      "source": "Notion Pricing",
+      "source_type": "browser",
+      "trust_tier": "T1_official",
+      "content_type": "pricing",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "pricing",
+        "plan_change",
+        "billing"
+      ],
+      "event_model": "pricing_page_snapshot",
+      "title": "Notion Pricing Plans: Free, Plus, Business, & Enterprise.",
+      "url": "https://www.notion.com/pricing",
+      "source_url": "https://www.notion.com/pricing",
+      "event_at": "2026-10-27T15:49:37.971025+00:00",
+      "subscription": [
+        "plans",
+        "member",
+        "monthly",
+        "yearly",
+        "premium",
+        "plus",
+        "trial"
+      ],
+      "price": [
+        "price",
+        "pricing",
+        "payment",
+        "free",
+        "premium"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "notion",
+        "openai"
+      ],
+      "service_type": [
+        "retention"
+      ],
+      "source_signal": [
+        "billing",
+        "plan_change",
+        "pricing"
+      ],
+      "vendor_id": "notion",
+      "vendor_name": "Notion",
+      "plan_id": "pricing-catalog",
+      "plan_name": "Pricing catalog",
+      "billing_cycle": "monthly",
+      "region": "",
+      "currency": "USD",
+      "price_amount": 0.0,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "percentage",
+      "metric_value": 20.0,
+      "canonical_key": "subscription_plan:notion:pricing-catalog:usd",
+      "canonical_key_status": "complete",
+      "event_key": "pricing_page_snapshot:ff7343d3dcf2:20261027",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "plan_id": true,
+        "price": true,
+        "currency": true,
+        "source_url": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple One Pricing",
+      "source_type": "browser",
+      "trust_tier": "T1_official",
+      "content_type": "pricing",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "pricing",
+        "bundle",
+        "billing"
+      ],
+      "event_model": "pricing_page_snapshot",
+      "title": "Apple One - Apple",
+      "url": "https://www.apple.com/apple-one",
+      "source_url": "https://www.apple.com/apple-one",
+      "event_at": "2026-10-27T15:49:33.898217+00:00",
+      "subscription": [
+        "subscription",
+        "subscribe",
+        "plan",
+        "plans",
+        "renewal",
+        "cancel",
+        "monthly",
+        "annual",
+        "plus",
+        "trial",
+        "free trial"
+      ],
+      "price": [
+        "price",
+        "cost",
+        "billing",
+        "discount",
+        "free",
+        "paid"
+      ],
+      "plan_change": [
+        "family plan"
+      ],
+      "billing_policy": [
+        "billing",
+        "renewal"
+      ],
+      "provider": [
+        "apple tv",
+        "apple music"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "billing",
+        "bundle",
+        "pricing"
+      ],
+      "vendor_id": "apple",
+      "vendor_name": "Apple One",
+      "plan_id": "apple-one",
+      "plan_name": "Apple One",
+      "billing_cycle": "monthly",
+      "region": "",
+      "currency": "USD",
+      "price_amount": 21.95,
+      "change_type": "family plan",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "percentage",
+      "metric_value": 46.0,
+      "canonical_key": "subscription_plan:apple:apple-one:usd",
+      "canonical_key_status": "complete",
+      "event_key": "pricing_page_snapshot:3efee38fdc61:20261027",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "plan_id": true,
+        "price": true,
+        "currency": true,
+        "source_url": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Spotify Premium Pricing",
+      "source_type": "browser",
+      "trust_tier": "T1_official",
+      "content_type": "pricing",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "pricing",
+        "plan_change",
+        "billing"
+      ],
+      "event_model": "pricing_page_snapshot",
+      "title": "Spotify Premium (USA) - Try 2 months for $0",
+      "url": "https://www.spotify.com/premium",
+      "source_url": "https://www.spotify.com/premium",
+      "event_at": "2026-10-27T15:49:29.313571+00:00",
+      "subscription": [
+        "subscriber",
+        "plans",
+        "cancel",
+        "premium",
+        "plus",
+        "ad-free"
+      ],
+      "price": [
+        "discount",
+        "free",
+        "premium"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "spotify",
+        "hulu",
+        "peloton"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "billing",
+        "plan_change",
+        "pricing"
+      ],
+      "vendor_id": "spotify",
+      "vendor_name": "Spotify",
+      "plan_id": "premium",
+      "plan_name": "Premium",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": 0.0,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "subscription_plan:spotify:premium:usd",
+      "canonical_key_status": "complete",
+      "event_key": "pricing_page_snapshot:b724abf3e887:20261027",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "plan_id": true,
+        "price": true,
+        "currency": true,
+        "source_url": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Netflix Plans & Pricing",
+      "source_type": "browser",
+      "trust_tier": "T1_official",
+      "content_type": "pricing",
+      "collection_tier": "C3_html_js",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "pricing",
+        "plan_change",
+        "billing"
+      ],
+      "event_model": "pricing_page_snapshot",
+      "title": "Plans and Pricing | Netflix Help Center",
+      "url": "https://www.netflix.com/pricing",
+      "source_url": "https://www.netflix.com/pricing",
+      "event_at": "2026-10-27T15:49:24.403621+00:00",
+      "subscription": [
+        "plan",
+        "plans",
+        "membership",
+        "member",
+        "cancel",
+        "monthly",
+        "annual",
+        "premium",
+        "ad-free"
+      ],
+      "price": [
+        "price",
+        "pricing",
+        "payment",
+        "billing",
+        "free",
+        "paid",
+        "premium"
+      ],
+      "plan_change": [
+        "ad-supported"
+      ],
+      "billing_policy": [
+        "billing"
+      ],
+      "provider": [
+        "netflix"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "billing",
+        "plan_change",
+        "pricing"
+      ],
+      "vendor_id": "netflix",
+      "vendor_name": "Netflix",
+      "plan_id": "pricing-catalog",
+      "plan_name": "Pricing catalog",
+      "billing_cycle": "monthly",
+      "region": "",
+      "currency": "USD",
+      "price_amount": 8.99,
+      "change_type": "ad-supported",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "price_point",
+      "metric_value": 8.99,
+      "canonical_key": "subscription_plan:netflix:pricing-catalog:usd",
+      "canonical_key_status": "complete",
+      "event_key": "pricing_page_snapshot:6a584f76d3e3:20261027",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "plan_id": true,
+        "price": true,
+        "currency": true,
+        "source_url": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free KR",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "Google Gemini ranks #5 in KR App Store Top Free Apps",
+      "url": "https://apps.apple.com/kr/app/google-gemini/id6477489729",
+      "source_url": "https://apps.apple.com/kr/app/google-gemini/id6477489729",
+      "event_at": "2026-10-27T15:49:23+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "gemini"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "google",
+      "vendor_name": "Google",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6477489729",
+      "rank": 5,
+      "market": "KR",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:kr:top_free_apps:6477489729",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:1e242c194ab6:20261027",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free KR",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "Claude by Anthropic ranks #3 in KR App Store Top Free Apps",
+      "url": "https://apps.apple.com/kr/app/claude-by-anthropic/id6473753684",
+      "source_url": "https://apps.apple.com/kr/app/claude-by-anthropic/id6473753684",
+      "event_at": "2026-10-27T15:49:23+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "claude"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "anthropic-pbc",
+      "vendor_name": "Anthropic PBC",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6473753684",
+      "rank": 3,
+      "market": "KR",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:kr:top_free_apps:6473753684",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:6ff32535ce98:20261027",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free KR",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "ChatGPT ranks #14 in KR App Store Top Free Apps",
+      "url": "https://apps.apple.com/kr/app/chatgpt/id6448311069",
+      "source_url": "https://apps.apple.com/kr/app/chatgpt/id6448311069",
+      "event_at": "2026-10-27T15:49:23+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "openai",
+        "chatgpt"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "openai-opco-llc",
+      "vendor_name": "OpenAI OpCo, LLC",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6448311069",
+      "rank": 14,
+      "market": "KR",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:kr:top_free_apps:6448311069",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:e4604ef87f10:20261027",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free US",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "ChatGPT ranks #4 in US App Store Top Free Apps",
+      "url": "https://apps.apple.com/us/app/chatgpt/id6448311069",
+      "source_url": "https://apps.apple.com/us/app/chatgpt/id6448311069",
+      "event_at": "2026-10-27T15:49:22+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "openai",
+        "chatgpt"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "openai-opco-llc",
+      "vendor_name": "OpenAI OpCo, LLC",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6448311069",
+      "rank": 4,
+      "market": "US",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:us:top_free_apps:6448311069",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:0387e9723012:20261027",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free US",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "Google Gemini ranks #12 in US App Store Top Free Apps",
+      "url": "https://apps.apple.com/us/app/google-gemini/id6477489729",
+      "source_url": "https://apps.apple.com/us/app/google-gemini/id6477489729",
+      "event_at": "2026-10-27T15:49:22+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "gemini"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "google",
+      "vendor_name": "Google",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6477489729",
+      "rank": 12,
+      "market": "US",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:us:top_free_apps:6477489729",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:9620d8775881:20261027",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free US",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "TikTok Pro - Events ranks #1 in US App Store Top Free Apps",
+      "url": "https://apps.apple.com/us/app/tiktok-pro-events/id6741796873",
+      "source_url": "https://apps.apple.com/us/app/tiktok-pro-events/id6741796873",
+      "event_at": "2026-10-27T15:49:22+00:00",
+      "subscription": [
+        "pro"
+      ],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "tiktok-ltd",
+      "vendor_name": "TikTok Ltd",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6741796873",
+      "rank": 1,
+      "market": "US",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:us:top_free_apps:6741796873",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:2ac8789c4df8:20261027",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free US",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "Claude by Anthropic ranks #7 in US App Store Top Free Apps",
+      "url": "https://apps.apple.com/us/app/claude-by-anthropic/id6473753684",
+      "source_url": "https://apps.apple.com/us/app/claude-by-anthropic/id6473753684",
+      "event_at": "2026-10-27T15:49:22+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "claude"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "anthropic-pbc",
+      "vendor_name": "Anthropic PBC",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6473753684",
+      "rank": 7,
+      "market": "US",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:us:top_free_apps:6473753684",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:cb3005078007:20261027",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free US",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "Netflix Game Controller ranks #19 in US App Store Top Free Apps",
+      "url": "https://apps.apple.com/us/app/netflix-game-controller/id6447582581",
+      "source_url": "https://apps.apple.com/us/app/netflix-game-controller/id6447582581",
+      "event_at": "2026-10-26T16:41:17+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "netflix"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "netflix-inc",
+      "vendor_name": "Netflix, Inc",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6447582581",
+      "rank": 19,
+      "market": "US",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:us:top_free_apps:6447582581",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:c7c53f4fd66b:20261026",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "SaaStr",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "5 Interesting Learnings from Anthropic’s S-1 at $16.3 Billion in Half-Year Revenue: 900% NRR, $6.6M in Revenue Per Employee, and a 10% Adjusted Operating Margin",
+      "url": "https://www.saastr.com/5-interesting-learnings-from-anthropics-s-1-at-16-3-billion-in-half-year-revenue-900-nrr-6-6m-in-revenue-per-employee-and-a-10-adjusted-operating-margin",
+      "source_url": "https://www.saastr.com/5-interesting-learnings-from-anthropics-s-1-at-16-3-billion-in-half-year-revenue-900-nrr-6-6m-in-revenue-per-employee-and-a-10-adjusted-operating-margin",
+      "event_at": "2026-10-26T05:37:47+00:00",
+      "subscription": [
+        "plans"
+      ],
+      "price": [
+        "price",
+        "deal",
+        "revenue"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "saastr",
+      "vendor_name": "SaaStr",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "percentage",
+      "metric_value": 900.0,
+      "canonical_key": "churn_proxy:saastr:percentage",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:00219c06c454:20261026",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "SaaStr",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "The Simplest, Highest-ROI Place to Put an AI Agent Is Your Contact Me Form: 614 Meetings, $2M+ Closed, and 71% of a Month’s Deals",
+      "url": "https://www.saastr.com/the-simplest-highest-roi-place-to-put-an-ai-agent-is-your-contact-me-form-614-meetings-1m-closed-and-71-of-a-months-deals",
+      "source_url": "https://www.saastr.com/the-simplest-highest-roi-place-to-put-an-ai-agent-is-your-contact-me-form-614-meetings-1m-closed-and-71-of-a-months-deals",
+      "event_at": "2026-10-26T05:13:08+00:00",
+      "subscription": [],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "b2b"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "saastr",
+      "vendor_name": "SaaStr",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "percentage",
+      "metric_value": 71.0,
+      "canonical_key": "churn_proxy:saastr:percentage",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:00219c06c454:20261026",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "SaaStr",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Jason’s Takes on This Week’s 20VC: Meet 100 VCs, None-and-Done Beats One-and-Done, and Build-to-Prod Is Where I’d Make 10 Bets",
+      "url": "https://www.saastr.com/jasons-takes-on-this-weeks-20vc-meet-100-vcs-none-and-done-beats-one-and-done-and-build-to-prod-is-where-id-make-10-bets",
+      "source_url": "https://www.saastr.com/jasons-takes-on-this-weeks-20vc-meet-100-vcs-none-and-done-beats-one-and-done-and-build-to-prod-is-where-id-make-10-bets",
+      "event_at": "2026-10-25T07:00:33+00:00",
+      "subscription": [],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "arr"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "saastr",
+      "vendor_name": "SaaStr",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "arr",
+      "metric_value": 20000000.0,
+      "canonical_key": "churn_proxy:saastr:arr",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:6c9aa926d076:20261025",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "SaaStr",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Your Top Job For 2027: Hire 1-2 Execs Who Can Take the Load, Not Just Do the Work",
+      "url": "https://www.saastr.com/your-top-job-for-2027-hire-1-2-execs-who-can-take-the-load-not-just-do-the-work",
+      "source_url": "https://www.saastr.com/your-top-job-for-2027-hire-1-2-execs-who-can-take-the-load-not-just-do-the-work",
+      "event_at": "2026-10-25T05:10:24+00:00",
+      "subscription": [],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "b2b",
+        "arr"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "saastr",
+      "vendor_name": "SaaStr",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:saastr:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:3a4e27fc1abb:20261025",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "Apple App Store Top Free US",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "Amazon Prime Video ranks #17 in US App Store Top Free Apps",
+      "url": "https://apps.apple.com/us/app/amazon-prime-video/id545519333",
+      "source_url": "https://apps.apple.com/us/app/amazon-prime-video/id545519333",
+      "event_at": "2026-10-24T13:54:55+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "prime video"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "amzn-mobile-llc",
+      "vendor_name": "AMZN Mobile LLC",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "545519333",
+      "rank": 17,
+      "market": "US",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:us:top_free_apps:545519333",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:7d7f6d0c6ad6:20261024",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "I audited 300 startup websites. These 5 common mistakes are costing them customers.",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xe99y2/i_audited_300_startup_websites_these_5_common",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xe99y2/i_audited_300_startup_websites_these_5_common",
+      "event_at": "2026-10-24T04:54:21+00:00",
+      "subscription": [
+        "trial",
+        "free trial"
+      ],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261024",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Disputes filed in the first month after a sale are far easier to win than late ones. What do you keep from that first month?",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xe90xi/disputes_filed_in_the_first_month_after_a_sale",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xe90xi/disputes_filed_in_the_first_month_after_a_sale",
+      "event_at": "2026-10-24T04:43:27+00:00",
+      "subscription": [
+        "subscription",
+        "renewal",
+        "cancellation"
+      ],
+      "price": [
+        "sale"
+      ],
+      "plan_change": [],
+      "billing_policy": [
+        "renewal",
+        "cancellation"
+      ],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261024",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Is anyone still celebrating Programmers’ Day on October 24th?",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xe8xx7/is_anyone_still_celebrating_programmers_day_on",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xe8xx7/is_anyone_still_celebrating_programmers_day_on",
+      "event_at": "2026-10-24T04:39:49+00:00",
+      "subscription": [
+        "monthly"
+      ],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "monthly",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261024",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "The support bot I built for my own plugin became its own product",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xe8g0q/the_support_bot_i_built_for_my_own_plugin_became",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xe8g0q/the_support_bot_i_built_for_my_own_plugin_became",
+      "event_at": "2026-10-24T04:18:00+00:00",
+      "subscription": [
+        "subscription"
+      ],
+      "price": [
+        "fee",
+        "expense"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "gpt"
+      ],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "gpt",
+      "vendor_name": "gpt",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:gpt:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:a262c72e3c46:20261024",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "5 billing bugs that quietly lose SaaS revenue (and you won't see them in your dashboard)",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xe8epy/5_billing_bugs_that_quietly_lose_saas_revenue_and",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xe8epy/5_billing_bugs_that_quietly_lose_saas_revenue_and",
+      "event_at": "2026-10-24T04:16:24+00:00",
+      "subscription": [
+        "plan",
+        "trial"
+      ],
+      "price": [
+        "payment",
+        "billing",
+        "free",
+        "paid",
+        "revenue"
+      ],
+      "plan_change": [],
+      "billing_policy": [
+        "billing",
+        "payment failed"
+      ],
+      "provider": [
+        "bugs"
+      ],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "bugs",
+      "vendor_name": "bugs",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:bugs:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:91bcc0a50991:20261024",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "What's a developer tool you'd actually pay for if someone built it?",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xe6sb3/whats_a_developer_tool_youd_actually_pay_for_if",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xe6sb3/whats_a_developer_tool_youd_actually_pay_for_if",
+      "event_at": "2026-10-24T02:58:52+00:00",
+      "subscription": [],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261024",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "AI SaaS founders: how do you actually know the gross margin of each customer?",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xe6dag/ai_saas_founders_how_do_you_actually_know_the",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xe6dag/ai_saas_founders_how_do_you_actually_know_the",
+      "event_at": "2026-10-24T02:35:49+00:00",
+      "subscription": [],
+      "price": [
+        "cost",
+        "bill",
+        "billing"
+      ],
+      "plan_change": [],
+      "billing_policy": [
+        "billing"
+      ],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261024",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "How do you look for partners?",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xe5zbg/how_do_you_look_for_partners",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xe5zbg/how_do_you_look_for_partners",
+      "event_at": "2026-10-24T02:13:52+00:00",
+      "subscription": [],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261024",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Hi there! Could you share how you promote your SaaS-Startup? Is it possible to do so with a $0 marketing budget?",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xe57rv/hi_there_could_you_share_how_you_promote_your",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xe57rv/hi_there_could_you_share_how_you_promote_your",
+      "event_at": "2026-10-24T01:29:13+00:00",
+      "subscription": [],
+      "price": [
+        "budget"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261024",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Treat 'no subscription' as a plan, not a missing value. It simplified all my paywall code",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xe4eq2/treat_no_subscription_as_a_plan_not_a_missing",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xe4eq2/treat_no_subscription_as_a_plan_not_a_missing",
+      "event_at": "2026-10-24T00:39:51+00:00",
+      "subscription": [
+        "subscription",
+        "plan",
+        "plans",
+        "tier",
+        "renewal",
+        "pro"
+      ],
+      "price": [
+        "free",
+        "paid"
+      ],
+      "plan_change": [],
+      "billing_policy": [
+        "renewal"
+      ],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261024",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "$4k MRR selling to architects. How do I crack B2B sales from here?",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xe251j/4k_mrr_selling_to_architects_how_do_i_crack_b2b",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xe251j/4k_mrr_selling_to_architects_how_do_i_crack_b2b",
+      "event_at": "2026-10-23T22:17:56+00:00",
+      "subscription": [
+        "trial"
+      ],
+      "price": [
+        "paid",
+        "revenue",
+        "budget"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "canva"
+      ],
+      "service_type": [
+        "saas",
+        "b2b",
+        "mrr"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "canva",
+      "vendor_name": "canva",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "mrr",
+      "metric_value": 4000.0,
+      "canonical_key": "churn_proxy:canva:mrr",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:46a43003030c:20261023",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "My app makes $60–70/month and someone offered me $1,500 for it. Should I sell?",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xdyn19/my_app_makes_6070month_and_someone_offered_me",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xdyn19/my_app_makes_6070month_and_someone_offered_me",
+      "event_at": "2026-10-23T18:57:02+00:00",
+      "subscription": [],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261023",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "500k installs on Google Play but only 20-30 paid users. What am I doing wrong?",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xdkqfu/500k_installs_on_google_play_but_only_2030_paid",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xdkqfu/500k_installs_on_google_play_but_only_2030_paid",
+      "event_at": "2026-10-23T08:40:55+00:00",
+      "subscription": [
+        "subscription",
+        "subscribers",
+        "trial",
+        "free trial"
+      ],
+      "price": [
+        "pricing",
+        "free",
+        "paid"
+      ],
+      "plan_change": [],
+      "billing_policy": [
+        "trial ended"
+      ],
+      "provider": [
+        "bugs"
+      ],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "bugs",
+      "vendor_name": "bugs",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "percentage",
+      "metric_value": 50.0,
+      "canonical_key": "churn_proxy:bugs:percentage",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:52c3100b3723:20261023",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Hey SaaS developers, I made a Bug Bounty Program for $100 for each crack... Looking forward to crack it...",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xdfon5/hey_saas_developers_i_made_a_bug_bounty_program",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xdfon5/hey_saas_developers_i_made_a_bug_bounty_program",
+      "event_at": "2026-10-23T05:31:28+00:00",
+      "subscription": [],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261023",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "SaaStr",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "The New “Ask Your Developer” Is Ask Your Agent.  And It’s The Marketing Battle You Have to Win Now",
+      "url": "https://www.saastr.com/the-new-ask-your-developer-is-ask-your-agent",
+      "source_url": "https://www.saastr.com/the-new-ask-your-developer-is-ask-your-agent",
+      "event_at": "2026-10-23T05:09:23+00:00",
+      "subscription": [],
+      "price": [
+        "budget"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "b2b"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "saastr",
+      "vendor_name": "SaaStr",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:saastr:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:3a4e27fc1abb:20261023",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "What Makes You Trust a SaaS Product Enough to Pay for It?",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xdb43q/what_makes_you_trust_a_saas_product_enough_to_pay",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xdb43q/what_makes_you_trust_a_saas_product_enough_to_pay",
+      "event_at": "2026-10-23T02:11:42+00:00",
+      "subscription": [
+        "trial",
+        "free trial"
+      ],
+      "price": [
+        "pricing",
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261023",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Your payment webhook handler is probably the weakest part of your SaaS",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xdb027/your_payment_webhook_handler_is_probably_the",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xdb027/your_payment_webhook_handler_is_probably_the",
+      "event_at": "2026-10-23T02:05:29+00:00",
+      "subscription": [],
+      "price": [
+        "payment",
+        "billing"
+      ],
+      "plan_change": [],
+      "billing_policy": [
+        "billing"
+      ],
+      "provider": [
+        "bugs"
+      ],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "bugs",
+      "vendor_name": "bugs",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:bugs:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:91bcc0a50991:20261023",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "SaaStr",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "The Double Hockey Stick: Why 1% of Your Users Now Drive 75% of Your AI Costs, and What Figma, Clay, and Higgsfield Are Doing About It",
+      "url": "https://www.saastr.com/the-double-hockey-stick-why-1-of-your-users-now-drive-75-of-your-ai-costs-and-what-figma-clay-and-higgsfield-are-doing-about-it",
+      "source_url": "https://www.saastr.com/the-double-hockey-stick-why-1-of-your-users-now-drive-75-of-your-ai-costs-and-what-figma-clay-and-higgsfield-are-doing-about-it",
+      "event_at": "2026-10-23T02:00:41+00:00",
+      "subscription": [],
+      "price": [
+        "pricing"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "figma"
+      ],
+      "service_type": [
+        "b2b"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "figma",
+      "vendor_name": "figma",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "percentage",
+      "metric_value": 1.0,
+      "canonical_key": "churn_proxy:figma:percentage",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:6090246ab569:20261023",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Is appsumo worth it? I'm getting signups but not much signup to trial conversion",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xdaht3/is_appsumo_worth_it_im_getting_signups_but_not",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xdaht3/is_appsumo_worth_it_im_getting_signups_but_not",
+      "event_at": "2026-10-23T01:38:07+00:00",
+      "subscription": [
+        "monthly",
+        "trial"
+      ],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "monthly",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261023",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "How do I get feedback from existing daily active users?",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xd7y0d/how_do_i_get_feedback_from_existing_daily_active",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xd7y0d/how_do_i_get_feedback_from_existing_daily_active",
+      "event_at": "2026-10-22T23:01:32+00:00",
+      "subscription": [
+        "subscription"
+      ],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261022",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Got first organic paid user after 6 months, guess where it came from?",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xd3xbq/got_first_organic_paid_user_after_6_months_guess",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xd3xbq/got_first_organic_paid_user_after_6_months_guess",
+      "event_at": "2026-10-22T19:07:53+00:00",
+      "subscription": [
+        "plan"
+      ],
+      "price": [
+        "payment",
+        "commission",
+        "paid"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "max",
+        "chatgpt"
+      ],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "max",
+      "vendor_name": "max",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:max:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:182b2334af59:20261022",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/cordcutters",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "community",
+      "collection_tier": "C1_rss",
+      "producer_role": "consumer_comm",
+      "info_purpose": [
+        "community",
+        "cancellation",
+        "alternatives"
+      ],
+      "event_model": "churn_proxy",
+      "title": "Prepaid internet - guilted for downgrading",
+      "url": "https://www.reddit.com/r/cordcutters/comments/1xd09ub/prepaid_internet_guilted_for_downgrading",
+      "source_url": "https://www.reddit.com/r/cordcutters/comments/1xd09ub/prepaid_internet_guilted_for_downgrading",
+      "event_at": "2026-10-22T16:05:21+00:00",
+      "subscription": [
+        "plan",
+        "cancel",
+        "downgrade",
+        "monthly",
+        "plus",
+        "paid plan"
+      ],
+      "price": [
+        "bill",
+        "discount",
+        "deal",
+        "paid"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "zoom"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "cancellation",
+        "community"
+      ],
+      "vendor_id": "zoom",
+      "vendor_name": "zoom",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "monthly",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:zoom:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:a2bf3f8057b9:20261022",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Whop raises $200M at a $5.1B valuation as it expands into payments and business infrastructure",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xcvte5/whop_raises_200m_at_a_51b_valuation_as_it_expands",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xcvte5/whop_raises_200m_at_a_51b_valuation_as_it_expands",
+      "event_at": "2026-10-22T12:46:10+00:00",
+      "subscription": [],
+      "price": [
+        "valuation"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261022",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "SaaStr",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "20VC x SaaStr: $20M ARR and Unfundable, Anthropic’s $16.8B Quarter, and Modal at $15.75B",
+      "url": "https://www.saastr.com/20vc-x-saastr-20m-arr-and-unfundable-anthropics-16-8b-quarter-and-modal-at-15-75b",
+      "source_url": "https://www.saastr.com/20vc-x-saastr-20m-arr-and-unfundable-anthropics-16-8b-quarter-and-modal-at-15-75b",
+      "event_at": "2026-10-22T06:39:27+00:00",
+      "subscription": [
+        "tier"
+      ],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "arr"
+      ],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "saastr",
+      "vendor_name": "SaaStr",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "arr",
+      "metric_value": 20000000.0,
+      "canonical_key": "churn_proxy:saastr:arr",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:6c9aa926d076:20261022",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "SaaStr",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Getty Images Files for Chapter 11 at a ~$910M Run-Rate: 27% EBITDA Margins, 25% Fewer Subscribers, and $0 for Public Shareholders",
+      "url": "https://www.saastr.com/getty-images-files-for-chapter-11-at-a-910m-run-rate-27-ebitda-margins-25-fewer-subscribers-and-0-for-public-shareholders",
+      "source_url": "https://www.saastr.com/getty-images-files-for-chapter-11-at-a-910m-run-rate-27-ebitda-margins-25-fewer-subscribers-and-0-for-public-shareholders",
+      "event_at": "2026-10-22T05:10:20+00:00",
+      "subscription": [
+        "subscribers"
+      ],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "saastr",
+      "vendor_name": "SaaStr",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "percentage",
+      "metric_value": 27.0,
+      "canonical_key": "churn_proxy:saastr:percentage",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:00219c06c454:20261022",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "I made my free trial card-required and it almost doubled my sales",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xcimzs/i_made_my_free_trial_cardrequired_and_it_almost",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xcimzs/i_made_my_free_trial_cardrequired_and_it_almost",
+      "event_at": "2026-10-22T04:30:45+00:00",
+      "subscription": [
+        "plan",
+        "trial",
+        "free trial",
+        "paid plan"
+      ],
+      "price": [
+        "cost",
+        "free",
+        "paid"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "conversion_rate_percent",
+      "metric_value": 98.0,
+      "canonical_key": "churn_proxy:r-saas:conversion_rate_percent",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:ae35f8e0ef2f:20261022",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "r/cordcutters",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "community",
+      "collection_tier": "C1_rss",
+      "producer_role": "consumer_comm",
+      "info_purpose": [
+        "community",
+        "cancellation",
+        "alternatives"
+      ],
+      "event_model": "churn_proxy",
+      "title": "Today could be a good day to cancel Disney+/Hulu to qualify for a new Black Friday deal.",
+      "url": "https://www.reddit.com/r/cordcutters/comments/1xch9nn/today_could_be_a_good_day_to_cancel_disneyhulu_to",
+      "source_url": "https://www.reddit.com/r/cordcutters/comments/1xch9nn/today_could_be_a_good_day_to_cancel_disneyhulu_to",
+      "event_at": "2026-10-22T03:31:12+00:00",
+      "subscription": [
+        "cancel"
+      ],
+      "price": [
+        "deal"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "disney+",
+        "hulu"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "cancellation",
+        "community"
+      ],
+      "vendor_id": "disney",
+      "vendor_name": "disney+",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:disney:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:5e07271774d4:20261022",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "Spotify Newsroom",
+      "source_type": "rss",
+      "trust_tier": "T1_official",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "vendor",
+      "info_purpose": [
+        "official_news",
+        "plan_change"
+      ],
+      "event_model": "plan_change_notice",
+      "title": "Spotify Reports Third Quarter 2026 Earnings",
+      "url": "https://newsroom.spotify.com/2026-10-22/spotify-q3-2026-earnings",
+      "source_url": "https://newsroom.spotify.com/2026-10-22/spotify-q3-2026-earnings",
+      "event_at": "2026-10-22T01:00:31+00:00",
+      "subscription": [
+        "subscribers",
+        "monthly",
+        "premium"
+      ],
+      "price": [
+        "premium"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "spotify"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "plan_change"
+      ],
+      "vendor_id": "spotify",
+      "vendor_name": "Spotify",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "monthly",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "subscription_plan:spotify",
+      "canonical_key_status": "vendor_proxy",
+      "event_key": "plan_change_notice:d2f8b614f08b:20261022",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "plan_id": false,
+        "change_type": false,
+        "source_url": true
+      },
+      "required_field_gaps": [
+        "plan_id",
+        "change_type"
+      ]
+    },
+    {
+      "source": "Apple App Store Top Free US",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "Peacock TV: Stream TV & Movies ranks #13 in US App Store Top Free Apps",
+      "url": "https://apps.apple.com/us/app/peacock-tv-stream-tv-movies/id1508186374",
+      "source_url": "https://apps.apple.com/us/app/peacock-tv-stream-tv-movies/id1508186374",
+      "event_at": "2026-10-21T14:59:44+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "peacock"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "peacock-tv-llc",
+      "vendor_name": "Peacock TV LLC",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "1508186374",
+      "rank": 13,
+      "market": "US",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:us:top_free_apps:1508186374",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:c277038084ca:20261021",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "HIRING SOFTWARE DEVELOPERS",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xbpd6c/hiring_software_developers",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xbpd6c/hiring_software_developers",
+      "event_at": "2026-10-21T05:54:41+00:00",
+      "subscription": [],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261021",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "From 0 to €1k MRR: How fixing my SEO funnel turned my free D&D tool into a paying SaaS",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xblvsx/from_0_to_1k_mrr_how_fixing_my_seo_funnel_turned",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xblvsx/from_0_to_1k_mrr_how_fixing_my_seo_funnel_turned",
+      "event_at": "2026-10-21T03:31:57+00:00",
+      "subscription": [
+        "subscribers",
+        "tier",
+        "monthly",
+        "premium"
+      ],
+      "price": [
+        "pricing",
+        "free",
+        "paid",
+        "premium",
+        "revenue"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas",
+        "mrr"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "monthly",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "percentage",
+      "metric_value": 100.0,
+      "canonical_key": "churn_proxy:r-saas:percentage",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:ba6a0856c779:20261021",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "r/cordcutters",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "community",
+      "collection_tier": "C1_rss",
+      "producer_role": "consumer_comm",
+      "info_purpose": [
+        "community",
+        "cancellation",
+        "alternatives"
+      ],
+      "event_model": "churn_proxy",
+      "title": "Need Suggestions- Hulu too expensive",
+      "url": "https://www.reddit.com/r/cordcutters/comments/1xblsnt/need_suggestions_hulu_too_expensive",
+      "source_url": "https://www.reddit.com/r/cordcutters/comments/1xblsnt/need_suggestions_hulu_too_expensive",
+      "event_at": "2026-10-21T03:28:01+00:00",
+      "subscription": [
+        "bundle"
+      ],
+      "price": [],
+      "plan_change": [
+        "bundle"
+      ],
+      "billing_policy": [],
+      "provider": [
+        "hulu"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "cancellation",
+        "community"
+      ],
+      "vendor_id": "hulu",
+      "vendor_name": "hulu",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "bundle",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:hulu:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:5fe3e337f531:20261021",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "We turned 15,806 insider transaction filings into a data study. Here's what it taught us about content-led growth.",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xbl340/we_turned_15806_insider_transaction_filings_into",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xbl340/we_turned_15806_insider_transaction_filings_into",
+      "event_at": "2026-10-21T02:54:24+00:00",
+      "subscription": [],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas",
+        "b2c"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "percentage",
+      "metric_value": 3.0,
+      "canonical_key": "churn_proxy:r-saas:percentage",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:ba6a0856c779:20261021",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "How many times had SaaS died in the last few years?",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xbkfme/how_many_times_had_saas_died_in_the_last_few_years",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xbkfme/how_many_times_had_saas_died_in_the_last_few_years",
+      "event_at": "2026-10-21T02:19:45+00:00",
+      "subscription": [
+        "subscription"
+      ],
+      "price": [
+        "cost",
+        "revenue"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "price_point",
+      "metric_value": 100.0,
+      "canonical_key": "churn_proxy:r-saas:price_point",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:e793c0ad6ccf:20261021",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Why is enterprise software pricing so weird for privacy tools?",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xbkecz/why_is_enterprise_software_pricing_so_weird_for",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xbkecz/why_is_enterprise_software_pricing_so_weird_for",
+      "event_at": "2026-10-21T02:17:49+00:00",
+      "subscription": [],
+      "price": [
+        "pricing",
+        "fees"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261021",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Tired of messy spreadsheets for API pricing, so I built a tool to track and calculate LLM costs (modelanalysis.si)",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xbk1lc/tired_of_messy_spreadsheets_for_api_pricing_so_i",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xbk1lc/tired_of_messy_spreadsheets_for_api_pricing_so_i",
+      "event_at": "2026-10-21T01:59:18+00:00",
+      "subscription": [],
+      "price": [
+        "pricing",
+        "cost",
+        "budget"
+      ],
+      "plan_change": [
+        "pricing page"
+      ],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "pricing page",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261021",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "I spent $1 running 200 tech and finance job postings through Claude API. 23.5% were ghost jobs.",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xbiphm/i_spent_1_running_200_tech_and_finance_job",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xbiphm/i_spent_1_running_200_tech_and_finance_job",
+      "event_at": "2026-10-21T00:41:14+00:00",
+      "subscription": [],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "claude"
+      ],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "claude",
+      "vendor_name": "claude",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "percentage",
+      "metric_value": 23.5,
+      "canonical_key": "churn_proxy:claude:percentage",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:bdfbb22ae5dc:20261021",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Are AI wrappers good or bad?",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xbhyfn/are_ai_wrappers_good_or_bad",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xbhyfn/are_ai_wrappers_good_or_bad",
+      "event_at": "2026-10-20T23:54:22+00:00",
+      "subscription": [
+        "subscription"
+      ],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261020",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "I think every SaaS should have a public cemetery.",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xbfoyf/i_think_every_saas_should_have_a_public_cemetery",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xbfoyf/i_think_every_saas_should_have_a_public_cemetery",
+      "event_at": "2026-10-20T21:31:32+00:00",
+      "subscription": [],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas",
+        "mrr"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "mrr",
+      "metric_value": 10000.0,
+      "canonical_key": "churn_proxy:r-saas:mrr",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:8fb0d0e8eefd:20261020",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": true,
+        "source": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "r/SaaS",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "Built a tool that clicks through your site like a first-time visitor and tells you how hard things are to find",
+      "url": "https://www.reddit.com/r/SaaS/comments/1xbbrxl/built_a_tool_that_clicks_through_your_site_like_a",
+      "source_url": "https://www.reddit.com/r/SaaS/comments/1xbbrxl/built_a_tool_that_clicks_through_your_site_like_a",
+      "event_at": "2026-10-20T17:52:41+00:00",
+      "subscription": [
+        "plan",
+        "cancel"
+      ],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [
+        "saas"
+      ],
+      "source_signal": [
+        "community"
+      ],
+      "vendor_id": "r-saas",
+      "vendor_name": "r/SaaS",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:4327b8e80bc3:20261020",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    }
+  ],
+  "daily_review_items": [
+    {
+      "reason": "missing_required_fields",
+      "event_model": "pricing_page_snapshot",
+      "source": "Basecamp Pricing",
+      "title": "Basecamp — Pricing",
+      "canonical_key": "subscription_plan:basecamp:pricing-catalog",
+      "required_field_gaps": [
+        "price",
+        "currency"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "SaaStr",
+      "title": "Your Top Job For 2027: Hire 1-2 Execs Who Can Take the Load, Not Just Do the Work",
+      "canonical_key": "churn_proxy:saastr:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "I audited 300 startup websites. These 5 common mistakes are costing them customers.",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "Disputes filed in the first month after a sale are far easier to win than late ones. What do you keep from that first month?",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "Is anyone still celebrating Programmers’ Day on October 24th?",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "The support bot I built for my own plugin became its own product",
+      "canonical_key": "churn_proxy:gpt:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "5 billing bugs that quietly lose SaaS revenue (and you won't see them in your dashboard)",
+      "canonical_key": "churn_proxy:bugs:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "What's a developer tool you'd actually pay for if someone built it?",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "AI SaaS founders: how do you actually know the gross margin of each customer?",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "How do you look for partners?",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "Hi there! Could you share how you promote your SaaS-Startup? Is it possible to do so with a $0 marketing budget?",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "Treat 'no subscription' as a plan, not a missing value. It simplified all my paywall code",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "My app makes $60–70/month and someone offered me $1,500 for it. Should I sell?",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "Hey SaaS developers, I made a Bug Bounty Program for $100 for each crack... Looking forward to crack it...",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "SaaStr",
+      "title": "The New “Ask Your Developer” Is Ask Your Agent.  And It’s The Marketing Battle You Have to Win Now",
+      "canonical_key": "churn_proxy:saastr:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "What Makes You Trust a SaaS Product Enough to Pay for It?",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "Your payment webhook handler is probably the weakest part of your SaaS",
+      "canonical_key": "churn_proxy:bugs:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "Is appsumo worth it? I'm getting signups but not much signup to trial conversion",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "How do I get feedback from existing daily active users?",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "Got first organic paid user after 6 months, guess where it came from?",
+      "canonical_key": "churn_proxy:max:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/cordcutters",
+      "title": "Prepaid internet - guilted for downgrading",
+      "canonical_key": "churn_proxy:zoom:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "Whop raises $200M at a $5.1B valuation as it expands into payments and business infrastructure",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/cordcutters",
+      "title": "Today could be a good day to cancel Disney+/Hulu to qualify for a new Black Friday deal.",
+      "canonical_key": "churn_proxy:disney:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "plan_change_notice",
+      "source": "Spotify Newsroom",
+      "title": "Spotify Reports Third Quarter 2026 Earnings",
+      "canonical_key": "subscription_plan:spotify",
+      "required_field_gaps": [
+        "plan_id",
+        "change_type"
+      ]
+    },
+    {
+      "reason": "vendor_proxy_canonical_key",
+      "event_model": "plan_change_notice",
+      "source": "Spotify Newsroom",
+      "title": "Spotify Reports Third Quarter 2026 Earnings",
+      "canonical_key": "subscription_plan:spotify"
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "HIRING SOFTWARE DEVELOPERS",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/cordcutters",
+      "title": "Need Suggestions- Hulu too expensive",
+      "canonical_key": "churn_proxy:hulu:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "Why is enterprise software pricing so weird for privacy tools?",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "Tired of messy spreadsheets for API pricing, so I built a tool to track and calculate LLM costs (modelanalysis.si)",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "Are AI wrappers good or bad?",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "r/SaaS",
+      "title": "Built a tool that clicks through your site like a first-time visitor and tells you how hard things are to find",
+      "canonical_key": "churn_proxy:r-saas:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
+      ]
+    },
+    {
+      "reason": "source_stale",
+      "source": "Spotify Newsroom",
+      "event_model": "plan_change_notice",
+      "age_days": 5.62,
+      "latest_title": "Spotify Reports Third Quarter 2026 Earnings"
+    },
+    {
+      "reason": "source_missing",
+      "source": "r/Streaming",
+      "event_model": "churn_proxy",
+      "age_days": null,
+      "latest_title": ""
+    },
+    {
+      "reason": "source_missing",
+      "source": "r/spotify",
+      "event_model": "churn_proxy",
+      "age_days": null,
+      "latest_title": ""
+    },
+    {
+      "reason": "source_backlog_pending",
+      "source": "Official pricing page diff store",
+      "signal_type": "pricing_page_snapshot",
+      "activation_gate": "HTML snapshot retention, plan canonicalization, and currency/region policy"
+    },
+    {
+      "reason": "source_backlog_pending",
+      "source": "App Store and Google Play ranking feeds",
+      "signal_type": "app_store_ranking",
+      "activation_gate": "app id mapping, region/category taxonomy, and ranking date retention"
+    },
+    {
+      "reason": "source_backlog_pending",
+      "source": "Vendor plan change notices",
+      "signal_type": "plan_change_notice",
+      "activation_gate": "vendor official-domain validation, effective date parsing, and evidence URL retention"
+    },
+    {
+      "reason": "source_backlog_pending",
+      "source": "Subscription churn proxy datasets",
+      "signal_type": "churn_proxy",
+      "activation_gate": "privacy review, aggregation threshold, and metric definition documentation"
+    }
+  ],
+  "source_backlog": {
+    "operational_candidates": [
+      {
+        "id": "pricing_page_diff_store",
+        "name": "Official pricing page diff store",
+        "signal_type": "pricing_page_snapshot",
+        "activation_gate": "HTML snapshot retention, plan canonicalization, and currency/region policy"
+      },
+      {
+        "id": "app_store_ranking_feeds",
+        "name": "App Store and Google Play ranking feeds",
+        "signal_type": "app_store_ranking",
+        "activation_gate": "app id mapping, region/category taxonomy, and ranking date retention"
+      },
+      {
+        "id": "vendor_plan_change_notices",
+        "name": "Vendor plan change notices",
+        "signal_type": "plan_change_notice",
+        "activation_gate": "vendor official-domain validation, effective date parsing, and evidence URL retention"
+      },
+      {
+        "id": "subscription_churn_proxy",
+        "name": "Subscription churn proxy datasets",
+        "signal_type": "churn_proxy",
+        "activation_gate": "privacy review, aggregation threshold, and metric definition documentation"
+      }
+    ]
+  },
+  "errors": []
+}
