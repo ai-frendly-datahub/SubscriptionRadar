@@ -98,16 +98,6 @@ sources:
   - name: "Engadget"
     type: "rss"
     url: "https://www.engadget.com/rss.xml"
-    config:
-      include_keywords:
-        - "subscription"
-        - "subscribe"
-        - "plan"
-        - "pricing"
-        - "price hike"
-        - "membership"
-        - "구독"
-        - "요금제"
 
   - name: "TechCrunch"
     type: "rss"
@@ -120,16 +110,6 @@ sources:
   - name: "9to5Google"
     type: "rss"
     url: "https://9to5google.com/feed/"
-    config:
-      include_keywords:
-        - "subscription"
-        - "subscribe"
-        - "plan"
-        - "pricing"
-        - "price hike"
-        - "membership"
-        - "구독"
-        - "요금제"
 
   - name: "Ars Technica"
     type: "rss"
@@ -174,16 +154,6 @@ sources:
   - name: "Product Hunt"
     type: "rss"
     url: "https://www.producthunt.com/feed"
-    config:
-      include_keywords:
-        - "subscription"
-        - "subscribe"
-        - "plan"
-        - "pricing"
-        - "price hike"
-        - "membership"
-        - "구독"
-        - "요금제"
 
   # === 스트리밍 서비스 공식 ===
   - name: "Netflix TechBlog"
@@ -388,16 +358,6 @@ sources:
   - name: "Bloomberg Technology"
     type: "rss"
     url: "https://feeds.bloomberg.com/technology/news.rss"
-    config:
-      include_keywords:
-        - "subscription"
-        - "subscribe"
-        - "plan"
-        - "pricing"
-        - "price hike"
-        - "membership"
-        - "구독"
-        - "요금제"
 
   # === 한국 구독 서비스 ===
   - name: "TVING 공지사항"
@@ -496,35 +456,31 @@ sources:
         - "ps plus"
         - "switch online"
         - "subscription"
+        - "subscribe"
+        - "pricing"
         - "price"
+        - "price hike"
+        - "price increase"
         - "membership"
+        - "cancel"
+        - "cancellation"
+        - "bundle"
+        - "tier"
+        - "free trial"
+        - "ad-supported"
+        - "구독"
+        - "요금제"
+        - "구독료"
+        - "멤버십"
 
   - name: "PlayStation Blog"
     type: "rss"
     url: "https://blog.playstation.com/feed/"
-    config:
-      include_keywords:
-        - "game pass"
-        - "playstation plus"
-        - "ps plus"
-        - "switch online"
-        - "subscription"
-        - "price"
-        - "membership"
 
   - name: "Nintendo Life"
     type: "rss"
     url: "https://www.nintendolife.com/feeds/news"
     notes: "Replaces nintendo.com/whatsnew/feed (404). Public RSS, no API key."
-    config:
-      include_keywords:
-        - "game pass"
-        - "playstation plus"
-        - "ps plus"
-        - "switch online"
-        - "subscription"
-        - "price"
-        - "membership"
 
   # === Reddit 구독/서비스 커뮤니티 ===
   - name: "r/cordcutters"
@@ -611,16 +567,6 @@ sources:
   - name: "Wired"
     type: "rss"
     url: "https://www.wired.com/feed/rss"
-    config:
-      include_keywords:
-        - "subscription"
-        - "subscribe"
-        - "plan"
-        - "pricing"
-        - "price hike"
-        - "membership"
-        - "구독"
-        - "요금제"
 
   - name: "Variety"
     type: "rss"

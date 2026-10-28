@@ -8,25 +8,38 @@ from subscriptionradar.models import Source
 
 
 _GATE_KEYWORDS = ["game pass", "요금제"]
-_GAME_KEYWORDS = [
+_XBOX_KEYWORDS = [
     "game pass",
     "playstation plus",
     "ps plus",
     "switch online",
     "subscription",
-    "price",
-    "membership",
-]
-_NEWS_KEYWORDS = [
-    "subscription",
     "subscribe",
-    "plan",
     "pricing",
+    "price",
     "price hike",
+    "price increase",
     "membership",
+    "cancel",
+    "cancellation",
+    "bundle",
+    "tier",
+    "free trial",
+    "ad-supported",
     "구독",
     "요금제",
+    "구독료",
+    "멤버십",
 ]
+_UNGATED_SOURCES = (
+    "PlayStation Blog",
+    "Nintendo Life",
+    "Product Hunt",
+    "9to5Google",
+    "Wired",
+    "Engadget",
+    "Bloomberg Technology",
+)
 _GENERIC_TERMS = {
     "library",
     "gaming",
@@ -92,6 +105,51 @@ def test_include_keywords_passes_two_entries_and_blocks_two_entries() -> None:
     assert "Robot vacuum maps the kitchen" not in titles
 
 
+def test_english_keywords_match_words_not_substrings() -> None:
+    source = Source(
+        name="Boundary Feed",
+        type="rss",
+        url="https://example.com/feed",
+        config={"include_keywords": ["plan", "price increase"]},
+    )
+    payload = b"""<?xml version="1.0"?>
+<rss version="2.0">
+  <channel>
+    <item>
+      <title>Spotify announces a price increase</title>
+      <link>https://example.com/hike</link>
+      <description>Hardware roundup</description>
+    </item>
+    <item>
+      <title>Family plan adds offline downloads</title>
+      <link>https://example.com/family</link>
+      <description>Weekly gadget roundup</description>
+    </item>
+    <item>
+      <title>Plango</title>
+      <link>https://example.com/plango</link>
+      <description>An AI coworker that plans your week</description>
+    </item>
+    <item>
+      <title>Planet exploration trailer</title>
+      <link>https://example.com/planet</link>
+      <description>A new world to explore</description>
+    </item>
+  </channel>
+</rss>"""
+    mock_response = Mock()
+    mock_response.content = payload
+    mock_response.raise_for_status = Mock()
+
+    with patch("subscriptionradar.collector._fetch_url_with_retry", return_value=mock_response):
+        articles = _collect_single(source, category="subscription", limit=10, timeout=5)
+
+    assert [article.title for article in articles] == [
+        "Spotify announces a price increase",
+        "Family plan adds offline downloads",
+    ]
+
+
 def test_missing_include_keywords_passes_every_entry() -> None:
     source = Source(name="Open Feed", type="rss", url="https://example.com/feed")
 
@@ -122,12 +180,11 @@ def test_noisy_sources_are_disabled_and_keyword_gates_are_configured() -> None:
         assert isinstance(reason, str)
         assert marker in reason
 
-    for name in ("Xbox Wire", "PlayStation Blog", "Nintendo Life"):
+    assert sources["Xbox Wire"].enabled is True
+    assert sources["Xbox Wire"].config.get("include_keywords") == _XBOX_KEYWORDS
+    for name in _UNGATED_SOURCES:
         assert sources[name].enabled is True
-        assert sources[name].config.get("include_keywords") == _GAME_KEYWORDS
-
-    for name in ("Product Hunt", "9to5Google", "Wired", "Engadget", "Bloomberg Technology"):
-        assert sources[name].config.get("include_keywords") == _NEWS_KEYWORDS
+        assert "include_keywords" not in sources[name].config
 
     assert _GENERIC_TERMS.isdisjoint(entities["Service"])
     assert _GENERIC_TERMS.isdisjoint(entities["Price"])
