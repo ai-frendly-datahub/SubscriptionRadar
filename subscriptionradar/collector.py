@@ -425,6 +425,31 @@ def _collect_single(
     raise SourceError(source.name, f"Unsupported source type '{source.type}'")
 
 
+def _include_keywords(source: Source) -> list[str]:
+    """Return lowercase include_keywords. An empty list means no keyword gate."""
+    raw = source.config.get("include_keywords")
+    if not isinstance(raw, list):
+        return []
+    keywords: list[str] = []
+    for item in raw:
+        if not isinstance(item, str):
+            continue
+        text = item.strip().lower()
+        if text:
+            keywords.append(text)
+    return keywords
+
+
+def _passes_include_keywords(source: Source, title: str, summary: str) -> bool:
+    """Pass when no gate is configured, or title or summary contains a keyword."""
+    keywords = _include_keywords(source)
+    if not keywords:
+        return True
+    title_l = title.lower()
+    summary_l = summary.lower()
+    return any(keyword in title_l or keyword in summary_l for keyword in keywords)
+
+
 def _collect_rss_source(
     source: Source,
     *,
@@ -467,6 +492,8 @@ def _collect_rss_source(
             summary_text = html.unescape(summary.strip()) if summary.strip() else title_text
             if is_challenge_or_error_page(title_text, summary_text):
                 dropped_challenge += 1
+                continue
+            if not _passes_include_keywords(source, title_text, summary_text):
                 continue
 
             items.append(
