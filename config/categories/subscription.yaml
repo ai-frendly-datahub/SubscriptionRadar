@@ -118,6 +118,10 @@ sources:
   - name: "Hacker News"
     type: "rss"
     url: "https://news.ycombinator.com/rss"
+    enabled: false
+    notes: "2026-10-22~28 분류 노이즈 95%. RSS 본문이 Comments 링크뿐이라 요금제 신호를 만들지 못해 비활성화."
+    config:
+      skip_reason: "2026-10-22~28 분류 노이즈 95%. RSS 본문이 Comments 링크뿐이라 요금제 신호를 만들지 못해 비활성화."
 
   - name: "The Verge"
     type: "rss"
@@ -179,6 +183,7 @@ sources:
   - name: "Disney Investor Relations"
     type: "rss"
     url: "https://thewaltdisneycompany.com/feed/"
+    enabled: false
     trust_tier: "T1_official"
     content_type: "news"
     producer_role: "vendor"
@@ -186,8 +191,10 @@ sources:
     info_purpose:
       - "official_news"
       - "bundle"
+    notes: "2026-10-22~28 분류 노이즈 92%. 기업 공시가 구독 요금 신호를 압도해 비활성화."
     config:
       quiet_when_no_items: true
+      skip_reason: "2026-10-22~28 분류 노이즈 92%. 기업 공시가 구독 요금 신호를 압도해 비활성화."
 
   - name: "Apple Newsroom"
     type: "rss"
@@ -442,6 +449,29 @@ sources:
   - name: "Xbox Wire"
     type: "rss"
     url: "https://news.xbox.com/en-us/feed/"
+    config:
+      include_keywords:
+        - "game pass"
+        - "playstation plus"
+        - "ps plus"
+        - "switch online"
+        - "subscription"
+        - "subscribe"
+        - "pricing"
+        - "price"
+        - "price hike"
+        - "price increase"
+        - "membership"
+        - "cancel"
+        - "cancellation"
+        - "bundle"
+        - "tier"
+        - "free trial"
+        - "ad-supported"
+        - "구독"
+        - "요금제"
+        - "구독료"
+        - "멤버십"
 
   - name: "PlayStation Blog"
     type: "rss"
@@ -524,6 +554,10 @@ sources:
   - name: "Linus Tech Tips"
     type: "rss"
     url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw"
+    enabled: false
+    notes: "2026-10-22~28 분류 노이즈 93%. 하드웨어 리뷰 위주라 구독 요금 신호가 거의 없어 비활성화."
+    config:
+      skip_reason: "2026-10-22~28 분류 노이즈 93%. 하드웨어 리뷰 위주라 구독 요금 신호가 거의 없어 비활성화."
 
   # === 글로벌 구독 서비스 트렌드 ===
   - name: "CNET Tech"
@@ -565,7 +599,7 @@ entities:
       - "annual"
       - "yearly"
       - "premium"
-      - "pro"
+      - "pro plan"
       - "plus"
       - "ad-free"
       - "bundle"
@@ -581,7 +615,6 @@ entities:
       - "platform"
       - "app"
       - "apps"
-      - "application"
       - "software"
       - "tool"
       - "product"
@@ -598,9 +631,7 @@ entities:
       - "play store"
       - "digital"
       - "online"
-      - "gaming"
-      - "library"
-      - "content"
+      - "game pass"
       - "support"
       - "integration"
   - name: "Price"
@@ -617,9 +648,6 @@ entities:
       - "billing"
       - "invoice"
       - "commission"
-      - "discount"
-      - "deal"
-      - "sale"
       - "coupon"
       - "free"
       - "paid"

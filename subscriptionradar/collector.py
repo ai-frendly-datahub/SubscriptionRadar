@@ -425,6 +425,37 @@ def _collect_single(
     raise SourceError(source.name, f"Unsupported source type '{source.type}'")
 
 
+def _include_keywords(source: Source) -> list[str]:
+    """Return lowercase include_keywords. An empty list means no keyword gate."""
+    raw = source.config.get("include_keywords")
+    if not isinstance(raw, list):
+        return []
+    keywords: list[str] = []
+    for item in raw:
+        if not isinstance(item, str):
+            continue
+        text = item.strip().lower()
+        if text:
+            keywords.append(text)
+    return keywords
+
+
+def _keyword_in_text(keyword: str, text: str) -> bool:
+    """Match English on word boundaries. Other keywords, including Korean, are substrings."""
+    if keyword.isascii():
+        return re.search(rf"(?<![a-z0-9]){re.escape(keyword)}(?![a-z0-9])", text) is not None
+    return keyword in text
+
+
+def _passes_include_keywords(source: Source, title: str, summary: str) -> bool:
+    """Pass when no gate is configured, or title or summary contains a keyword."""
+    keywords = _include_keywords(source)
+    if not keywords:
+        return True
+    text = f"{title} {summary}".lower()
+    return any(_keyword_in_text(keyword, text) for keyword in keywords)
+
+
 def _collect_rss_source(
     source: Source,
     *,
@@ -467,6 +498,8 @@ def _collect_rss_source(
             summary_text = html.unescape(summary.strip()) if summary.strip() else title_text
             if is_challenge_or_error_page(title_text, summary_text):
                 dropped_challenge += 1
+                continue
+            if not _passes_include_keywords(source, title_text, summary_text):
                 continue
 
             items.append(
