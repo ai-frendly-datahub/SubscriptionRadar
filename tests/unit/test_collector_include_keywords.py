@@ -31,15 +31,28 @@ _XBOX_KEYWORDS = [
     "구독료",
     "멤버십",
 ]
-_UNGATED_SOURCES = (
+_UNGATED_SOURCES = ("Bloomberg Technology",)
+_NO_INCLUDE_GATE = (
     "PlayStation Blog",
     "Nintendo Life",
     "Product Hunt",
     "9to5Google",
+    "9to5Mac",
     "Wired",
     "Engadget",
+    "CNET Tech",
+    "MKBHD",
     "Bloomberg Technology",
+    "Apple App Store Top Free US",
+    "Apple App Store Top Free KR",
 )
+_EXCLUDE_TITLE_KEYWORDS = {
+    "9to5Google": ["deal", "review", "hands-on", "leak", "leaked", "sale", "discount"],
+    "9to5Mac": ["deal", "sale", "discount", "review"],
+    "Engadget": ["review", "first drive", "hands-on"],
+    "Wired": ["promo code", "coupon"],
+    "CNET Tech": ["review"],
+}
 _GENERIC_TERMS = {
     "library",
     "gaming",
@@ -173,18 +186,31 @@ def test_noisy_sources_are_disabled_and_keyword_gates_are_configured() -> None:
         ("Hacker News", "95%"),
         ("Disney Investor Relations", "92%"),
         ("Linus Tech Tips", "93%"),
+        ("MKBHD", "15/15"),
+        ("Product Hunt", "88/144"),
+        ("PlayStation Blog", "14/18"),
+        ("Nintendo Life", "40/58"),
     ):
         source = sources[name]
         assert source.enabled is False
         reason = source.config.get("skip_reason")
         assert isinstance(reason, str)
         assert marker in reason
+        assert source.notes == reason or marker in source.notes
 
     assert sources["Xbox Wire"].enabled is True
     assert sources["Xbox Wire"].config.get("include_keywords") == _XBOX_KEYWORDS
+    for name in _NO_INCLUDE_GATE:
+        assert "include_keywords" not in sources[name].config
     for name in _UNGATED_SOURCES:
         assert sources[name].enabled is True
-        assert "include_keywords" not in sources[name].config
+        assert "exclude_title_keywords" not in sources[name].config
+    for name, keywords in _EXCLUDE_TITLE_KEYWORDS.items():
+        assert sources[name].enabled is True
+        assert sources[name].config.get("exclude_title_keywords") == keywords
+    for name in ("Apple App Store Top Free US", "Apple App Store Top Free KR"):
+        assert sources[name].enabled is True
+        assert "exclude_title_keywords" not in sources[name].config
 
     assert _GENERIC_TERMS.isdisjoint(entities["Service"])
     assert _GENERIC_TERMS.isdisjoint(entities["Price"])
@@ -195,12 +221,17 @@ def test_noisy_sources_are_disabled_and_keyword_gates_are_configured() -> None:
 
 def test_collector_skips_disabled_noise_sources_without_fetching() -> None:
     config = load_category_config("subscription")
-    disabled = [
-        source
-        for source in config.sources
-        if source.name in {"Hacker News", "Disney Investor Relations", "Linus Tech Tips"}
-    ]
-    assert len(disabled) == 3
+    disabled_names = {
+        "Hacker News",
+        "Disney Investor Relations",
+        "Linus Tech Tips",
+        "MKBHD",
+        "Product Hunt",
+        "PlayStation Blog",
+        "Nintendo Life",
+    }
+    disabled = [source for source in config.sources if source.name in disabled_names]
+    assert len(disabled) == len(disabled_names)
 
     with patch(
         "subscriptionradar.collector.requests.Session.get",
