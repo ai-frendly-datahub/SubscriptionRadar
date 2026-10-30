@@ -46,6 +46,62 @@ _NO_INCLUDE_GATE = (
     "Apple App Store Top Free US",
     "Apple App Store Top Free KR",
 )
+_TITLE_GATE = [
+    "subscription",
+    "subscribe",
+    "membership",
+    "plan",
+    "price",
+    "pricing",
+    "free trial",
+    "ending service",
+    "shutdown",
+    "shut down",
+    "shuts down",
+    "shutting down",
+    "maintenance",
+    "playstation plus",
+    "ps plus",
+    "switch online",
+    "game pass",
+    "crunchyroll",
+    "upgrade",
+    "refund",
+    "data breach",
+    "account",
+    "accounts",
+    "mrr",
+    "cheaper",
+    "limits",
+    "bundle",
+]
+_SUMMARY_GATE = [
+    "subscription",
+    "membership",
+    "plan",
+    "price",
+    "pricing",
+    "free trial",
+    "ending service",
+    "shutdown",
+    "shut down",
+    "shuts down",
+    "shutting down",
+    "maintenance",
+    "playstation plus",
+    "ps plus",
+    "switch online",
+    "game pass",
+    "crunchyroll",
+    "refund",
+    "data breach",
+    "account",
+    "accounts",
+    "mrr",
+    "cheaper",
+    "limits",
+    "bundle",
+]
 _EXCLUDE_TITLE_KEYWORDS = {
     "9to5Google": ["deal", "review", "hands-on", "leak", "leaked", "sale", "discount"],
     "9to5Mac": ["deal", "sale", "discount", "review"],
@@ -200,11 +256,11 @@ def test_noisy_sources_are_disabled_and_keyword_gates_are_configured() -> None:
     assert sources["Product Hunt"].enabled is True
     assert sources["PlayStation Blog"].enabled is True
     assert sources["Nintendo Life"].enabled is True
-    assert sources["Product Hunt"].config.get("include_title_keywords") == [
-        "ilha",
-        "mrraudit",
-        "minimax m3.1",
-    ]
+    for name in ("Product Hunt", "PlayStation Blog", "Nintendo Life"):
+        assert sources[name].config.get("include_title_keywords") == _TITLE_GATE
+        assert sources[name].config.get("include_summary_keywords") == _SUMMARY_GATE
+    assert "subscribe" not in _SUMMARY_GATE
+    assert "upgrade" not in _SUMMARY_GATE
     assert "88/144" in sources["Product Hunt"].notes
     assert "14/18" in sources["PlayStation Blog"].notes
     for name in _NO_INCLUDE_GATE:

@@ -440,9 +440,9 @@ def _include_keywords(source: Source) -> list[str]:
     return keywords
 
 
-def _include_title_keywords(source: Source) -> list[str]:
-    """Return lowercase include_title_keywords. An empty list means no title gate."""
-    raw = source.config.get("include_title_keywords")
+def _config_keywords(source: Source, key: str) -> list[str]:
+    """Return lowercase keywords from a source config list. Missing or empty means unset."""
+    raw = source.config.get(key)
     if not isinstance(raw, list):
         return []
     keywords: list[str] = []
@@ -453,6 +453,22 @@ def _include_title_keywords(source: Source) -> list[str]:
         if text:
             keywords.append(text)
     return keywords
+
+
+def _include_title_keywords(source: Source) -> list[str]:
+    """Return lowercase include_title_keywords. An empty list means no title gate."""
+    return _config_keywords(source, "include_title_keywords")
+
+
+def _include_summary_keywords(source: Source) -> list[str]:
+    """Return lowercase include_summary_keywords. An empty list means the summary is ignored."""
+    return _config_keywords(source, "include_summary_keywords")
+
+
+def _plain_text(value: str) -> str:
+    """Lowercase visible text, so a keyword inside an HTML tag or URL does not match."""
+    text = re.sub(r"<[^>]+>", " ", value)
+    return re.sub(r"\s+", " ", html.unescape(text)).strip().lower()
 
 
 def _exclude_title_keywords(source: Source) -> list[str]:
@@ -491,16 +507,24 @@ def _passes_include_keywords(source: Source, title: str, summary: str) -> bool:
     return any(_keyword_in_text(keyword, text) for keyword in keywords)
 
 
-def _passes_include_title_keywords(source: Source, title: str) -> bool:
-    """Pass when no title gate is configured, or the title itself contains a keyword.
+def _passes_include_title_keywords(source: Source, title: str, summary: str = "") -> bool:
+    """Pass when no gate is configured, or a title or summary keyword matches.
 
-    The summary is ignored so a noise post that only mentions a kept phrase in the body stays out.
+    Title keywords are read from the title only. Summary keywords are a smaller set:
+    words such as ``subscribe`` and ``upgrade`` stay title-only because the same week's
+    noise posts use them in the body. Product Hunt puts the price or MRR signal in the
+    tagline, so those summary keywords are what keep the product-name titles.
     """
-    keywords = _include_title_keywords(source)
-    if not keywords:
+    title_keywords = _include_title_keywords(source)
+    summary_keywords = _include_summary_keywords(source)
+    if not title_keywords and not summary_keywords:
         return True
-    lowered = title.lower()
-    return any(_keyword_in_text(keyword, lowered) for keyword in keywords)
+    if any(_keyword_in_text(keyword, title.lower()) for keyword in title_keywords):
+        return True
+    if not summary_keywords or not summary:
+        return False
+    plain = _plain_text(summary)
+    return any(_keyword_in_text(keyword, plain) for keyword in summary_keywords)
 
 
 def _passes_exclude_title_keywords(source: Source, title: str) -> bool:
@@ -557,7 +581,7 @@ def _collect_rss_source(
                 continue
             if not _passes_include_keywords(source, title_text, summary_text):
                 continue
-            if not _passes_include_title_keywords(source, title_text):
+            if not _passes_include_title_keywords(source, title_text, summary_text):
                 continue
             if not _passes_exclude_title_keywords(source, title_text):
                 continue

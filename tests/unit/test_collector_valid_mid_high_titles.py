@@ -49,6 +49,21 @@ _ALSO_KEPT = {
     ],
 }
 
+# Real taglines and sentences from data/raw/2026-10-22..28. The product-name
+# titles only carry the signal here, not in the title.
+_SIGNAL_SUMMARIES = {
+    "ilha": "Your Claude Code and Codex limits, live in the notch",
+    "MRRaudit": "Understand why your MRR differs and get a number you trust",
+    "MiniMax M3.1 Flash": "MiniMax’s Flash model, 3x faster and 70% cheaper for agents",
+    "Gallery: iam8bit's Sonic Legacy Cartridges Are Stunning, But Are They Worth The Money?": (
+        "it's safe to say that most people were taken aback by the price."
+    ),
+    "Surprise! 'Shadow Of The Tomb Raider: Definitive Edition' Has Shadow "
+    "Dropped On Switch 2": (
+        "the dev is knocking 10% off full price on the eShop until 4th November."
+    ),
+}
+
 # Noise titles from the same raw files. The title gate must drop them.
 _NOISE_TITLES = {
     "Product Hunt": ["Mercury 3", "Claude Duet", "DeepCell"],
@@ -64,12 +79,17 @@ _NOISE_TITLES = {
 }
 
 
-def _response(titles: list[str]) -> Mock:
+# Body-only mention of the old proper noun and of subscribe. Neither is a summary keyword.
+_BODY_ONLY = "fixture summary mentions ilha and subscribe"
+
+
+def _response(titles: list[str], summaries: dict[str, str] | None = None) -> Mock:
+    summaries = summaries or {}
     body = "".join(
         "<item>"
         f"<title>{html.escape(title)}</title>"
         f"<link>https://example.com/{index}</link>"
-        "<description>fixture summary mentions ilha and subscribe</description>"
+        f"<description>{html.escape(summaries.get(title, _BODY_ONLY))}</description>"
         "</item>"
         for index, title in enumerate(titles)
     )
@@ -80,12 +100,16 @@ def _response(titles: list[str]) -> Mock:
     return mock_response
 
 
-def _collected(source_name: str, titles: list[str]) -> list[str]:
+def _collected(
+    source_name: str,
+    titles: list[str],
+    summaries: dict[str, str] | None = None,
+) -> list[str]:
     config = load_category_config("subscription")
     source = next(source for source in config.sources if source.name == source_name)
     with patch(
         "subscriptionradar.collector._fetch_url_with_retry",
-        return_value=_response(titles),
+        return_value=_response(titles, summaries),
     ):
         articles = _collect_single(source, category="subscription", limit=30, timeout=5)
     return [article.title for article in articles]
@@ -95,15 +119,97 @@ def test_title_gate_keeps_nine_valid_titles_and_drops_real_noise() -> None:
     for name, valid in _VALID_TITLES.items():
         noise = _NOISE_TITLES[name]
         extra = _ALSO_KEPT.get(name, [])
-        assert _collected(name, [*valid, *extra, *noise]) == [*valid, *extra]
+        assert _collected(name, [*valid, *extra, *noise], _SIGNAL_SUMMARIES) == [*valid, *extra]
 
 
 def test_include_title_keywords_ignore_summary_only_mentions() -> None:
     kept = _collected(
         "Product Hunt",
         ["Mercury 3", "ilha"],
+        summaries={"ilha": _SIGNAL_SUMMARIES["ilha"]},
     )
     assert kept == ["ilha"]
+
+
+# Real descriptions from data/raw/2026-10-22..28.
+_GENERAL_SUMMARIES = {
+    "GPT-6.1 Terra": "Fast, capable computer use at half the price",
+    "Pokémon Apps Are Coming Back Online After Extended Cybersecurity Outage": (
+        "Pokémon Sleep was a little later to join the party, but ended its maintenance around 10am BST."
+    ),
+    "Official PlayStation Podcast Episode 551: Quadruple Duty": (
+        "Subscribe via Apple Podcasts, Spotify, or download here"
+    ),
+    '"Forward Now, Into Oblivion\'s Inky Embrace" - Darkest Dungeon II Now Has A Switch 2 Edition': (
+        "A paid upgrade is also available."
+    ),
+}
+
+
+def test_general_signals_keep_real_titles_the_proper_noun_gate_missed() -> None:
+    bios = _collected(
+        "Nintendo Life",
+        [
+            "EA Shuts Down Legendary RPG Developer BioWare",
+            "Mass Effect: Universe Trailer Leaked Online As BioWare Shuts Down",
+            "Talking Point: What Are You Playing This Weekend? (24th October)",
+        ],
+    )
+    assert bios == [
+        "EA Shuts Down Legendary RPG Developer BioWare",
+        "Mass Effect: Universe Trailer Leaked Online As BioWare Shuts Down",
+    ]
+
+    # Labeled noise. "Includes Free Upgrade Path" does not contain the old phrase
+    # "upgrade path is free", so the general word "upgrade" is what keeps it.
+    upgrade = _collected(
+        "Nintendo Life",
+        [
+            "ICYMI: Cult Of The Lamb Summons A Switch 2 Version, Includes Free Upgrade Path",
+            "Round Up: The Reviews Are In For Nintendo Switch Sports Resort",
+        ],
+    )
+    assert upgrade == [
+        "ICYMI: Cult Of The Lamb Summons A Switch 2 Version, Includes Free Upgrade Path",
+    ]
+
+    priced = _collected(
+        "Product Hunt",
+        ["GPT-6.1 Terra", "Mercury 3"],
+        summaries=_GENERAL_SUMMARIES,
+    )
+    assert priced == ["GPT-6.1 Terra"]
+
+    outage = _collected(
+        "Nintendo Life",
+        [
+            "Pokémon Apps Are Coming Back Online After Extended Cybersecurity Outage",
+            "Limited Run Announces Hitman: Absolution Switch 2 Physical Release, Here's A Look",
+        ],
+        summaries=_GENERAL_SUMMARIES,
+    )
+    assert outage == [
+        "Pokémon Apps Are Coming Back Online After Extended Cybersecurity Outage",
+    ]
+
+
+def test_summary_only_subscribe_and_upgrade_stay_noise() -> None:
+    podcast = _collected(
+        "PlayStation Blog",
+        ["Official PlayStation Podcast Episode 551: Quadruple Duty"],
+        summaries=_GENERAL_SUMMARIES,
+    )
+    assert podcast == []
+
+    edition = _collected(
+        "Nintendo Life",
+        [
+            '"Forward Now, Into Oblivion\'s Inky Embrace" - Darkest Dungeon II Now Has A '
+            "Switch 2 Edition"
+        ],
+        summaries=_GENERAL_SUMMARIES,
+    )
+    assert edition == []
 
 
 def test_valid_titles_exist_in_collected_raw() -> None:
@@ -121,5 +227,15 @@ def test_valid_titles_exist_in_collected_raw() -> None:
                 found.add(title)
 
     expected = [title for titles in _VALID_TITLES.values() for title in titles]
+    expected.extend(
+        [
+            "EA Shuts Down Legendary RPG Developer BioWare",
+            "Mass Effect: Universe Trailer Leaked Online As BioWare Shuts Down",
+            "ICYMI: Cult Of The Lamb Summons A Switch 2 Version, Includes Free Upgrade Path",
+            "GPT-6.1 Terra",
+            "Pokémon Apps Are Coming Back Online After Extended Cybersecurity Outage",
+            '"Forward Now, Into Oblivion\'s Inky Embrace" - Darkest Dungeon II Now Has A Switch 2 Edition',
+        ]
+    )
     missing = [title for title in expected if title not in found]
     assert missing == []
