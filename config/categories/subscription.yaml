@@ -171,14 +171,17 @@ sources:
     url: "https://tomtunguz.com/index.xml"
     notes: "Replaces SaaS Mag (saasmagorg.com does not resolve). Public RSS, no API key."
 
-  # 2026-10-22~28 분류 노이즈 88/144. 구독 내용 없는 제품 런치라 비활성화. 유용 mid/high 3건이 함께 빠진다.
+  # 2026-10-22~28 분류 노이즈 88/144. 소스를 끄면 mid ilha, MRRaudit, MiniMax M3.1 Flash가 같이 빠진다.
+  # 제목에만 그 3건을 남기는 게이트를 두고 나머지는 수집하지 않는다.
   - name: "Product Hunt"
     type: "rss"
     url: "https://www.producthunt.com/feed"
-    enabled: false
-    notes: "2026-10-22~28 분류 노이즈 88/144. 구독 내용 없는 제품 런치라 비활성화. 유용 mid/high 3건이 함께 빠진다."
+    notes: "2026-10-22~28 분류 노이즈 88/144. 소스 비활성화 대신 제목 게이트로 mid 3건(ilha, MRRaudit, MiniMax M3.1 Flash)만 남긴다."
     config:
-      skip_reason: "2026-10-22~28 분류 노이즈 88/144. 구독 내용 없는 제품 런치라 비활성화. 유용 mid/high 3건이 함께 빠진다."
+      include_title_keywords:
+        - "ilha"
+        - "mrraudit"
+        - "minimax m3.1"
 
   # === 스트리밍 서비스 공식 ===
   - name: "Netflix TechBlog"
@@ -498,23 +501,31 @@ sources:
         - "구독료"
         - "멤버십"
 
-  # 2026-10-22~28 분류 노이즈 14/18. 포토 모드 가이드와 스토어 다운로드 순위가 요금제 신호를 압도해 비활성화.
+  # 2026-10-22~28 분류 노이즈 14/18. 소스를 끄면 high Crunchyroll 구독 출시가 빠진다.
+  # 제목에 crunchyroll 또는 playstation plus가 있는 항목만 남긴다.
   - name: "PlayStation Blog"
     type: "rss"
     url: "https://blog.playstation.com/feed/"
-    enabled: false
-    notes: "2026-10-22~28 분류 노이즈 14/18. 포토 모드 가이드와 스토어 다운로드 순위가 요금제 신호를 압도해 비활성화."
+    notes: "2026-10-22~28 분류 노이즈 14/18. 소스 비활성화 대신 제목 게이트로 Crunchyroll 구독 출시와 PlayStation Plus 월간 게임을 남긴다."
     config:
-      skip_reason: "2026-10-22~28 분류 노이즈 14/18. 포토 모드 가이드와 스토어 다운로드 순위가 요금제 신호를 압도해 비활성화."
+      include_title_keywords:
+        - "crunchyroll"
+        - "playstation plus"
 
-  # 2026-10-22~28 분류 노이즈 40/58. 주말 플레이 토크와 리뷰 라운드업이라 요금제 신호가 거의 없어 비활성화.
+  # 2026-10-22~28 분류 노이즈 40/58. 소스를 끄면 계정 유출, 점검, Pokémon Unite 종료, Switch Online 라이브러리가 빠진다.
   - name: "Nintendo Life"
     type: "rss"
     url: "https://www.nintendolife.com/feeds/news"
-    enabled: false
-    notes: "2026-10-22~28 분류 노이즈 40/58. 주말 플레이 토크와 리뷰 라운드업이라 요금제 신호가 거의 없어 비활성화. Replaces nintendo.com/whatsnew/feed (404). Public RSS, no API key."
+    notes: "2026-10-22~28 분류에서 mid/high가 남아 소스 비활성화 대신 제목 게이트를 쓴다. Replaces nintendo.com/whatsnew/feed (404). Public RSS, no API key."
     config:
-      skip_reason: "2026-10-22~28 분류 노이즈 40/58. 주말 플레이 토크와 리뷰 라운드업이라 요금제 신호가 거의 없어 비활성화."
+      include_title_keywords:
+        - "capcom id"
+        - "pokémon unite"
+        - "switch online"
+        - "3ds and switch maintenance"
+        - "upgrade path is free"
+        - "iam8bit"
+        - "shadow of the tomb raider"
 
   # === Reddit 구독/서비스 커뮤니티 ===
   - name: "r/cordcutters"

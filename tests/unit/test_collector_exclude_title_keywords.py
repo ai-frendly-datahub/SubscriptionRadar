@@ -227,9 +227,9 @@ def test_quoted_disabled_source_titles_pass_without_an_exclude_list() -> None:
 
 def test_disabled_offtopic_sources_are_not_fetched() -> None:
     config = load_category_config("subscription")
-    disabled = [source for source in config.sources if source.name in _DISABLED_TITLES]
-    assert len(disabled) == len(_DISABLED_TITLES)
-    assert all(source.enabled is False for source in disabled)
+    disabled = [source for source in config.sources if source.name == "MKBHD"]
+    assert len(disabled) == 1
+    assert disabled[0].enabled is False
 
     with patch(
         "subscriptionradar.collector.requests.Session.get",
@@ -252,9 +252,11 @@ def test_quality_report_still_lists_disabled_offtopic_sources() -> None:
 
     rows = {row["source"]: row for row in report["sources"]}
     assert len(rows) == len(category.sources)
-    for name in _DISABLED_TITLES:
-        assert rows[name]["enabled"] is False
-        assert rows[name]["status"] == "skipped_disabled"
+    assert rows["MKBHD"]["enabled"] is False
+    assert rows["MKBHD"]["status"] == "skipped_disabled"
+    for name in ("Product Hunt", "PlayStation Blog", "Nintendo Life"):
+        assert rows[name]["enabled"] is True
+        assert rows[name]["status"] != "skipped_disabled"
     for name in ("Apple App Store Top Free US", "Apple App Store Top Free KR"):
         assert rows[name]["enabled"] is True
         assert rows[name]["status"] != "skipped_disabled"

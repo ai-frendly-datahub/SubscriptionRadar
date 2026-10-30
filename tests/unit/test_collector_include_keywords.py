@@ -187,9 +187,6 @@ def test_noisy_sources_are_disabled_and_keyword_gates_are_configured() -> None:
         ("Disney Investor Relations", "92%"),
         ("Linus Tech Tips", "93%"),
         ("MKBHD", "15/15"),
-        ("Product Hunt", "88/144"),
-        ("PlayStation Blog", "14/18"),
-        ("Nintendo Life", "40/58"),
     ):
         source = sources[name]
         assert source.enabled is False
@@ -200,6 +197,16 @@ def test_noisy_sources_are_disabled_and_keyword_gates_are_configured() -> None:
 
     assert sources["Xbox Wire"].enabled is True
     assert sources["Xbox Wire"].config.get("include_keywords") == _XBOX_KEYWORDS
+    assert sources["Product Hunt"].enabled is True
+    assert sources["PlayStation Blog"].enabled is True
+    assert sources["Nintendo Life"].enabled is True
+    assert sources["Product Hunt"].config.get("include_title_keywords") == [
+        "ilha",
+        "mrraudit",
+        "minimax m3.1",
+    ]
+    assert "88/144" in sources["Product Hunt"].notes
+    assert "14/18" in sources["PlayStation Blog"].notes
     for name in _NO_INCLUDE_GATE:
         assert "include_keywords" not in sources[name].config
     for name in _UNGATED_SOURCES:
@@ -226,9 +233,6 @@ def test_collector_skips_disabled_noise_sources_without_fetching() -> None:
         "Disney Investor Relations",
         "Linus Tech Tips",
         "MKBHD",
-        "Product Hunt",
-        "PlayStation Blog",
-        "Nintendo Life",
     }
     disabled = [source for source in config.sources if source.name in disabled_names]
     assert len(disabled) == len(disabled_names)

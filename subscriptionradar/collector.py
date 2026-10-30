@@ -440,6 +440,21 @@ def _include_keywords(source: Source) -> list[str]:
     return keywords
 
 
+def _include_title_keywords(source: Source) -> list[str]:
+    """Return lowercase include_title_keywords. An empty list means no title gate."""
+    raw = source.config.get("include_title_keywords")
+    if not isinstance(raw, list):
+        return []
+    keywords: list[str] = []
+    for item in raw:
+        if not isinstance(item, str):
+            continue
+        text = item.strip().lower()
+        if text:
+            keywords.append(text)
+    return keywords
+
+
 def _exclude_title_keywords(source: Source) -> list[str]:
     """Return lowercase exclude_title_keywords. An empty list means no title exclusion."""
     raw = source.config.get("exclude_title_keywords")
@@ -474,6 +489,18 @@ def _passes_include_keywords(source: Source, title: str, summary: str) -> bool:
         return True
     text = f"{title} {summary}".lower()
     return any(_keyword_in_text(keyword, text) for keyword in keywords)
+
+
+def _passes_include_title_keywords(source: Source, title: str) -> bool:
+    """Pass when no title gate is configured, or the title itself contains a keyword.
+
+    The summary is ignored so a noise post that only mentions a kept phrase in the body stays out.
+    """
+    keywords = _include_title_keywords(source)
+    if not keywords:
+        return True
+    lowered = title.lower()
+    return any(_keyword_in_text(keyword, lowered) for keyword in keywords)
 
 
 def _passes_exclude_title_keywords(source: Source, title: str) -> bool:
@@ -529,6 +556,8 @@ def _collect_rss_source(
                 dropped_challenge += 1
                 continue
             if not _passes_include_keywords(source, title_text, summary_text):
+                continue
+            if not _passes_include_title_keywords(source, title_text):
                 continue
             if not _passes_exclude_title_keywords(source, title_text):
                 continue
