@@ -93,6 +93,64 @@ source_backlog:
       name: Subscription churn proxy datasets
       signal_type: churn_proxy
       activation_gate: privacy review, aggregation threshold, and metric definition documentation
+# Product Hunt, PlayStation Blog, Nintendo Life share this gate.
+# subscribe and upgrade are title-only: the 2026-10-22~28 noise posts use them in the body.
+subscription_title_keywords: &subscription_title_keywords
+  - "subscription"
+  - "subscribe"
+  - "membership"
+  - "plan"
+  - "price"
+  - "pricing"
+  - "free trial"
+  - "ending service"
+  - "shutdown"
+  - "shut down"
+  - "shuts down"
+  - "shutting down"
+  - "maintenance"
+  - "playstation plus"
+  - "ps plus"
+  - "switch online"
+  - "game pass"
+  - "crunchyroll"
+  - "upgrade"
+  - "refund"
+  - "data breach"
+  - "account"
+  - "accounts"
+  - "mrr"
+  - "cheaper"
+  - "limits"
+  - "bundle"
+
+subscription_summary_keywords: &subscription_summary_keywords
+  - "subscription"
+  - "membership"
+  - "plan"
+  - "price"
+  - "pricing"
+  - "free trial"
+  - "ending service"
+  - "shutdown"
+  - "shut down"
+  - "shuts down"
+  - "shutting down"
+  - "maintenance"
+  - "playstation plus"
+  - "ps plus"
+  - "switch online"
+  - "game pass"
+  - "crunchyroll"
+  - "refund"
+  - "data breach"
+  - "account"
+  - "accounts"
+  - "mrr"
+  - "cheaper"
+  - "limits"
+  - "bundle"
+
 sources:
   # === 테크 뉴스 ===
   - name: "Engadget"
@@ -171,17 +229,15 @@ sources:
     url: "https://tomtunguz.com/index.xml"
     notes: "Replaces SaaS Mag (saasmagorg.com does not resolve). Public RSS, no API key."
 
-  # 2026-10-22~28 분류 노이즈 88/144. 소스를 끄면 mid ilha, MRRaudit, MiniMax M3.1 Flash가 같이 빠진다.
-  # 제목에만 그 3건을 남기는 게이트를 두고 나머지는 수집하지 않는다.
+  # 2026-10-22~28 분류 노이즈 88/144. 제품명 제목의 가격·MRR 신호는 소개문에 있다.
+  # 고유명사 대신 구독·가격·서비스 변경 신호를 제목과 소개문에서 본다.
   - name: "Product Hunt"
     type: "rss"
     url: "https://www.producthunt.com/feed"
-    notes: "2026-10-22~28 분류 노이즈 88/144. 소스 비활성화 대신 제목 게이트로 mid 3건(ilha, MRRaudit, MiniMax M3.1 Flash)만 남긴다."
+    notes: "2026-10-22~28 분류 노이즈 88/144. 고유명사 대신 구독·가격·서비스 변경 신호로 거른다. 제품명만 있는 글은 소개문의 mrr, cheaper, limits, price를 본다."
     config:
-      include_title_keywords:
-        - "ilha"
-        - "mrraudit"
-        - "minimax m3.1"
+      include_title_keywords: *subscription_title_keywords
+      include_summary_keywords: *subscription_summary_keywords
 
   # === 스트리밍 서비스 공식 ===
   - name: "Netflix TechBlog"
@@ -502,30 +558,24 @@ sources:
         - "멤버십"
 
   # 2026-10-22~28 분류 노이즈 14/18. 소스를 끄면 high Crunchyroll 구독 출시가 빠진다.
-  # 제목에 crunchyroll 또는 playstation plus가 있는 항목만 남긴다.
+  # subscribe는 제목에서만 본다. 팟캐스트 본문의 Subscribe는 노이즈다.
   - name: "PlayStation Blog"
     type: "rss"
     url: "https://blog.playstation.com/feed/"
-    notes: "2026-10-22~28 분류 노이즈 14/18. 소스 비활성화 대신 제목 게이트로 Crunchyroll 구독 출시와 PlayStation Plus 월간 게임을 남긴다."
+    notes: "2026-10-22~28 분류 노이즈 14/18. crunchyroll·playstation plus를 포함한 구독·가격·서비스 변경 신호로 거른다."
     config:
-      include_title_keywords:
-        - "crunchyroll"
-        - "playstation plus"
+      include_title_keywords: *subscription_title_keywords
+      include_summary_keywords: *subscription_summary_keywords
 
-  # 2026-10-22~28 분류 노이즈 40/58. 소스를 끄면 계정 유출, 점검, Pokémon Unite 종료, Switch Online 라이브러리가 빠진다.
+  # 2026-10-22~28 분류 노이즈 21/39(고유 링크). 계정 유출, 점검, 서비스 종료, Switch Online이 남아 소스를 끄지 않는다.
+  # upgrade는 제목에서만 본다. 본문의 paid upgrade는 라벨 노이즈다.
   - name: "Nintendo Life"
     type: "rss"
     url: "https://www.nintendolife.com/feeds/news"
-    notes: "2026-10-22~28 분류에서 mid/high가 남아 소스 비활성화 대신 제목 게이트를 쓴다. Replaces nintendo.com/whatsnew/feed (404). Public RSS, no API key."
+    notes: "2026-10-22~28 분류에서 mid/high가 남아 소스 비활성화 대신 구독·가격·서비스 변경 신호로 거른다. Replaces nintendo.com/whatsnew/feed (404). Public RSS, no API key."
     config:
-      include_title_keywords:
-        - "capcom id"
-        - "pokémon unite"
-        - "switch online"
-        - "3ds and switch maintenance"
-        - "upgrade path is free"
-        - "iam8bit"
-        - "shadow of the tomb raider"
+      include_title_keywords: *subscription_title_keywords
+      include_summary_keywords: *subscription_summary_keywords
 
   # === Reddit 구독/서비스 커뮤니티 ===
   - name: "r/cordcutters"
