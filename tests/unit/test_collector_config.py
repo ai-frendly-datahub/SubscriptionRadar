@@ -26,7 +26,9 @@ def test_collect_sources_skips_disabled_and_health_disabled_sources() -> None:
         url="https://example.com/chart.json",
         config={"parser": "apple_app_store_ranking"},
     )
-    active_browser = Source(name="Active Browser", type="browser", url="https://example.com/pricing")
+    active_browser = Source(
+        name="Active Browser", type="browser", url="https://example.com/pricing"
+    )
     disabled = Source(name="Disabled", type="rss", url="https://example.com/off", enabled=False)
     health_disabled = Source(
         name="HealthDisabled",
@@ -41,6 +43,7 @@ def test_collect_sources_skips_disabled_and_health_disabled_sources() -> None:
     fake_session = Mock()
     fake_health = Mock()
     fake_health.is_disabled.side_effect = lambda name: name == "HealthDisabled"
+    fake_health.claim_retry.return_value = False
 
     with (
         patch("subscriptionradar.collector.get_circuit_breaker_manager", return_value=mock_manager),
@@ -48,7 +51,7 @@ def test_collect_sources_skips_disabled_and_health_disabled_sources() -> None:
         patch("subscriptionradar.collector.CrawlHealthStore", return_value=fake_health),
         patch(
             "subscriptionradar.collector._collect_single",
-            side_effect=[[ _article("Active RSS") ], [ _article("Active JSON") ]],
+            side_effect=[[_article("Active RSS")], [_article("Active JSON")]],
         ) as mock_single,
         patch(
             "subscriptionradar.browser_collector.collect_browser_sources",
@@ -69,3 +72,4 @@ def test_collect_sources_skips_disabled_and_health_disabled_sources() -> None:
     assert errors == []
     assert mock_single.call_count == 2
     mock_browser.assert_called_once()
+    fake_health.claim_retry.assert_called_once_with("HealthDisabled", 86400.0)

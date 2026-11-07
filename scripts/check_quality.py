@@ -3,8 +3,9 @@
 
 from __future__ import annotations
 
-from datetime import UTC, date, datetime
+import json
 import sys
+from datetime import UTC, date, datetime
 from pathlib import Path
 from typing import Any
 
@@ -21,8 +22,16 @@ from subscriptionradar.config_loader import (  # noqa: E402
     load_category_config,
     load_category_quality_config,
 )
-from subscriptionradar.quality_report import build_quality_report, write_quality_report  # noqa: E402
-from subscriptionradar.relevance import apply_source_context_entities, filter_relevant_articles  # noqa: E402
+from subscriptionradar.quality_report import (  # noqa: E402
+    build_quality_report,
+    collection_metrics_from_report,
+    source_funnel_metrics,
+    write_quality_report,
+)
+from subscriptionradar.relevance import (  # noqa: E402
+    apply_source_context_entities,
+    filter_relevant_articles,
+)
 from subscriptionradar.storage import RadarStorage  # noqa: E402
 
 
@@ -32,7 +41,9 @@ def _project_path(project_root: Path, raw_path: str | Path) -> Path:
 
 
 def _load_runtime_config(project_root: Path) -> dict[str, Any]:
-    raw = yaml.safe_load((project_root / "config" / "config.yaml").read_text(encoding="utf-8")) or {}
+    raw = (
+        yaml.safe_load((project_root / "config" / "config.yaml").read_text(encoding="utf-8")) or {}
+    )
     return raw if isinstance(raw, dict) else {}
 
 
@@ -75,6 +86,16 @@ def _latest_article_date(db_path: Path, category_name: str) -> date | None:
     return _coerce_date(row[0])
 
 
+def _read_json_object(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {}
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return payload if isinstance(payload, dict) else {}
+
+
 def _lookback_days(target_date: date | None, *, minimum_days: int = 7) -> int:
     if target_date is None:
         return minimum_days
@@ -109,10 +130,18 @@ def generate_quality_artifacts(
 
     classified_articles = apply_source_context_entities(recent_articles, category_cfg.sources)
     scoped_articles = filter_relevant_articles(classified_articles, category_cfg.sources)
+    previous_path = report_dir / f"{category_cfg.category_name}_quality.json"
+    live_metrics = collection_metrics_from_report(
+        _read_json_object(previous_path),
+        now=datetime.now(UTC),
+    )
+    source_metrics = source_funnel_metrics(classified_articles, scoped_articles)
+    source_metrics.update(live_metrics)
     report = build_quality_report(
         category=category_cfg,
         articles=scoped_articles or classified_articles,
         quality_config=quality_cfg,
+        source_metrics=source_metrics or None,
     )
     paths = write_quality_report(
         report,

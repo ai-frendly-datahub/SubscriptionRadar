@@ -1,7 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
-from collections.abc import Mapping
+from collections.abc import Iterable, Mapping
 from html import escape
 from pathlib import Path
 from typing import Any
@@ -100,9 +99,11 @@ def _render_subscription_quality_body(quality_report: Mapping[str, Any]) -> str:
         ("Price", summary.get("price_amount_present_count", 0)),
         ("Field gaps", summary.get("event_required_field_gap_count", 0)),
         ("Review", summary.get("daily_review_item_count", 0)),
+        ("7-day items", summary.get("window_item_count", 0)),
+        ("Daily new", summary.get("daily_new_items", 0)),
     ]
     chip_html = "\n".join(
-        "<div class=\"metric-card\">"
+        '<div class="metric-card">'
         f"<span>{escape(label)}</span><strong>{escape(str(value))}</strong>"
         "</div>"
         for label, value in chips
@@ -112,7 +113,7 @@ def _render_subscription_quality_body(quality_report: Mapping[str, Any]) -> str:
         _list_of_mappings(quality_report.get("daily_review_items"))[:8]
     )
     return (
-        f"<div class=\"metric-grid\">{chip_html}</div>"
+        f'<div class="metric-grid">{chip_html}</div>'
         "<p>Tracked subscription events and daily review items are rendered inside the shared report shell.</p>"
         "<div>"
         "<h3>Tracked Events</h3>"
@@ -146,8 +147,8 @@ def _render_quality_events(events: list[Mapping[str, Any]]) -> str:
             "</tr>"
         )
     return (
-        "<div style=\"overflow-x:auto;\">"
-        "<table class=\"data-table\">"
+        '<div style="overflow-x:auto;">'
+        '<table class="data-table">'
         "<thead><tr><th>Model</th><th>Source</th><th>Vendor</th><th>Plan</th><th>Price</th><th>Canonical Key</th></tr></thead>"
         f"<tbody>{''.join(rows)}</tbody>"
         "</table>"
