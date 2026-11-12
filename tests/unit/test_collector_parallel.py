@@ -38,6 +38,7 @@ def test_parallel_collection_reduces_runtime() -> None:
         limit: int,
         timeout: int,
         session: object | None = None,
+        **_kwargs: object,
     ) -> list[Article]:
         time.sleep(0.5)
         return [
@@ -76,6 +77,7 @@ def test_parallel_collection_isolates_source_errors() -> None:
         limit: int,
         timeout: int,
         session: object | None = None,
+        **_kwargs: object,
     ) -> list[Article]:
         if source.name == "source_0" or source.name == "source_3":
             return [
@@ -117,6 +119,7 @@ def test_max_workers_one_preserves_sequential_order() -> None:
         limit: int,
         timeout: int,
         session: object | None = None,
+        **_kwargs: object,
     ) -> list[Article]:
         return [
             Article(
