@@ -1,6 +1,6 @@
 {
   "category": "subscription",
-  "generated_at": "2026-11-13T17:37:33.494847+00:00",
+  "generated_at": "2026-11-14T16:30:41.367188+00:00",
   "scope_note": "Official pricing pages and notices are tracked separately from broad tech/media/community feeds. Broad rows require plan, price, billing, or provider-level subscription evidence before they enter reports.",
   "summary": {
     "total_sources": 51,
@@ -18,17 +18,17 @@
     "pricing_page_snapshot_events": 5,
     "plan_change_notice_events": 3,
     "app_store_ranking_events": 8,
-    "churn_proxy_events": 23,
-    "subscription_signal_event_count": 39,
+    "churn_proxy_events": 20,
+    "subscription_signal_event_count": 36,
     "official_pricing_page_event_count": 5,
-    "community_churn_proxy_event_count": 5,
+    "community_churn_proxy_event_count": 4,
     "plan_canonical_key_present_count": 8,
     "vendor_proxy_key_count": 0,
     "price_amount_present_count": 4,
-    "currency_present_count": 23,
-    "change_type_present_count": 7,
+    "currency_present_count": 20,
+    "change_type_present_count": 6,
     "app_ranking_key_present_count": 8,
-    "churn_metric_present_count": 14,
+    "churn_metric_present_count": 11,
     "missing_canonical_key_count": 0,
     "event_required_field_gap_count": 11,
     "tracked_source_gap_count": 3,
@@ -51,7 +51,7 @@
       "freshness_sla_days": null,
       "status": "not_tracked",
       "quiet_when_no_items": false,
-      "article_count": 3,
+      "article_count": 2,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -79,7 +79,7 @@
       "freshness_sla_days": null,
       "status": "not_tracked",
       "quiet_when_no_items": false,
-      "article_count": 4,
+      "article_count": 5,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -135,7 +135,7 @@
       "freshness_sla_days": null,
       "status": "not_tracked",
       "quiet_when_no_items": false,
-      "article_count": 5,
+      "article_count": 6,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -247,7 +247,7 @@
       "freshness_sla_days": null,
       "status": "not_tracked",
       "quiet_when_no_items": false,
-      "article_count": 6,
+      "article_count": 8,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -275,12 +275,12 @@
       "freshness_sla_days": 30.0,
       "status": "fresh",
       "quiet_when_no_items": false,
-      "article_count": 17,
-      "event_count": 17,
-      "latest_event_at": "2026-11-13T08:25:27+00:00",
-      "age_days": 0.38,
-      "latest_title": "Jensen Resigns, Sequoia Pulls Back to the Bay, and Anthropic’s IPO Draws 6x Demand: The Top Takeaways from 20VC x SaaStr",
-      "latest_url": "https://www.saastr.com/jensen-resigns-sequoia-pulls-back-to-the-bay-and-anthropics-ipo-draws-6x-demand-the-top-takeaways-from-20vc-x-saastr",
+      "article_count": 15,
+      "event_count": 15,
+      "latest_event_at": "2026-11-14T03:00:15+00:00",
+      "age_days": 0.56,
+      "latest_title": "SaaStr AI App of the Week: SciFin. The Nutanix and Cohesity Founder Raised $44 Million to Build AI for Sales Teams.",
+      "latest_url": "https://www.saastr.com/saastr-ai-app-of-the-week-scifin-the-nutanix-and-cohesity-founder-raised-44-million-to-close-the-context-gap-in-your-pipeline",
       "latest_provider": [],
       "latest_price": [],
       "latest_plan_change": [],
@@ -547,12 +547,12 @@
       "quiet_when_no_items": false,
       "article_count": 5,
       "event_count": 5,
-      "latest_event_at": "2026-11-13T17:36:46+00:00",
+      "latest_event_at": "2026-11-14T16:29:58+00:00",
       "age_days": 0.0,
-      "latest_title": "Amazon Prime Video ranks #17 in US App Store Top Free Apps",
-      "latest_url": "https://apps.apple.com/us/app/amazon-prime-video/id545519333",
+      "latest_title": "Netflix Game Controller ranks #16 in US App Store Top Free Apps",
+      "latest_url": "https://apps.apple.com/us/app/netflix-game-controller/id6447582581",
       "latest_provider": [
-        "prime video"
+        "netflix"
       ],
       "latest_price": [
         "free"
@@ -561,7 +561,7 @@
       "latest_source_signal": [
         "app_store_ranking"
       ],
-      "latest_canonical_key": "app_store:us:top_free_apps:545519333",
+      "latest_canonical_key": "app_store:us:top_free_apps:6447582581",
       "latest_required_field_gaps": [],
       "errors": []
     },
@@ -583,12 +583,13 @@
       "quiet_when_no_items": false,
       "article_count": 3,
       "event_count": 3,
-      "latest_event_at": "2026-11-13T17:36:47+00:00",
+      "latest_event_at": "2026-11-14T16:29:58+00:00",
       "age_days": 0.0,
-      "latest_title": "Claude by Anthropic ranks #5 in KR App Store Top Free Apps",
-      "latest_url": "https://apps.apple.com/kr/app/claude-by-anthropic/id6473753684",
+      "latest_title": "ChatGPT ranks #17 in KR App Store Top Free Apps",
+      "latest_url": "https://apps.apple.com/kr/app/chatgpt/id6448311069",
       "latest_provider": [
-        "claude"
+        "openai",
+        "chatgpt"
       ],
       "latest_price": [
         "free"
@@ -597,7 +598,7 @@
       "latest_source_signal": [
         "app_store_ranking"
       ],
-      "latest_canonical_key": "app_store:kr:top_free_apps:6473753684",
+      "latest_canonical_key": "app_store:kr:top_free_apps:6448311069",
       "latest_required_field_gaps": [],
       "errors": []
     },
@@ -621,7 +622,7 @@
       "quiet_when_no_items": false,
       "article_count": 1,
       "event_count": 1,
-      "latest_event_at": "2026-11-13T17:36:48.505427+00:00",
+      "latest_event_at": "2026-11-14T16:30:00.278019+00:00",
       "age_days": 0.0,
       "latest_title": "Plans and Pricing | Netflix Help Center",
       "latest_url": "https://www.netflix.com/pricing",
@@ -669,7 +670,7 @@
       "quiet_when_no_items": false,
       "article_count": 1,
       "event_count": 1,
-      "latest_event_at": "2026-11-13T17:36:53.414249+00:00",
+      "latest_event_at": "2026-11-14T16:30:03.917459+00:00",
       "age_days": 0.0,
       "latest_title": "Spotify Premium - Spotify (USA)",
       "latest_url": "https://www.spotify.com/premium",
@@ -712,7 +713,7 @@
       "quiet_when_no_items": false,
       "article_count": 1,
       "event_count": 1,
-      "latest_event_at": "2026-11-13T17:36:56.765172+00:00",
+      "latest_event_at": "2026-11-14T16:30:09.335373+00:00",
       "age_days": 0.0,
       "latest_title": "Apple One - Apple",
       "latest_url": "https://www.apple.com/apple-one",
@@ -759,7 +760,7 @@
       "quiet_when_no_items": false,
       "article_count": 1,
       "event_count": 1,
-      "latest_event_at": "2026-11-13T17:37:02.206985+00:00",
+      "latest_event_at": "2026-11-14T16:30:13.565449+00:00",
       "age_days": 0.0,
       "latest_title": "Notion Pricing Plans: Free, Plus, Business, & Enterprise.",
       "latest_url": "https://www.notion.com/pricing",
@@ -804,7 +805,7 @@
       "quiet_when_no_items": false,
       "article_count": 1,
       "event_count": 1,
-      "latest_event_at": "2026-11-13T17:37:07.704466+00:00",
+      "latest_event_at": "2026-11-14T16:30:18.709999+00:00",
       "age_days": 0.0,
       "latest_title": "Basecamp — Pricing",
       "latest_url": "https://basecamp.com/pricing",
@@ -963,7 +964,7 @@
       "quiet_when_no_items": false,
       "article_count": 1,
       "event_count": 1,
-      "latest_event_at": "2026-11-13T17:37:13.967044+00:00",
+      "latest_event_at": "2026-11-14T16:30:24.878655+00:00",
       "age_days": 0.0,
       "latest_title": "고객센터 | TVING",
       "latest_url": "https://www.tving.com/help/notice",
@@ -1001,7 +1002,7 @@
       "quiet_when_no_items": false,
       "article_count": 1,
       "event_count": 1,
-      "latest_event_at": "2026-11-13T17:37:21.267656+00:00",
+      "latest_event_at": "2026-11-14T16:30:31.407914+00:00",
       "age_days": 0.0,
       "latest_title": "Wavve(웨이브)",
       "latest_url": "https://www.wavve.com/notice",
@@ -1072,13 +1073,11 @@
       "quiet_when_no_items": false,
       "article_count": 1,
       "event_count": 1,
-      "latest_event_at": "2026-11-13T17:37:26.732376+00:00",
+      "latest_event_at": "2026-11-14T16:30:35.952608+00:00",
       "age_days": 0.0,
-      "latest_title": "공지사항 | 밀리의서재",
+      "latest_title": "서비스 접근 차단 | 밀리의 서재",
       "latest_url": "https://www.millie.co.kr/v3/customer/notice",
-      "latest_provider": [
-        "밀리의서재"
-      ],
+      "latest_provider": [],
       "latest_price": [],
       "latest_plan_change": [],
       "latest_source_signal": [
@@ -1086,7 +1085,7 @@
         "notice",
         "plan_change"
       ],
-      "latest_canonical_key": "subscription_plan:millie:service-notice:krw",
+      "latest_canonical_key": "subscription_plan:millie:service-notice",
       "latest_required_field_gaps": [],
       "errors": []
     },
@@ -1220,10 +1219,10 @@
       "freshness_sla_days": 30.0,
       "status": "fresh",
       "quiet_when_no_items": false,
-      "article_count": 5,
-      "event_count": 5,
+      "article_count": 4,
+      "event_count": 4,
       "latest_event_at": "2026-11-11T17:51:50+00:00",
-      "age_days": 1.99,
+      "age_days": 2.94,
       "latest_title": "partial refund after cancelling annual MS NOW subscription after less than a day because app is missing some very basic functionality",
       "latest_url": "https://www.reddit.com/r/cordcutters/comments/1xu1gh2/partial_refund_after_cancelling_annual_ms_now",
       "latest_provider": [],
@@ -1455,7 +1454,7 @@
       "article_count": 1,
       "event_count": 1,
       "latest_event_at": "2026-11-12T04:00:00+00:00",
-      "age_days": 1.57,
+      "age_days": 2.52,
       "latest_title": "Enterprise Sales Without Salespeople: How a SaaS Hit $10M",
       "latest_url": "https://saasclub.io/500",
       "latest_provider": [
@@ -1489,7 +1488,7 @@
       "freshness_sla_days": null,
       "status": "not_tracked",
       "quiet_when_no_items": false,
-      "article_count": 20,
+      "article_count": 21,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1601,7 +1600,7 @@
       "freshness_sla_days": null,
       "status": "not_tracked",
       "quiet_when_no_items": false,
-      "article_count": 3,
+      "article_count": 6,
       "event_count": 0,
       "latest_event_at": null,
       "age_days": null,
@@ -1658,17 +1657,15 @@
         "plan_change"
       ],
       "event_model": "plan_change_notice",
-      "title": "공지사항 | 밀리의서재",
+      "title": "서비스 접근 차단 | 밀리의 서재",
       "url": "https://www.millie.co.kr/v3/customer/notice",
       "source_url": "https://www.millie.co.kr/v3/customer/notice",
-      "event_at": "2026-11-13T17:37:26.732376+00:00",
+      "event_at": "2026-11-14T16:30:35.952608+00:00",
       "subscription": [],
       "price": [],
       "plan_change": [],
       "billing_policy": [],
-      "provider": [
-        "밀리의서재"
-      ],
+      "provider": [],
       "service_type": [],
       "source_signal": [
         "billing",
@@ -1681,7 +1678,7 @@
       "plan_name": "Service notice",
       "billing_cycle": "",
       "region": "",
-      "currency": "KRW",
+      "currency": "",
       "price_amount": null,
       "change_type": "service_notice",
       "effective_date": "",
@@ -1691,9 +1688,9 @@
       "app_category": "",
       "metric_name": "churn_proxy",
       "metric_value": null,
-      "canonical_key": "subscription_plan:millie:service-notice:krw",
+      "canonical_key": "subscription_plan:millie:service-notice",
       "canonical_key_status": "complete",
-      "event_key": "plan_change_notice:855bacbefe5c:20261113",
+      "event_key": "plan_change_notice:a42a14268a8d:20261114",
       "required_field_proxy": {
         "vendor_id": true,
         "plan_id": true,
@@ -1718,7 +1715,7 @@
       "title": "Wavve(웨이브)",
       "url": "https://www.wavve.com/notice",
       "source_url": "https://www.wavve.com/notice",
-      "event_at": "2026-11-13T17:37:21.267656+00:00",
+      "event_at": "2026-11-14T16:30:31.407914+00:00",
       "subscription": [],
       "price": [],
       "plan_change": [],
@@ -1751,7 +1748,7 @@
       "metric_value": 8.0,
       "canonical_key": "subscription_plan:wavve:service-notice",
       "canonical_key_status": "complete",
-      "event_key": "plan_change_notice:35414840e70d:20261113",
+      "event_key": "plan_change_notice:35414840e70d:20261114",
       "required_field_proxy": {
         "vendor_id": true,
         "plan_id": true,
@@ -1776,7 +1773,7 @@
       "title": "고객센터 | TVING",
       "url": "https://www.tving.com/help/notice",
       "source_url": "https://www.tving.com/help/notice",
-      "event_at": "2026-11-13T17:37:13.967044+00:00",
+      "event_at": "2026-11-14T16:30:24.878655+00:00",
       "subscription": [],
       "price": [],
       "plan_change": [],
@@ -1810,7 +1807,7 @@
       "metric_value": null,
       "canonical_key": "subscription_plan:tving:service-notice",
       "canonical_key_status": "complete",
-      "event_key": "plan_change_notice:7935122117bf:20261113",
+      "event_key": "plan_change_notice:7935122117bf:20261114",
       "required_field_proxy": {
         "vendor_id": true,
         "plan_id": true,
@@ -1835,7 +1832,7 @@
       "title": "Basecamp — Pricing",
       "url": "https://basecamp.com/pricing",
       "source_url": "https://basecamp.com/pricing",
-      "event_at": "2026-11-13T17:37:07.704466+00:00",
+      "event_at": "2026-11-14T16:30:18.709999+00:00",
       "subscription": [
         "subscribe"
       ],
@@ -1871,7 +1868,7 @@
       "metric_value": null,
       "canonical_key": "subscription_plan:basecamp:pricing-catalog",
       "canonical_key_status": "complete",
-      "event_key": "pricing_page_snapshot:c3524e8b0b66:20261113",
+      "event_key": "pricing_page_snapshot:c3524e8b0b66:20261114",
       "required_field_proxy": {
         "vendor_id": true,
         "plan_id": true,
@@ -1900,7 +1897,7 @@
       "title": "Notion Pricing Plans: Free, Plus, Business, & Enterprise.",
       "url": "https://www.notion.com/pricing",
       "source_url": "https://www.notion.com/pricing",
-      "event_at": "2026-11-13T17:37:02.206985+00:00",
+      "event_at": "2026-11-14T16:30:13.565449+00:00",
       "subscription": [
         "plans",
         "member",
@@ -1949,7 +1946,7 @@
       "metric_value": 20.0,
       "canonical_key": "subscription_plan:notion:pricing-catalog:usd",
       "canonical_key_status": "complete",
-      "event_key": "pricing_page_snapshot:ff7343d3dcf2:20261113",
+      "event_key": "pricing_page_snapshot:ff7343d3dcf2:20261114",
       "required_field_proxy": {
         "vendor_id": true,
         "plan_id": true,
@@ -1975,7 +1972,7 @@
       "title": "Apple One - Apple",
       "url": "https://www.apple.com/apple-one",
       "source_url": "https://www.apple.com/apple-one",
-      "event_at": "2026-11-13T17:36:56.765172+00:00",
+      "event_at": "2026-11-14T16:30:09.335373+00:00",
       "subscription": [
         "subscription",
         "subscribe",
@@ -2031,7 +2028,7 @@
       "metric_value": 46.0,
       "canonical_key": "subscription_plan:apple:apple-one:usd",
       "canonical_key_status": "complete",
-      "event_key": "pricing_page_snapshot:3efee38fdc61:20261113",
+      "event_key": "pricing_page_snapshot:3efee38fdc61:20261114",
       "required_field_proxy": {
         "vendor_id": true,
         "plan_id": true,
@@ -2057,7 +2054,7 @@
       "title": "Spotify Premium - Spotify (USA)",
       "url": "https://www.spotify.com/premium",
       "source_url": "https://www.spotify.com/premium",
-      "event_at": "2026-11-13T17:36:53.414249+00:00",
+      "event_at": "2026-11-14T16:30:03.917459+00:00",
       "subscription": [
         "subscriber",
         "plan",
@@ -2102,7 +2099,7 @@
       "metric_value": null,
       "canonical_key": "subscription_plan:spotify:premium:usd",
       "canonical_key_status": "complete",
-      "event_key": "pricing_page_snapshot:b724abf3e887:20261113",
+      "event_key": "pricing_page_snapshot:b724abf3e887:20261114",
       "required_field_proxy": {
         "vendor_id": true,
         "plan_id": true,
@@ -2128,7 +2125,7 @@
       "title": "Plans and Pricing | Netflix Help Center",
       "url": "https://www.netflix.com/pricing",
       "source_url": "https://www.netflix.com/pricing",
-      "event_at": "2026-11-13T17:36:48.505427+00:00",
+      "event_at": "2026-11-14T16:30:00.278019+00:00",
       "subscription": [
         "plan",
         "plans",
@@ -2182,7 +2179,7 @@
       "metric_value": 8.99,
       "canonical_key": "subscription_plan:netflix:pricing-catalog:usd",
       "canonical_key_status": "complete",
-      "event_key": "pricing_page_snapshot:6a584f76d3e3:20261113",
+      "event_key": "pricing_page_snapshot:6a584f76d3e3:20261114",
       "required_field_proxy": {
         "vendor_id": true,
         "plan_id": true,
@@ -2193,7 +2190,7 @@
       "required_field_gaps": []
     },
     {
-      "source": "Apple App Store Top Free KR",
+      "source": "Apple App Store Top Free US",
       "source_type": "json",
       "trust_tier": "T1_official",
       "content_type": "ranking",
@@ -2203,10 +2200,10 @@
         "app_store_ranking"
       ],
       "event_model": "app_store_ranking",
-      "title": "Claude by Anthropic ranks #5 in KR App Store Top Free Apps",
-      "url": "https://apps.apple.com/kr/app/claude-by-anthropic/id6473753684",
-      "source_url": "https://apps.apple.com/kr/app/claude-by-anthropic/id6473753684",
-      "event_at": "2026-11-13T17:36:47+00:00",
+      "title": "Netflix Game Controller ranks #16 in US App Store Top Free Apps",
+      "url": "https://apps.apple.com/us/app/netflix-game-controller/id6447582581",
+      "source_url": "https://apps.apple.com/us/app/netflix-game-controller/id6447582581",
+      "event_at": "2026-11-14T16:29:58+00:00",
       "subscription": [],
       "price": [
         "free"
@@ -2214,14 +2211,14 @@
       "plan_change": [],
       "billing_policy": [],
       "provider": [
-        "claude"
+        "netflix"
       ],
       "service_type": [],
       "source_signal": [
         "app_store_ranking"
       ],
-      "vendor_id": "anthropic-pbc",
-      "vendor_name": "Anthropic PBC",
+      "vendor_id": "netflix-inc",
+      "vendor_name": "Netflix, Inc",
       "plan_id": "",
       "plan_name": "",
       "billing_cycle": "",
@@ -2230,15 +2227,15 @@
       "price_amount": null,
       "change_type": "",
       "effective_date": "",
-      "app_id": "6473753684",
-      "rank": 5,
-      "market": "KR",
+      "app_id": "6447582581",
+      "rank": 16,
+      "market": "US",
       "app_category": "top_free_apps",
       "metric_name": "churn_proxy",
       "metric_value": null,
-      "canonical_key": "app_store:kr:top_free_apps:6473753684",
+      "canonical_key": "app_store:us:top_free_apps:6447582581",
       "canonical_key_status": "complete",
-      "event_key": "app_store_ranking:6ff32535ce98:20261113",
+      "event_key": "app_store_ranking:c7c53f4fd66b:20261114",
       "required_field_proxy": {
         "app_id": true,
         "rank": true,
@@ -2248,7 +2245,7 @@
       "required_field_gaps": []
     },
     {
-      "source": "Apple App Store Top Free KR",
+      "source": "Apple App Store Top Free US",
       "source_type": "json",
       "trust_tier": "T1_official",
       "content_type": "ranking",
@@ -2258,10 +2255,65 @@
         "app_store_ranking"
       ],
       "event_model": "app_store_ranking",
-      "title": "ChatGPT ranks #22 in KR App Store Top Free Apps",
-      "url": "https://apps.apple.com/kr/app/chatgpt/id6448311069",
-      "source_url": "https://apps.apple.com/kr/app/chatgpt/id6448311069",
-      "event_at": "2026-11-13T17:36:47+00:00",
+      "title": "Google Gemini ranks #7 in US App Store Top Free Apps",
+      "url": "https://apps.apple.com/us/app/google-gemini/id6477489729",
+      "source_url": "https://apps.apple.com/us/app/google-gemini/id6477489729",
+      "event_at": "2026-11-14T16:29:58+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "gemini"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "google",
+      "vendor_name": "Google",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6477489729",
+      "rank": 7,
+      "market": "US",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:us:top_free_apps:6477489729",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:9620d8775881:20261114",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free US",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "ChatGPT ranks #3 in US App Store Top Free Apps",
+      "url": "https://apps.apple.com/us/app/chatgpt/id6448311069",
+      "source_url": "https://apps.apple.com/us/app/chatgpt/id6448311069",
+      "event_at": "2026-11-14T16:29:58+00:00",
       "subscription": [],
       "price": [
         "free"
@@ -2287,14 +2339,14 @@
       "change_type": "",
       "effective_date": "",
       "app_id": "6448311069",
-      "rank": 22,
-      "market": "KR",
+      "rank": 3,
+      "market": "US",
       "app_category": "top_free_apps",
       "metric_name": "churn_proxy",
       "metric_value": null,
-      "canonical_key": "app_store:kr:top_free_apps:6448311069",
+      "canonical_key": "app_store:us:top_free_apps:6448311069",
       "canonical_key_status": "complete",
-      "event_key": "app_store_ranking:e4604ef87f10:20261113",
+      "event_key": "app_store_ranking:0387e9723012:20261114",
       "required_field_proxy": {
         "app_id": true,
         "rank": true,
@@ -2314,10 +2366,176 @@
         "app_store_ranking"
       ],
       "event_model": "app_store_ranking",
-      "title": "Google Gemini ranks #10 in KR App Store Top Free Apps",
+      "title": "ChatGPT ranks #17 in KR App Store Top Free Apps",
+      "url": "https://apps.apple.com/kr/app/chatgpt/id6448311069",
+      "source_url": "https://apps.apple.com/kr/app/chatgpt/id6448311069",
+      "event_at": "2026-11-14T16:29:58+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "openai",
+        "chatgpt"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "openai-opco-llc",
+      "vendor_name": "OpenAI OpCo, LLC",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6448311069",
+      "rank": 17,
+      "market": "KR",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:kr:top_free_apps:6448311069",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:e4604ef87f10:20261114",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free KR",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "Claude by Anthropic ranks #4 in KR App Store Top Free Apps",
+      "url": "https://apps.apple.com/kr/app/claude-by-anthropic/id6473753684",
+      "source_url": "https://apps.apple.com/kr/app/claude-by-anthropic/id6473753684",
+      "event_at": "2026-11-14T16:29:58+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "claude"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "anthropic-pbc",
+      "vendor_name": "Anthropic PBC",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6473753684",
+      "rank": 4,
+      "market": "KR",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:kr:top_free_apps:6473753684",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:6ff32535ce98:20261114",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free US",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "Claude by Anthropic ranks #6 in US App Store Top Free Apps",
+      "url": "https://apps.apple.com/us/app/claude-by-anthropic/id6473753684",
+      "source_url": "https://apps.apple.com/us/app/claude-by-anthropic/id6473753684",
+      "event_at": "2026-11-14T16:29:58+00:00",
+      "subscription": [],
+      "price": [
+        "free"
+      ],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [
+        "claude"
+      ],
+      "service_type": [],
+      "source_signal": [
+        "app_store_ranking"
+      ],
+      "vendor_id": "anthropic-pbc",
+      "vendor_name": "Anthropic PBC",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "6473753684",
+      "rank": 6,
+      "market": "US",
+      "app_category": "top_free_apps",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "app_store:us:top_free_apps:6473753684",
+      "canonical_key_status": "complete",
+      "event_key": "app_store_ranking:cb3005078007:20261114",
+      "required_field_proxy": {
+        "app_id": true,
+        "rank": true,
+        "market": true,
+        "category": true
+      },
+      "required_field_gaps": []
+    },
+    {
+      "source": "Apple App Store Top Free KR",
+      "source_type": "json",
+      "trust_tier": "T1_official",
+      "content_type": "ranking",
+      "collection_tier": "C4_api",
+      "producer_role": "marketplace",
+      "info_purpose": [
+        "app_store_ranking"
+      ],
+      "event_model": "app_store_ranking",
+      "title": "Google Gemini ranks #9 in KR App Store Top Free Apps",
       "url": "https://apps.apple.com/kr/app/google-gemini/id6477489729",
       "source_url": "https://apps.apple.com/kr/app/google-gemini/id6477489729",
-      "event_at": "2026-11-13T17:36:47+00:00",
+      "event_at": "2026-11-14T16:29:58+00:00",
       "subscription": [],
       "price": [
         "free"
@@ -2342,14 +2560,14 @@
       "change_type": "",
       "effective_date": "",
       "app_id": "6477489729",
-      "rank": 10,
+      "rank": 9,
       "market": "KR",
       "app_category": "top_free_apps",
       "metric_name": "churn_proxy",
       "metric_value": null,
       "canonical_key": "app_store:kr:top_free_apps:6477489729",
       "canonical_key_status": "complete",
-      "event_key": "app_store_ranking:1e242c194ab6:20261113",
+      "event_key": "app_store_ranking:1e242c194ab6:20261114",
       "required_field_proxy": {
         "app_id": true,
         "rank": true,
@@ -2357,6 +2575,57 @@
         "category": true
       },
       "required_field_gaps": []
+    },
+    {
+      "source": "SaaStr",
+      "source_type": "rss",
+      "trust_tier": "T3_professional",
+      "content_type": "news",
+      "collection_tier": "C1_rss",
+      "producer_role": "",
+      "info_purpose": [],
+      "event_model": "churn_proxy",
+      "title": "SaaStr AI App of the Week: SciFin. The Nutanix and Cohesity Founder Raised $44 Million to Build AI for Sales Teams.",
+      "url": "https://www.saastr.com/saastr-ai-app-of-the-week-scifin-the-nutanix-and-cohesity-founder-raised-44-million-to-close-the-context-gap-in-your-pipeline",
+      "source_url": "https://www.saastr.com/saastr-ai-app-of-the-week-scifin-the-nutanix-and-cohesity-founder-raised-44-million-to-close-the-context-gap-in-your-pipeline",
+      "event_at": "2026-11-14T03:00:15+00:00",
+      "subscription": [],
+      "price": [],
+      "plan_change": [],
+      "billing_policy": [],
+      "provider": [],
+      "service_type": [],
+      "source_signal": [
+        "churn_proxy"
+      ],
+      "vendor_id": "saastr",
+      "vendor_name": "SaaStr",
+      "plan_id": "",
+      "plan_name": "",
+      "billing_cycle": "",
+      "region": "",
+      "currency": "USD",
+      "price_amount": null,
+      "change_type": "",
+      "effective_date": "",
+      "app_id": "",
+      "rank": null,
+      "market": "",
+      "app_category": "",
+      "metric_name": "churn_proxy",
+      "metric_value": null,
+      "canonical_key": "churn_proxy:saastr:churn_proxy",
+      "canonical_key_status": "complete",
+      "event_key": "churn_proxy:3a4e27fc1abb:20261114",
+      "required_field_proxy": {
+        "vendor_id": true,
+        "metric_name": true,
+        "metric_value": false,
+        "source": true
+      },
+      "required_field_gaps": [
+        "metric_value"
+      ]
     },
     {
       "source": "Apple App Store Top Free US",
@@ -2405,172 +2674,6 @@
       "canonical_key": "app_store:us:top_free_apps:545519333",
       "canonical_key_status": "complete",
       "event_key": "app_store_ranking:7d7f6d0c6ad6:20261113",
-      "required_field_proxy": {
-        "app_id": true,
-        "rank": true,
-        "market": true,
-        "category": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Apple App Store Top Free US",
-      "source_type": "json",
-      "trust_tier": "T1_official",
-      "content_type": "ranking",
-      "collection_tier": "C4_api",
-      "producer_role": "marketplace",
-      "info_purpose": [
-        "app_store_ranking"
-      ],
-      "event_model": "app_store_ranking",
-      "title": "Claude by Anthropic ranks #5 in US App Store Top Free Apps",
-      "url": "https://apps.apple.com/us/app/claude-by-anthropic/id6473753684",
-      "source_url": "https://apps.apple.com/us/app/claude-by-anthropic/id6473753684",
-      "event_at": "2026-11-13T17:36:46+00:00",
-      "subscription": [],
-      "price": [
-        "free"
-      ],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [
-        "claude"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "app_store_ranking"
-      ],
-      "vendor_id": "anthropic-pbc",
-      "vendor_name": "Anthropic PBC",
-      "plan_id": "",
-      "plan_name": "",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "",
-      "price_amount": null,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "6473753684",
-      "rank": 5,
-      "market": "US",
-      "app_category": "top_free_apps",
-      "metric_name": "churn_proxy",
-      "metric_value": null,
-      "canonical_key": "app_store:us:top_free_apps:6473753684",
-      "canonical_key_status": "complete",
-      "event_key": "app_store_ranking:cb3005078007:20261113",
-      "required_field_proxy": {
-        "app_id": true,
-        "rank": true,
-        "market": true,
-        "category": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Apple App Store Top Free US",
-      "source_type": "json",
-      "trust_tier": "T1_official",
-      "content_type": "ranking",
-      "collection_tier": "C4_api",
-      "producer_role": "marketplace",
-      "info_purpose": [
-        "app_store_ranking"
-      ],
-      "event_model": "app_store_ranking",
-      "title": "Google Gemini ranks #8 in US App Store Top Free Apps",
-      "url": "https://apps.apple.com/us/app/google-gemini/id6477489729",
-      "source_url": "https://apps.apple.com/us/app/google-gemini/id6477489729",
-      "event_at": "2026-11-13T17:36:46+00:00",
-      "subscription": [],
-      "price": [
-        "free"
-      ],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [
-        "gemini"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "app_store_ranking"
-      ],
-      "vendor_id": "google",
-      "vendor_name": "Google",
-      "plan_id": "",
-      "plan_name": "",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "",
-      "price_amount": null,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "6477489729",
-      "rank": 8,
-      "market": "US",
-      "app_category": "top_free_apps",
-      "metric_name": "churn_proxy",
-      "metric_value": null,
-      "canonical_key": "app_store:us:top_free_apps:6477489729",
-      "canonical_key_status": "complete",
-      "event_key": "app_store_ranking:9620d8775881:20261113",
-      "required_field_proxy": {
-        "app_id": true,
-        "rank": true,
-        "market": true,
-        "category": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "Apple App Store Top Free US",
-      "source_type": "json",
-      "trust_tier": "T1_official",
-      "content_type": "ranking",
-      "collection_tier": "C4_api",
-      "producer_role": "marketplace",
-      "info_purpose": [
-        "app_store_ranking"
-      ],
-      "event_model": "app_store_ranking",
-      "title": "ChatGPT ranks #3 in US App Store Top Free Apps",
-      "url": "https://apps.apple.com/us/app/chatgpt/id6448311069",
-      "source_url": "https://apps.apple.com/us/app/chatgpt/id6448311069",
-      "event_at": "2026-11-13T17:36:46+00:00",
-      "subscription": [],
-      "price": [
-        "free"
-      ],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [
-        "openai",
-        "chatgpt"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "app_store_ranking"
-      ],
-      "vendor_id": "openai-opco-llc",
-      "vendor_name": "OpenAI OpCo, LLC",
-      "plan_id": "",
-      "plan_name": "",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "",
-      "price_amount": null,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "6448311069",
-      "rank": 3,
-      "market": "US",
-      "app_category": "top_free_apps",
-      "metric_name": "churn_proxy",
-      "metric_value": null,
-      "canonical_key": "app_store:us:top_free_apps:6448311069",
-      "canonical_key_status": "complete",
-      "event_key": "app_store_ranking:0387e9723012:20261113",
       "required_field_proxy": {
         "app_id": true,
         "rank": true,
@@ -3311,61 +3414,6 @@
       ]
     },
     {
-      "source": "Apple App Store Top Free US",
-      "source_type": "json",
-      "trust_tier": "T1_official",
-      "content_type": "ranking",
-      "collection_tier": "C4_api",
-      "producer_role": "marketplace",
-      "info_purpose": [
-        "app_store_ranking"
-      ],
-      "event_model": "app_store_ranking",
-      "title": "Netflix Game Controller ranks #16 in US App Store Top Free Apps",
-      "url": "https://apps.apple.com/us/app/netflix-game-controller/id6447582581",
-      "source_url": "https://apps.apple.com/us/app/netflix-game-controller/id6447582581",
-      "event_at": "2026-11-09T20:35:24+00:00",
-      "subscription": [],
-      "price": [
-        "free"
-      ],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [
-        "netflix"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "app_store_ranking"
-      ],
-      "vendor_id": "netflix-inc",
-      "vendor_name": "Netflix, Inc",
-      "plan_id": "",
-      "plan_name": "",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "",
-      "price_amount": null,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "6447582581",
-      "rank": 16,
-      "market": "US",
-      "app_category": "top_free_apps",
-      "metric_name": "churn_proxy",
-      "metric_value": null,
-      "canonical_key": "app_store:us:top_free_apps:6447582581",
-      "canonical_key_status": "complete",
-      "event_key": "app_store_ranking:c7c53f4fd66b:20261109",
-      "required_field_proxy": {
-        "app_id": true,
-        "rank": true,
-        "market": true,
-        "category": true
-      },
-      "required_field_gaps": []
-    },
-    {
       "source": "r/cordcutters",
       "source_type": "rss",
       "trust_tier": "T3_professional",
@@ -3702,228 +3750,6 @@
         "source": true
       },
       "required_field_gaps": []
-    },
-    {
-      "source": "r/cordcutters",
-      "source_type": "rss",
-      "trust_tier": "T3_professional",
-      "content_type": "community",
-      "collection_tier": "C1_rss",
-      "producer_role": "consumer_comm",
-      "info_purpose": [
-        "community",
-        "cancellation",
-        "alternatives"
-      ],
-      "event_model": "churn_proxy",
-      "title": "Paramount+ = 15K Delta Skymiles",
-      "url": "https://www.reddit.com/r/cordcutters/comments/1xqm8pk/paramount_15k_delta_skymiles",
-      "source_url": "https://www.reddit.com/r/cordcutters/comments/1xqm8pk/paramount_15k_delta_skymiles",
-      "event_at": "2026-11-07T16:18:41+00:00",
-      "subscription": [
-        "subscribers",
-        "annual",
-        "premium"
-      ],
-      "price": [
-        "premium"
-      ],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [
-        "paramount+"
-      ],
-      "service_type": [],
-      "source_signal": [
-        "cancellation",
-        "community"
-      ],
-      "vendor_id": "paramount",
-      "vendor_name": "paramount+",
-      "plan_id": "",
-      "plan_name": "",
-      "billing_cycle": "annual",
-      "region": "",
-      "currency": "USD",
-      "price_amount": null,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "",
-      "rank": null,
-      "market": "",
-      "app_category": "",
-      "metric_name": "price_point",
-      "metric_value": 139.99,
-      "canonical_key": "churn_proxy:paramount:price_point",
-      "canonical_key_status": "complete",
-      "event_key": "churn_proxy:8696be1852ba:20261107",
-      "required_field_proxy": {
-        "vendor_id": true,
-        "metric_name": true,
-        "metric_value": true,
-        "source": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "SaaStr",
-      "source_type": "rss",
-      "trust_tier": "T3_professional",
-      "content_type": "news",
-      "collection_tier": "C1_rss",
-      "producer_role": "",
-      "info_purpose": [],
-      "event_model": "churn_proxy",
-      "title": "A Critical App We Pay For Went Down for 2 Days. They Never Offered a Credit. I Won’t Forget.",
-      "url": "https://www.saastr.com/a-critical-app-we-pay-for-went-down-for-2-days-they-never-offered-a-credit-i-wont-forget",
-      "source_url": "https://www.saastr.com/a-critical-app-we-pay-for-went-down-for-2-days-they-never-offered-a-credit-i-wont-forget",
-      "event_at": "2026-11-07T06:00:06+00:00",
-      "subscription": [],
-      "price": [],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [],
-      "service_type": [
-        "b2b"
-      ],
-      "source_signal": [
-        "churn_proxy"
-      ],
-      "vendor_id": "saastr",
-      "vendor_name": "SaaStr",
-      "plan_id": "",
-      "plan_name": "",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "",
-      "price_amount": null,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "",
-      "rank": null,
-      "market": "",
-      "app_category": "",
-      "metric_name": "churn_proxy",
-      "metric_value": null,
-      "canonical_key": "churn_proxy:saastr:churn_proxy",
-      "canonical_key_status": "complete",
-      "event_key": "churn_proxy:3a4e27fc1abb:20261107",
-      "required_field_proxy": {
-        "vendor_id": true,
-        "metric_name": true,
-        "metric_value": false,
-        "source": true
-      },
-      "required_field_gaps": [
-        "metric_value"
-      ]
-    },
-    {
-      "source": "SaaStr",
-      "source_type": "rss",
-      "trust_tier": "T3_professional",
-      "content_type": "news",
-      "collection_tier": "C1_rss",
-      "producer_role": "",
-      "info_purpose": [],
-      "event_model": "churn_proxy",
-      "title": "Gartner Sees Software Growing 14.6% to $1.68 Trillion in 2027: Models at 117%, AI App Platforms at 39%, and Price Increases Doing a Lot of the Work",
-      "url": "https://www.saastr.com/gartner-sees-software-growing-14-6-to-1-68-trillion-in-2027-models-at-117-ai-app-platforms-at-39-and-price-increases-doing-a-lot-of-the-work",
-      "source_url": "https://www.saastr.com/gartner-sees-software-growing-14-6-to-1-68-trillion-in-2027-models-at-117-ai-app-platforms-at-39-and-price-increases-doing-a-lot-of-the-work",
-      "event_at": "2026-11-07T04:00:54+00:00",
-      "subscription": [],
-      "price": [
-        "price",
-        "price increase"
-      ],
-      "plan_change": [
-        "price increase"
-      ],
-      "billing_policy": [],
-      "provider": [],
-      "service_type": [
-        "b2b"
-      ],
-      "source_signal": [
-        "churn_proxy"
-      ],
-      "vendor_id": "saastr",
-      "vendor_name": "SaaStr",
-      "plan_id": "",
-      "plan_name": "",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "USD",
-      "price_amount": null,
-      "change_type": "price increase",
-      "effective_date": "",
-      "app_id": "",
-      "rank": null,
-      "market": "",
-      "app_category": "",
-      "metric_name": "percentage",
-      "metric_value": 14.6,
-      "canonical_key": "churn_proxy:saastr:percentage",
-      "canonical_key_status": "complete",
-      "event_key": "churn_proxy:00219c06c454:20261107",
-      "required_field_proxy": {
-        "vendor_id": true,
-        "metric_name": true,
-        "metric_value": true,
-        "source": true
-      },
-      "required_field_gaps": []
-    },
-    {
-      "source": "SaaStr",
-      "source_type": "rss",
-      "trust_tier": "T3_professional",
-      "content_type": "news",
-      "collection_tier": "C1_rss",
-      "producer_role": "",
-      "info_purpose": [],
-      "event_model": "churn_proxy",
-      "title": "SaaStr AI App of the Week: Base44. One Founder, Zero Funding, $80 Million From Wix in 6 Months. Now at $200 Million ARR.",
-      "url": "https://www.saastr.com/saastr-ai-app-of-the-week-base44-one-founder-zero-funding-80-million-from-wix-in-6-months-now-at-200-million-arr",
-      "source_url": "https://www.saastr.com/saastr-ai-app-of-the-week-base44-one-founder-zero-funding-80-million-from-wix-in-6-months-now-at-200-million-arr",
-      "event_at": "2026-11-07T03:00:44+00:00",
-      "subscription": [],
-      "price": [],
-      "plan_change": [],
-      "billing_policy": [],
-      "provider": [],
-      "service_type": [
-        "arr"
-      ],
-      "source_signal": [
-        "churn_proxy"
-      ],
-      "vendor_id": "saastr",
-      "vendor_name": "SaaStr",
-      "plan_id": "",
-      "plan_name": "",
-      "billing_cycle": "",
-      "region": "",
-      "currency": "USD",
-      "price_amount": null,
-      "change_type": "",
-      "effective_date": "",
-      "app_id": "",
-      "rank": null,
-      "market": "",
-      "app_category": "",
-      "metric_name": "arr",
-      "metric_value": 200000000.0,
-      "canonical_key": "churn_proxy:saastr:arr",
-      "canonical_key_status": "complete",
-      "event_key": "churn_proxy:6c9aa926d076:20261107",
-      "required_field_proxy": {
-        "vendor_id": true,
-        "metric_name": true,
-        "metric_value": true,
-        "source": true
-      },
-      "required_field_gaps": []
     }
   ],
   "daily_review_items": [
@@ -3936,6 +3762,16 @@
       "required_field_gaps": [
         "price",
         "currency"
+      ]
+    },
+    {
+      "reason": "missing_required_fields",
+      "event_model": "churn_proxy",
+      "source": "SaaStr",
+      "title": "SaaStr AI App of the Week: SciFin. The Nutanix and Cohesity Founder Raised $44 Million to Build AI for Sales Teams.",
+      "canonical_key": "churn_proxy:saastr:churn_proxy",
+      "required_field_gaps": [
+        "metric_value"
       ]
     },
     {
@@ -4013,16 +3849,6 @@
       "event_model": "churn_proxy",
       "source": "SaaStr",
       "title": "Dear SaaStr: What Can a Startup Do to Get Their Customers to Pay on Time?",
-      "canonical_key": "churn_proxy:saastr:churn_proxy",
-      "required_field_gaps": [
-        "metric_value"
-      ]
-    },
-    {
-      "reason": "missing_required_fields",
-      "event_model": "churn_proxy",
-      "source": "SaaStr",
-      "title": "A Critical App We Pay For Went Down for 2 Days. They Never Offered a Credit. I Won’t Forget.",
       "canonical_key": "churn_proxy:saastr:churn_proxy",
       "required_field_gaps": [
         "metric_value"
