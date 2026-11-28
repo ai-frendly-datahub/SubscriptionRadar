@@ -209,12 +209,14 @@ def run(
         f"[Radar] Collecting '{category_cfg.display_name}' from {len(effective_sources)} sources..."
     )
     raw_logger = RawLogger(settings.raw_data_dir)
+    source_metrics: dict[str, dict[str, int]] = {}
     collected, errors = collect_sources(
         effective_sources,
         category=category_cfg.category_name,
         limit_per_source=per_source_limit,
         timeout=timeout,
         raw_logger=raw_logger,
+        source_metrics=source_metrics,
     )
     collected = annotate_articles_with_ontology(
         collected,
@@ -291,6 +293,7 @@ def run(
         articles=quality_articles,
         errors=errors,
         quality_config=quality_cfg,
+        source_metrics=source_metrics,
     )
     _ = generate_report(
         category=category_cfg,

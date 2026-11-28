@@ -6,12 +6,14 @@ import os
 import re
 import threading
 import time
-from collections.abc import Mapping, Sequence
+from collections.abc import Mapping, MutableMapping, Sequence
 from concurrent.futures import Future, ThreadPoolExecutor
-from datetime import UTC, datetime
+from dataclasses import dataclass
+from datetime import UTC, datetime, timedelta
 from email.utils import parsedate_to_datetime
 from typing import Any
 from urllib.parse import urlparse
+from urllib.robotparser import RobotFileParser
 
 import feedparser
 import requests
@@ -42,9 +44,13 @@ _DEFAULT_HEADERS: dict[str, str] = {
     "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml, */*",
 }
 _DEFAULT_HEALTH_DB_PATH = "data/radar_data.duckdb"
+# radar-core rejects a crawl-health cooldown shorter than 24 hours.
+PROBE_COOLDOWN_SECONDS = 86400.0
 _COLLECTION_CONTROL_LOCK = threading.Lock()
 _ACTIVE_THROTTLER: AdaptiveThrottler | None = None
 _ACTIVE_HEALTH_STORE: CrawlHealthStore | None = None
+_ROBOTS_LOCK = threading.Lock()
+_ROBOTS_CACHE: dict[str, _RobotsRecord] = {}
 
 
 def _set_collection_controls(throttler: AdaptiveThrottler, health_store: CrawlHealthStore) -> None:
@@ -228,6 +234,182 @@ def _parse_retry_after(value: str | None) -> int | str | None:
     return stripped
 
 
+def _retry_after_deadline(value: str | None) -> datetime | None:
+    """Return a timezone-aware UTC instant for a Retry-After header."""
+    parsed = _parse_retry_after(value)
+    if parsed is None:
+        return None
+    if isinstance(parsed, int):
+        if parsed < 0:
+            return None
+        return datetime.now(UTC) + timedelta(seconds=parsed)
+    try:
+        parsed_at = parsedate_to_datetime(parsed)
+    except (TypeError, ValueError, OverflowError):
+        return None
+    if parsed_at.tzinfo is None:
+        parsed_at = parsed_at.replace(tzinfo=UTC)
+    return parsed_at.astimezone(UTC)
+
+
+def _empty_collection_stats() -> dict[str, int]:
+    return {
+        "fetched_count": 0,
+        "gate_passed_count": 0,
+        "excluded_count": 0,
+        "parsable_count": 0,
+    }
+
+
+def _public_collection_stats(stats: Mapping[str, int]) -> dict[str, int]:
+    fetched = max(0, int(stats.get("fetched_count", 0)))
+    passed = max(0, int(stats.get("gate_passed_count", 0)))
+    excluded = max(0, int(stats.get("excluded_count", max(0, fetched - passed))))
+    return {
+        "fetched_count": fetched,
+        "gate_passed_count": passed,
+        "excluded_count": excluded,
+    }
+
+
+def _assign_collection_stats(
+    stats: dict[str, int] | None,
+    *,
+    fetched: int,
+    passed: int,
+    parsable: int,
+) -> None:
+    if stats is None:
+        return
+    stats["fetched_count"] = fetched
+    stats["gate_passed_count"] = passed
+    stats["excluded_count"] = max(0, fetched - passed)
+    stats["parsable_count"] = parsable
+
+
+@dataclass
+class _RobotsRecord:
+    parser: RobotFileParser | None
+    retry_at: datetime | None
+
+
+def _clear_robots_cache() -> None:
+    with _ROBOTS_LOCK:
+        _ROBOTS_CACHE.clear()
+
+
+def _robots_origin(url: str) -> str | None:
+    parsed = urlparse(url)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        return None
+    return f"{parsed.scheme}://{parsed.netloc}"
+
+
+def _fetch_robots_record(origin: str, timeout: int) -> _RobotsRecord:
+    """Read one origin's robots.txt. Unreadable rules fail closed."""
+    robots_url = origin + "/robots.txt"
+    try:
+        response = requests.get(
+            robots_url,
+            timeout=timeout,
+            headers={
+                "User-Agent": SUBSCRIPTIONRADAR_USER_AGENT,
+                "Accept": "text/plain, */*",
+            },
+            verify=True,
+        )
+    except requests.exceptions.RequestException:
+        return _RobotsRecord(parser=None, retry_at=None)
+    if response.status_code == 404:
+        parser = RobotFileParser()
+        parser.parse([])
+        return _RobotsRecord(parser=parser, retry_at=None)
+    if response.status_code == 429:
+        return _RobotsRecord(
+            parser=None,
+            retry_at=_retry_after_deadline(response.headers.get("Retry-After")),
+        )
+    if response.status_code != 200:
+        return _RobotsRecord(parser=None, retry_at=None)
+    parser = RobotFileParser()
+    parser.parse(response.text.splitlines())
+    return _RobotsRecord(parser=parser, retry_at=None)
+
+
+def _robots_record(origin: str, timeout: int) -> _RobotsRecord:
+    with _ROBOTS_LOCK:
+        cached = _ROBOTS_CACHE.get(origin)
+    if cached is not None:
+        return cached
+    fetched = _fetch_robots_record(origin, timeout)
+    with _ROBOTS_LOCK:
+        return _ROBOTS_CACHE.setdefault(origin, fetched)
+
+
+def _robots_probe_allowed(url: str, timeout: int) -> tuple[bool, datetime | None]:
+    """Return whether one cooldown probe may request url.
+
+    The second value is a Retry-After deadline when robots.txt itself
+    returned 429. A missing robots.txt (404) allows the probe. Any other
+    failure to read the file refuses the probe.
+    """
+    origin = _robots_origin(url)
+    if origin is None:
+        return False, None
+    record = _robots_record(origin, timeout)
+    if record.parser is None:
+        return False, record.retry_at
+    return record.parser.can_fetch(SUBSCRIPTIONRADAR_USER_AGENT, url), None
+
+
+def _create_probe_session() -> requests.Session:
+    """Single-request session. Transport retries stay off and TLS stays on."""
+    session = requests.Session()
+    session.verify = True
+    session.headers.update(_DEFAULT_HEADERS)
+    adapter = HTTPAdapter(max_retries=0)
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+    return session
+
+
+def _response_of(exc: BaseException) -> requests.Response | None:
+    current: BaseException | None = exc
+    seen: set[int] = set()
+    while current is not None and id(current) not in seen:
+        seen.add(id(current))
+        response = getattr(current, "response", None)
+        if isinstance(response, requests.Response):
+            return response
+        original = getattr(current, "original_error", None)
+        if isinstance(original, BaseException):
+            current = original
+            continue
+        current = current.__cause__
+    return None
+
+
+def _postpone_retry_after(
+    health_store: CrawlHealthStore,
+    source_name: str,
+    response: requests.Response | None,
+    *,
+    retry_at: datetime | None = None,
+) -> None:
+    """Keep a disabled source dark until Retry-After, then the next cooldown."""
+    deadline = retry_at
+    if deadline is None and response is not None:
+        headers = getattr(response, "headers", None)
+        raw_header: object = None
+        if isinstance(headers, Mapping):
+            raw_header = headers.get("Retry-After")
+        if isinstance(raw_header, str):
+            deadline = _retry_after_deadline(raw_header)
+    if deadline is None or deadline <= datetime.now(UTC):
+        return
+    health_store.postpone_retry(source_name, deadline)
+
+
 def _response_is_html_page(response: requests.Response) -> bool:
     """True when a 200 body is an HTML document rather than a feed."""
     headers = getattr(response, "headers", None)
@@ -272,6 +454,104 @@ def _without_challenge_pages(articles: list[Article]) -> list[Article]:
     ]
 
 
+def _publish_source_metrics(
+    metrics: MutableMapping[str, dict[str, int]],
+    lock: threading.Lock,
+    source_name: str,
+    stats: Mapping[str, int],
+) -> None:
+    with lock:
+        metrics[source_name] = _public_collection_stats(stats)
+
+
+def _probe_disabled_source(
+    source: Source,
+    *,
+    category: str,
+    limit: int,
+    timeout: int,
+    health_store: CrawlHealthStore,
+    rate_limiter: RateLimiter,
+    manager: Any,
+    metrics: MutableMapping[str, dict[str, int]],
+    metrics_lock: threading.Lock,
+) -> tuple[list[Article], list[str]]:
+    """One request for a source auto-disabled after a transient HTTP failure.
+
+    ``claim_retry`` reserves the slot and keeps the row disabled. ``finish_retry``
+    runs only after the response parses as a non-empty feed. robots.txt is
+    checked before that request. radar-core does not ship an official Reddit
+    OAuth client (its reddit collector rotates browser-like headers and falls
+    back to old.reddit.com), so this probe does not read a new secret. A source
+    that already lists ``required_env`` is skipped before it reaches here.
+    """
+    stats = _empty_collection_stats()
+    # Not due, or the saved error is not a transient HTTP status: no request.
+    if health_store.claim_retry(source.name, PROBE_COOLDOWN_SECONDS) is not True:
+        _publish_source_metrics(metrics, metrics_lock, source.name, stats)
+        return [], []
+
+    allowed, robots_retry_at = _robots_probe_allowed(source.url, timeout)
+    if not allowed:
+        _postpone_retry_after(health_store, source.name, None, retry_at=robots_retry_at)
+        _publish_source_metrics(metrics, metrics_lock, source.name, stats)
+        logger.info(
+            "cooldown_probe_skipped",
+            source=source.name,
+            reason="robots",
+        )
+        return [], [f"{source.name}: cooldown probe skipped; robots.txt disallows the URL"]
+
+    rate_limiter.acquire()
+    probe_session = _create_probe_session()
+    try:
+        breaker = manager.get_breaker(source.name)
+        result = breaker.call(
+            _collect_single,
+            source,
+            category=category,
+            limit=limit,
+            timeout=timeout,
+            session=probe_session,
+            max_attempts=1,
+            collection_stats=stats,
+        )
+    except CircuitBreakerError:
+        _publish_source_metrics(metrics, metrics_lock, source.name, stats)
+        return [], [f"{source.name}: cooldown probe skipped; circuit breaker open"]
+    except SourceError as exc:
+        _postpone_retry_after(health_store, source.name, _response_of(exc))
+        _publish_source_metrics(metrics, metrics_lock, source.name, stats)
+        return [], [f"{source.name}: cooldown probe failed; source remains disabled"]
+    except (NetworkError, ParseError) as exc:
+        _postpone_retry_after(health_store, source.name, _response_of(exc))
+        _publish_source_metrics(metrics, metrics_lock, source.name, stats)
+        return [], [f"{source.name}: cooldown probe failed; source remains disabled"]
+    except Exception as exc:
+        _postpone_retry_after(health_store, source.name, _response_of(exc))
+        _publish_source_metrics(metrics, metrics_lock, source.name, stats)
+        return [], [
+            f"{source.name}: cooldown probe failed; source remains disabled "
+            f"({type(exc).__name__})"
+        ]
+    finally:
+        probe_session.close()
+
+    kept = _without_challenge_pages(result)
+    _publish_source_metrics(metrics, metrics_lock, source.name, stats)
+    if int(stats.get("parsable_count", 0)) > 0:
+        health_store.finish_retry(source.name)
+        logger.info(
+            "cooldown_probe_reenabled",
+            source=source.name,
+            gate_passed=len(kept),
+        )
+        if result and not kept:
+            return [], [f"{source.name}: collection returned only challenge or error pages"]
+        return kept, []
+    return [], [f"{source.name}: cooldown probe returned no usable feed; source remains disabled"]
+
+
 def collect_sources(
     sources: list[Source],
     *,
@@ -282,6 +562,7 @@ def collect_sources(
     max_workers: int | None = None,
     health_db_path: str | None = None,
     raw_logger: RawLogger | None = None,
+    source_metrics: MutableMapping[str, dict[str, int]] | None = None,
 ) -> tuple[list[Article], list[str]]:
     """Fetch items from all configured sources, returning articles and errors."""
     articles: list[Article] = []
@@ -320,39 +601,68 @@ def collect_sources(
     )
     _set_collection_controls(throttler, health_store)
     session = _create_session()
+    metrics: MutableMapping[str, dict[str, int]] = (
+        source_metrics if source_metrics is not None else {}
+    )
+    metrics_lock = threading.Lock()
+    for source in [*network_sources, *js_sources]:
+        metrics.setdefault(
+            source.name,
+            {"fetched_count": 0, "gate_passed_count": 0, "excluded_count": 0},
+        )
+
+    def _collect_enabled(source: Source) -> tuple[list[Article], list[str]]:
+        stats = _empty_collection_stats()
+        try:
+            breaker = manager.get_breaker(source.name)
+            result = breaker.call(
+                _collect_single,
+                source,
+                category=category,
+                limit=limit_per_source,
+                timeout=timeout,
+                session=session,
+                collection_stats=stats,
+            )
+            kept = _without_challenge_pages(result)
+            _publish_source_metrics(metrics, metrics_lock, source.name, stats)
+            if result and not kept:
+                return [], [f"{source.name}: collection returned only challenge or error pages"]
+            return kept, []
+        except CircuitBreakerError:
+            _publish_source_metrics(metrics, metrics_lock, source.name, stats)
+            return [], [f"{source.name}: Circuit breaker open (source unavailable)"]
+        except SourceError as exc:
+            _publish_source_metrics(metrics, metrics_lock, source.name, stats)
+            return [], [str(exc)]
+        except (NetworkError, ParseError) as exc:
+            _publish_source_metrics(metrics, metrics_lock, source.name, stats)
+            return [], [f"{source.name}: {exc}"]
+        except Exception as exc:
+            _publish_source_metrics(metrics, metrics_lock, source.name, stats)
+            return [], [f"{source.name}: Unexpected error - {type(exc).__name__}: {exc}"]
 
     def _collect_for_source(source: Source) -> tuple[list[Article], list[str]]:
         skipped = _secret_skip(source, raw_logger)
         if skipped is not None:
+            _publish_source_metrics(metrics, metrics_lock, source.name, _empty_collection_stats())
             return skipped
-        if health_store.is_disabled(source.name):
-            return [], []
-
         host = source_hosts[source.name]
         with host_locks[host]:
-            rate_limiters[host].acquire()
-            try:
-                breaker = manager.get_breaker(source.name)
-                result = breaker.call(
-                    _collect_single,
+            if health_store.is_disabled(source.name):
+                return _probe_disabled_source(
                     source,
                     category=category,
                     limit=limit_per_source,
                     timeout=timeout,
-                    session=session,
+                    health_store=health_store,
+                    rate_limiter=rate_limiters[host],
+                    manager=manager,
+                    metrics=metrics,
+                    metrics_lock=metrics_lock,
                 )
-                kept = _without_challenge_pages(result)
-                if result and not kept:
-                    return [], [f"{source.name}: collection returned only challenge or error pages"]
-                return kept, []
-            except CircuitBreakerError:
-                return [], [f"{source.name}: Circuit breaker open (source unavailable)"]
-            except SourceError as exc:
-                return [], [str(exc)]
-            except (NetworkError, ParseError) as exc:
-                return [], [f"{source.name}: {exc}"]
-            except Exception as exc:
-                return [], [f"{source.name}: Unexpected error - {type(exc).__name__}: {exc}"]
+            rate_limiters[host].acquire()
+            return _collect_enabled(source)
 
     try:
         # --- Pass 1: RSS/JSON sources via ThreadPoolExecutor (parallel) ---
@@ -381,6 +691,19 @@ def collect_sources(
                 kept_js = _without_challenge_pages(js_articles)
                 if js_articles and not kept_js:
                     js_errors.append("browser sources returned only challenge or error pages")
+                for source in js_sources:
+                    fetched = sum(1 for article in js_articles if article.source == source.name)
+                    passed = sum(1 for article in kept_js if article.source == source.name)
+                    _publish_source_metrics(
+                        metrics,
+                        metrics_lock,
+                        source.name,
+                        {
+                            "fetched_count": fetched,
+                            "gate_passed_count": passed,
+                            "excluded_count": max(0, fetched - passed),
+                        },
+                    )
                 articles.extend(kept_js)
                 errors.extend(js_errors)
             except ImportError:
@@ -404,6 +727,8 @@ def _collect_single(
     limit: int,
     timeout: int = RSS_TIMEOUT_SECONDS,
     session: requests.Session | None = None,
+    max_attempts: int = 3,
+    collection_stats: dict[str, int] | None = None,
 ) -> list[Article]:
     source_type = source.type.lower()
     if source_type == "rss":
@@ -413,6 +738,8 @@ def _collect_single(
             limit=limit,
             timeout=timeout,
             session=session,
+            max_attempts=max_attempts,
+            collection_stats=collection_stats,
         )
     if source_type == "json":
         return _collect_json_source(
@@ -421,6 +748,8 @@ def _collect_single(
             limit=limit,
             timeout=timeout,
             session=session,
+            max_attempts=max_attempts,
+            collection_stats=collection_stats,
         )
     raise SourceError(source.name, f"Unsupported source type '{source.type}'")
 
@@ -543,6 +872,8 @@ def _collect_rss_source(
     limit: int,
     timeout: int,
     session: requests.Session | None = None,
+    max_attempts: int = 3,
+    collection_stats: dict[str, int] | None = None,
 ) -> list[Article]:
 
     try:
@@ -551,6 +882,7 @@ def _collect_rss_source(
             timeout,
             session=session,
             source_name=source.name,
+            max_attempts=max_attempts,
         )
     except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as exc:
         raise NetworkError(f"Network error fetching {source.name}: {exc}") from exc
@@ -561,8 +893,11 @@ def _collect_rss_source(
         feed = feedparser.parse(response.content)
         items: list[Article] = []
         dropped_challenge = 0
+        fetched = 0
+        parsable = 0
 
         for entry in feed.entries[:limit]:
+            fetched += 1
             published = _extract_datetime(entry)
             title_text = html.unescape(_entry_text(entry, "title").strip()) or "(no title)"
             summary = _entry_text(entry, "summary") or _entry_text(entry, "description")
@@ -579,6 +914,7 @@ def _collect_rss_source(
             if is_challenge_or_error_page(title_text, summary_text):
                 dropped_challenge += 1
                 continue
+            parsable += 1
             if not _passes_include_keywords(source, title_text, summary_text):
                 continue
             if not _passes_include_title_keywords(source, title_text, summary_text):
@@ -597,6 +933,12 @@ def _collect_rss_source(
                 )
             )
 
+        _assign_collection_stats(
+            collection_stats,
+            fetched=fetched,
+            passed=len(items),
+            parsable=parsable,
+        )
         if items:
             return items
         if dropped_challenge:
@@ -617,6 +959,8 @@ def _collect_json_source(
     limit: int,
     timeout: int,
     session: requests.Session | None = None,
+    max_attempts: int = 3,
+    collection_stats: dict[str, int] | None = None,
 ) -> list[Article]:
     parser_name = str(
         source.config.get("parser")
@@ -633,6 +977,7 @@ def _collect_json_source(
             timeout,
             session=session,
             source_name=source.name,
+            max_attempts=max_attempts,
         )
     except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as exc:
         raise NetworkError(f"Network error fetching {source.name}: {exc}") from exc
@@ -650,6 +995,7 @@ def _collect_json_source(
             payload=payload,
             category=category,
             limit=limit,
+            collection_stats=collection_stats,
         )
     raise SourceError(source.name, f"Unsupported json parser '{parser_name}'")
 
@@ -660,6 +1006,7 @@ def _collect_apple_app_store_ranking(
     payload: object,
     category: str,
     limit: int,
+    collection_stats: dict[str, int] | None = None,
 ) -> list[Article]:
     if not isinstance(payload, Mapping):
         raise ParseError(
@@ -688,9 +1035,13 @@ def _collect_apple_app_store_ranking(
     )
 
     items: list[Article] = []
+    fetched = 0
+    parsable = 0
     for rank, entry in enumerate(results[:limit], start=1):
+        fetched += 1
         if not isinstance(entry, Mapping):
             continue
+        parsable += 1
         app_name = str(entry.get("name") or "").strip() or "(no app name)"
         app_id = str(entry.get("id") or "").strip()
         vendor_name = str(entry.get("artistName") or "").strip()
@@ -718,6 +1069,12 @@ def _collect_apple_app_store_ranking(
                 category=category,
             )
         )
+    _assign_collection_stats(
+        collection_stats,
+        fetched=fetched,
+        passed=len(items),
+        parsable=parsable,
+    )
     return items
 
 

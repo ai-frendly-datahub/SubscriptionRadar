@@ -4,7 +4,11 @@ import json
 from datetime import UTC, datetime, timedelta
 
 from subscriptionradar.models import Article, CategoryConfig, Source
-from subscriptionradar.quality_report import build_quality_report, write_quality_report
+from subscriptionradar.quality_report import (
+    build_quality_report,
+    collection_metrics_from_report,
+    write_quality_report,
+)
 
 
 def _article(
@@ -202,10 +206,7 @@ def test_build_quality_report_extracts_plan_price_keys_and_gaps() -> None:
     assert event["required_field_gaps"] == []
     assert report["summary"]["plan_canonical_key_present_count"] == 1
     assert report["summary"]["price_amount_present_count"] == 1
-    assert any(
-        item["reason"] == "source_backlog_pending"
-        for item in report["daily_review_items"]
-    )
+    assert any(item["reason"] == "source_backlog_pending" for item in report["daily_review_items"])
 
 
 def test_build_quality_report_flags_plan_price_required_gaps() -> None:
@@ -261,10 +262,7 @@ def test_build_quality_report_flags_plan_price_required_gaps() -> None:
     assert event["canonical_key_status"] == "vendor_proxy"
     assert set(event["required_field_gaps"]) == {"plan_id", "price", "currency"}
     assert report["summary"]["event_required_field_gap_count"] == 3
-    assert any(
-        item["reason"] == "missing_required_fields"
-        for item in report["daily_review_items"]
-    )
+    assert any(item["reason"] == "missing_required_fields" for item in report["daily_review_items"])
 
 
 def test_build_quality_report_requires_currency_context_for_unlabeled_prices() -> None:
@@ -650,3 +648,117 @@ def test_build_quality_report_extracts_app_store_ranking_fields() -> None:
     assert event["required_field_gaps"] == []
     assert report["summary"]["app_store_ranking_events"] == 1
     assert report["summary"]["missing_event_model_count"] == 0
+
+
+def test_quality_report_separates_seven_day_window_from_daily_inflow() -> None:
+    now = datetime(2026, 11, 5, 12, 0, tzinfo=UTC)
+    source = Source(name="r/spotify", type="rss", url="https://www.reddit.com/r/spotify/.rss")
+    category = CategoryConfig(
+        category_name="subscription",
+        display_name="Subscription",
+        sources=[source],
+        entities=[],
+    )
+    articles = [
+        _article(source="r/spotify", title="today", published=now - timedelta(hours=3)),
+        _article(source="r/spotify", title="this week", published=now - timedelta(days=4)),
+        _article(source="r/spotify", title="older", published=now - timedelta(days=10)),
+        _article(source="r/spotify", title="undated", published=None),
+    ]
+
+    report = build_quality_report(
+        category=category,
+        articles=articles,
+        generated_at=now,
+        source_metrics={
+            "r/spotify": {
+                "fetched_count": 8,
+                "gate_passed_count": 3,
+                "excluded_count": 5,
+            }
+        },
+    )
+
+    row = report["sources"][0]
+    assert row["article_count"] == 4
+    assert row["window_days"] == 7
+    assert row["window_item_count"] == 2
+    assert row["daily_new_items"] == 1
+    assert row["fetched_count"] == 8
+    assert row["gate_passed_count"] == 3
+    assert row["excluded_count"] == 5
+    assert row["funnel_scope"] == "collection"
+    assert report["summary"]["window_days"] == 7
+    assert report["summary"]["window_item_count"] == 2
+    assert report["summary"]["daily_new_items"] == 1
+    assert report["summary"]["fetched_count"] == 8
+    assert report["summary"]["gate_passed_count"] == 3
+    assert report["summary"]["excluded_count"] == 5
+
+
+def test_quality_report_uses_stored_window_when_no_collection_funnel_is_supplied() -> None:
+    now = datetime(2026, 11, 5, 12, 0, tzinfo=UTC)
+    source = Source(name="Notion Pricing", type="browser", url="https://www.notion.com/pricing")
+    category = CategoryConfig(
+        category_name="subscription",
+        display_name="Subscription",
+        sources=[source],
+        entities=[],
+    )
+    report = build_quality_report(
+        category=category,
+        articles=[
+            _article(
+                source="Notion Pricing",
+                title="recent",
+                published=now - timedelta(days=2),
+            )
+        ],
+        generated_at=now,
+    )
+    row = report["sources"][0]
+    assert row["window_item_count"] == 1
+    assert row["daily_new_items"] == 0
+    assert row["fetched_count"] == 1
+    assert row["gate_passed_count"] == 1
+    assert row["excluded_count"] == 0
+    assert row["funnel_scope"] == "stored_window"
+
+
+def test_collection_metrics_from_report_keeps_only_a_fresh_collection_funnel() -> None:
+    now = datetime(2026, 11, 5, 12, 0, tzinfo=UTC)
+    fresh = {
+        "generated_at": (now - timedelta(minutes=5)).isoformat(),
+        "sources": [
+            {
+                "source": "r/SaaS",
+                "funnel_scope": "collection",
+                "fetched_count": 4,
+                "gate_passed_count": 1,
+                "excluded_count": 3,
+            },
+            {
+                "source": "Engadget",
+                "funnel_scope": "stored_window",
+                "fetched_count": 9,
+                "gate_passed_count": 9,
+                "excluded_count": 0,
+            },
+        ],
+    }
+    stale = {
+        "generated_at": (now - timedelta(days=2)).isoformat(),
+        "sources": fresh["sources"],
+    }
+
+    kept = collection_metrics_from_report(fresh, now=now)
+    assert kept == {
+        "r/SaaS": {
+            "fetched_count": 4,
+            "gate_passed_count": 1,
+            "excluded_count": 3,
+            "funnel_scope": "collection",
+        }
+    }
+    assert collection_metrics_from_report(stale, now=now) == {}
+    assert collection_metrics_from_report({}, now=now) == {}

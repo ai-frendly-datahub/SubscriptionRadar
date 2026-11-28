@@ -5,7 +5,7 @@ import json
 import re
 from collections import Counter
 from collections.abc import Iterable, Mapping
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -26,6 +26,9 @@ RELEVANT_COMMUNITY_SOURCE_NAMES = {
     "r/spotify",
     "r/streaming",
 }
+QUALITY_WINDOW_DAYS = 7
+QUALITY_DAILY_HOURS = 24
+_COLLECTION_METRIC_MAX_AGE = timedelta(hours=3)
 SUMMARY_LABELS = [
     "Vendor",
     "Vendor ID",
@@ -55,6 +58,7 @@ def build_quality_report(
     errors: Iterable[str] | None = None,
     quality_config: Mapping[str, object] | None = None,
     generated_at: datetime | None = None,
+    source_metrics: Mapping[str, Mapping[str, object]] | None = None,
 ) -> dict[str, Any]:
     generated = _as_utc(generated_at or datetime.now(UTC))
     articles_list = list(articles)
@@ -79,6 +83,7 @@ def build_quality_report(
             freshness_sla=freshness_sla,
             tracked_event_models=tracked_event_models,
             generated_at=generated,
+            source_metrics=source_metrics,
         )
         for source in category.sources
     ]
@@ -111,6 +116,12 @@ def build_quality_report(
         tracked_event_models,
     )
     summary["daily_review_item_count"] = len(daily_review_items)
+    summary["window_days"] = QUALITY_WINDOW_DAYS
+    summary["window_item_count"] = sum(int(row["window_item_count"]) for row in source_rows)
+    summary["daily_new_items"] = sum(int(row["daily_new_items"]) for row in source_rows)
+    summary["fetched_count"] = sum(int(row["fetched_count"]) for row in source_rows)
+    summary["gate_passed_count"] = sum(int(row["gate_passed_count"]) for row in source_rows)
+    summary["excluded_count"] = sum(int(row["excluded_count"]) for row in source_rows)
 
     return {
         "category": category.category_name,
@@ -118,7 +129,10 @@ def build_quality_report(
         "scope_note": (
             "Official pricing pages and notices are tracked separately from broad "
             "tech/media/community feeds. Broad rows require plan, price, billing, "
-            "or provider-level subscription evidence before they enter reports."
+            "or provider-level subscription evidence before they enter reports. "
+            "window_item_count is the 7-day cumulative total and daily_new_items "
+            "counts items published in the last 24 hours. fetched_count, "
+            "gate_passed_count, and excluded_count describe the collection funnel."
         ),
         "summary": summary,
         "sources": source_rows,
@@ -232,6 +246,124 @@ def _event_row(
     return row
 
 
+def _nonneg_int(value: object) -> int | None:
+    if isinstance(value, bool) or not isinstance(value, int):
+        return None
+    if value < 0:
+        return None
+    return value
+
+
+def _article_observed_at(article: Article) -> datetime | None:
+    if isinstance(article.published, datetime):
+        return _as_utc(article.published)
+    if isinstance(article.collected_at, datetime):
+        return _as_utc(article.collected_at)
+    return None
+
+
+def _count_within(
+    articles: list[Article],
+    generated_at: datetime,
+    *,
+    hours: int | None = None,
+    days: int | None = None,
+) -> int:
+    if hours is not None:
+        cutoff = generated_at - timedelta(hours=hours)
+    else:
+        cutoff = generated_at - timedelta(days=days or 0)
+    return sum(
+        1
+        for article in articles
+        if (observed := _article_observed_at(article)) is not None and observed >= cutoff
+    )
+
+
+def _source_funnel(
+    source_name: str,
+    source_metrics: Mapping[str, Mapping[str, object]] | None,
+    window_item_count: int,
+) -> tuple[int, int, int, str]:
+    """Return fetched, gate-passed, excluded, and where those counts came from.
+
+    A collection run supplies the funnel. Without one, the stored 7-day window
+    is both fetched and gate-passed, and excluded stays 0 because dropped
+    items were not stored.
+    """
+    raw = source_metrics.get(source_name) if source_metrics is not None else None
+    if isinstance(raw, Mapping):
+        fetched = _nonneg_int(raw.get("fetched_count"))
+        passed = _nonneg_int(raw.get("gate_passed_count"))
+        if fetched is not None and passed is not None:
+            excluded = _nonneg_int(raw.get("excluded_count"))
+            if excluded is None:
+                excluded = max(0, fetched - passed)
+            scope = raw.get("funnel_scope")
+            if scope not in {"collection", "stored_window"}:
+                scope = "collection"
+            return fetched, passed, excluded, str(scope)
+    return window_item_count, window_item_count, 0, "stored_window"
+
+
+def source_funnel_metrics(
+    fetched_articles: Iterable[Article],
+    gate_passed_articles: Iterable[Article],
+) -> dict[str, dict[str, object]]:
+    """Count a stored window before and after the relevance gate."""
+    fetched_counts = Counter(article.source for article in fetched_articles)
+    passed_counts = Counter(article.source for article in gate_passed_articles)
+    metrics: dict[str, dict[str, object]] = {}
+    for name in set(fetched_counts) | set(passed_counts):
+        fetched = fetched_counts[name]
+        passed = passed_counts[name]
+        metrics[name] = {
+            "fetched_count": fetched,
+            "gate_passed_count": passed,
+            "excluded_count": max(0, fetched - passed),
+            "funnel_scope": "stored_window",
+        }
+    return metrics
+
+
+def collection_metrics_from_report(
+    report: Mapping[str, object] | None,
+    *,
+    now: datetime,
+    max_age: timedelta = _COLLECTION_METRIC_MAX_AGE,
+) -> dict[str, dict[str, object]]:
+    """Reuse a collection funnel written moments ago.
+
+    A later quality rebuild in the same run must not replace live fetch
+    counts with the stored window. Older reports are left alone.
+    """
+    if not isinstance(report, Mapping):
+        return {}
+    generated = _parse_datetime(str(report.get("generated_at") or ""))
+    if generated is None or _as_utc(now) - generated > max_age or _as_utc(now) < generated:
+        return {}
+    rows = report.get("sources")
+    if not isinstance(rows, list):
+        return {}
+    metrics: dict[str, dict[str, object]] = {}
+    for row in rows:
+        if not isinstance(row, Mapping) or row.get("funnel_scope") != "collection":
+            continue
+        name = str(row.get("source") or "").strip()
+        fetched = _nonneg_int(row.get("fetched_count"))
+        passed = _nonneg_int(row.get("gate_passed_count"))
+        excluded = _nonneg_int(row.get("excluded_count"))
+        if not name or fetched is None or passed is None or excluded is None:
+            continue
+        metrics[name] = {
+            "fetched_count": fetched,
+            "gate_passed_count": passed,
+            "excluded_count": excluded,
+            "funnel_scope": "collection",
+        }
+    return metrics
+
+
 def _build_source_row(
     *,
     source: Source,
@@ -241,6 +373,7 @@ def _build_source_row(
     freshness_sla: Mapping[str, object],
     tracked_event_models: set[str],
     generated_at: datetime,
+    source_metrics: Mapping[str, Mapping[str, object]] | None = None,
 ) -> dict[str, Any]:
     source_articles = [article for article in articles if article.source == source.name]
     source_errors = [error for error in errors if error.startswith(f"{source.name}:")]
@@ -251,9 +384,18 @@ def _build_source_row(
         if row["source"] == source.name and row["event_model"] == event_model
     ]
     latest_event = _latest_event(source_event_rows)
-    latest_event_at = _parse_datetime(str(latest_event.get("event_at") or "")) if latest_event else None
+    latest_event_at = (
+        _parse_datetime(str(latest_event.get("event_at") or "")) if latest_event else None
+    )
     sla_days = _source_sla_days(source, event_model, freshness_sla)
     age_days = _age_days(generated_at, latest_event_at) if latest_event_at else None
+    window_item_count = _count_within(source_articles, generated_at, days=QUALITY_WINDOW_DAYS)
+    daily_new_items = _count_within(source_articles, generated_at, hours=QUALITY_DAILY_HOURS)
+    fetched_count, gate_passed_count, excluded_count, funnel_scope = _source_funnel(
+        source.name,
+        source_metrics,
+        window_item_count,
+    )
     status = _source_status(
         source=source,
         event_model=event_model,
@@ -280,6 +422,13 @@ def _build_source_row(
         "status": status,
         "quiet_when_no_items": bool(source.config.get("quiet_when_no_items")),
         "article_count": len(source_articles),
+        "window_days": QUALITY_WINDOW_DAYS,
+        "window_item_count": window_item_count,
+        "daily_new_items": daily_new_items,
+        "fetched_count": fetched_count,
+        "gate_passed_count": gate_passed_count,
+        "excluded_count": excluded_count,
+        "funnel_scope": funnel_scope,
         "event_count": len(source_event_rows),
         "latest_event_at": latest_event_at.isoformat() if latest_event_at else None,
         "age_days": round(age_days, 2) if age_days is not None else None,
@@ -542,9 +691,7 @@ def _required_field_proxy(
     if not isinstance(raw_fields, list):
         return {}
     return {
-        str(field): _field_present(row, str(field))
-        for field in raw_fields
-        if str(field).strip()
+        str(field): _field_present(row, str(field)) for field in raw_fields if str(field).strip()
     }
 
 
@@ -630,7 +777,11 @@ def _vendor_id(article: Article, source: Source, provider: list[str]) -> str:
     labeled = _summary_value(article, "Vendor ID", "Vendor")
     if labeled:
         return _slug(labeled)
-    if source.content_type == "pricing" or source.producer_role == "vendor" or source.type == "browser":
+    if (
+        source.content_type == "pricing"
+        or source.producer_role == "vendor"
+        or source.type == "browser"
+    ):
         return _slug(_vendor_name_from_source(source.name))
     if provider:
         return _slug(provider[0])
@@ -641,7 +792,11 @@ def _vendor_name(article: Article, source: Source, provider: list[str]) -> str:
     labeled = _summary_value(article, "Vendor")
     if labeled:
         return labeled
-    if source.content_type == "pricing" or source.producer_role == "vendor" or source.type == "browser":
+    if (
+        source.content_type == "pricing"
+        or source.producer_role == "vendor"
+        or source.type == "browser"
+    ):
         return _vendor_name_from_source(source.name)
     if provider:
         return provider[0]
@@ -844,7 +999,9 @@ def _infer_metric_signal(text: str) -> tuple[str | None, float | None]:
     if price_point_signal != (None, None):
         return price_point_signal
 
-    count_match = re.search(r"\b(\d[\d,]*(?:\.\d+)?)\s+(customers?|subscribers?|users?)\b", text, re.IGNORECASE)
+    count_match = re.search(
+        r"\b(\d[\d,]*(?:\.\d+)?)\s+(customers?|subscribers?|users?)\b", text, re.IGNORECASE
+    )
     if count_match:
         value = _parse_amount(count_match.group(1))
         if value is not None:
@@ -865,7 +1022,10 @@ def _extract_strong_money_metric_signal(text: str) -> tuple[str | None, float | 
         (r"\$(\d+(?:[.,]\d+)?)\s*(k|m|b)\s*(?:revenue|sales)\b", "revenue"),
         (r"\$(\d+(?:[.,]\d+)?)\s*(thousand|million|billion)\s*(?:arr)\b", "arr"),
         (r"\$(\d+(?:[.,]\d+)?)\s*(thousand|million|billion)\s*(?:mrr)\b", "mrr"),
-        (r"\$(\d+(?:[.,]\d+)?)\s*(thousand|million|billion)\s*(?:package|revenue|sales)\b", "revenue"),
+        (
+            r"\$(\d+(?:[.,]\d+)?)\s*(thousand|million|billion)\s*(?:package|revenue|sales)\b",
+            "revenue",
+        ),
     ]
     for pattern, metric_name in patterns:
         match = re.search(pattern, text, flags=re.IGNORECASE)
